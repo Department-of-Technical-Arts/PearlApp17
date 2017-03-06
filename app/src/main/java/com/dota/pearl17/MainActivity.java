@@ -22,14 +22,16 @@ public class MainActivity extends AppCompatActivity {
 
     ImageView logo;
     RecyclerView recyclerView;
+    LinearLayout.LayoutParams params_empty, params_row;
 
     @Override
-    @TargetApi(21)
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
 //       getWindow().addContentView(inflater.inflate(R.layout.main_top, null), new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+
+        initLayoutParams();
 
         logo = (ImageView) findViewById(R.id.logo);
         Picasso.with(this).load(R.drawable.pearl_button).fit().centerInside().into(logo);
@@ -38,12 +40,26 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setNestedScrollingEnabled(false);
 
+
 //        Animation animation = new ScaleAnimation(0, 1, 0, 1, Animation.RELATIVE_TO_SELF, 0.5f,
 //                Animation.RELATIVE_TO_SELF, 0.5f);
 //        animation.setDuration(200);
 //        animation.setInterpolator(new DecelerateInterpolator());
 //        animation.setFillAfter(true);
 //        logo.startAnimation(animation);
+    }
+
+    public void initLayoutParams(){
+        int height_empty = (int)(getResources().getDimension(R.dimen.landing_padding_height));
+        int height_row = (int)(getResources().getDimension(R.dimen.landing_row_height));
+        int margin_side = (int)(getResources().getDimension(R.dimen.margin_side));
+        int margin_bottom = (int)(getResources().getDimension(R.dimen.margin_bottom));
+
+        params_empty = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,height_empty);
+        params_empty.setMargins(margin_side,0,margin_side,margin_bottom);
+
+        params_row = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,height_row);
+        params_row.setMargins(margin_side,0,margin_side,margin_bottom);
     }
 
     RecyclerClickListener clickListener=new RecyclerClickListener() {
@@ -105,7 +121,18 @@ public class MainActivity extends AppCompatActivity {
         public MyAdapter(MainActivity context) {
             this.context = context;
             inflater=LayoutInflater.from(context);
-            resources= new int[]{0,R.drawable.events_button, R.drawable.pro_shows_button, R.drawable.talks_button, R.drawable.schedule_button, R.drawable.guide_button,R.drawable.register_button,R.drawable.sponsors_button,R.drawable.app_credits_button};
+            //first value is 0 since it represents empty view; it is never used
+            resources= new int[]{
+                    0,
+                    R.drawable.events_button,
+                    R.drawable.pro_shows_button,
+                    R.drawable.talks_button,
+                    R.drawable.schedule_button,
+                    R.drawable.guide_button,
+                    R.drawable.register_button,
+                    R.drawable.sponsors_button,
+                    R.drawable.app_credits_button
+            };
 
         }
 
@@ -122,15 +149,16 @@ public class MainActivity extends AppCompatActivity {
             {
                 //Blank case
                 holder.imageButton.setImageDrawable(null);
-                holder.imageButton.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,240));
+                holder.imageButton.setLayoutParams(params_empty);
+                holder.imageButton.requestLayout();
                 return;
             }
             else
             {
-                holder.imageButton.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,200));
+                Picasso.with(MainActivity.this).load(resources[position]).fit().into(holder.imageButton);
+                holder.imageButton.setLayoutParams(params_row);
+                holder.imageButton.requestLayout();
             }
-            // position - 1 because the resources[0] corresponds to position = 1
-            Picasso.with(MainActivity.this).load(resources[position]).fit().into(holder.imageButton);
 //            if (prev < position) {
 //                prev = position;
 //            } else {
