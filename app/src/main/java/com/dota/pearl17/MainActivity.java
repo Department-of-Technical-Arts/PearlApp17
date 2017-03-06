@@ -55,6 +55,8 @@ public class MainActivity extends AppCompatActivity {
         int margin_side = (int)(getResources().getDimension(R.dimen.margin_side));
         int margin_bottom = (int)(getResources().getDimension(R.dimen.margin_bottom));
 
+        Log.i("params","height empty "+height_empty+" height row"+height_row);
+        Log.i("params","margin side"+margin_side+" bottom"+margin_bottom);
         params_empty = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,height_empty);
         params_empty.setMargins(margin_side,0,margin_side,margin_bottom);
 
@@ -94,11 +96,11 @@ public class MainActivity extends AppCompatActivity {
 
     class MyViewHolder extends RecyclerView.ViewHolder{
 
-        ImageButton imageButton;
+        ImageView imageButton;
 
         public MyViewHolder(View itemView) {
             super(itemView);
-            imageButton= (ImageButton) itemView.findViewById(R.id.main_events);
+            imageButton= (ImageView) itemView.findViewById(R.id.main_events);
             if(clickListener!=null){
                 imageButton.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -155,9 +157,13 @@ public class MainActivity extends AppCompatActivity {
             }
             else
             {
-                Picasso.with(MainActivity.this).load(resources[position]).fit().into(holder.imageButton);
                 holder.imageButton.setLayoutParams(params_row);
                 holder.imageButton.requestLayout();
+                Picasso.with(MainActivity.this)
+                        .load(resources[position])
+                        .fit()
+                        .centerInside()
+                        .into(holder.imageButton);
             }
 //            if (prev < position) {
 //                prev = position;
