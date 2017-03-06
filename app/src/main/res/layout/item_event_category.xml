@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/layout_event_category"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="16dp"
+    android:paddingTop="8dp"
+    android:paddingBottom="8dp"
+    android:paddingLeft="24dp"
+    android:paddingRight="24dp"
+    android:gravity="center_vertical"
+    android:background="@drawable/border_item_club">
+
+    <ImageView
+        android:id="@+id/icon_category"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/elas_icon"
+        android:layout_marginRight="8dp"
+        />
+    <View
+        android:layout_width="2dp"
+        android:layout_height="match_parent"
+        android:background="@color/custom_red"
+        android:layout_marginRight="8dp"/>
+    <TextView
+        android:id="@+id/tv_category"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ELAS"
+        android:textSize="24sp"
+        android:textColor="@color/custom_red"
+        android:textStyle="bold" />
+
+</LinearLayout>

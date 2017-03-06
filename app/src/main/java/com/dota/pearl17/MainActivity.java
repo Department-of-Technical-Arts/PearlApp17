@@ -1,5 +1,6 @@
 package com.dota.pearl17;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -8,9 +9,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.DecelerateInterpolator;
-import android.view.animation.ScaleAnimation;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.support.v7.widget.RecyclerView;
@@ -24,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView recyclerView;
 
     @Override
+    @TargetApi(21)
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -50,18 +49,22 @@ public class MainActivity extends AppCompatActivity {
         public void onClick(View v, int pos) {
             switch (pos){
                 case 0:
+                    //Events
+                    startActivity(new Intent(MainActivity.this,EventsActivity.class));
                     break;
                 case 1:
+                    //Pro Shows
+                    startActivity(new Intent(MainActivity.this,ProShowActivity.class));
                     break;
                 case 2:
-
+                    //Talks
                     break;
                 case 3:
-
+                    //Schedule
                     break;
                 case 4:
-
-
+                    //Guide
+                    break;
                     //startActivity(intent);
             }
         }
