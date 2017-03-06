@@ -1,6 +1,5 @@
 package com.dota.pearl17;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -10,7 +9,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.support.v7.widget.RecyclerView;
 import android.widget.LinearLayout;
@@ -73,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 case 1:
                     //Events
-                    startActivity(new Intent(MainActivity.this,EventsActivity.class));
+                    startActivity(new Intent(MainActivity.this,EventsHomeActivity.class));
                     break;
                 case 2:
                     //Pro Shows
@@ -90,9 +88,9 @@ public class MainActivity extends AppCompatActivity {
                     break;
                     //startActivity(intent);
             }
+            finish();
         }
     };
-
 
     class MyViewHolder extends RecyclerView.ViewHolder{
 
@@ -187,5 +185,13 @@ public class MainActivity extends AppCompatActivity {
             return resources.length;
         }
     }
-
+    int click_count=0;
+    public void easterEgg(View v){
+        if(click_count==5){
+            click_count=0;
+            //open developers screen or show an animation
+        }
+        click_count++;
+        Log.i("easterEgg",""+click_count);
+    }
 }

@@ -1,5 +1,6 @@
 package com.dota.pearl17;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -18,7 +19,7 @@ import com.squareup.picasso.Picasso;
  * Created by Shri Akhil on 06-03-2017.
  */
 
-public class EventsActivity extends AppCompatActivity {
+public class EventsHomeActivity extends AppCompatActivity {
 
     GridLayout mGridLayout;
     Typeface fontface;
@@ -39,6 +40,16 @@ public class EventsActivity extends AppCompatActivity {
                 .into(middlebar);
         mGridLayout = (GridLayout) findViewById(R.id.grid);
 
+        View showMore = findViewById(R.id.btn_show_more);
+        showMore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //ANIM: This needs to have a slide up animation
+                startActivity(new Intent(EventsHomeActivity.this,EventsShowMoreActivity.class));
+                finish();
+            }
+        });
+
         initGrid();
 
         addItemToGrid();
@@ -50,9 +61,11 @@ public class EventsActivity extends AppCompatActivity {
         addItemToGrid();
         addItemToGrid();
     }
+
     void initGrid(){
 
     }
+
     void addItemToGrid(){
         View layout_button = LayoutInflater.from(this).inflate(R.layout.item_event_category,mGridLayout,false);
         TextView textView = (TextView) layout_button.findViewById(R.id.tv_category);

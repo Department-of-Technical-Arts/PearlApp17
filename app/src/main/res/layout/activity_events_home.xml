@@ -61,5 +61,7 @@
         android:layout_alignParentRight="true"
         android:layout_width="8dp"
         android:layout_height="match_parent"/>
-    <include layout="@layout/show_more_button"/>
+    <include
+        android:id="@+id/btn_show_more"
+        layout="@layout/show_more_button"/>
 </RelativeLayout>

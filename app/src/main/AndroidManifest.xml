@@ -15,8 +15,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ProShowActivity" android:theme="@style/ProShowTheme"/>
-        <activity android:name=".EventsActivity" android:theme="@style/EventsTheme"/>
+        <activity
+            android:name=".ProShowActivity"
+            android:theme="@style/ProShowTheme" />
+        <activity
+            android:name=".EventsHomeActivity"
+            android:theme="@style/EventsTheme" />
+        <activity
+            android:name=".EventsShowMoreActivity"
+            android:theme="@style/EventsTheme"/>
     </application>
 
 </manifest>
