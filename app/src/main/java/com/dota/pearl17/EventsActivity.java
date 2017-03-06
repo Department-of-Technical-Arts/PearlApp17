@@ -1,8 +1,10 @@
 package com.dota.pearl17;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 
 /**
  * Created by Shri Akhil on 06-03-2017.

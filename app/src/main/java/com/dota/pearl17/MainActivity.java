@@ -6,12 +6,14 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.support.v7.widget.RecyclerView;
+import android.widget.LinearLayout;
 
 
 import com.squareup.picasso.Picasso;
@@ -49,20 +51,23 @@ public class MainActivity extends AppCompatActivity {
         public void onClick(View v, int pos) {
             switch (pos){
                 case 0:
+                    //Space
+                    break;
+                case 1:
                     //Events
                     startActivity(new Intent(MainActivity.this,EventsActivity.class));
                     break;
-                case 1:
+                case 2:
                     //Pro Shows
                     startActivity(new Intent(MainActivity.this,ProShowActivity.class));
                     break;
-                case 2:
+                case 3:
                     //Talks
                     break;
-                case 3:
+                case 4:
                     //Schedule
                     break;
-                case 4:
+                case 5:
                     //Guide
                     break;
                     //startActivity(intent);
@@ -100,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
         public MyAdapter(MainActivity context) {
             this.context = context;
             inflater=LayoutInflater.from(context);
-            resources= new int[]{R.drawable.events_button, R.drawable.pro_shows_button, R.drawable.talks_button, R.drawable.schedule_button, R.drawable.guide_button,R.drawable.register_button,R.drawable.sponsors_button,R.drawable.app_credits_button};
+            resources= new int[]{0,R.drawable.events_button, R.drawable.pro_shows_button, R.drawable.talks_button, R.drawable.schedule_button, R.drawable.guide_button,R.drawable.register_button,R.drawable.sponsors_button,R.drawable.app_credits_button};
 
         }
 
@@ -113,6 +118,18 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public void onBindViewHolder(MyViewHolder holder, int position) {
+            if(position==0)
+            {
+                //Blank case
+                holder.imageButton.setImageDrawable(null);
+                holder.imageButton.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,240));
+                return;
+            }
+            else
+            {
+                holder.imageButton.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,200));
+            }
+            // position - 1 because the resources[0] corresponds to position = 1
             Picasso.with(MainActivity.this).load(resources[position]).fit().into(holder.imageButton);
 //            if (prev < position) {
 //                prev = position;
