@@ -1,36 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     android:id="@+id/layout_event_category"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_margin="16dp"
+    android:layout_width="150dp"
+    android:layout_height="40dp"
+    android:layout_marginTop="16dp"
+    android:layout_marginBottom="8dp"
+    android:layout_marginLeft="8dp"
+    android:layout_marginRight="8dp"
     android:paddingTop="8dp"
     android:paddingBottom="8dp"
-    android:paddingLeft="24dp"
-    android:paddingRight="24dp"
+    android:paddingLeft="12dp"
+    android:paddingRight="12dp"
     android:gravity="center_vertical"
     android:background="@drawable/border_item_club">
 
-    <ImageView
-        android:id="@+id/icon_category"
+    <LinearLayout
+        android:layout_centerInParent="true"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/elas_icon"
-        android:layout_marginRight="8dp"
-        />
-    <View
-        android:layout_width="2dp"
-        android:layout_height="match_parent"
-        android:background="@color/custom_red"
-        android:layout_marginRight="8dp"/>
-    <TextView
-        android:id="@+id/tv_category"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ELAS"
-        android:textSize="24sp"
-        android:textColor="@color/custom_red"
-        android:textStyle="bold" />
+        android:layout_height="wrap_content">
 
-</LinearLayout>
+        <ImageView
+            android:id="@+id/icon_category"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/icon_elas"
+            android:layout_marginRight="4dp"
+            />
+        <View
+            android:layout_width="3dp"
+            android:layout_height="24dp"
+            android:background="@color/custom_red"
+            android:layout_marginRight="4dp"/>
+        <TextView
+            android:id="@+id/tv_category"
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            android:text="ELAS"
+            android:textSize="20sp"
+            android:textColor="@color/custom_red"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+</RelativeLayout>

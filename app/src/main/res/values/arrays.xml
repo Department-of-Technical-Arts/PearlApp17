@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer-array name="event_icons">
+        <item>@drawable/icon_dance</item>
+        <item>@drawable/icon_design</item>
+        <item>@drawable/icon_drama</item>
+        <item>@drawable/icon_elas</item>
+        <item>@drawable/icon_finance</item>
+        <item>@drawable/icon_hindi</item>
+        <item>@drawable/icon_journal</item>
+        <item>@drawable/icon_movie</item>
+        <item>@drawable/icon_music</item>
+        <item>@drawable/icon_photog</item>
+        <item>@drawable/icon_quiz</item>
+        <item>@drawable/icon_shades</item>
+        <item>@drawable/icon_vfx</item>
+    </integer-array>
+</resources>

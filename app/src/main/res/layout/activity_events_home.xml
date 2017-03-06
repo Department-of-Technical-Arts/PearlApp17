@@ -1,15 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:fitsSystemWindows="true"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <ImageView
-        android:src="@drawable/events_home_frame"
+        android:background="@color/custom_red"
+        android:id="@+id/events_topbar"
         android:layout_width="match_parent"
-        android:scaleType="fitXY"
-        android:layout_height="match_parent" />
+        android:layout_height="72dp" />
 
+    <LinearLayout
+        android:background="#ffffff"
+        android:orientation="vertical"
+        android:id="@+id/layout_content"
+        android:layout_below="@id/events_topbar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <View
+            android:background="#ffffff"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+        <ImageView
+            android:background="@color/custom_red"
+            android:id="@+id/events_middlebar"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"/>
+        <GridLayout
+            android:id="@+id/grid"
+            android:columnCount="2"
+            android:background="#ffffff"
+            android:paddingTop="16dp"
+            android:paddingLeft="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="38dp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+    </LinearLayout>
+    <View
+        android:background="@color/custom_red"
+        android:layout_below="@id/events_topbar"
+        android:layout_alignParentLeft="true"
+        android:layout_width="8dp"
+        android:layout_height="match_parent"/>
+    <View
+        android:background="@color/custom_red"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="8dp"/>
+    <View
+        android:background="@color/custom_red"
+        android:layout_below="@id/events_topbar"
+        android:layout_alignParentRight="true"
+        android:layout_width="8dp"
+        android:layout_height="match_parent"/>
     <include layout="@layout/show_more_button"/>
-
 </RelativeLayout>
