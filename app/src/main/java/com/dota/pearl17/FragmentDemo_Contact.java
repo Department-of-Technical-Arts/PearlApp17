@@ -1,4 +1,4 @@
-package com.example.shivikanagpal.contacts;
+package com.dota.pearl17;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -8,11 +8,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.dota.pearl17.R;
+
 /**
  * Created by SHIVIKA NAGPAL on 07-03-2017.
  */
 
-public class FragmentDemo extends Fragment {
+public class FragmentDemo_Contact extends Fragment {
 
     @Nullable
     @Override

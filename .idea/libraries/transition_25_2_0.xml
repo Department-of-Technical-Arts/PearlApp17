@@ -3,11 +3,14 @@
     <CLASSES>
       <root url="file://$USER_HOME$/.android/build-cache/cd5e464f9fe98a202aac94f08f786c21368850f8/output/res" />
       <root url="jar://$USER_HOME$/.android/build-cache/cd5e464f9fe98a202aac94f08f786c21368850f8/output/jars/classes.jar!/" />
+      <root url="jar://C:/Android/.android/build-cache/40ac4279dc914bffbdd8e1b7b20dda9bdf03facc/output/jars/classes.jar!/" />
+      <root url="file://C:/Android/.android/build-cache/40ac4279dc914bffbdd8e1b7b20dda9bdf03facc/output/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
       <root url="jar://$USER_HOME$/AppData/Local/Android/sdk/extras/android/m2repository/com/android/support/transition/25.2.0/transition-25.2.0-sources.jar!/" />
       <root url="jar://C:/sdk/extras/android/m2repository/com/android/support/transition/25.2.0/transition-25.2.0-sources.jar!/" />
+      <root url="jar://$USER_HOME$/AppData/Local/Android/Sdk/extras/android/m2repository/com/android/support/transition/25.2.0/transition-25.2.0-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

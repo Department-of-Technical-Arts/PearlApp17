@@ -86,6 +86,8 @@ public class MainActivity extends AppCompatActivity {
                 case 5:
                     //Guide
                     break;
+                case 6:
+                    startActivity(new Intent(MainActivity.this,RegistrationActivity.class));
                     //startActivity(intent);
             }
         }
