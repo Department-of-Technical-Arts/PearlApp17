@@ -31,12 +31,9 @@
             android:id="@+id/events_middlebar"
             android:layout_width="match_parent"
             android:layout_height="35dp"/>
-        <GridLayout
-            android:id="@+id/grid"
-            android:columnCount="2"
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_less_categories"
             android:background="#ffffff"
-            android:paddingTop="16dp"
-            android:paddingLeft="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginBottom="38dp"

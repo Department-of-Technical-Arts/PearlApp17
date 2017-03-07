@@ -33,7 +33,7 @@
             android:background="@color/custom_red"
             android:layout_marginRight="4dp"/>
         <TextView
-            android:id="@+id/tv_category"
+            android:id="@+id/title_category"
             android:layout_width="wrap_content"
             android:layout_height="24dp"
             android:text="ELAS"

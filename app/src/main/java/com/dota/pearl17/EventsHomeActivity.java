@@ -6,9 +6,12 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -21,7 +24,7 @@ import com.squareup.picasso.Picasso;
 
 public class EventsHomeActivity extends AppCompatActivity {
 
-    GridLayout mGridLayout;
+    RecyclerView mRecycler;
     Typeface fontface;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -38,7 +41,9 @@ public class EventsHomeActivity extends AppCompatActivity {
                 .load(R.drawable.events_middle_bar)
                 .fit()
                 .into(middlebar);
-        mGridLayout = (GridLayout) findViewById(R.id.grid);
+        mRecycler = (RecyclerView) findViewById(R.id.recycler_less_categories);
+        mRecycler.setLayoutManager(new GridLayoutManager(this,2));
+        mRecycler.setAdapter(new LessEventsAdapter());
 
         View showMore = findViewById(R.id.btn_show_more);
         showMore.setOnClickListener(new View.OnClickListener() {
@@ -50,33 +55,66 @@ public class EventsHomeActivity extends AppCompatActivity {
             }
         });
 
-        initGrid();
-
-        addItemToGrid();
-        addItemToGrid();
-
-        addItemToGrid();
-        addItemToGrid();
-
-        addItemToGrid();
-        addItemToGrid();
     }
 
-    void initGrid(){
+    View.OnClickListener mClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            //handle item clicks here
+            //condition should logically be the title
+            //from here the EventsListScreen is opened
+            return;
+        }
+    };
+    class EventCategoryItem extends RecyclerView.ViewHolder{
+        TextView title;
+        ImageView icon;
+        public EventCategoryItem(View v){
+            super(v);
+            v.setOnClickListener(mClickListener);
+
+            title = (TextView) v.findViewById(R.id.title_category);
+            icon = (ImageView) v.findViewById(R.id.icon_category);
+
+            title.setTypeface(fontface);
+        }
 
     }
 
-    void addItemToGrid(){
-        View layout_button = LayoutInflater.from(this).inflate(R.layout.item_event_category,mGridLayout,false);
-        TextView textView = (TextView) layout_button.findViewById(R.id.tv_category);
-        textView.setTypeface(fontface);
-        textView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.i("width",""+v.getWidth());
-            }
-        });
-//        textView.setText(category);
-        mGridLayout.addView(layout_button);
+    class LessEventsAdapter extends RecyclerView.Adapter<EventCategoryItem>{
+
+        String titles[] = new String[]{
+                "Journal",
+                "ELAS",
+                "QUIZZES",
+                "HINDI T",
+                "FINANCE",
+                "VFX"
+        };
+
+        int icons[] = new int[]{
+                R.drawable.icon_journal,
+                R.drawable.icon_elas,
+                R.drawable.icon_quiz,
+                R.drawable.icon_hindi,
+                R.drawable.icon_finance,
+                R.drawable.icon_vfx
+        };
+
+        @Override
+        public EventCategoryItem onCreateViewHolder(ViewGroup parent, int viewType) {
+            return new EventCategoryItem(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_event_category,parent,false));
+        }
+
+        @Override
+        public void onBindViewHolder(EventCategoryItem holder, int position) {
+            holder.title.setText(titles[position]);
+            holder.icon.setImageResource(icons[position]);
+        }
+
+        @Override
+        public int getItemCount() {
+            return titles.length;
+        }
     }
 }

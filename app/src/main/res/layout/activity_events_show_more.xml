@@ -11,6 +11,7 @@
         android:id="@+id/events_topbar"
         android:layout_width="match_parent"
         android:layout_height="72dp" />
+
     <TextView
         android:id="@+id/show_less"
         android:layout_below="@id/events_topbar"
@@ -29,14 +30,17 @@
         android:onClick="showLess"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycler_event_categories"
+        android:id="@+id/recycler_more_categories"
         android:layout_below="@id/show_less"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="16dp"
+        android:layout_marginTop="8dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
+
     <View
         android:background="@color/custom_red"
         android:layout_below="@id/events_topbar"
