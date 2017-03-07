@@ -13,6 +13,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 public class EventsShowMoreActivity extends AppCompatActivity {
 
     Typeface fontface;
@@ -23,6 +25,12 @@ public class EventsShowMoreActivity extends AppCompatActivity {
         setContentView(R.layout.activity_events_show_more);
 
         fontface = Typeface.createFromAsset(getAssets(),"cubano_regular.otf");
+
+        ImageView topbar = (ImageView) findViewById(R.id.events_topbar);
+        Picasso.with(this)
+                .load(R.drawable.events_top_bar)
+                .fit()
+                .into(topbar);
 
         RecyclerView mRecycler = (RecyclerView) findViewById(R.id.recycler_more_categories);
         mRecycler.setLayoutManager(new GridLayoutManager(this,2));

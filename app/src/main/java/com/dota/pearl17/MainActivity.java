@@ -79,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 case 3:
                     //Talks
+                    startActivity(new Intent(MainActivity.this,TalksActivity.class));
                     break;
                 case 4:
                     //Schedule
@@ -86,7 +87,15 @@ public class MainActivity extends AppCompatActivity {
                 case 5:
                     //Guide
                     break;
-                    //startActivity(intent);
+                case 6:
+                    //Register
+                    break;
+                case 7:
+                    //Sponsor
+                    break;
+                case 8:
+                    //App Credits
+                    break;
             }
         }
     };

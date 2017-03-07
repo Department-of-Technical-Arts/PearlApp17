@@ -16,14 +16,17 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ProShowActivity"
-            android:theme="@style/ProShowTheme" />
-        <activity
             android:name=".EventsHomeActivity"
             android:theme="@style/EventsTheme" />
         <activity
             android:name=".EventsShowMoreActivity"
             android:theme="@style/EventsTheme"/>
+        <activity
+            android:name=".ProShowActivity"
+            android:theme="@style/ProShowTheme" />
+        <activity
+            android:name=".TalksActivity"
+            android:theme="@style/TalksTheme" />
     </application>
 
 </manifest>
