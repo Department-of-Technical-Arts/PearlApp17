@@ -24,8 +24,9 @@ public class ProShowActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pro_show);
 
-//        ImageView test = (ImageView) findViewById(R.id.testimg);
-//        Picasso.with(ProShowActivity.this).load(R.drawable.events_screen_undersat).fit().into(test);
+        ImageView bg = (ImageView) findViewById(R.id.imgV_background);
+        Picasso.with(ProShowActivity.this).load(R.drawable.proshows_frame).fit().into(bg);
+
         final CarouselLayoutManager mLayoutManager = new CarouselLayoutManager(CarouselLayoutManager.HORIZONTAL);
         mLayoutManager.setPostLayoutListener(new CarouselZoomPostLayoutListener());
         final RecyclerView mRecycler = (RecyclerView) findViewById(R.id.recycler_pro_show);
@@ -45,11 +46,15 @@ public class ProShowActivity extends AppCompatActivity {
             }
         };
         mRecycler.setAdapter(new ProShowAdapter());
-        mRecycler.scrollToPosition(2);
+        mRecycler.scrollToPosition(1); // this is sonu nigam resId's index
     }
 
     class ProShowAdapter extends RecyclerView.Adapter<ProShowAdapter.ProShowViewHolder>{
-
+        int resId[] = new int[]{
+                R.drawable.proshow_lagori1,
+                R.drawable.proshow_sonu1,
+                R.drawable.proshow_papacj1
+        };
         @Override
         public ProShowViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             return new ProShowViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_pro_show,parent,false));
@@ -57,30 +62,12 @@ public class ProShowActivity extends AppCompatActivity {
 
         @Override
         public void onBindViewHolder(ProShowViewHolder holder, int position) {
-            Log.i("onbind","bound pos " + position);
-            switch(position){
-                case 0:
-                    holder.img.setBackgroundColor(0xFF000000);
-                    break;
-                case 1:
-                    holder.img.setBackgroundColor(0xFFFF0000);
-                    break;
-                case 2:
-                    Picasso.with(ProShowActivity.this).load(R.drawable.terpsichore).fit().into(holder.img);
-//                    holder.img.setBackgroundColor(0xFFFF00FF);
-                    break;
-                case 3:
-                    holder.img.setBackgroundColor(0xFF0000FF);
-                    break;
-                case 4:
-                    holder.img.setBackgroundColor(0xFF00FFFF);
-                    break;
-            }
+            Picasso.with(ProShowActivity.this).load(resId[position]).fit().into(holder.img);
         }
 
         @Override
         public int getItemCount() {
-            return 5;
+            return resId.length;
         }
 
         class ProShowViewHolder extends RecyclerView.ViewHolder{
