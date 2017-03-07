@@ -16,9 +16,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_contactpage);
 
-        toolbar=(Toolbar)findViewById(R.id.app_bar);
-        setSupportActionBar(toolbar);
-
         ViewPager viewPager=(ViewPager)findViewById(R.id.view_pager);
         viewPager.setAdapter(new SimpleFragmentPagerAdapter(getSupportFragmentManager(),this));
 
