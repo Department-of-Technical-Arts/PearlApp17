@@ -1,15 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:fitsSystemWindows="true"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <ImageView
-        android:src="@drawable/events_home_frame"
+        android:background="@color/custom_red"
+        android:id="@+id/events_topbar"
         android:layout_width="match_parent"
-        android:scaleType="fitXY"
-        android:layout_height="match_parent" />
+        android:layout_height="72dp" />
 
-    <include layout="@layout/show_more_button"/>
+    <LinearLayout
+        android:background="#ffffff"
+        android:orientation="vertical"
+        android:id="@+id/layout_content"
+        android:layout_below="@id/events_topbar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp">
+
+            <com.daimajia.slider.library.SliderLayout
+                android:id="@+id/headlinersSlider"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent" />
+
+            <com.daimajia.slider.library.Indicators.PagerIndicator
+                android:id="@+id/custom_indicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="16dp"
+                app:selected_color="@color/custom_red"
+                app:unselected_color="@color/custom_red"
+                android:shape="oval"
+                app:selected_padding_left="3dp"
+                app:selected_padding_right="3dp"
+                app:unselected_padding_left="3dp"
+                app:unselected_padding_right="3dp"
+                app:selected_width="10dp"
+                app:selected_height="10dp"
+                app:unselected_width="5dp"
+                app:unselected_height="5dp"
+                />
+        </RelativeLayout>
+
+        <ImageView
+            android:background="@color/custom_red"
+            android:id="@+id/events_middlebar"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"/>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_less_categories"
+            android:background="#ffffff"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="38dp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+    </LinearLayout>
+    <View
+        android:background="@color/custom_red"
+        android:layout_below="@id/events_topbar"
+        android:layout_alignParentLeft="true"
+        android:layout_width="8dp"
+        android:layout_height="match_parent"/>
+    <View
+        android:background="@color/custom_red"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="8dp"/>
+    <View
+        android:background="@color/custom_red"
+        android:layout_below="@id/events_topbar"
+        android:layout_alignParentRight="true"
+        android:layout_width="8dp"
+        android:layout_height="match_parent"/>
+    <include
+        android:id="@+id/btn_show_more"
+        layout="@layout/show_more_button"/>
 </RelativeLayout>

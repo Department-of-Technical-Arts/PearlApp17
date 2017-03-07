@@ -24,28 +24,28 @@ public class ProShowActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pro_show);
 
-        ImageView test = (ImageView) findViewById(R.id.testimg);
-        Picasso.with(ProShowActivity.this).load(R.drawable.events_screen_undersat).fit().into(test);
-//        final CarouselLayoutManager mLayoutManager = new CarouselLayoutManager(CarouselLayoutManager.HORIZONTAL);
-//        mLayoutManager.setPostLayoutListener(new CarouselZoomPostLayoutListener());
-//        final RecyclerView mRecycler = (RecyclerView) findViewById(R.id.recycler_pro_show);
-//        mRecycler.setLayoutManager(mLayoutManager);
-//        mRecycler.setHasFixedSize(true);
-//        CarouselChildSelectionListener csl = new CarouselChildSelectionListener(mRecycler,mLayoutManager) {
-//            @Override
-//            protected void onCenterItemClicked(@NonNull RecyclerView recyclerView, @NonNull CarouselLayoutManager carouselLayoutManager, @NonNull View v) {
-//                //do shit
-//                Log.i("onClick","central item clicked");
-//            }
-//
-//            @Override
-//            protected void onBackItemClicked(@NonNull RecyclerView recyclerView, @NonNull CarouselLayoutManager carouselLayoutManager, @NonNull View v) {
-//                //do other shit
-//                recyclerView.smoothScrollToPosition(recyclerView.getChildAdapterPosition(v));
-//            }
-//        };
-//        mRecycler.setAdapter(new ProShowAdapter());
-//        mRecycler.scrollToPosition(2);
+//        ImageView test = (ImageView) findViewById(R.id.testimg);
+//        Picasso.with(ProShowActivity.this).load(R.drawable.events_screen_undersat).fit().into(test);
+        final CarouselLayoutManager mLayoutManager = new CarouselLayoutManager(CarouselLayoutManager.HORIZONTAL);
+        mLayoutManager.setPostLayoutListener(new CarouselZoomPostLayoutListener());
+        final RecyclerView mRecycler = (RecyclerView) findViewById(R.id.recycler_pro_show);
+        mRecycler.setLayoutManager(mLayoutManager);
+        mRecycler.setHasFixedSize(true);
+        CarouselChildSelectionListener csl = new CarouselChildSelectionListener(mRecycler,mLayoutManager) {
+            @Override
+            protected void onCenterItemClicked(@NonNull RecyclerView recyclerView, @NonNull CarouselLayoutManager carouselLayoutManager, @NonNull View v) {
+                //do shit
+                Log.i("onClick","central item clicked");
+            }
+
+            @Override
+            protected void onBackItemClicked(@NonNull RecyclerView recyclerView, @NonNull CarouselLayoutManager carouselLayoutManager, @NonNull View v) {
+                //do other shit
+                recyclerView.smoothScrollToPosition(recyclerView.getChildAdapterPosition(v));
+            }
+        };
+        mRecycler.setAdapter(new ProShowAdapter());
+        mRecycler.scrollToPosition(2);
     }
 
     class ProShowAdapter extends RecyclerView.Adapter<ProShowAdapter.ProShowViewHolder>{

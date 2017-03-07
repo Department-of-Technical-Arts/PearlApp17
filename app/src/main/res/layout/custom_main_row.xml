@@ -3,15 +3,13 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <ImageButton
-        android:background="@null"
-        android:scaleType="fitCenter"
+    <ImageView
         android:id="@+id/main_events"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="@dimen/margin_side"
+        android:layout_marginRight="@dimen/margin_side"
+        android:layout_marginBottom="@dimen/margin_bottom"
         android:layout_width="match_parent"
-        android:layout_height="200dp">
-    </ImageButton>
+        android:layout_height="@dimen/landing_row_height">
+    </ImageView>
 
 </LinearLayout>
