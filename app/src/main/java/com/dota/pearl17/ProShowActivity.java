@@ -1,5 +1,6 @@
 package com.dota.pearl17;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.support.annotation.NonNull;
@@ -35,13 +36,13 @@ public class ProShowActivity extends AppCompatActivity {
         CarouselChildSelectionListener csl = new CarouselChildSelectionListener(mRecycler,mLayoutManager) {
             @Override
             protected void onCenterItemClicked(@NonNull RecyclerView recyclerView, @NonNull CarouselLayoutManager carouselLayoutManager, @NonNull View v) {
-                //do shit
-                Log.i("onClick","central item clicked");
+                //open description
+                startActivity(new Intent(ProShowActivity.this,ProShowDetailsActivity.class));
             }
 
             @Override
             protected void onBackItemClicked(@NonNull RecyclerView recyclerView, @NonNull CarouselLayoutManager carouselLayoutManager, @NonNull View v) {
-                //do other shit
+                //bring that item to center
                 recyclerView.smoothScrollToPosition(recyclerView.getChildAdapterPosition(v));
             }
         };

@@ -1,5 +1,6 @@
 package com.dota.pearl17;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -33,13 +34,13 @@ public class TalksActivity extends AppCompatActivity {
         CarouselChildSelectionListener csl = new CarouselChildSelectionListener(mRecycler,mLayoutManager) {
             @Override
             protected void onCenterItemClicked(@NonNull RecyclerView recyclerView, @NonNull CarouselLayoutManager carouselLayoutManager, @NonNull View v) {
-                //do shit
-                Log.i("onClick","central item clicked");
+                //open description
+                startActivity(new Intent(TalksActivity.this,TalkDetailsActivity.class));
             }
 
             @Override
             protected void onBackItemClicked(@NonNull RecyclerView recyclerView, @NonNull CarouselLayoutManager carouselLayoutManager, @NonNull View v) {
-                //do other shit
+                //bring that item to center
                 recyclerView.smoothScrollToPosition(recyclerView.getChildAdapterPosition(v));
             }
         };
