@@ -9,13 +9,12 @@ import android.support.v4.app.FragmentPagerAdapter;
  * Created by SHIVIKA NAGPAL on 07-03-2017.
  */
 
-public class SimpleFragmentPagerAdapter extends FragmentPagerAdapter {
+public class SimpleFragmentPagerAdapter_Contact extends FragmentPagerAdapter {
 
     private String[] tabTitle=new String[]{"FOB","Club Senate"};
     Context context;
-    private int pageCount=2;
 
-    public SimpleFragmentPagerAdapter(FragmentManager fm, Context context) {
+    public SimpleFragmentPagerAdapter_Contact(FragmentManager fm, Context context) {
         super(fm);
         this.context=context;
     }
@@ -23,14 +22,14 @@ public class SimpleFragmentPagerAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
 
-        FragmentDemo fragmentDemo=new FragmentDemo();
+        FragmentDemo_Contact fragmentDemo=new FragmentDemo_Contact();
         return fragmentDemo;
 
     }
 
     @Override
     public int getCount() {
-        return pageCount;
+        return tabTitle.length;
     }
 
     @Override
