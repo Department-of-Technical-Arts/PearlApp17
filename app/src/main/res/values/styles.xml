@@ -8,4 +8,8 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="blueTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:colorAccent">#223BA1FD</item>
+    </style>
+
 </resources>
