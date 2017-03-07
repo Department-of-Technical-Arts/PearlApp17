@@ -46,6 +46,8 @@ public class EventsShowMoreActivity extends AppCompatActivity {
             title.setTypeface(fontface);
         }
 
+
+
     }
 
     class MyAdapter extends RecyclerView.Adapter<EventCategoryItem>{
