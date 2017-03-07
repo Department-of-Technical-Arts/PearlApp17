@@ -89,6 +89,7 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 case 6:
                     //Register
+                    startActivity(new Intent(MainActivity.this,RegistrationActivity.class));
                     break;
                 case 7:
                     //Sponsor
