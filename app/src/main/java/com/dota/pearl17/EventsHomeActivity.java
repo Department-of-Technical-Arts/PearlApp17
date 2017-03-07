@@ -16,6 +16,10 @@ import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.daimajia.slider.library.Indicators.PagerIndicator;
+import com.daimajia.slider.library.SliderLayout;
+import com.daimajia.slider.library.SliderTypes.BaseSliderView;
+import com.daimajia.slider.library.SliderTypes.DefaultSliderView;
 import com.squareup.picasso.Picasso;
 
 /**
@@ -26,11 +30,14 @@ public class EventsHomeActivity extends AppCompatActivity {
 
     RecyclerView mRecycler;
     Typeface fontface;
+    SliderLayout mDemoSlider;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_events_home);
-         fontface = Typeface.createFromAsset(getAssets(),"cubano_regular.otf");
+        fontface = Typeface.createFromAsset(getAssets(),"cubano_regular.otf");
+
         ImageView topbar = (ImageView) findViewById(R.id.events_topbar);
         ImageView middlebar = (ImageView) findViewById(R.id.events_middlebar);
         Picasso.with(this)
@@ -41,6 +48,7 @@ public class EventsHomeActivity extends AppCompatActivity {
                 .load(R.drawable.events_middle_bar)
                 .fit()
                 .into(middlebar);
+
         mRecycler = (RecyclerView) findViewById(R.id.recycler_less_categories);
         mRecycler.setLayoutManager(new GridLayoutManager(this,2));
         mRecycler.setAdapter(new LessEventsAdapter());
@@ -55,6 +63,24 @@ public class EventsHomeActivity extends AppCompatActivity {
             }
         });
 
+        mDemoSlider = (SliderLayout) findViewById(R.id.headlinersSlider);
+
+        for(int i=0;i<5;i++){
+            DefaultSliderView sliderView = new DefaultSliderView(this);
+            sliderView.image(R.drawable.sponsors_button)
+                    .setScaleType(BaseSliderView.ScaleType.CenterInside);
+            mDemoSlider.addSlider(sliderView);
+        }
+        PagerIndicator custom = (PagerIndicator) findViewById(R.id.custom_indicator);
+        mDemoSlider.setCustomIndicator(custom);
+        mDemoSlider.setCurrentPosition(2,false);
+        mDemoSlider.setDuration(3000); //Decide on duration
+    }
+
+    @Override
+    protected void onStop() {
+        mDemoSlider.stopAutoCycle();
+        super.onStop();
     }
 
     View.OnClickListener mClickListener = new View.OnClickListener() {

@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
         logo = (ImageView) findViewById(R.id.logo);
         Picasso.with(this).load(R.drawable.pearl_button).fit().centerInside().into(logo);
-        recyclerView = (RecyclerView) findViewById(R.id.headlinersRecycler);
+        recyclerView = (RecyclerView) findViewById(R.id.landingRecycler);
         recyclerView.setAdapter(new MyAdapter(this));
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setNestedScrollingEnabled(false);
