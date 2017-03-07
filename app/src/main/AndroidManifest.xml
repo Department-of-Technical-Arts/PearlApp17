@@ -17,7 +17,7 @@
         </activity>
         <activity
             android:name=".EventsHomeActivity"
-            android:theme="@style/AppTheme.ActionBar.Transparent" />
+            android:theme="@style/EventsTheme" />
         <activity
             android:name=".EventsShowMoreActivity"
             android:theme="@style/EventsTheme"/>

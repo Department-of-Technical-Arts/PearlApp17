@@ -12,7 +12,7 @@
     android:paddingRight="25dp">
 
     <ImageView
-        android:src="@drawable/arrows"
+        android:src="@drawable/upward_arrow"
         android:layout_width="18dp"
         android:layout_height="18dp"
         android:layout_marginRight="8dp"/>
