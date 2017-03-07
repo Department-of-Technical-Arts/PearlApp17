@@ -8,7 +8,7 @@
     tools:context="com.example.shivikanagpal.contacts.MainActivity">
 
     <include
-        layout="@layout/toolbar_main"
+        layout="@layout/toolbar_main_contactpage"
         android:id="@+id/app_bar"/>
 
     <android.support.design.widget.TabLayout
