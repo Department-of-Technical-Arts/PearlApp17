@@ -25,10 +25,7 @@
             android:name=".EventsShowMoreActivity"
             android:theme="@style/AppTheme.ActionBar.Transparent" />
         <activity android:name=".RegistrationActivity" />
-        <activity
-            android:name=".EventActivity"
-            android:label="@string/title_activity_event"
-            android:theme="@style/AppTheme.ActionBar.Transparent"></activity>
+        <activity android:name=".EventActivity"></activity>
     </application>
 
 </manifest>
