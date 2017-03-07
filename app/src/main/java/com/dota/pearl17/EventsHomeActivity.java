@@ -54,6 +54,7 @@ public class EventsHomeActivity extends AppCompatActivity {
         mRecycler.setAdapter(new LessEventsAdapter());
 
         View showMore = findViewById(R.id.btn_show_more);
+
         showMore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -67,8 +68,8 @@ public class EventsHomeActivity extends AppCompatActivity {
 
         for(int i=0;i<5;i++){
             DefaultSliderView sliderView = new DefaultSliderView(this);
-            sliderView.image(R.drawable.sponsors_button)
-                    .setScaleType(BaseSliderView.ScaleType.CenterInside);
+            sliderView.image(R.drawable.headliner_catharsis)
+                    .setScaleType(BaseSliderView.ScaleType.CenterCrop); //slight leftover stretch to sides < 10dp, not noticeable
             mDemoSlider.addSlider(sliderView);
         }
         PagerIndicator custom = (PagerIndicator) findViewById(R.id.custom_indicator);
@@ -89,7 +90,7 @@ public class EventsHomeActivity extends AppCompatActivity {
             //handle item clicks here
             //condition should logically be the title
             //from here the EventsListScreen is opened
-            return;
+            startActivity(new Intent(EventsHomeActivity.this,EventDetailsActivity.class));
         }
     };
     class EventCategoryItem extends RecyclerView.ViewHolder{

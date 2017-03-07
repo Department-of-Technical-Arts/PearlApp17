@@ -46,14 +46,14 @@ public class ProShowActivity extends AppCompatActivity {
             }
         };
         mRecycler.setAdapter(new ProShowAdapter());
-        mRecycler.scrollToPosition(1); // this is sonu nigam resId's index
+//        mRecycler.scrollToPosition(1); // this is sonu nigam resId's index
     }
 
     class ProShowAdapter extends RecyclerView.Adapter<ProShowAdapter.ProShowViewHolder>{
         int resId[] = new int[]{
                 R.drawable.proshow_lagori1,
                 R.drawable.proshow_sonu1,
-                R.drawable.proshow_papacj1
+                R.drawable.proshow_zakhir1
         };
         @Override
         public ProShowViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {

@@ -12,6 +12,10 @@
         <item name="android:statusBarColor">#3BBE3D</item>
     </style>
 
+    <style name="blueTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:colorAccent">#223BA1FD</item>
+    </style>
+
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
