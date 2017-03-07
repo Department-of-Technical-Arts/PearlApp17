@@ -3,20 +3,14 @@
     <ANNOTATIONS>
       <root url="jar://$USER_HOME$/.android/build-cache/4ab64dc0ab3995ec838ab740d42e0aecb730a975/output/annotations.zip!/" />
     </ANNOTATIONS>
-    <ANNOTATIONS>
-      <root url="jar://C:/Android/.android/build-cache/38e27bd76ba902bc2fd97307082bbfe6b8fd9d44/output/annotations.zip!/" />
-    </ANNOTATIONS>
     <CLASSES>
       <root url="file://$USER_HOME$/.android/build-cache/4ab64dc0ab3995ec838ab740d42e0aecb730a975/output/res" />
       <root url="jar://$USER_HOME$/.android/build-cache/4ab64dc0ab3995ec838ab740d42e0aecb730a975/output/jars/classes.jar!/" />
-      <root url="file://C:/Android/.android/build-cache/38e27bd76ba902bc2fd97307082bbfe6b8fd9d44/output/res" />
-      <root url="jar://C:/Android/.android/build-cache/38e27bd76ba902bc2fd97307082bbfe6b8fd9d44/output/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
       <root url="jar://$USER_HOME$/AppData/Local/Android/sdk/extras/android/m2repository/com/android/support/recyclerview-v7/25.2.0/recyclerview-v7-25.2.0-sources.jar!/" />
       <root url="jar://C:/sdk/extras/android/m2repository/com/android/support/recyclerview-v7/25.2.0/recyclerview-v7-25.2.0-sources.jar!/" />
-      <root url="jar://$USER_HOME$/AppData/Local/Android/Sdk/extras/android/m2repository/com/android/support/recyclerview-v7/25.2.0/recyclerview-v7-25.2.0-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

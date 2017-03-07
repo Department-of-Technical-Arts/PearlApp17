@@ -85,7 +85,7 @@
         android:layout_marginTop="-10dp"
         android:src="@drawable/circular_bg"
         android:translationZ="6dp"
-        app:layout_anchor="@id/bottomLine"
+        app:layout_anchor="@id/bottomLine1"
         app:layout_anchorGravity="top" />
 
 </RelativeLayout>
