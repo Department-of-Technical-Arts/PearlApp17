@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+    >
+
+    <TextView
+        android:id="@+id/time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="10dp"
+        android:text="9:00 AM"
+        android:textColor="#000"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/timelineCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:background="@color/yellow"
+        android:orientation="vertical"
+        android:paddingBottom="8dp"
+        android:paddingTop="8dp"
+        android:translationZ="4dp">
+
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/topLine"
+        android:layout_width="20dp"
+        android:layout_height="56dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="30dp">
+
+        <View
+            android:layout_width="4dp"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:background="#fff"
+            android:translationZ="5dp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/bottomLine1"
+        android:layout_width="20dp"
+        android:layout_height="10dp"
+        android:layout_below="@+id/timelineCard"
+        android:layout_marginLeft="30dp">
+
+        <View
+            android:layout_width="4dp"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:background="#fff"
+            android:translationZ="5dp" />
+
+    </RelativeLayout>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/imageTop"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_below="@+id/topLine"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="-10dp"
+        android:src="@drawable/circular_bg"
+        android:translationZ="6dp" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/imageBottom"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_below="@+id/timelineCard"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="-10dp"
+        android:src="@drawable/circular_bg"
+        android:translationZ="6dp"
+        app:layout_anchor="@id/bottomLine"
+        app:layout_anchorGravity="top" />
+
+</RelativeLayout>
