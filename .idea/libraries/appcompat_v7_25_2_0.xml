@@ -11,6 +11,8 @@
       <root url="file://$USER_HOME$/.android/build-cache/16db031f3ae1e4810821de7b8bab3f449d45c85a/output/res" />
       <root url="jar://C:/Android/.android/build-cache/67bf2432d705febad7b0ef9e411edadf7e0522a4/output/jars/classes.jar!/" />
       <root url="file://C:/Android/.android/build-cache/67bf2432d705febad7b0ef9e411edadf7e0522a4/output/res" />
+      <root url="file://$USER_HOME$/.android/build-cache/2e75770f7fec6c3b216c2b37935acdfe0cb0f730/output/res" />
+      <root url="jar://$USER_HOME$/.android/build-cache/2e75770f7fec6c3b216c2b37935acdfe0cb0f730/output/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

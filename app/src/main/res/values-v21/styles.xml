@@ -5,7 +5,11 @@
     </style>
 
     <style name="ProShowTheme" parent="AppTheme">
-        <item name="android:statusBarColor">#3EA1FE</item>
+        <item name="android:statusBarColor">#3CA0FC</item>
+    </style>
+
+    <style name="TalksTheme" parent="AppTheme">
+        <item name="android:statusBarColor">#3BBE3D</item>
     </style>
 
     <style name="AppTheme.NoActionBar">

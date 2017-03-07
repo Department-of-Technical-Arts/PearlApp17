@@ -51,15 +51,12 @@ public class MainActivity extends AppCompatActivity {
         int height_empty = (int)(getResources().getDimension(R.dimen.landing_padding_height));
         int height_row = (int)(getResources().getDimension(R.dimen.landing_row_height));
         int margin_side = (int)(getResources().getDimension(R.dimen.margin_side));
-        int margin_bottom = (int)(getResources().getDimension(R.dimen.margin_bottom));
 
-        Log.i("params","height empty "+height_empty+" height row"+height_row);
-        Log.i("params","margin side"+margin_side+" bottom"+margin_bottom);
         params_empty = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,height_empty);
-        params_empty.setMargins(margin_side,0,margin_side,margin_bottom);
+        params_empty.setMargins(margin_side,0,margin_side,0);
 
         params_row = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,height_row);
-        params_row.setMargins(margin_side,0,margin_side,margin_bottom);
+        params_row.setMargins(margin_side,0,margin_side,0);
     }
 
     RecyclerClickListener clickListener=new RecyclerClickListener() {
@@ -79,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 case 3:
                     //Talks
+                    startActivity(new Intent(MainActivity.this,TalksActivity.class));
                     break;
                 case 4:
                     //Schedule
@@ -87,8 +85,15 @@ public class MainActivity extends AppCompatActivity {
                     //Guide
                     break;
                 case 6:
+                    //Register
                     startActivity(new Intent(MainActivity.this,RegistrationActivity.class));
-                    //startActivity(intent);
+                    break;
+                case 7:
+                    //Sponsor
+                    break;
+                case 8:
+                    //App Credits
+                    break;
             }
         }
     };
