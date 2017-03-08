@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridLayout;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.daimajia.slider.library.Indicators.PagerIndicator;
@@ -96,9 +97,13 @@ public class EventsHomeActivity extends AppCompatActivity {
     class EventCategoryItem extends RecyclerView.ViewHolder{
         TextView title;
         ImageView icon;
+        RelativeLayout eventButton;
+
         public EventCategoryItem(View v){
             super(v);
             v.setOnClickListener(mClickListener);
+
+            eventButton = (RelativeLayout) v.findViewById(R.id.layout_event_category);
 
             title = (TextView) v.findViewById(R.id.title_category);
             icon = (ImageView) v.findViewById(R.id.icon_category);
@@ -137,6 +142,17 @@ public class EventsHomeActivity extends AppCompatActivity {
         public void onBindViewHolder(EventCategoryItem holder, int position) {
             holder.title.setText(titles[position]);
             holder.icon.setImageResource(icons[position]);
+            final EventCategoryItem finalHolder = holder;
+            holder.eventButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    Intent i = new Intent(EventsHomeActivity.this,ClubEventsActivity.class);
+
+                    i.putExtra("club_name" , finalHolder.title.getText().toString());
+                    startActivity(i);
+                }
+            });
         }
 
         @Override

@@ -37,7 +37,8 @@
             android:name=".TalkDetailsActivity"
             android:theme="@style/TalksTheme" />
         <activity android:name=".RegistrationActivity" />
-        <activity android:name=".SponsorsActivity"></activity>
+        <activity android:name=".SponsorsActivity" />
+        <activity android:name=".ClubEventsActivity"></activity>
     </application>
 
 </manifest>
