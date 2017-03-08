@@ -83,6 +83,7 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 case 5:
                     //Guide
+                    startActivity(new Intent(MainActivity.this,GuideActivity.class));
                     break;
                 case 6:
                     //Register

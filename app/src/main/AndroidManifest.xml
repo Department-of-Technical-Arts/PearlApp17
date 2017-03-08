@@ -20,24 +20,38 @@
             android:theme="@style/EventsTheme" />
         <activity
             android:name=".EventsShowMoreActivity"
-            android:theme="@style/EventsTheme"/>
+            android:theme="@style/EventsTheme" />
         <activity
             android:name=".EventDetailsActivity"
-            android:theme="@style/EventsTheme"/>
+            android:theme="@style/EventsTheme" />
         <activity
             android:name=".ProShowActivity"
             android:theme="@style/ProShowTheme" />
         <activity
             android:name=".ProShowDetailsActivity"
-            android:theme="@style/ProShowTheme"/>
+            android:theme="@style/ProShowTheme" />
         <activity
             android:name=".TalksActivity"
             android:theme="@style/TalksTheme" />
         <activity
             android:name=".TalkDetailsActivity"
-            android:theme="@style/TalksTheme"/>
+            android:theme="@style/TalksTheme" />
         <activity android:name=".RegistrationActivity" />
-
+        <activity
+            android:name=".GuideActivity"
+            android:theme="@style/GuideTheme" />
+        <activity
+            android:name=".AboutUsActivity"
+            android:theme="@style/GuideTheme" />
+        <activity
+            android:name=".ReachUsActivity"
+            android:theme="@style/GuideTheme" />
+        <activity
+            android:name=".CampusMapActivity"
+            android:theme="@style/GuideTheme" />
+        <activity
+            android:name=".ContactActivity"
+            android:theme="@style/GuideTheme" />
     </application>
 
 </manifest>
