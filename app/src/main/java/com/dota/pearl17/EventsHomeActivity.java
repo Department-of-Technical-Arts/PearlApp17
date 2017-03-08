@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.daimajia.slider.library.Indicators.PagerIndicator;
 import com.daimajia.slider.library.SliderLayout;
@@ -75,6 +76,59 @@ public class EventsHomeActivity extends AppCompatActivity {
         super.onStop();
     }
 
+    View.OnClickListener mClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            //handle item clicks here
+            //condition should logically be the title
+            //from here the EventsListScreen is opened
+            //startActivity(new Intent(EventsHomeActivity.this,EventDetailsActivity.class));
+        }
+    };
+
+    View.OnClickListener mSliderClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            switch (mDemoSlider.getCurrentPosition()){
+                case 0:
+                    //Carnival Zone - None
+                    Toast.makeText(EventsHomeActivity.this, "Carnival", Toast.LENGTH_SHORT).show();
+                    break;
+                case 1:
+                    //Catharsis - Movie\
+                    Toast.makeText(EventsHomeActivity.this, "Carnival", Toast.LENGTH_SHORT).show();
+                    break;
+                case 2:
+                    //Crimson Curtain - Drama
+                    Toast.makeText(EventsHomeActivity.this, "Crimson", Toast.LENGTH_SHORT).show();
+                    break;
+                case 3:
+                    //Fraglore - None
+                    Toast.makeText(EventsHomeActivity.this, "Fraglore", Toast.LENGTH_SHORT).show();
+                    break;
+                case 4:
+                    //Glitterati - None
+                    Toast.makeText(EventsHomeActivity.this, "Glitterati", Toast.LENGTH_SHORT).show();
+                    break;
+                case 5:
+                    //Photog Fest - Photog ?
+                    Toast.makeText(EventsHomeActivity.this, "Photog", Toast.LENGTH_SHORT).show();
+                    break;
+                case 6:
+                    //QuBITS - Quiz ?
+                    Toast.makeText(EventsHomeActivity.this, "QuBits", Toast.LENGTH_SHORT).show();
+                    break;
+                case 7:
+                    //Terpsichore - Dance
+                    Toast.makeText(EventsHomeActivity.this, "Terps", Toast.LENGTH_SHORT).show();
+                    break;
+                case 8:
+                    //Till Deaf - Music
+                    Toast.makeText(EventsHomeActivity.this, "Till Deaf", Toast.LENGTH_SHORT).show();
+                    break;
+            }
+        }
+    };
     void loadSliderImages(){
 
         int resources[] = new int[]{
@@ -95,18 +149,9 @@ public class EventsHomeActivity extends AppCompatActivity {
                     .setScaleType(BaseSliderView.ScaleType.CenterCrop); //slight leftover stretch to sides < 10dp, not noticeable
             mDemoSlider.addSlider(sliderView);
         }
+
+        mDemoSlider.setOnClickListener(mSliderClickListener);
     }
-
-    View.OnClickListener mClickListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            //handle item clicks here
-            //condition should logically be the title
-            //from here the EventsListScreen is opened
-            //startActivity(new Intent(EventsHomeActivity.this,EventDetailsActivity.class));
-        }
-    };
-
 
     class EventCategoryItem extends RecyclerView.ViewHolder{
         TextView title;

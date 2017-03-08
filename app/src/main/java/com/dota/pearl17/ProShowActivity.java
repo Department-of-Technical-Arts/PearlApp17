@@ -37,7 +37,7 @@ public class ProShowActivity extends AppCompatActivity {
             @Override
             protected void onCenterItemClicked(@NonNull RecyclerView recyclerView, @NonNull CarouselLayoutManager carouselLayoutManager, @NonNull View v) {
                 //open description
-                startActivity(new Intent(ProShowActivity.this,ProShowDetailsActivity.class));
+                return;
             }
 
             @Override
