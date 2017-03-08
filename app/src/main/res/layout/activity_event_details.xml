@@ -21,10 +21,13 @@
         android:layout_marginLeft="36dp"
         android:layout_marginRight="36dp"
         android:id="@+id/event_title"
-        android:background="@drawable/square_border_pink"/>
+        android:textColor="#E3556B"
+        android:gravity="center_horizontal"
+        android:background="@drawable/square_border_pink"
+        android:textSize="36sp" />
     <ScrollView
-        android:layout_marginLeft="@dimen/activity_horizontal_margin"
-        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:layout_marginLeft="36dp"
+        android:layout_marginRight="36dp"
         android:id="@+id/event_details"
         android:layout_below="@+id/event_title"
         android:layout_marginTop="30dp"
@@ -39,37 +42,54 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/event_desc"/>
+                android:textColor="#E3556B"
+                android:id="@+id/event_desc"
+                android:textSize="18sp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/event_contacts_heading"/>
+                android:text="Contact: "
+                android:textColor="#E3556B"
+                android:id="@+id/event_contacts_heading"
+                android:textSize="24sp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/event_contacts"/>
+                android:textColor="#E3556B"
+                android:id="@+id/event_contacts"
+                android:textSize="18sp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/event_location_heading"/>
+                android:text="Location: "
+                android:textColor="#E3556B"
+                android:id="@+id/event_location_heading"
+                android:textSize="24sp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/event_location"/>
+                android:textColor="#E3556B"
+                android:id="@+id/event_location"
+                android:textSize="18sp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/event_time_heading"/>
+                android:textColor="#E3556B"
+                android:text="Time: "
+                android:id="@+id/event_time_heading"
+                android:textSize="24sp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/event_time"/>
+                android:textColor="#E3556B"
+                android:id="@+id/event_time"
+                android:textSize="18sp" />
 
         </LinearLayout>
 
@@ -78,12 +98,18 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/event_details"
-        android:layout_marginLeft="@dimen/activity_horizontal_margin"
-        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:layout_marginLeft="36dp"
+        android:layout_marginRight="36dp"
+        android:layout_marginBottom="40dp"
+        android:padding="15dp"
         android:id="@+id/add"
         android:onClick="add"
-        android:layout_alignParentBottom="false"
+        android:textSize="24sp"
+        android:textColor="@android:color/white"
+        android:text="PARTICIPATE"
+        android:gravity="center_horizontal"
+        android:background="@drawable/border_item_club_event"
+        android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentLeft="true" />
 

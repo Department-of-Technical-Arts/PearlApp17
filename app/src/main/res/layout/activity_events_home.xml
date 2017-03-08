@@ -28,7 +28,6 @@
 
             <com.daimajia.slider.library.SliderLayout
                 android:layout_centerInParent="true"
-                android:background="#00ff00"
                 android:id="@+id/headlinersSlider"
                 android:layout_height="240dp"
                 android:layout_width="345dp" />

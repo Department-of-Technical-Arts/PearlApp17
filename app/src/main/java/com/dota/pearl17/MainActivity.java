@@ -91,6 +91,8 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 case 7:
                     //Sponsor
+                    startActivity(new Intent(MainActivity.this,SponsorsActivity.class));
+
                     break;
                 case 8:
                     //App Credits
@@ -199,6 +201,5 @@ public class MainActivity extends AppCompatActivity {
             //open developers screen or show an animation
         }
         click_count++;
-        Log.i("easterEgg",""+click_count);
     }
 }
