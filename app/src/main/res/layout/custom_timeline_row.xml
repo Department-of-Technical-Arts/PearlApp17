@@ -6,6 +6,11 @@
 
     >
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/schedule_yellow"/>
+
     <TextView
         android:id="@+id/time"
         android:layout_width="wrap_content"
@@ -87,5 +92,7 @@
         android:translationZ="6dp"
         app:layout_anchor="@id/bottomLine1"
         app:layout_anchorGravity="top" />
+
+
 
 </RelativeLayout>

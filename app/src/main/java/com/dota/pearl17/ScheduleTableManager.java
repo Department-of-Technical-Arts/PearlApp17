@@ -36,11 +36,11 @@ public class ScheduleTableManager {
     private DBHelper ourHelper;
     private SQLiteDatabase ourDatabase;
 
-    public ScheduleTableManager(Context c) {
-        context = c;
-//        addEntry(2, "round2", "pearl", 12345L, "F105");
-//        addEntry(3, "round2", "pearl", 12345L, "F105");
-//        addEntry(4, "round2", "pearl", 12345L, "F105");
+    public ScheduleTableManager(Context cl) {
+        context = cl;
+        addEntry(2, "round2", "pearl", 12345L, "F105");
+        addEntry(3, "round2", "pearl", 12345L, "F105");
+        addEntry(4, "round2", "pearl", 12345L, "F105");
 
 
     }
@@ -65,6 +65,8 @@ public class ScheduleTableManager {
         long success = -1;
 
         ContentValues cv = new ContentValues();
+
+        open();
 
         cv.put(KEY_EVENT_NAME, name);
         cv.put(KEY_EVENT_ID, event_id);
