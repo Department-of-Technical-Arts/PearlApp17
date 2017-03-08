@@ -46,6 +46,7 @@
         <activity android:name=".RegistrationActivity" />
         <activity android:name=".SponsorsActivity" />
         <activity android:name=".ClubEventsActivity"></activity>
+        <activity android:name=".Schedule_activity"></activity>
     </application>
 
 </manifest>

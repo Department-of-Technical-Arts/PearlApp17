@@ -2,8 +2,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/schedule_background_bottom"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:id="@+id/linlayout"
+    android:baselineAligned="false">
+
+    <ImageView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/back"/>
 
     <TextView
         android:id="@+id/notpresent"
@@ -16,9 +22,14 @@
 
     <android.support.v7.widget.RecyclerView
         xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_marginLeft="11dp"
+        android:layout_marginRight="11dp"
+        android:layout_marginBottom="20dp"
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingBottom="16dp" />
+
+
 
 </LinearLayout>

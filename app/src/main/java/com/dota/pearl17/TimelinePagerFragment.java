@@ -1,6 +1,10 @@
 package com.dota.pearl17;
 
+import android.annotation.TargetApi;
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
@@ -10,8 +14,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Target;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -42,6 +50,41 @@ public class TimelinePagerFragment extends Fragment{
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.container);
         TextView textView = (TextView) view.findViewById(R.id.notpresent);
         mTableManager = new ScheduleTableManager(getActivity());
+        final LinearLayout mYourLayout = (LinearLayout) view.findViewById(R.id.linlayout);
+
+        ImageView bg = (ImageView) view.findViewById(R.id.back);
+        Picasso.with(getActivity()).load(R.drawable.schedule_background_bottom).fit().into(bg);
+
+//        Picasso.with(getActivity())
+//                .load(R.drawable.schedule_background_bottom)
+//                .into(new Target() {
+//                    @Override
+//                    @TargetApi(16)
+//                    public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
+//                        int sdk = android.os.Build.VERSION.SDK_INT;
+//                        if(sdk < android.os.Build.VERSION_CODES.JELLY_BEAN) {
+//                            mYourLayout.setBackground(new BitmapDrawable(getResources(), bitmap));
+//                        } else {
+//                            mYourLayout.setBackground(new BitmapDrawable(getResources(), bitmap));
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onBitmapFailed(Drawable errorDrawable) {
+//                        // use error drawable if desired
+//                    }
+//
+//                    @Override
+//                    public void onPrepareLoad(Drawable placeHolderDrawable) {
+//                        // use placeholder drawable if desired
+//                    }
+//                });
+
+
+
+
+
+
 
         times = mTableManager.getDistinctTime(getArguments().getInt("day"));
         Log.e("TimelineFrag", times.toString());
