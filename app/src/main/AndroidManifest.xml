@@ -45,7 +45,18 @@
             android:theme="@style/TalksTheme" />
         <activity android:name=".RegistrationActivity" />
         <activity android:name=".SponsorsActivity" />
-        <activity android:name=".ClubEventsActivity"></activity>
+        <activity android:name=".ClubEventsActivity"/>
+        <activity android:name=".Schedule_activity"/>
+        <activity android:name=".GuideActivity"/>
+        <activity android:name=".AboutUsActivity"/>
+        <activity android:name=".ReachUsActivity"/>
+        <activity android:name=".CampusMapActivity"/>
+        <activity android:name=".ContactActivity"/>
+        <activity android:name=".MapsActivity"/>
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
     </application>
 
 </manifest>

@@ -9,24 +9,15 @@ public class Event {
     private int id;
     private String name;
     private String desc;
-    private String contact_name;
-    private String contact_mail;
-    private String contact_phone;
     private String club;
-    private String location;
-    private String time;
+    private String rules;
 
-    public Event(int id, String name, String desc, String contact_name, String contact_mail,
-                 String contact_phone, String club, String location, String time) {
+    public Event(int id, String name, String desc, String club, String rules) {
         this.id = id;
         this.name = name;
         this.desc = desc;
-        this.contact_name = contact_name;
-        this.contact_mail = contact_mail;
-        this.contact_phone = contact_phone;
+        this.rules = rules;
         this.club = club;
-        this.location = location;
-        this.time = time;
     }
 
     public Event(){}
@@ -55,30 +46,6 @@ public class Event {
         this.desc = desc;
     }
 
-    public String getContact_name() {
-        return contact_name;
-    }
-
-    public void setContact_name(String contact_name) {
-        this.contact_name = contact_name;
-    }
-
-    public String getContact_mail() {
-        return contact_mail;
-    }
-
-    public void setContact_mail(String contact_mail) {
-        this.contact_mail = contact_mail;
-    }
-
-    public String getContact_phone() {
-        return contact_phone;
-    }
-
-    public void setContact_phone(String contact_phone) {
-        this.contact_phone = contact_phone;
-    }
-
     public String getClub() {
         return club;
     }
@@ -87,19 +54,11 @@ public class Event {
         this.club = club;
     }
 
-    public String getLocation() {
-        return location;
+    public String getRules() {
+        return rules;
     }
 
-    public void setLocation(String location) {
-        this.location = location;
-    }
-
-    public String getTime() {
-        return time;
-    }
-
-    public void setTime(String time) {
-        this.time = time;
+    public void setRules(String rules) {
+        this.rules = rules;
     }
 }

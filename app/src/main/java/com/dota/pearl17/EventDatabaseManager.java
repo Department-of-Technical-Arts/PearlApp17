@@ -7,12 +7,21 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteConstraintException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.widget.Toast;
+
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by ADMIN on 7.3.17.
@@ -23,13 +32,10 @@ public class EventDatabaseManager {
         public static final String KEY = "_id";     //pearl Id PE0001
         public static final String EVENT_ID = "EVENT_ID";
         public static final String EVENT_NAME = "EVENT_NAME";           //name of the guy fetched from server
-        public static final String CONTACT_NAME = "CONTACT_NAME"; //1 if done, 0 if not done
-        public static final String CONTACT_PHONE = "PHONE";
-        public static final String CONTACT_MAIL = "MAIL";
         public static final String EVENT_CLUB = "CLUB";
-        public static final String EVENT_LOCATION = "LOCATION";
         public static final String EVENT_DESC = "DESC";
-        public static final String EVENT_TIME = "TIME";
+        public static final String EVENT_RULES = "RULES";
+
 
 
 
@@ -44,9 +50,9 @@ public class EventDatabaseManager {
 
         public EventDatabaseManager(Context c) {
             context = c;
-            addEvent(new Event(1,"vividHz", "test1", "anuj", "anuj@movie.com", "1234567890", "VFX", "F103", "1234" ));
-            addEvent(new Event(2,"Kaleidoscope", "test2", "anuj", "anuj@movie.com", "1234567890", "VFX", "F104", "1235" ));
-            addEvent(new Event(3,"Spoiler Alert", "test3", "anuj", "anuj@movie.com", "1234567890", "VFX", "F105", "1236" ));
+            addEvent(new Event(1,"vividHz", "test1", "VFX","1234"));
+            addEvent(new Event(2,"Kaleidoscope", "test2", "VFX", "1234"));
+            addEvent(new Event(3,"Spoiler Alert", "test3","VFX","1236"));
         }
 
         public EventDatabaseManager open() {
@@ -70,17 +76,13 @@ public class EventDatabaseManager {
         cv.put(EVENT_NAME, newEvent.getName());
         cv.put(EVENT_CLUB, newEvent.getClub());
         cv.put(EVENT_DESC, newEvent.getDesc());
-        cv.put(EVENT_LOCATION, newEvent.getLocation());
-        cv.put(CONTACT_MAIL, newEvent.getContact_mail());
-        cv.put(CONTACT_NAME, newEvent.getContact_name());
-        cv.put(CONTACT_PHONE, newEvent.getContact_phone());
-        cv.put(EVENT_TIME, newEvent.getTime());
+
 
         open();
         try {
             success = ourDatabase.insertOrThrow(DATABASE_TABLE, null, cv);
         } catch (SQLiteConstraintException e) {
-            //repeat hora hai. lite.
+            //success = ourDatabase.update(DATABASE_TABLE, cv, EVENT_ID + " EQUALS " + newEvent.getId(),null);
         }
         close();
         return success;
@@ -99,12 +101,8 @@ public class EventDatabaseManager {
             event = new Event(c.getInt(c.getColumnIndex(EVENT_ID)),
                     c.getString(c.getColumnIndex(EVENT_NAME)),
                     c.getString(c.getColumnIndex(EVENT_DESC)),
-                    c.getString(c.getColumnIndex(CONTACT_NAME)),
-                    c.getString(c.getColumnIndex(CONTACT_MAIL)),
-                    c.getString(c.getColumnIndex(CONTACT_PHONE)),
                     c.getString(c.getColumnIndex(EVENT_CLUB)),
-                    c.getString(c.getColumnIndex(EVENT_LOCATION)),
-                    c.getString(c.getColumnIndex(EVENT_TIME)));
+                    c.getString(c.getColumnIndex(EVENT_RULES)));
 
             c.close();
             close();
@@ -130,12 +128,8 @@ public class EventDatabaseManager {
             event = new Event(c.getInt(c.getColumnIndex(EVENT_ID)),
                     c.getString(c.getColumnIndex(EVENT_NAME)),
                     c.getString(c.getColumnIndex(EVENT_DESC)),
-                    c.getString(c.getColumnIndex(CONTACT_NAME)),
-                    c.getString(c.getColumnIndex(CONTACT_MAIL)),
-                    c.getString(c.getColumnIndex(CONTACT_PHONE)),
                     c.getString(c.getColumnIndex(EVENT_CLUB)),
-                    c.getString(c.getColumnIndex(EVENT_LOCATION)),
-                    c.getString(c.getColumnIndex(EVENT_TIME)));
+                    c.getString(5));
 
             c.close();
             close();
@@ -161,12 +155,8 @@ public class EventDatabaseManager {
                 events.add(new Event(c.getInt(c.getColumnIndex(EVENT_ID)),
                         c.getString(c.getColumnIndex(EVENT_NAME)),
                         c.getString(c.getColumnIndex(EVENT_DESC)),
-                        c.getString(c.getColumnIndex(CONTACT_NAME)),
-                        c.getString(c.getColumnIndex(CONTACT_MAIL)),
-                        c.getString(c.getColumnIndex(CONTACT_PHONE)),
                         c.getString(c.getColumnIndex(EVENT_CLUB)),
-                        c.getString(c.getColumnIndex(EVENT_LOCATION)),
-                        c.getString(c.getColumnIndex(EVENT_TIME))));
+                        c.getString(5)));
             }while(c.moveToNext());
             c.close();
             close();
@@ -177,7 +167,54 @@ public class EventDatabaseManager {
         close();
 
         return null;
+    }
 
+    public void updateEvents(){
+
+        StringRequest request = new StringRequest(Request.Method.POST, ControllerConstant.url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String s) {
+
+                try {
+                    JSONObject object = new JSONObject(s);
+                    if(object.getInt("success")==1){
+                        Toast.makeText(context,"Updated successfully",Toast.LENGTH_SHORT).show();
+                        //update all events
+
+                        try {
+                            JSONArray array = new JSONObject(s).getJSONArray("data");
+                            for (int j = 0; j < array.length(); j++) {
+                                JSONObject Object = array.getJSONObject(j);
+                                addEvent(new Event(Object.getInt("event_id"), Object.getString("name"), Object.getString("desc"),
+                                         Object.getString("club"), Object.getString("rules")));
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }else{
+                        Toast.makeText(context,"Update failed",Toast.LENGTH_SHORT).show();
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError volleyError) {
+                //internet problem, cannot upload Group member
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+                params.put("tag", "updateEvents");
+                //Log.e("Sent", params.toString());
+                return params;
+            }
+        };
+        AppController.getInstance().addToRequestQueue(request);
 
     }
 
@@ -199,11 +236,7 @@ public class EventDatabaseManager {
                         EVENT_ID + " INTEGER NOT NULL PRIMARY KEY, " +//1, 2, etc event associated id
                         EVENT_CLUB + " TEXT, " +
                         EVENT_DESC + " TEXT, " +
-                        EVENT_LOCATION + " TEXT, " +
-                        EVENT_TIME + " TEXT, " +
-                        CONTACT_NAME + " TEXT, " +
-                        CONTACT_PHONE + " TEXT, " +
-                        CONTACT_MAIL + " TEXT );";
+                        EVENT_RULES + " TEXT);";
 
                 db.execSQL(query);
             }

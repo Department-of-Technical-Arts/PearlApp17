@@ -18,9 +18,9 @@ public class EventDetailsActivity extends AppCompatActivity {
     Event event;
     EventDatabaseManager eventDB;
     IdTableManager cart;
-    TextView title, desc, contacts, location, time, contactsH, locationH, timeH;
+    TextView title, desc;
     Typeface custom_font_bold, custom_font;
-    Button participate;
+    Button participate, rules;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,13 +28,9 @@ public class EventDetailsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_event_details);
         title = (TextView) findViewById(R.id.event_title);
         desc = (TextView) findViewById(R.id.event_desc);
-        contacts = (TextView) findViewById(R.id.event_contacts);
-        location = (TextView) findViewById(R.id.event_location);
-        time = (TextView) findViewById(R.id.event_time);
+
+        rules = (Button) findViewById(R.id.rules);
         participate = (Button) findViewById(R.id.add);
-        contactsH = (TextView) findViewById(R.id.event_contacts_heading);
-        locationH = (TextView) findViewById(R.id.event_location_heading);
-        timeH = (TextView) findViewById(R.id.event_time_heading);
 
         custom_font_bold = Typeface.createFromAsset(getAssets(),  "fonts/goodpro_condblack.otf");
         custom_font = Typeface.createFromAsset(getAssets(),  "fonts/goodpro_condmedium.otf");
@@ -51,12 +47,7 @@ public class EventDetailsActivity extends AppCompatActivity {
         title.setTypeface(custom_font_bold);
         desc.setText(event.getDesc());
         desc.setTypeface(custom_font);
-        contacts.setText(event.getContact_name());
-        contactsH.setTypeface(custom_font_bold);
-        location.setText(event.getLocation());
-        locationH.setTypeface(custom_font_bold);
-        time.setText(event.getTime());
-        timeH.setTypeface(custom_font_bold);
+        rules.setTypeface(custom_font_bold);
         participate.setTypeface(custom_font_bold);
 
         Picasso.with(this)
@@ -70,5 +61,10 @@ public class EventDetailsActivity extends AppCompatActivity {
         cart.addEntry(event.getId(),event.getName());
         //disable button
 
+    }
+
+    public void rules(View v){
+
+        //download rules
     }
 }
