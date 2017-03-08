@@ -5,22 +5,54 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.shivikanagpal.contacts.MainActivity">
+    tools:context="com.dota.pearl17.ContactActivity">
 
-  
 
-    <android.support.design.widget.TabLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-    android:id="@+id/tab_layout"
-    app:tabMode="fixed"
-    app:tabGravity="fill"></android.support.design.widget.TabLayout>
-    
-    <android.support.v4.view.ViewPager
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/view_pager"
-        android:layout_below="@id/tab_layout"></android.support.v4.view.ViewPager>
+    <TabHost
+        android:layout_width="200dip"
+        android:layout_height="300dip"
+        android:id="@+id/tabhost">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TabWidget
+                android:id="@android:id/tabs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <FrameLayout
+                android:id="@android:id/tabcontent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:id="@+id/tab1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <android.support.v7.widget.RecyclerView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/fob_list"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/tab2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <android.support.v7.widget.RecyclerView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/club_senate"/>
+                </LinearLayout>
+
+            </FrameLayout>
+        </LinearLayout>
+    </TabHost>
 </RelativeLayout>

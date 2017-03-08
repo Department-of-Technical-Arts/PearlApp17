@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_about_us"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/about_us_frame"
+    tools:context="com.dota.pearl17.AboutUsActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
+        android:layout_marginBottom="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp">
+        
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:textSize="20dp"
+            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sin tantum modo ad indicia veteris memoriae cognoscenda, curiosorum. Satis est tibi in te, satis in legibus, satis in mediocribus amicitiis praesidii. Quis Aristidem non mortuum diligit? Tu vero, inquam, ducas licet, si sequetur; Sit hoc ultimum bonorum, quod nunc a me defenditur; Duo Reges: constructio interrete.
+
+Duo enim genera quae erant, fecit tria. Idem iste, inquam, de voluptate quid sentit? Bonum integritas corporis: misera debilitas. Quid, si etiam iucunda memoria est praeteritorum malorum? Nosti, credo, illud: Nemo pius est, qui pietatem-; Quod ea non occurrentia fingunt, vincunt Aristonem; Sine ea igitur iucunde negat posse se vivere? Sine ea igitur iucunde negat posse se vivere? Itaque eos id agere, ut a se dolores, morbos, debilitates repellant.
+
+Portenta haec esse dicit, neque ea ratione ullo modo posse vivi; Nummus in Croesi divitiis obscuratur, pars est tamen divitiarum. Quod autem principium officii quaerunt, melius quam Pyrrho;
+
+Idemne potest esse dies saepius, qui semel fuit? At ille pellit, qui permulcet sensum voluptate. Suam denique cuique naturam esse ad vivendum ducem. Si quicquam extra virtutem habeatur in bonis. Quae hic rei publicae vulnera inponebat, eadem ille sanabat. Pisone in eo gymnasio, quod Ptolomaeum vocatur, unaque nobiscum Q. At quanta conantur! Mundum hunc omnem oppidum esse nostrum! Incendi igitur eos, qui audiunt, vides. Quod autem satis est, eo quicquid accessit, nimium est; Conferam tecum, quam cuique verso rem subicias; Superiores tres erant, quae esse possent, quarum est una sola defensa, eaque vehementer.
+
+Vulgo enim dicitur: Iucundi acti labores, nec male Euripidesconcludam, si potero, Latine; Fortemne possumus dicere eundem illum Torquatum? Nec vero sum nescius esse utilitatem in historia, non modo voluptatem. Quas enim kakaw Graeci appellant, vitia malo quam malitias nominare. Quamquam tu hanc copiosiorem etiam soles dicere. Haec bene dicuntur, nec ego repugno, sed inter sese ipsa pugnant. Sed in rebus apertissimis nimium longi sumus. Nam de summo mox, ut dixi, videbimus et ad id explicandum disputationem omnem conferemus. Age sane, inquam. Hoc ne statuam quidem dicturam pater aiebat, si loqui posset."/>
+        
+    </ScrollView>
+
+</RelativeLayout>
