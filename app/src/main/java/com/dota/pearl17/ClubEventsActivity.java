@@ -33,8 +33,8 @@ public class ClubEventsActivity extends AppCompatActivity {
 
         clubEvents = eventDB.getClubEvents(getIntent().getStringExtra("club_name"));
 
-        custom_font_bold = Typeface.createFromAsset(getAssets(),  "fonts/GoodPro-CondBlack.otf");
-        custom_font = Typeface.createFromAsset(getAssets(),  "fonts/GoodPro-CondMedium.otf");
+        custom_font_bold = Typeface.createFromAsset(getAssets(),  "fonts/goodpro_condblack.otf");
+        custom_font = Typeface.createFromAsset(getAssets(),  "fonts/goodpro_condmedium.otf");
 
         clubName = (TextView) findViewById(R.id.club_name);
         clubName.setText(getIntent().getStringExtra("club_name"));
