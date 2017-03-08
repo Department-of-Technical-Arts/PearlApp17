@@ -1,13 +1,17 @@
 package com.dota.pearl17;
 
 import android.content.Intent;
+import android.gesture.Gesture;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+import android.view.GestureDetector;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -35,6 +39,7 @@ public class EventsHomeActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_events_home);
+
         fontface = Typeface.createFromAsset(getAssets(), "fonts/cubano_regular.otf");
 
         ImageView topbar = (ImageView) findViewById(R.id.events_topbar);
@@ -86,47 +91,12 @@ public class EventsHomeActivity extends AppCompatActivity {
         }
     };
 
+
+
     View.OnClickListener mSliderClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            switch (mDemoSlider.getCurrentPosition()){
-                case 0:
-                    //Carnival Zone - None
-                    Toast.makeText(EventsHomeActivity.this, "Carnival", Toast.LENGTH_SHORT).show();
-                    break;
-                case 1:
-                    //Catharsis - Movie\
-                    Toast.makeText(EventsHomeActivity.this, "Carnival", Toast.LENGTH_SHORT).show();
-                    break;
-                case 2:
-                    //Crimson Curtain - Drama
-                    Toast.makeText(EventsHomeActivity.this, "Crimson", Toast.LENGTH_SHORT).show();
-                    break;
-                case 3:
-                    //Fraglore - None
-                    Toast.makeText(EventsHomeActivity.this, "Fraglore", Toast.LENGTH_SHORT).show();
-                    break;
-                case 4:
-                    //Glitterati - None
-                    Toast.makeText(EventsHomeActivity.this, "Glitterati", Toast.LENGTH_SHORT).show();
-                    break;
-                case 5:
-                    //Photog Fest - Photog ?
-                    Toast.makeText(EventsHomeActivity.this, "Photog", Toast.LENGTH_SHORT).show();
-                    break;
-                case 6:
-                    //QuBITS - Quiz ?
-                    Toast.makeText(EventsHomeActivity.this, "QuBits", Toast.LENGTH_SHORT).show();
-                    break;
-                case 7:
-                    //Terpsichore - Dance
-                    Toast.makeText(EventsHomeActivity.this, "Terps", Toast.LENGTH_SHORT).show();
-                    break;
-                case 8:
-                    //Till Deaf - Music
-                    Toast.makeText(EventsHomeActivity.this, "Till Deaf", Toast.LENGTH_SHORT).show();
-                    break;
-            }
+
         }
     };
     void loadSliderImages(){
@@ -146,11 +116,53 @@ public class EventsHomeActivity extends AppCompatActivity {
         for(int i=0; i < resources.length; i++){
             DefaultSliderView sliderView = new DefaultSliderView(this);
             sliderView.image(resources[i])
+                    .setOnSliderClickListener(new BaseSliderView.OnSliderClickListener() {
+                        @Override
+                        public void onSliderClick(BaseSliderView slider) {
+
+                            switch (mDemoSlider.getCurrentPosition()){
+                                case 0:
+                                    //Carnival Zone - None
+                                    Toast.makeText(EventsHomeActivity.this, "Carnival", Toast.LENGTH_SHORT).show();
+                                    break;
+                                case 1:
+                                    //Catharsis - Movie\
+                                    Toast.makeText(EventsHomeActivity.this, "Catharsis", Toast.LENGTH_SHORT).show();
+                                    break;
+                                case 2:
+                                    //Crimson Curtain - Drama
+                                    Toast.makeText(EventsHomeActivity.this, "Crimson", Toast.LENGTH_SHORT).show();
+                                    break;
+                                case 3:
+                                    //Fraglore - None
+                                    Toast.makeText(EventsHomeActivity.this, "Fraglore", Toast.LENGTH_SHORT).show();
+                                    break;
+                                case 4:
+                                    //Glitterati - None
+                                    Toast.makeText(EventsHomeActivity.this, "Glitterati", Toast.LENGTH_SHORT).show();
+                                    break;
+                                case 5:
+                                    //Photog Fest - Photog ?
+                                    Toast.makeText(EventsHomeActivity.this, "Photog", Toast.LENGTH_SHORT).show();
+                                    break;
+                                case 6:
+                                    //QuBITS - Quiz ?
+                                    Toast.makeText(EventsHomeActivity.this, "QuBits", Toast.LENGTH_SHORT).show();
+                                    break;
+                                case 7:
+                                    //Terpsichore - Dance
+                                    Toast.makeText(EventsHomeActivity.this, "Terps", Toast.LENGTH_SHORT).show();
+                                    break;
+                                case 8:
+                                    //Till Deaf - Music
+                                    Toast.makeText(EventsHomeActivity.this, "Till Deaf", Toast.LENGTH_SHORT).show();
+                                    break;
+                            }
+                        }
+                    })
                     .setScaleType(BaseSliderView.ScaleType.CenterCrop); //slight leftover stretch to sides < 10dp, not noticeable
             mDemoSlider.addSlider(sliderView);
         }
-
-        mDemoSlider.setOnClickListener(mSliderClickListener);
     }
 
     class EventCategoryItem extends RecyclerView.ViewHolder{
