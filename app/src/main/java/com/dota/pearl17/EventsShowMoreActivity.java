@@ -5,12 +5,12 @@ import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
@@ -24,7 +24,7 @@ public class EventsShowMoreActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_events_show_more);
 
-        fontface = Typeface.createFromAsset(getAssets(),"cubano_regular.otf");
+        fontface = Typeface.createFromAsset(getAssets(), "fonts/cubano_regular.otf");
 
         ImageView topbar = (ImageView) findViewById(R.id.events_topbar);
         Picasso.with(this)
@@ -46,10 +46,14 @@ public class EventsShowMoreActivity extends AppCompatActivity {
     class EventCategoryItem extends RecyclerView.ViewHolder{
         TextView title;
         ImageView icon;
+        RelativeLayout eventButton;
         public EventCategoryItem(View v){
             super(v);
             title = (TextView) v.findViewById(R.id.title_category);
             icon = (ImageView) v.findViewById(R.id.icon_category);
+
+            eventButton = (RelativeLayout) v.findViewById(R.id.layout_event_category);
+
 
             title.setTypeface(fontface);
         }
@@ -101,6 +105,17 @@ public class EventsShowMoreActivity extends AppCompatActivity {
         public void onBindViewHolder(EventCategoryItem holder, int position) {
             holder.title.setText(titles[position]);
             holder.icon.setImageResource(icons[position]);
+            final EventCategoryItem finalHolder = holder;
+            holder.eventButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    Intent i = new Intent(EventsShowMoreActivity.this,ClubEventsActivity.class);
+
+                    i.putExtra("club_name" , finalHolder.title.getText().toString());
+                    startActivity(i);
+                }
+            });
         }
 
         @Override

@@ -27,9 +27,10 @@
             android:layout_marginRight="8dp">
 
             <com.daimajia.slider.library.SliderLayout
+                android:layout_centerInParent="true"
                 android:id="@+id/headlinersSlider"
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent" />
+                android:layout_height="240dp"
+                android:layout_width="345dp" />
 
             <com.daimajia.slider.library.Indicators.PagerIndicator
                 android:id="@+id/custom_indicator"
@@ -38,7 +39,7 @@
                 android:gravity="center"
                 android:layout_centerHorizontal="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginBottom="16dp"
+                android:layout_marginBottom="8dp"
                 app:selected_color="@color/custom_red"
                 app:unselected_color="@color/custom_red"
                 android:shape="oval"

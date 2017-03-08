@@ -1,18 +1,14 @@
 package com.dota.pearl17;
 
-import android.content.Context;
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
-
-import java.util.Date;
 
 public class RegistrationActivity extends AppCompatActivity implements View.OnClickListener, EventConfirmDialog.confirm, PickDOBDialog.DOB {
 
@@ -38,8 +34,8 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
         register = (Button) findViewById(R.id.register);
 
 
-        Typeface custom_font = Typeface.createFromAsset(getAssets(),  "fonts/GoodPro-CondMedium.otf");
-        Typeface custom_font_bold = Typeface.createFromAsset(getAssets(),  "fonts/GoodPro-CondBlack.otf");
+        Typeface custom_font = Typeface.createFromAsset(getAssets(), "fonts/goodpro_condmedium.otf");
+        Typeface custom_font_bold = Typeface.createFromAsset(getAssets(), "fonts/goodpro_condblack.otf");
 
         name.setTypeface(custom_font);
         dob.setTypeface(custom_font);

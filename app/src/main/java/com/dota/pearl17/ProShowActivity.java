@@ -1,5 +1,6 @@
 package com.dota.pearl17;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.support.annotation.NonNull;
@@ -35,25 +36,25 @@ public class ProShowActivity extends AppCompatActivity {
         CarouselChildSelectionListener csl = new CarouselChildSelectionListener(mRecycler,mLayoutManager) {
             @Override
             protected void onCenterItemClicked(@NonNull RecyclerView recyclerView, @NonNull CarouselLayoutManager carouselLayoutManager, @NonNull View v) {
-                //do shit
-                Log.i("onClick","central item clicked");
+                //open description
+                startActivity(new Intent(ProShowActivity.this,ProShowDetailsActivity.class));
             }
 
             @Override
             protected void onBackItemClicked(@NonNull RecyclerView recyclerView, @NonNull CarouselLayoutManager carouselLayoutManager, @NonNull View v) {
-                //do other shit
+                //bring that item to center
                 recyclerView.smoothScrollToPosition(recyclerView.getChildAdapterPosition(v));
             }
         };
         mRecycler.setAdapter(new ProShowAdapter());
-        mRecycler.scrollToPosition(1); // this is sonu nigam resId's index
+//        mRecycler.scrollToPosition(1); // this is sonu nigam resId's index
     }
 
     class ProShowAdapter extends RecyclerView.Adapter<ProShowAdapter.ProShowViewHolder>{
         int resId[] = new int[]{
                 R.drawable.proshow_lagori1,
                 R.drawable.proshow_sonu1,
-                R.drawable.proshow_papacj1
+                R.drawable.proshow_zakhir1
         };
         @Override
         public ProShowViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {

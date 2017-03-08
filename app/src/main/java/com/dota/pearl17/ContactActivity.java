@@ -4,25 +4,37 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.widget.TabHost;
 
 import com.dota.pearl17.R;
 
 public class ContactActivity extends AppCompatActivity {
-
-    Toolbar toolbar;
-    TabLayout tabLayout;
+    TabHost tabHost;
+    private RecyclerView fob_veiw , club_senate_veiw;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_contactpage);
 
-        ViewPager viewPager=(ViewPager)findViewById(R.id.view_pager);
-        viewPager.setAdapter(new SimpleFragmentPagerAdapter_Contact(getSupportFragmentManager(),this));
+        tabHost= (TabHost) findViewById(R.id.tabhost);
+        tabHost.setup();
+        TabHost.TabSpec tabSpec=tabHost.newTabSpec("fob");
+        tabSpec.setContent(R.id.tab1);
+        tabSpec.setIndicator("FOB");
+        tabHost.addTab(tabSpec);
 
-        tabLayout=(TabLayout)findViewById(R.id.tab_layout);
-        tabLayout.setupWithViewPager(viewPager);
+        tabSpec=tabHost.newTabSpec("club_senate");
+        tabSpec.setContent(R.id.tab2);
+        tabSpec.setIndicator("CLUB SENATE");
+        tabHost.addTab(tabSpec);
+
+        fob_veiw= (RecyclerView) findViewById(R.id.fob_list);
+        club_senate_veiw= (RecyclerView) findViewById(R.id.club_senate);
+
+
 
     }
 }
