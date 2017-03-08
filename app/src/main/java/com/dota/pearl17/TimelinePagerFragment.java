@@ -87,7 +87,7 @@ public class TimelinePagerFragment extends Fragment{
 
 
         times = mTableManager.getDistinctTime(getArguments().getInt("day"));
-        Log.e("TimelineFrag", times.toString());
+        Log.e("TimelineFrag1", times.toString());
         if (times.isEmpty()) {
             recyclerView.setVisibility(View.GONE);
             textView.setVisibility(View.VISIBLE);

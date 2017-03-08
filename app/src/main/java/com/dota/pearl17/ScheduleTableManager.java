@@ -39,9 +39,9 @@ public class ScheduleTableManager {
 
     public ScheduleTableManager(Context cl) {
         context = cl;
-        addEntry(2, "round2", "pearl", 12345L, "F105");
-        addEntry(3, "round2", "pearl", 12345L, "F105");
-        addEntry(4, "round2", "pearl", 12345L, "F105");
+//        addEntry(2, "round2", "pearl", 12345L, "F105");
+//        addEntry(3, "round2", "pearl", 4567L, "F105");
+//        addEntry(4, "round2", "pearl", 88806L, "F105");
 
 
     }
@@ -126,8 +126,8 @@ public class ScheduleTableManager {
         Calendar start = Calendar.getInstance(), end = Calendar.getInstance();
         start.setTimeZone(TimeZone.getTimeZone("GMT"));
         end.setTimeZone(TimeZone.getTimeZone("GMT"));
-        start.set(2016, Calendar.OCTOBER, 14 + day, 0, 0);
-        end.set(2016, Calendar.OCTOBER, 15 + day, 0, 0);
+        start.set(2017, Calendar.MARCH, 17 + day, 0, 0);
+        end.set(2017, Calendar.MARCH, 18 + day, 0, 0);
         open();
         ArrayList<Long> times = new ArrayList<>();
         Cursor cursor = ourDatabase.rawQuery("SELECT DISTINCT " + KEY_START_TIME + " FROM " + DATABASE_TABLE +
