@@ -90,6 +90,8 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 case 7:
                     //Sponsor
+                    startActivity(new Intent(MainActivity.this,SponsorsActivity.class));
+
                     break;
                 case 8:
                     //App Credits

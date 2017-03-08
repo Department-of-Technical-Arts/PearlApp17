@@ -25,10 +25,10 @@ public class EventDetailsActivity extends AppCompatActivity {
 
         i.getIntExtra("event_id",event_id);
 
-//        eventDB = new EventDatabaseManager(this);
-//        cart = new IdTableManager(this);
-//
-//        event = eventDB.getEvent(event_id);
+        eventDB = new EventDatabaseManager(this);
+        cart = new IdTableManager(this);
+
+        event = eventDB.getEvent(event_id);
 
         Picasso.with(this)
                 .load(R.drawable.event_frame)
