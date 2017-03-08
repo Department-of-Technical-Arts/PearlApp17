@@ -35,7 +35,7 @@ public class TalksActivity extends AppCompatActivity {
             @Override
             protected void onCenterItemClicked(@NonNull RecyclerView recyclerView, @NonNull CarouselLayoutManager carouselLayoutManager, @NonNull View v) {
                 //open description
-                startActivity(new Intent(TalksActivity.this,TalkDetailsActivity.class));
+                return;
             }
 
             @Override

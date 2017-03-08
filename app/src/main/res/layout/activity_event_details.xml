@@ -46,51 +46,6 @@
                 android:id="@+id/event_desc"
                 android:textSize="18sp" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Contact: "
-                android:textColor="#E3556B"
-                android:id="@+id/event_contacts_heading"
-                android:textSize="24sp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="#E3556B"
-                android:id="@+id/event_contacts"
-                android:textSize="18sp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Location: "
-                android:textColor="#E3556B"
-                android:id="@+id/event_location_heading"
-                android:textSize="24sp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="#E3556B"
-                android:id="@+id/event_location"
-                android:textSize="18sp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="#E3556B"
-                android:text="Time: "
-                android:id="@+id/event_time_heading"
-                android:textSize="24sp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="#E3556B"
-                android:id="@+id/event_time"
-                android:textSize="18sp" />
-
         </LinearLayout>
 
     </ScrollView>
@@ -100,7 +55,25 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="36dp"
         android:layout_marginRight="36dp"
-        android:layout_marginBottom="40dp"
+        android:layout_marginBottom="20dp"
+        android:padding="15dp"
+        android:id="@+id/rules"
+        android:onClick="rules"
+        android:textSize="24sp"
+        android:textColor="@android:color/white"
+        android:text="DOWNLOAD RULES"
+        android:gravity="center_horizontal"
+        android:background="@drawable/border_item_club_event"
+        android:layout_above="@+id/add"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentLeft="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="36dp"
+        android:layout_marginRight="36dp"
+        android:layout_marginBottom="50dp"
         android:padding="15dp"
         android:id="@+id/add"
         android:onClick="add"
