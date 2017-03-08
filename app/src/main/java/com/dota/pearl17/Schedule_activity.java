@@ -11,6 +11,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+
+import com.squareup.picasso.Picasso;
 
 /**
  * Created by SHREEDA on 07-03-2017.
@@ -29,6 +32,9 @@ public class Schedule_activity extends AppCompatActivity {
         //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         //setSupportActionBar(toolbar);
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        ImageView bg = (ImageView) findViewById(R.id.schedule_top);
+        Picasso.with(Schedule_activity.this).load(R.drawable.schedule_topbar).fit().into(bg);
 
 
 

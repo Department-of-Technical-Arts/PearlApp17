@@ -36,8 +36,8 @@ public class EventDetailsActivity extends AppCompatActivity {
         locationH = (TextView) findViewById(R.id.event_location_heading);
         timeH = (TextView) findViewById(R.id.event_time_heading);
 
-        custom_font_bold = Typeface.createFromAsset(getAssets(),  "fonts/GoodPro-CondBlack.otf");
-        custom_font = Typeface.createFromAsset(getAssets(),  "fonts/GoodPro-CondMedium.otf");
+        custom_font_bold = Typeface.createFromAsset(getAssets(),  "fonts/goodpro_condblack.otf");
+        custom_font = Typeface.createFromAsset(getAssets(),  "fonts/goodpro_condmedium.otf");
 
         Intent i = getIntent();
 
