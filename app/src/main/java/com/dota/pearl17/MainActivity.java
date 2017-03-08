@@ -80,6 +80,7 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 case 4:
                     //Schedule
+                    startActivity(new Intent(MainActivity.this, Schedule_activity.class));
                     break;
                 case 5:
                     //Guide
