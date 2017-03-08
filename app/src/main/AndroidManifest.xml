@@ -50,6 +50,9 @@
             android:name=".CampusMapActivity"
             android:theme="@style/GuideTheme" />
         <activity
+            android:name=".Schedule_activity"
+            android:theme="@style/GuideTheme" />
+        <activity
             android:name=".ContactActivity"
             android:theme="@style/GuideTheme" />
         <activity android:name=".SponsorsActivity" />
