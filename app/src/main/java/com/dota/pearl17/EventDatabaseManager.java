@@ -26,7 +26,7 @@ public class EventDatabaseManager {
         public static final String CONTACT_NAME = "CONTACT_NAME"; //1 if done, 0 if not done
         public static final String CONTACT_PHONE = "PHONE";
         public static final String CONTACT_MAIL = "MAIL";
-        public static final String EVENT_CLUB = "MAIL";
+        public static final String EVENT_CLUB = "CLUB";
         public static final String EVENT_LOCATION = "LOCATION";
         public static final String EVENT_DESC = "DESC";
         public static final String EVENT_TIME = "TIME";
@@ -62,25 +62,31 @@ public class EventDatabaseManager {
 
         open();
         Cursor c;
+        Event event;
 
         c = ourDatabase.rawQuery("SELECT * FROM " + DATABASE_TABLE + " WHERE " + EVENT_ID + " LIKE " + eventId, null);
 
-        c.moveToFirst();
-        Event event = new Event(c.getInt(c.getColumnIndex(EVENT_ID)),
-                c.getString(c.getColumnIndex(EVENT_NAME)),
-                c.getString(c.getColumnIndex(EVENT_DESC)),
-                c.getString(c.getColumnIndex(CONTACT_NAME)),
-                c.getString(c.getColumnIndex(CONTACT_MAIL)),
-                c.getString(c.getColumnIndex(CONTACT_PHONE)),
-                c.getString(c.getColumnIndex(EVENT_CLUB)),
-                c.getString(c.getColumnIndex(EVENT_LOCATION)),
-                c.getString(c.getColumnIndex(EVENT_TIME)));
+        if(c.moveToFirst()) {
+            event = new Event(c.getInt(c.getColumnIndex(EVENT_ID)),
+                    c.getString(c.getColumnIndex(EVENT_NAME)),
+                    c.getString(c.getColumnIndex(EVENT_DESC)),
+                    c.getString(c.getColumnIndex(CONTACT_NAME)),
+                    c.getString(c.getColumnIndex(CONTACT_MAIL)),
+                    c.getString(c.getColumnIndex(CONTACT_PHONE)),
+                    c.getString(c.getColumnIndex(EVENT_CLUB)),
+                    c.getString(c.getColumnIndex(EVENT_LOCATION)),
+                    c.getString(c.getColumnIndex(EVENT_TIME)));
+
+            c.close();
+            close();
+
+            return event;
+        }
+
         c.close();
         close();
 
-        return event;
-
-
+        return null;
     }
 
 
@@ -95,18 +101,17 @@ public class EventDatabaseManager {
             @Override
             public void onCreate(SQLiteDatabase db) {
 
-                String query = "CREATE TABLE IF NOT EXISTS " + DATABASE_TABLE + " (" +
-                        KEY + " INTEGER AUTOINCREMENT, " +
+                String query = "CREATE TABLE IF NOT EXISTS " + DATABASE_TABLE + " ( " +
+                        KEY + " INTEGER, " +
                         EVENT_NAME + " TEXT NOT NULL, " +
                         EVENT_ID + " INTEGER NOT NULL PRIMARY KEY, " +//1, 2, etc event associated id
-                        EVENT_CLUB + " TEXT " +
-                        EVENT_DESC + " TEXT " +
-                        EVENT_LOCATION + " TEXT " +
-                        EVENT_TIME + " TEXT " +
+                        EVENT_CLUB + " TEXT, " +
+                        EVENT_DESC + " TEXT, " +
+                        EVENT_LOCATION + " TEXT, " +
+                        EVENT_TIME + " TEXT, " +
                         CONTACT_NAME + " TEXT, " +
                         CONTACT_PHONE + " TEXT, " +
-                        CONTACT_MAIL + " TEXT, " +
-                        "UNIQUE(" + EVENT_ID + "));";
+                        CONTACT_MAIL + " TEXT );";
 
                 db.execSQL(query);
             }

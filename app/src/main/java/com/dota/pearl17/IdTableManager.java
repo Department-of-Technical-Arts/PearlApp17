@@ -54,7 +54,7 @@ public class IdTableManager {
         try {
             success = ourDatabase.insertOrThrow(DATABASE_TABLE, null, cv);
         } catch (SQLiteConstraintException e) {
-           //repeat hora hai. lite.
+            //repeat hora hai. lite.
         }
         close();
         return success;
@@ -117,7 +117,7 @@ public class IdTableManager {
 
             String query = "CREATE TABLE IF NOT EXISTS " + DATABASE_TABLE + " (" +
                     EVENT_ID + " INTEGER NOT NULL PRIMARY KEY, " +
-                    EVENT_NAME + " TEXT ";
+                    EVENT_NAME + " TEXT );";
             db.execSQL(query);
         }
 

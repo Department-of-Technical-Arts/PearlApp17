@@ -71,6 +71,9 @@ public class EventConfirmDialog extends android.support.v4.app.DialogFragment {
 
         });
 
+        cart = new IdTableManager(context);
+        events = new ArrayList<>();
+
         events = cart.getEventNames();
 
         eventList = (RecyclerView) view.findViewById(R.id.events);
