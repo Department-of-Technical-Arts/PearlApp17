@@ -5,7 +5,6 @@ import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,7 +24,7 @@ public class EventsShowMoreActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_events_show_more);
 
-        fontface = Typeface.createFromAsset(getAssets(),"cubano_regular.otf");
+        fontface = Typeface.createFromAsset(getAssets(), "fonts/cubano_regular.otf");
 
         ImageView topbar = (ImageView) findViewById(R.id.events_topbar);
         Picasso.with(this)

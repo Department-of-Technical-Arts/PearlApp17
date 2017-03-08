@@ -1,18 +1,15 @@
 package com.dota.pearl17;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -37,7 +34,7 @@ public class EventsHomeActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_events_home);
-        fontface = Typeface.createFromAsset(getAssets(),"cubano_regular.otf");
+        fontface = Typeface.createFromAsset(getAssets(), "fonts/cubano_regular.otf");
 
         ImageView topbar = (ImageView) findViewById(R.id.events_topbar);
         ImageView middlebar = (ImageView) findViewById(R.id.events_middlebar);
@@ -66,17 +63,10 @@ public class EventsHomeActivity extends AppCompatActivity {
         });
 
         mDemoSlider = (SliderLayout) findViewById(R.id.headlinersSlider);
-
-        for(int i=0;i<5;i++){
-            DefaultSliderView sliderView = new DefaultSliderView(this);
-            sliderView.image(R.drawable.headliner_catharsis)
-                    .setScaleType(BaseSliderView.ScaleType.CenterCrop); //slight leftover stretch to sides < 10dp, not noticeable
-            mDemoSlider.addSlider(sliderView);
-        }
         PagerIndicator custom = (PagerIndicator) findViewById(R.id.custom_indicator);
         mDemoSlider.setCustomIndicator(custom);
-        mDemoSlider.setCurrentPosition(2,false);
         mDemoSlider.setDuration(3000); //Decide on duration
+        loadSliderImages();
     }
 
     @Override
@@ -85,15 +75,39 @@ public class EventsHomeActivity extends AppCompatActivity {
         super.onStop();
     }
 
+    void loadSliderImages(){
+
+        int resources[] = new int[]{
+                R.drawable.headliner_carnival_zone,
+                R.drawable.headliner_catharsis,
+                R.drawable.headliner_crimson_curtain,
+                R.drawable.headliner_fraglore,
+                R.drawable.headliner_glitterati,
+                R.drawable.headliner_photog,
+                R.drawable.headliner_qubits,
+                R.drawable.headliner_terpsichore,
+                R.drawable.headliner_till_deaf,
+        };
+
+        for(int i=0; i < resources.length; i++){
+            DefaultSliderView sliderView = new DefaultSliderView(this);
+            sliderView.image(resources[i])
+                    .setScaleType(BaseSliderView.ScaleType.CenterCrop); //slight leftover stretch to sides < 10dp, not noticeable
+            mDemoSlider.addSlider(sliderView);
+        }
+    }
+
     View.OnClickListener mClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             //handle item clicks here
             //condition should logically be the title
             //from here the EventsListScreen is opened
-            startActivity(new Intent(EventsHomeActivity.this,EventDetailsActivity.class));
+            //startActivity(new Intent(EventsHomeActivity.this,EventDetailsActivity.class));
         }
     };
+
+
     class EventCategoryItem extends RecyclerView.ViewHolder{
         TextView title;
         ImageView icon;

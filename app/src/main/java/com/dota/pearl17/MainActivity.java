@@ -200,6 +200,5 @@ public class MainActivity extends AppCompatActivity {
             //open developers screen or show an animation
         }
         click_count++;
-        Log.i("easterEgg",""+click_count);
     }
 }
