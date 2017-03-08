@@ -35,13 +35,7 @@
             android:name=".ProShowActivity"
             android:theme="@style/ProShowTheme" />
         <activity
-            android:name=".ProShowDetailsActivity"
-            android:theme="@style/ProShowTheme" />
-        <activity
             android:name=".TalksActivity"
-            android:theme="@style/TalksTheme" />
-        <activity
-            android:name=".TalkDetailsActivity"
             android:theme="@style/TalksTheme" />
         <activity android:name=".RegistrationActivity" />
         <activity android:name=".SponsorsActivity" />
