@@ -1,7 +1,12 @@
 package com.dota.pearl17;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -252,10 +257,11 @@ public class MainActivity extends AppCompatActivity {
     }
     int click_count=0;
     public void easterEgg(View v){
-        if(click_count==5){
-            click_count=0;
-            //open developers screen or show an animation
-        }
-        click_count++;
+//        if(click_count==5){
+//            click_count=0;
+//            //open developers screen or show an animation
+//        }
+//        click_count++;
+        startActivity(new Intent(MainActivity.this,SplashScreenActivity.class));
     }
 }

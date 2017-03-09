@@ -47,7 +47,7 @@ public class ProShowActivity extends AppCompatActivity {
             }
         };
         mRecycler.setAdapter(new ProShowAdapter());
-//        mRecycler.scrollToPosition(1); // this is sonu nigam resId's index
+        mRecycler.scrollToPosition(1); // this is sonu nigam resId's index
     }
 
     class ProShowAdapter extends RecyclerView.Adapter<ProShowAdapter.ProShowViewHolder>{
