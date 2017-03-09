@@ -7,6 +7,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteConstraintException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -23,15 +24,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Created by ADMIN on 7.3.17.
- */
-
 public class EventDatabaseManager {
 
-        public static final String KEY = "_id";     //pearl Id PE0001
+        public static final String KEY = "_id";
         public static final String EVENT_ID = "EVENT_ID";
-        public static final String EVENT_NAME = "EVENT_NAME";           //name of the guy fetched from server
+        public static final String EVENT_NAME = "EVENT_NAME";
         public static final String EVENT_CLUB = "CLUB";
         public static final String EVENT_DESC = "DESC";
         public static final String EVENT_RULES = "RULES";
@@ -50,9 +47,6 @@ public class EventDatabaseManager {
 
         public EventDatabaseManager(Context c) {
             context = c;
-            addEvent(new Event(1,"vividHz", "test1", "VFX","1234"));
-            addEvent(new Event(2,"Kaleidoscope", "test2", "VFX", "1234"));
-            addEvent(new Event(3,"Spoiler Alert", "test3","VFX","1236"));
         }
 
         public EventDatabaseManager open() {
@@ -165,8 +159,8 @@ public class EventDatabaseManager {
 
         c.close();
         close();
-
-        return null;
+        events.add(new Event(0,"0","0","0","0"));
+        return events;
     }
 
     public void updateEvents(){
@@ -185,8 +179,8 @@ public class EventDatabaseManager {
                             JSONArray array = new JSONObject(s).getJSONArray("data");
                             for (int j = 0; j < array.length(); j++) {
                                 JSONObject Object = array.getJSONObject(j);
-                                addEvent(new Event(Object.getInt("event_id"), Object.getString("name"), Object.getString("desc"),
-                                         Object.getString("club"), Object.getString("rules")));
+                                addEvent(new Event(Object.getInt("event_id"), Object.getString("name"), Object.getString("description"),
+                                         Object.getString("club"), Object.getString("pdf")));
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -209,14 +203,38 @@ public class EventDatabaseManager {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
-                params.put("tag", "updateEvents");
+                params.put("tag", "getEvents");
                 //Log.e("Sent", params.toString());
                 return params;
             }
-        };
-        AppController.getInstance().addToRequestQueue(request);
 
+        };
+
+        AppController.getInstance().addToRequestQueue(request);
     }
+
+    public void printEvents(){
+        open();
+
+        Cursor c;
+        c = ourDatabase.rawQuery("SELECT * FROM " + DATABASE_TABLE , null);
+
+        if(c.moveToFirst()) {
+            do {
+                Event event =new Event(c.getInt(c.getColumnIndex(EVENT_ID)),
+                        c.getString(c.getColumnIndex(EVENT_NAME)),
+                        c.getString(c.getColumnIndex(EVENT_DESC)),
+                        c.getString(c.getColumnIndex(EVENT_CLUB)),
+                        c.getString(5));
+                Log.v("Events",event.getClub());
+            }while(c.moveToNext());
+        }
+
+        c.close();
+        close();
+    }
+
+
 
 
 

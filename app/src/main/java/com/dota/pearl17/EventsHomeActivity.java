@@ -34,11 +34,15 @@ public class EventsHomeActivity extends AppCompatActivity {
     RecyclerView mRecycler;
     Typeface fontface;
     SliderLayout mDemoSlider;
+    EventDatabaseManager eventDB;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_events_home);
+
+        eventDB = new EventDatabaseManager(this);
+        eventDB.printEvents();
 
         fontface = Typeface.createFromAsset(getAssets(), "fonts/cubano_regular.otf");
 

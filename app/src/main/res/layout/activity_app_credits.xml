@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="100dp"
+        android:paddingBottom="50dp"
+        android:background="@drawable/credits_frame">
+
+    <RelativeLayout
+        android:id="@+id/activity_app_credits"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="-25dp"
+        android:paddingRight="-25dp"
+        tools:context="com.dota.pearl17.AppCreditsActivity">
+
+        <ImageView
+            android:id="@+id/Developers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/developers_title"
+            android:scaleX="0.8"
+            android:scaleY="0.8"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="0sp"/>
+
+        <ImageView
+            android:id="@+id/DevelopersTemplate1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/akhil"
+            android:layout_below="@id/Developers"
+            android:layout_marginTop="-50dp"
+            android:layout_marginBottom="-33dp"
+            android:layout_marginLeft="-2dp"
+            android:tag="https://www.facebook.com/c.akhil.shri?fref=ts"
+            android:onClick="openBrowser"
+            android:scaleX="0.8"
+            android:scaleY="0.8" />
+
+        <ImageView
+            android:id="@+id/DevelopersTemplate2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/kaushik"
+            android:layout_below="@id/DevelopersTemplate1"
+            android:layout_marginTop="-50dp"
+            android:layout_marginBottom="-33dp"
+            android:layout_marginLeft="-2dp"
+            android:tag="https://www.facebook.com/kaushik.nimbalkar?fref=hovercard"
+            android:onClick="openBrowser"
+            android:scaleX="0.8"
+            android:scaleY="0.8" />
+
+        <ImageView
+            android:id="@+id/DevelopersTemplate3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/credits_name_button"
+            android:layout_below="@id/DevelopersTemplate2"
+            android:layout_marginTop="-50dp"
+            android:layout_marginBottom="-33dp"
+            android:layout_marginLeft="-2dp"
+            android:tag="https://www.facebook.com/shreeda.pattanaik?fref=ts"
+            android:onClick="openBrowser"
+            android:scaleX="0.8"
+            android:scaleY="0.8" />
+
+        <ImageView
+            android:id="@+id/DevelopersTemplate4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/credits_name_button"
+            android:layout_below="@id/DevelopersTemplate3"
+            android:layout_marginTop="-50dp"
+            android:layout_marginBottom="-33dp"
+            android:layout_marginLeft="-2dp"
+            android:tag="https://www.facebook.com/snigdha.grandhi.5?fref=ts"
+            android:onClick="openBrowser"
+            android:scaleX="0.8"
+            android:scaleY="0.8" />
+
+        <ImageView
+            android:id="@+id/DevelopersTemplate5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/shivika"
+            android:layout_below="@id/DevelopersTemplate4"
+            android:layout_marginTop="-50dp"
+            android:layout_marginBottom="-33dp"
+            android:layout_marginLeft="-2dp"
+            android:tag="https://www.facebook.com/sheebu1997?ref=br_rs"
+            android:onClick="openBrowser"
+            android:scaleX="0.8"
+            android:scaleY="0.8" />
+
+        <ImageView
+            android:id="@+id/DevelopersTemplate6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/vaishnavi"
+            android:layout_below="@id/DevelopersTemplate5"
+            android:layout_marginTop="-50dp"
+            android:layout_marginBottom="-33dp"
+            android:layout_marginLeft="-2dp"
+            android:tag="https://www.facebook.com/kattukolu.reddy?fref=ts"
+            android:onClick="openBrowser"
+            android:scaleX="0.8"
+            android:scaleY="0.8" />
+
+        <ImageView
+            android:id="@+id/Designers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/designers_title"
+            android:scaleX="0.8"
+            android:scaleY="0.8"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="5dp"
+            android:layout_below="@+id/DevelopersTemplate5"
+            android:layout_marginTop="150dp" />
+
+        <ImageView
+            android:id="@+id/DesignersTemplate1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ansuman"
+            android:layout_below="@id/Designers"
+            android:layout_marginTop="-50dp"
+            android:layout_marginBottom="-33dp"
+            android:layout_marginRight="-2dp"
+            android:tag="https://www.facebook.com/anshuman.das.9678?fref=ts"
+            android:onClick="openBrowser"
+            android:scaleX="0.8"
+            android:scaleY="0.8" />
+
+        <ImageView
+            android:id="@+id/DesignersTemplate2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/anshik"
+            android:layout_below="@id/DesignersTemplate1"
+            android:layout_marginTop="-50dp"
+            android:layout_marginBottom="-33dp"
+            android:layout_marginRight="-2dp"
+            android:tag="https://www.facebook.com/anshik.thareja?fref=ts"
+            android:onClick="openBrowser"
+            android:scaleX="0.8"
+            android:scaleY="0.8" />
+
+        <ImageView
+            android:id="@+id/DesignersTemplate3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/kanth"
+            android:layout_below="@id/DesignersTemplate2"
+            android:layout_marginTop="-50dp"
+            android:layout_marginBottom="-33dp"
+            android:layout_marginRight="-2dp"
+            android:tag="https://www.facebook.com/tushar.kanth.7?fref=ts"
+            android:onClick="openBrowser"
+            android:scaleX="0.8"
+            android:scaleY="0.8" />
+
+        <ImageView
+            android:id="@+id/DesignersTemplate4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/yadav"
+            android:layout_below="@id/DesignersTemplate3"
+            android:layout_marginTop="-50dp"
+            android:layout_marginBottom="-33dp"
+            android:layout_marginRight="-2dp"
+            android:scaleX="0.8"
+            android:scaleY="0.8" />
+
+        <ImageView
+            android:id="@+id/BackEnd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/back_end_title"
+            android:scaleX="0.8"
+            android:scaleY="0.8"
+            android:layout_marginBottom="5dp"
+            android:layout_below="@+id/DesignersTemplate4"
+            android:layout_marginTop="20dp"/>
+
+        <ImageView
+            android:id="@+id/BackEndTemplate1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/mishra"
+            android:layout_below="@id/BackEnd"
+            android:layout_marginTop="-50dp"
+            android:layout_marginBottom="-33dp"
+            android:layout_marginLeft="-2dp"
+            android:tag="https://www.facebook.com/amitmishra1005?fref=ts"
+            android:onClick="openBrowser"
+            android:scaleX="0.8"
+            android:scaleY="0.8" />
+
+        <ImageView
+            android:id="@+id/BackEndTemplate2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/grovor"
+            android:layout_below="@id/BackEndTemplate1"
+            android:layout_marginTop="-50dp"
+            android:layout_marginBottom="-33dp"
+            android:layout_marginLeft="-2dp"
+            android:tag="https://www.facebook.com/kgrovor?fref=ts"
+            android:onClick="openBrowser"
+            android:scaleX="0.8"
+            android:scaleY="0.8" />
+
+        <ImageView
+            android:id="@+id/BackEndTemplate3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/credits_name_button"
+            android:layout_below="@id/BackEndTemplate2"
+            android:layout_marginTop="-50dp"
+            android:layout_marginBottom="-33dp"
+            android:layout_marginLeft="-2dp"
+            android:scaleX="0.8"
+            android:scaleY="0.8" />
+
+    </RelativeLayout>
+
+</ScrollView>
+
+
