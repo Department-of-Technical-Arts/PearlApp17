@@ -50,8 +50,11 @@ public class TimelinePagerFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.container);
         TextView textView = (TextView) view.findViewById(R.id.notpresent);
-        mTableManager = new ScheduleTableManager(getActivity());
-        final LinearLayout mYourLayout = (LinearLayout) view.findViewById(R.id.linlayout);
+//        mTableManager = new ScheduleTableManager(getActivity());
+//        final LinearLayout mYourLayout = (LinearLayout) view.findViewById(R.id.linlayout);
+
+        recyclerView.setVisibility(View.GONE);
+        textView.setVisibility(View.VISIBLE);
 
 //        Picasso.with(getActivity())
 //                .load(R.drawable.schedule_background_bottom)
@@ -80,21 +83,21 @@ public class TimelinePagerFragment extends Fragment {
 
 
 //        times = mTableManager.getDistinctTime(getArguments().getInt("day"));
-        times = new ArrayList<>();
-        times.add(12345L);
-        times.add(4567L);
-        times.add(88806L);
-        Log.e("TimelineFrag1", times.toString());
-        if (times.isEmpty()) {
-            recyclerView.setVisibility(View.GONE);
-            textView.setVisibility(View.VISIBLE);
-        } else {
-            MyAdapter mAdapter = new MyAdapter(getActivity());
-            mAdapter.setTimes(times);
-            recyclerView.setAdapter(mAdapter);
-            recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-            Log.e("Day " + getArguments().getInt("day"), String.valueOf(times.size()));
-        }
+
+//        Log.e("TimelineFrag1", times.toString());
+
+
+
+//        if (times.isEmpty()) {
+//            recyclerView.setVisibility(View.GONE);
+//            textView.setVisibility(View.VISIBLE);
+//        } else {
+//            MyAdapter mAdapter = new MyAdapter(getActivity());
+//            mAdapter.setTimes(times);
+//            recyclerView.setAdapter(mAdapter);
+//            recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+//            Log.e("Day " + getArguments().getInt("day"), String.valueOf(times.size()));
+//        }
 
     }
 
@@ -134,6 +137,10 @@ public class TimelinePagerFragment extends Fragment {
             for (int i = 0; i < sets.size(); i++) {
                 final ScheduleSet set = sets.get(i);
                 View v = LayoutInflater.from(getActivity()).inflate(R.layout.component_timeline_row, linearLayout, false);
+                Picasso.with(getContext())
+                        .load(R.drawable.schedulerow)
+                        .fit()
+                        .into((ImageView)v.findViewById(R.id.bg_schedule_row));
                 ((TextView) v.findViewById(R.id.event_name)).setText(set.getName());
                 ((TextView) v.findViewById(R.id.round_name)).setText(set.getRound());
                 ((TextView) v.findViewById(R.id.venue)).setText(set.getVenue());
