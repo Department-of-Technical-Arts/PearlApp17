@@ -3,6 +3,7 @@ package com.dota.pearl17;
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -125,6 +126,7 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
 
         register.setOnClickListener(this);
 
+
         dob.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -139,6 +141,15 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
 
     @Override
     public void onClick(View v) {
+
+        Log.v("Details","Details: "+name.getText().toString()+"email: " + email.getText().toString()+phone.getText().toString()+city.getText().toString()+college.getText().toString());
+
+        if(name.getText().toString().trim().equals("")||email.getText().toString().trim().equals("")||phone.getText().toString().trim().equals("")||city.getText().toString().trim().equals("")||college.getText().toString().trim().equals("")||dob.getText().toString().trim().equals("")){
+
+            Toast.makeText(RegistrationActivity.this,"Please fill all details",Toast.LENGTH_SHORT).show();
+            return;
+
+        }
 
         _name = name.getText().toString();
         _email = email.getText().toString();

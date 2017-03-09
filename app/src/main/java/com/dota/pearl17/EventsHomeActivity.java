@@ -196,8 +196,8 @@ public class EventsHomeActivity extends AppCompatActivity {
     class LessEventsAdapter extends RecyclerView.Adapter<EventCategoryItem>{
 
         String titles[] = new String[]{
-                "Journal",
-                "ELAS",
+                "JOURNAL",
+                "ENGLISH LANGUAGE",
                 "QUIZZES",
                 "HINDI T",
                 "FINANCE",

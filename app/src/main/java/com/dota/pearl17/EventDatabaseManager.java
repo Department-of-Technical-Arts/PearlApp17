@@ -70,13 +70,13 @@ public class EventDatabaseManager {
         cv.put(EVENT_NAME, newEvent.getName());
         cv.put(EVENT_CLUB, newEvent.getClub());
         cv.put(EVENT_DESC, newEvent.getDesc());
-
+        cv.put(EVENT_RULES, newEvent.getRules());
 
         open();
         try {
             success = ourDatabase.insertOrThrow(DATABASE_TABLE, null, cv);
         } catch (SQLiteConstraintException e) {
-            //success = ourDatabase.update(DATABASE_TABLE, cv, EVENT_ID + " EQUALS " + newEvent.getId(),null);
+            success = ourDatabase.update(DATABASE_TABLE,cv,EVENT_ID + " = " + newEvent.getId(),null);
         }
         close();
         return success;
@@ -182,6 +182,7 @@ public class EventDatabaseManager {
                                 addEvent(new Event(Object.getInt("event_id"), Object.getString("name"), Object.getString("description"),
                                          Object.getString("club"), Object.getString("pdf")));
                             }
+                            Log.v("Events",s);
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }

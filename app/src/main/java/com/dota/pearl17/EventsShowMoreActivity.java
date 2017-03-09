@@ -73,7 +73,7 @@ public class EventsShowMoreActivity extends AppCompatActivity {
                 "MOVIE",
                 "DESIGN",
                 "JOURNAL",
-                "ELAS",
+                "ENGLISH LANGUAGE",
                 "QUIZZES",
                 "HINDI T",
                 "FINANCE",
