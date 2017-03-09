@@ -56,8 +56,8 @@ public class EventDetailsActivity extends AppCompatActivity {
         rules = (Button) findViewById(R.id.rules);
         participate = (Button) findViewById(R.id.add);
 
-        custom_font_bold = Typeface.createFromAsset(getAssets(),  "fonts/goodpro_condblack.otf");
-        custom_font = Typeface.createFromAsset(getAssets(),  "fonts/goodpro_condmedium.otf");
+        custom_font_bold = Typeface.createFromAsset(getAssets(), "fonts/goodpro_condblack.otf");
+        custom_font = Typeface.createFromAsset(getAssets(), "fonts/goodpro_condmedium.otf");
 
         Intent i = getIntent();
 

@@ -68,6 +68,7 @@ public class EventsHomeActivity extends AppCompatActivity {
             public void onClick(View v) {
                 //ANIM: This needs to have a slide up animation
                 startActivity(new Intent(EventsHomeActivity.this,EventsShowMoreActivity.class));
+                overridePendingTransition(R.anim.slide_up, R.anim.stay);
                 finish();
             }
         });
@@ -196,21 +197,21 @@ public class EventsHomeActivity extends AppCompatActivity {
     class LessEventsAdapter extends RecyclerView.Adapter<EventCategoryItem>{
 
         String titles[] = new String[]{
-                "JOURNAL",
-                "ENGLISH LANGUAGE",
-                "QUIZZES",
-                "HINDI T",
-                "FINANCE",
-                "VFX"
+                "DANCE",
+                "MUSIC",
+                "DRAMA",
+                "SHADES",
+                "MOVIE",
+                "JOURNAL"
         };
 
         int icons[] = new int[]{
-                R.drawable.icon_journal,
-                R.drawable.icon_elas,
-                R.drawable.icon_quiz,
-                R.drawable.icon_hindi,
-                R.drawable.icon_finance,
-                R.drawable.icon_vfx
+                R.drawable.icon_dance,
+                R.drawable.icon_music,
+                R.drawable.icon_drama,
+                R.drawable.icon_shades,
+                R.drawable.icon_movie,
+                R.drawable.icon_journal
         };
 
         @Override

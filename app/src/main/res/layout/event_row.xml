@@ -28,5 +28,15 @@
         android:layout_marginBottom="5dp"
         android:layout_below="@+id/text"
         android:layout_centerHorizontal="true" />
+    <ImageView
+        android:visibility="gone"
+        android:layout_width="70dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/end"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/lines_bottom"
+        android:layout_below="@+id/text"/>
 
 </RelativeLayout>

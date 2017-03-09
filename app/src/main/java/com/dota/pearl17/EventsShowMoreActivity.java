@@ -40,7 +40,6 @@ public class EventsShowMoreActivity extends AppCompatActivity {
     public void showLess(View v){
         //ANIM: This needs a slide down animation
         startActivity(new Intent(EventsShowMoreActivity.this,EventsHomeActivity.class));
-        finish();
     }
 
     class EventCategoryItem extends RecyclerView.ViewHolder{
@@ -73,10 +72,9 @@ public class EventsShowMoreActivity extends AppCompatActivity {
                 "MOVIE",
                 "DESIGN",
                 "JOURNAL",
-                "ENGLISH LANGUAGE",
-                "QUIZZES",
+                "ELAS",
+                "QUIZ",
                 "HINDI T",
-                "FINANCE",
                 "VFX"
         };
 
@@ -92,7 +90,6 @@ public class EventsShowMoreActivity extends AppCompatActivity {
                 R.drawable.icon_elas,
                 R.drawable.icon_quiz,
                 R.drawable.icon_hindi,
-                R.drawable.icon_finance,
                 R.drawable.icon_vfx
         };
 

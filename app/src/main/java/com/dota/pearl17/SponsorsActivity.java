@@ -24,6 +24,12 @@ public class SponsorsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sponsors);
 
+        Picasso.with(this)
+                .load(R.drawable.sponsors_frame)
+                .fit()
+                .centerCrop()
+                .into((ImageView)findViewById(R.id.bg_sponsors));
+
         sponsorRecycler = (RecyclerView) findViewById(R.id.sponsor_recycler);
         sponsorRecycler.setAdapter(new SponsAdapter(this));
         sponsorRecycler.setLayoutManager(new LinearLayoutManager(this));
@@ -67,12 +73,12 @@ public class SponsorsActivity extends AppCompatActivity {
         @Override
         public void onBindViewHolder(MyViewHolder holder, int position) {
 
-            holder.imageButton.requestLayout();
-            Picasso.with(context)
-                    .load(base_spons_url+"/"+position) //This is the varying url
-                    .fit()
-                    .centerInside()
-                    .into(holder.imageButton);
+//            holder.imageButton.requestLayout();
+//            Picasso.with(context)
+//                    .load(base_spons_url+"/"+position) //This is the varying url
+//                    .fit()
+//                    .centerInside()
+//                    .into(holder.imageButton);
         }
 
         @Override

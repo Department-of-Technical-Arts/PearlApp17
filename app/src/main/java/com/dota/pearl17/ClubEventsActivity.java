@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,7 +23,8 @@ public class ClubEventsActivity extends AppCompatActivity {
 
     ArrayList<Event> clubEvents;
     RecyclerView recycler;
-    TextView clubName;
+    TextView tv_clubName;
+    String clubName;
     Typeface custom_font, custom_font_bold, custom_font_bungee;
     EventDatabaseManager eventDB;
 
@@ -32,16 +34,16 @@ public class ClubEventsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_club_events);
 
         eventDB = new EventDatabaseManager(this);
-
-        clubEvents = eventDB.getClubEvents(getIntent().getStringExtra("club_name"));
+        clubName = getIntent().getStringExtra("club_name");
+        clubEvents = eventDB.getClubEvents(clubName);
         Log.v("clubEvents",clubEvents.toString());
 
         custom_font_bold = Typeface.createFromAsset(getAssets(),  "fonts/goodpro_condblack.otf");
         custom_font = Typeface.createFromAsset(getAssets(),  "fonts/goodpro_condmedium.otf");
         custom_font_bungee = Typeface.createFromAsset(getAssets(),  "fonts/bungee_regular.ttf");
-        clubName = (TextView) findViewById(R.id.club_name);
-        clubName.setText(getIntent().getStringExtra("club_name"));
-        clubName.setTypeface(custom_font_bungee);
+        tv_clubName = (TextView) findViewById(R.id.club_name);
+        tv_clubName.setText(getClubTitle());
+        tv_clubName.setTypeface(custom_font_bungee);
 
 
         recycler = (RecyclerView)findViewById(R.id.recycler);
@@ -49,6 +51,21 @@ public class ClubEventsActivity extends AppCompatActivity {
         recycler.setAdapter( new adapter(this,clubEvents));
     }
 
+    String getClubTitle(){
+        //For special cases where the name is not same as that on button
+        if(clubName.equals("ELAS"))
+        {
+            return "ENGLISH LANGUAGE";
+        }
+        else if(clubName.equals("HINDI T"))
+        {
+            return "HINDI TARANG";
+        }
+        else
+        {
+            return clubName;
+        }
+    }
 
     public class adapter extends RecyclerView.Adapter<adapter.Item>{
         Context context;
@@ -71,15 +88,16 @@ public class ClubEventsActivity extends AppCompatActivity {
             if(position == getItemCount()-1){
                 // Last Elem
                 holder.b.setVisibility(Button.GONE);
+                holder.lines.setVisibility(ImageView.VISIBLE);
             }
 
             holder.txt.setText(events.get(position).getName());
-            final String clubName = holder.txt.getText().toString();
+            final String eventName = holder.txt.getText().toString();
             holder.txt.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View v) {
                     Intent i = new Intent(ClubEventsActivity.this, EventDetailsActivity.class);
-                    i.putExtra("event_name", clubName);
+                    i.putExtra("event_name", eventName);
                     startActivity(i);
                 }
             });
@@ -93,10 +111,12 @@ public class ClubEventsActivity extends AppCompatActivity {
         class Item extends RecyclerView.ViewHolder{
             TextView txt ;
             Button b;
+            ImageView lines;
             Item(View itemView) {
                 super(itemView);
                 txt = (TextView) itemView.findViewById(R.id.text);
                 b = (Button) itemView.findViewById(R.id.button_bottom);
+                lines = (ImageView) itemView.findViewById(R.id.lines_bottom);
             }
         }
     }

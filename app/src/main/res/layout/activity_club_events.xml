@@ -10,38 +10,30 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:background="@drawable/event_frame">
-    <ImageView
-        android:layout_width="70dp"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/end"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/imageView5"
-        android:layout_below="@+id/recycler"/>
 
     <Button
-        android:layout_width="5dp"
-        android:layout_height="5dp"
+        android:layout_width="6dp"
+        android:layout_height="6dp"
         android:id="@+id/button2"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/club_name"
         android:layout_marginTop="10dp"
         android:background="@drawable/roundbutton"/>
     <Button
-        android:layout_width="5dp"
-        android:layout_height="5dp"
+        android:layout_width="6dp"
+        android:layout_height="6dp"
         android:id="@+id/button3"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/button2"
         android:layout_marginTop="5dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="5dp"
         android:background="@drawable/roundbutton"/>
     <android.support.v7.widget.RecyclerView
         android:overScrollMode="never"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
         android:layout_below = "@id/button3"
-        android:layout_marginBottom="5dp"
+        android:layout_marginBottom="16dp"
         android:id="@+id/recycler"/>
 
     <TextView
@@ -49,9 +41,9 @@
         android:layout_height="wrap_content"
         android:background="@drawable/textbox"
         android:layout_marginTop="80dp"
-        android:layout_marginLeft="100dp"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
+        android:layout_marginLeft="80dp"
+        android:paddingLeft="4dp"
+        android:paddingRight="4dp"
         android:gravity="center"
         android:textSize="36sp"
         android:textColor="#E3556B"
