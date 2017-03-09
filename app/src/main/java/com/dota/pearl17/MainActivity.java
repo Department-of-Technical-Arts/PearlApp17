@@ -196,10 +196,11 @@ public class MainActivity extends AppCompatActivity {
     }
     int click_count=0;
     public void easterEgg(View v){
-        if(click_count==5){
-            click_count=0;
-            //open developers screen or show an animation
-        }
-        click_count++;
+//        if(click_count==5){
+//            click_count=0;
+//            //open developers screen or show an animation
+//        }
+//        click_count++;
+        startActivity(new Intent(MainActivity.this,SplashScreenActivity.class));
     }
 }

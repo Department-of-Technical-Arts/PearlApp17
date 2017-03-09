@@ -10,10 +10,28 @@
         android:id="@+id/bg_hook"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
+
     <ImageView
-        android:layout_centerHorizontal="true"
-        android:src="@drawable/pearl_button"
-        android:layout_width="120dp"
-        android:layout_height="120dp" />
+        android:id="@+id/bg_splash"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <LinearLayout
+        android:layout_centerInParent="true"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/splash_logo"
+            android:layout_width="254dp"
+            android:layout_height="300dp" />
+
+        <ImageView
+            android:id="@+id/splash_dates"
+            android:layout_width="254dp"
+            android:layout_height="65dp" />
+
+    </LinearLayout>
 
 </RelativeLayout>
