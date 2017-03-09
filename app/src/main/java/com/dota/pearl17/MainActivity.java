@@ -11,9 +11,21 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.support.v7.widget.RecyclerView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
 import com.squareup.picasso.Picasso;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,6 +37,48 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        if(getIntent().getIntExtra("fromSplash",-1)==1){
+
+            if(SessionManager.getVersion(this)==-1){
+                SessionManager.setVersion(this,1);
+            }
+            else{
+                StringRequest request = new StringRequest(Request.Method.POST, ControllerConstant.url, new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String s) {
+                        try {
+                            JSONObject object = new JSONObject(s);
+                            if(object.getInt("version")!=SessionManager.getVersion(MainActivity.this)){
+                                //send to play store to update
+                                AppUpdateDialog dialog = new AppUpdateDialog(MainActivity.this);
+                                dialog.show(getSupportFragmentManager(),"TAG");
+                            }
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError volleyError) {
+
+                    }
+                }) {
+                    @Override
+                    protected Map<String, String> getParams() throws AuthFailureError {
+                        Map<String, String> params = new HashMap<>();
+                        params.put("tag", "get_version");
+                        //Log.e("Sent", params.toString());
+                        return params;
+                    }
+                };
+                AppController.getInstance().addToRequestQueue(request);
+
+            }
+        }
+
 
 //       getWindow().addContentView(inflater.inflate(R.layout.main_top, null), new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
 

@@ -9,6 +9,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
@@ -35,6 +36,7 @@ public class EventConfirmDialog extends android.support.v4.app.DialogFragment {
     RecyclerView eventList;
     Context context;
     LayoutInflater inflater;
+    Typeface custom_font;
 
     public EventConfirmDialog() {
         // Required empty public constructor
@@ -53,6 +55,8 @@ public class EventConfirmDialog extends android.support.v4.app.DialogFragment {
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         super.onCreateDialog(savedInstanceState);
+
+        Typeface custom_font = Typeface.createFromAsset(context.getAssets(),  "fonts/goodpro_condmedium.otf");
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
@@ -93,6 +97,7 @@ public class EventConfirmDialog extends android.support.v4.app.DialogFragment {
         public MyViewHolder(View itemView) {
             super(itemView);
             eventName = (TextView)itemView.findViewById(R.id.event_name);
+            eventName.setTypeface(custom_font);
         }
     }
 

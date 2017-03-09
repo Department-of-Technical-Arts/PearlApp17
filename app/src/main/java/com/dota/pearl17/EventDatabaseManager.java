@@ -133,7 +133,7 @@ public class EventDatabaseManager {
         c.close();
         close();
 
-        return new Event();
+        return new Event(0,"0","0","0","0");
     }
 
     public ArrayList<Event> getClubEvents(String clubName){
