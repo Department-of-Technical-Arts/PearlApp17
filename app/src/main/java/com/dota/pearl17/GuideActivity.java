@@ -1,6 +1,11 @@
 package com.dota.pearl17;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.ButtonBarLayout;
 import android.view.View;
@@ -45,7 +50,7 @@ public class GuideActivity extends AppCompatActivity implements View.OnClickList
                 startActivity(new Intent(GuideActivity.this,ReachUsActivity.class));
                 break;
             case R.id.CampusMap:
-                startActivity(new Intent(GuideActivity.this,MapsActivity.class));
+                checkPermissionsAndOpen();
                 break;
             case R.id.ContactUs:
                 startActivity(new Intent(GuideActivity.this,ContactActivity.class));
@@ -54,5 +59,37 @@ public class GuideActivity extends AppCompatActivity implements View.OnClickList
 
     }
 
+    void checkPermissionsAndOpen(){
+        String[] permissions = new String[]{Manifest.permission.ACCESS_FINE_LOCATION};
+        if(ContextCompat.checkSelfPermission(this,permissions[0])!= PackageManager.PERMISSION_GRANTED)
+        {
+            //Request perms
+            ActivityCompat.requestPermissions(this,permissions,123);
+        }
+        else{
+            //We have perms, start activity
+            startActivity(new Intent(GuideActivity.this,MapsActivity.class));
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+
+        switch(requestCode){
+            case 123:{
+                if(grantResults.length>0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+                    // Perms granted, move along
+                    startActivity(new Intent(GuideActivity.this,MapsActivity.class));
+                    return;
+                }
+                else{
+                    //Do nothing, since openeing Maps without location is pointless
+                    return;
+                }
+            }
+            default: super.onRequestPermissionsResult(requestCode,permissions,grantResults);
+        }
+
+    }
 
 }

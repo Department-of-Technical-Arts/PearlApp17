@@ -61,8 +61,6 @@ public class SplashScreenActivity extends AppCompatActivity {
 
         eventDB = new EventDatabaseManager(this);
         eventDB.updateEvents();
-        //Kaushik you can add the Volley code here
-
     }
 
     public void emit(){

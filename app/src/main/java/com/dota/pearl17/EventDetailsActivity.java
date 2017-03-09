@@ -1,9 +1,14 @@
 package com.dota.pearl17;
 
+import android.Manifest;
 import android.app.Dialog;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Typeface;
 import android.os.Environment;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -89,6 +94,14 @@ public class EventDetailsActivity extends AppCompatActivity {
 
     void downloadFile(){
 
+        String[] permissions = new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE};
+        if(ContextCompat.checkSelfPermission(this,permissions[0])!= PackageManager.PERMISSION_GRANTED)
+        {
+            //Request perms
+            ActivityCompat.requestPermissions(this,permissions,123);
+            return; //stop this call. After getting a confirmation, it is recalled. Else, not called
+        }
+
         try {
             URL url = new URL(event.getRules());
             HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
@@ -160,6 +173,26 @@ public class EventDetailsActivity extends AppCompatActivity {
                 Toast.makeText(EventDetailsActivity.this, err, Toast.LENGTH_LONG).show();
             }
         });
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+
+        switch(requestCode){
+            case 123:{
+                if(grantResults.length>0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+                    // Perms granted, move along
+                    downloadFile();
+                    return;
+                }
+                else{
+                    //Do nothing, since downloading files without WRITE is not possible
+                    return;
+                }
+            }
+            default: super.onRequestPermissionsResult(requestCode,permissions,grantResults);
+        }
+
     }
 
 }
