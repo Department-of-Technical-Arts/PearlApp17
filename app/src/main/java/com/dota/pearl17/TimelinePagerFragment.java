@@ -1,6 +1,10 @@
 package com.dota.pearl17;
 
+import android.annotation.TargetApi;
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
@@ -10,8 +14,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Target;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -21,7 +29,7 @@ import java.util.Calendar;
  * Created by SHREEDA on 07-03-2017.
  */
 
-public class TimelinePagerFragment extends Fragment{
+public class TimelinePagerFragment extends Fragment {
     ArrayList<Long> times;
     ScheduleTableManager mTableManager;
 
@@ -36,15 +44,43 @@ public class TimelinePagerFragment extends Fragment{
 
         return inflater.inflate(R.layout.fragment_schedule, container, false);
     }
+
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.container);
         TextView textView = (TextView) view.findViewById(R.id.notpresent);
         mTableManager = new ScheduleTableManager(getActivity());
+        final LinearLayout mYourLayout = (LinearLayout) view.findViewById(R.id.linlayout);
+
+//        Picasso.with(getActivity())
+//                .load(R.drawable.schedule_background_bottom)
+//                .into(new Target() {
+//                    @Override
+//                    @TargetApi(16)
+//                    public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
+//                        int sdk = android.os.Build.VERSION.SDK_INT;
+//                        if(sdk < android.os.Build.VERSION_CODES.JELLY_BEAN) {
+//                            mYourLayout.setBackground(new BitmapDrawable(getResources(), bitmap));
+//                        } else {
+//                            mYourLayout.setBackground(new BitmapDrawable(getResources(), bitmap));
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onBitmapFailed(Drawable errorDrawable) {
+//                        // use error drawable if desired
+//                    }
+//
+//                    @Override
+//                    public void onPrepareLoad(Drawable placeHolderDrawable) {
+//                        // use placeholder drawable if desired
+//                    }
+//                });
+
 
         times = mTableManager.getDistinctTime(getArguments().getInt("day"));
-        Log.e("TimelineFrag", times.toString());
+        Log.e("TimelineFrag1", times.toString());
         if (times.isEmpty()) {
             recyclerView.setVisibility(View.GONE);
             textView.setVisibility(View.VISIBLE);
@@ -91,7 +127,7 @@ public class TimelinePagerFragment extends Fragment{
 
             final ArrayList<ScheduleSet> sets = mTableManager.getSchedule(time);
             linearLayout.removeAllViews();
-            for ( int i = 0; i < sets.size(); i++) {
+            for (int i = 0; i < sets.size(); i++) {
                 final ScheduleSet set = sets.get(i);
                 View v = LayoutInflater.from(getActivity()).inflate(R.layout.component_timeline_row, linearLayout, false);
                 ((TextView) v.findViewById(R.id.event_name)).setText(set.getName());

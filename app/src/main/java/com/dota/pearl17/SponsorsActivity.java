@@ -22,7 +22,10 @@ public class SponsorsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sponsors);
 
-        sponsorRecycler = new RecyclerView(this);
+        Picasso.with(this)
+                .load(R.drawable.sponsors_frame)
+                .fit()
+                .into((ImageView)findViewById(R.id.bg_sponsors));
 
         sponsorRecycler = (RecyclerView) findViewById(R.id.sponsor_recycler);
         sponsorRecycler.setAdapter(new SponsAdapter(this));

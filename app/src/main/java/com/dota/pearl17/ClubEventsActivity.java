@@ -11,6 +11,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -47,7 +48,7 @@ public class ClubEventsActivity extends AppCompatActivity {
     }
 
 
-    public class adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
+    public class adapter extends RecyclerView.Adapter<adapter.Item>{
         Context context;
         ArrayList<Event> events;
         public adapter(Context context, ArrayList<Event> items)
@@ -56,18 +57,23 @@ public class ClubEventsActivity extends AppCompatActivity {
             this.events=items;
         }
         @Override
-        public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        public Item onCreateViewHolder(ViewGroup parent, int viewType) {
             LayoutInflater inflater =LayoutInflater.from(context);
             View row= inflater.inflate(R.layout.event_row,parent,false);
-            Item item = new Item(row);
-            return item;
+            return new Item(row);
         }
 
         @Override
-        public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-            ((Item)holder).txt.setText(events.get(position).getName());
-            final String clubName = ((Item)holder).txt.getText().toString();
-            ((Item)holder).txt.setOnClickListener(new View.OnClickListener(){
+        public void onBindViewHolder(Item holder, int position) {
+
+            if(position == getItemCount()-1){
+                // Last Elem
+                holder.b.setVisibility(Button.GONE);
+            }
+
+            holder.txt.setText(events.get(position).getName());
+            final String clubName = holder.txt.getText().toString();
+            holder.txt.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View v) {
                     Intent i = new Intent(ClubEventsActivity.this, EventDetailsActivity.class);
@@ -75,18 +81,20 @@ public class ClubEventsActivity extends AppCompatActivity {
                     startActivity(i);
                 }
             });
-            ((Item)holder).txt.setTypeface(custom_font);
+            holder.txt.setTypeface(custom_font);
         }
 
         @Override
         public int getItemCount() {
             return events.size();
         }
-        public class Item extends RecyclerView.ViewHolder{
+        class Item extends RecyclerView.ViewHolder{
             TextView txt ;
-            public Item(View itemView) {
+            Button b;
+            Item(View itemView) {
                 super(itemView);
                 txt = (TextView) itemView.findViewById(R.id.text);
+                b = (Button) itemView.findViewById(R.id.button_bottom);
             }
         }
     }

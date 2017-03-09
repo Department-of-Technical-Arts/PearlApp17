@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteConstraintException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -36,11 +37,11 @@ public class ScheduleTableManager {
     private DBHelper ourHelper;
     private SQLiteDatabase ourDatabase;
 
-    public ScheduleTableManager(Context c) {
-        context = c;
-//        addEntry(2, "round2", "pearl", 12345L, "F105");
-//        addEntry(3, "round2", "pearl", 12345L, "F105");
-//        addEntry(4, "round2", "pearl", 12345L, "F105");
+    public ScheduleTableManager(Context cl) {
+        context = cl;
+        addEntry(2, "round2", "pearl", 12345L, "F105");
+        addEntry(3, "round2", "pearl", 4567L, "F105");
+        addEntry(4, "round2", "pearl", 88806L, "F105");
 
 
     }
@@ -66,6 +67,8 @@ public class ScheduleTableManager {
 
         ContentValues cv = new ContentValues();
 
+        open();
+
         cv.put(KEY_EVENT_NAME, name);
         cv.put(KEY_EVENT_ID, event_id);
         cv.put(KEY_EVENT_ROUND, event_round);
@@ -75,11 +78,14 @@ public class ScheduleTableManager {
 
         try {
             success = ourDatabase.insertOrThrow(DATABASE_TABLE, null, cv);
+            Log.d(TAG, "addEntry: added "+success);
         } catch (SQLiteConstraintException e) {
             success = ourDatabase.update(DATABASE_TABLE, cv, KEY_ID + "=" + id, null);
         }
 
+        close();
         return success;
+
     }
 
 
@@ -120,8 +126,8 @@ public class ScheduleTableManager {
         Calendar start = Calendar.getInstance(), end = Calendar.getInstance();
         start.setTimeZone(TimeZone.getTimeZone("GMT"));
         end.setTimeZone(TimeZone.getTimeZone("GMT"));
-        start.set(2016, Calendar.OCTOBER, 14 + day, 0, 0);
-        end.set(2016, Calendar.OCTOBER, 15 + day, 0, 0);
+        start.set(2017, Calendar.MARCH, 17 + day, 0, 0);
+        end.set(2017, Calendar.MARCH, 18 + day, 0, 0);
         open();
         ArrayList<Long> times = new ArrayList<>();
         Cursor cursor = ourDatabase.rawQuery("SELECT DISTINCT " + KEY_START_TIME + " FROM " + DATABASE_TABLE +
