@@ -72,25 +72,29 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
         male.setTypeface(custom_font);
         female.setTypeface(custom_font);
 
+
         email.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
                 if(!hasFocus){
                     //send volley request and fill others
+                    Log.v("ASD","Focus change detected");
 
                     StringRequest request = new StringRequest(Request.Method.POST, ControllerConstant.url, new Response.Listener<String>() {
                         @Override
                         public void onResponse(String s) {
 
+                            Log.v("response",s);
                             try {
-                                JSONObject object = new JSONObject(s);
-                                if(object.getInt("success")==1){
+                                JSONObject Object = new JSONObject(s);
+                                if(Object.getInt("success")==1){
 
+                                    JSONObject object = Object.getJSONObject("data");
                                     name.setText(object.getString("name"));
                                     phone.setText(object.getString("phone"));
                                     college.setText(object.getString("college"));
                                     city.setText(object.getString("city"));
-                                    if(object.getInt("gender")==1){
+                                    if(object.getString("gender").equals("male")){
                                         male.setChecked(true);
                                     }else{
                                         female.setChecked(true);
@@ -108,6 +112,7 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
                         @Override
                         public void onErrorResponse(VolleyError volleyError) {
                             //internet problem, cannot upload Group member
+                            Log.v("ASD","Internet problem");
                         }
                     }) {
                         @Override
@@ -119,6 +124,8 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
                             return params;
                         }
                     };
+
+
                     AppController.getInstance().addToRequestQueue(request);
                 }
             }
