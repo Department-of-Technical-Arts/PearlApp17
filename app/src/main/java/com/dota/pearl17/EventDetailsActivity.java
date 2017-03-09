@@ -1,15 +1,33 @@
 package com.dota.pearl17;
 
+import android.Manifest;
+import android.app.Dialog;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Typeface;
+import android.os.Environment;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 public class EventDetailsActivity extends AppCompatActivity {
 
@@ -21,6 +39,12 @@ public class EventDetailsActivity extends AppCompatActivity {
     TextView title, desc;
     Typeface custom_font_bold, custom_font;
     Button participate, rules;
+
+    ProgressBar pb;
+    Dialog dialog;
+    int downloadedSize = 0;
+    int totalSize = 0;
+    TextView cur_val;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,12 +83,116 @@ public class EventDetailsActivity extends AppCompatActivity {
     public void add(View v){
 
         cart.addEntry(event.getId(),event.getName());
+
         //disable button
 
     }
 
     public void rules(View v){
-
-        //download rules
+        downloadFile();
     }
+
+    void downloadFile(){
+
+        String[] permissions = new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE};
+        if(ContextCompat.checkSelfPermission(this,permissions[0])!= PackageManager.PERMISSION_GRANTED)
+        {
+            //Request perms
+            ActivityCompat.requestPermissions(this,permissions,123);
+            return; //stop this call. After getting a confirmation, it is recalled. Else, not called
+        }
+
+        try {
+            URL url = new URL(event.getRules());
+            HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+
+            urlConnection.setRequestMethod("GET");
+            urlConnection.setDoOutput(true);
+
+            //connect
+            urlConnection.connect();
+
+            //set the path where we want to save the file
+            File SDCardRoot = Environment.getExternalStorageDirectory();
+            //create a new file, to save the downloaded file
+            File file = new File(SDCardRoot,eventName + " Rules");
+
+            FileOutputStream fileOutput = new FileOutputStream(file);
+
+            //Stream used for reading the data from the internet
+            InputStream inputStream = urlConnection.getInputStream();
+
+            //this is the total size of the file which we are downloading
+            totalSize = urlConnection.getContentLength();
+
+            runOnUiThread(new Runnable() {
+                public void run() {
+                    pb.setMax(totalSize);
+                }
+            });
+
+            //create a buffer...
+            byte[] buffer = new byte[1024];
+            int bufferLength = 0;
+
+            while ( (bufferLength = inputStream.read(buffer)) > 0 ) {
+                fileOutput.write(buffer, 0, bufferLength);
+                downloadedSize += bufferLength;
+                // update the progressbar //
+                runOnUiThread(new Runnable() {
+                    public void run() {
+                        pb.setProgress(downloadedSize);
+                        float per = ((float)downloadedSize/totalSize) * 100;
+                        cur_val.setText("Downloaded " + downloadedSize + "KB / " + totalSize + "KB (" + (int)per + "%)" );
+                    }
+                });
+            }
+            //close the output stream when complete //
+            fileOutput.close();
+            runOnUiThread(new Runnable() {
+                public void run() {
+                    // pb.dismiss(); // if you want close it..
+                }
+            });
+
+        } catch (final MalformedURLException e) {
+            showError("Error : MalformedURLException " + e);
+            e.printStackTrace();
+        } catch (final IOException e) {
+            showError("Error : IOException " + e);
+            e.printStackTrace();
+        }
+        catch (final Exception e) {
+            showError("Error : Please check your internet connection " + e);
+        }
+    }
+
+    void showError(final String err){
+        runOnUiThread(new Runnable() {
+            public void run() {
+                Toast.makeText(EventDetailsActivity.this, err, Toast.LENGTH_LONG).show();
+            }
+        });
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+
+        switch(requestCode){
+            case 123:{
+                if(grantResults.length>0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+                    // Perms granted, move along
+                    downloadFile();
+                    return;
+                }
+                else{
+                    //Do nothing, since downloading files without WRITE is not possible
+                    return;
+                }
+            }
+            default: super.onRequestPermissionsResult(requestCode,permissions,grantResults);
+        }
+
+    }
+
 }

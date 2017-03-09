@@ -39,6 +39,7 @@ public class ScheduleTableManager {
 
     public ScheduleTableManager(Context cl) {
         context = cl;
+        deleteAllEntry();
         addEntry(2, "round2", "pearl", 12345L, "F105");
         addEntry(3, "round2", "pearl", 4567L, "F105");
         addEntry(4, "round2", "pearl", 88806L, "F105");

@@ -7,9 +7,13 @@
          Google Maps Android API v2, but you must specify either coarse or fine
          location permissions for the 'MyLocation' functionality.
     -->
+
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
+        android:name=".AppController"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -22,7 +26,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"/>
+        <activity android:name=".MainActivity" />
         <activity
             android:name=".EventsHomeActivity"
             android:theme="@style/EventsTheme" />
@@ -31,7 +35,7 @@
             android:theme="@style/EventsTheme" />
         <activity
             android:name=".ClubEventsActivity"
-            android:theme="@style/EventsTheme"/>
+            android:theme="@style/EventsTheme" />
         <activity
             android:name=".EventDetailsActivity"
             android:theme="@style/EventsTheme" />
@@ -42,35 +46,21 @@
             android:name=".TalksActivity"
             android:theme="@style/TalksTheme" />
         <activity
-            android:name=".RegistrationActivity" />
-        <activity
-            android:name=".SponsorsActivity" />
-        <activity
-            android:name=".ScheduleActivity" />
-        <activity
-            android:name=".GuideActivity" />
-        <activity
-            android:name=".AboutUsActivity" />
-        <activity
-            android:name=".ReachUsActivity" />
-        <activity
-            android:name=".CampusMapActivity" />
-        <activity
-
-            android:name=".ContactActivity"
-            android:theme="@style/GuideTheme" />
-
-        <activity
             android:name=".AppCreditsActivity"
-            android:theme="@style/CreditsTheme"/>
-
-        <activity
-            android:name=".MapsActivity" />
+            android:theme="@style/CreditsTheme" />
+        <activity android:name=".RegistrationActivity" />
+        <activity android:name=".SponsorsActivity" />
+        <activity android:name=".ScheduleActivity" />
+        <activity android:name=".GuideActivity" />
+        <activity android:name=".AboutUsActivity" />
+        <activity android:name=".ReachUsActivity" />
+        <activity android:name=".CampusMapActivity" />
+        <activity android:name=".ContactActivity" />
+        <activity android:name=".MapsActivity" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
-
     </application>
 
 </manifest>

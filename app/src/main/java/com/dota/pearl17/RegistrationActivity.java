@@ -112,7 +112,7 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
                         @Override
                         protected Map<String, String> getParams() throws AuthFailureError {
                             Map<String, String> params = new HashMap<>();
-                            params.put("tag", "check_email");
+                            params.put("tag", "getDetailsUser");
                             params.put("email", email.getText().toString());
                             //Log.e("Sent", params.toString());
                             return params;
@@ -146,6 +146,12 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
         _college = college.getText().toString();
         _city = city.getText().toString();
         _dob = dob.getText().toString();
+        if(male.isChecked()){
+            _gender = "male";
+        }
+        else{
+            _gender = "female";
+        }
 
         EventConfirmDialog dialog = new EventConfirmDialog(RegistrationActivity.this);
         dialog.show(getSupportFragmentManager(),"TAG");
@@ -189,26 +195,26 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
-                params.put("tag", "register");
+                params.put("tag", "registerNewUser");
                 params.put("email", _email);
                 params.put("name", _name);
                 params.put("dob", _dob);
                 params.put("college", _college);
                 params.put("city", _city);
-                params.put("events", finalEvents.toString());
-
+                params.put("gender", _gender);
+                params.put("phone", _phone);
+                params.put("event_ids", finalEvents.toString());
                 //Log.e("Sent", params.toString());
                 return params;
             }
         };
         AppController.getInstance().addToRequestQueue(request);
-
     }
 
     @Override
     public void setDOB(int year, int month, int day) {
 
-        dob.setText(day + "." + month + "." + year);
-        Toast.makeText(this,day + "." + month + "." + year,Toast.LENGTH_SHORT).show();
+        dob.setText(day + "/" + (month+1) + "/" + year);
+        Toast.makeText(this,day + "/" + (month+1) + "/" + year,Toast.LENGTH_SHORT).show();
     }
 }
