@@ -97,6 +97,7 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 case 8:
                     //App Credits
+                    startActivity(new Intent(MainActivity.this,AppCreditsActivity.class));
                     break;
             }
         }

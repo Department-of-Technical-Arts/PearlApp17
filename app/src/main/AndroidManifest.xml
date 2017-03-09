@@ -56,7 +56,10 @@
             android:name=".ContactActivity"
             android:theme="@style/GuideTheme" />
         <activity android:name=".SponsorsActivity" />
-        <activity android:name=".ClubEventsActivity"/>
+        <activity android:name=".ClubEventsActivity" />
+        <activity
+            android:name=".AppCreditsActivity"
+            android:theme="@style/CreditsTheme"/>
     </application>
 
 </manifest>
