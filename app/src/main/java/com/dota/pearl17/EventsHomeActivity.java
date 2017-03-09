@@ -120,49 +120,54 @@ public class EventsHomeActivity extends AppCompatActivity {
                         @Override
                         public void onSliderClick(BaseSliderView slider) {
 
+                            Intent i = new Intent(EventsHomeActivity.this, EventDetailsActivity.class);
+
                             switch (mDemoSlider.getCurrentPosition()){
                                 case 0:
                                     //Carnival Zone - None
-                                    Toast.makeText(EventsHomeActivity.this, "Carnival", Toast.LENGTH_SHORT).show();
+                                    i.putExtra("event_name", "Carnival Zone");
                                     break;
                                 case 1:
-                                    //Catharsis - Movie\
-                                    Toast.makeText(EventsHomeActivity.this, "Catharsis", Toast.LENGTH_SHORT).show();
+                                    //Catharsis - Movie
+                                    i.putExtra("event_name", "Catharsis");
                                     break;
                                 case 2:
                                     //Crimson Curtain - Drama
-                                    Toast.makeText(EventsHomeActivity.this, "Crimson", Toast.LENGTH_SHORT).show();
+                                    i.putExtra("event_name", "Crimson Curtain");
                                     break;
                                 case 3:
                                     //Fraglore - None
-                                    Toast.makeText(EventsHomeActivity.this, "Fraglore", Toast.LENGTH_SHORT).show();
+                                    i.putExtra("event_name", "Fraglore");
                                     break;
                                 case 4:
                                     //Glitterati - None
-                                    Toast.makeText(EventsHomeActivity.this, "Glitterati", Toast.LENGTH_SHORT).show();
+                                    i.putExtra("event_name", "Glitterati");
                                     break;
                                 case 5:
                                     //Photog Fest - Photog ?
-                                    Toast.makeText(EventsHomeActivity.this, "Photog", Toast.LENGTH_SHORT).show();
+                                    i.putExtra("event_name", "Photog Fest");
                                     break;
                                 case 6:
                                     //QuBITS - Quiz ?
-                                    Toast.makeText(EventsHomeActivity.this, "QuBits", Toast.LENGTH_SHORT).show();
+                                    i.putExtra("event_name", "QuBITS");
                                     break;
                                 case 7:
                                     //Terpsichore - Dance
-                                    Toast.makeText(EventsHomeActivity.this, "Terps", Toast.LENGTH_SHORT).show();
+                                    i.putExtra("event_name", "Terpsichore");
                                     break;
                                 case 8:
                                     //Till Deaf - Music
-                                    Toast.makeText(EventsHomeActivity.this, "Till Deaf", Toast.LENGTH_SHORT).show();
+                                    i.putExtra("event_name", "Till Deaf");
                                     break;
                             }
+                            startActivity(i);
                         }
                     })
                     .setScaleType(BaseSliderView.ScaleType.CenterCrop); //slight leftover stretch to sides < 10dp, not noticeable
             mDemoSlider.addSlider(sliderView);
         }
+
+
     }
 
     class EventCategoryItem extends RecyclerView.ViewHolder{

@@ -39,9 +39,9 @@ public class ScheduleTableManager {
 
     public ScheduleTableManager(Context cl) {
         context = cl;
-//        addEntry(2, "round2", "pearl", 12345L, "F105");
-//        addEntry(3, "round2", "pearl", 4567L, "F105");
-//        addEntry(4, "round2", "pearl", 88806L, "F105");
+        addEntry(2, "round2", "pearl", 12345L, "F105");
+        addEntry(3, "round2", "pearl", 4567L, "F105");
+        addEntry(4, "round2", "pearl", 88806L, "F105");
 
 
     }
@@ -78,7 +78,7 @@ public class ScheduleTableManager {
 
         try {
             success = ourDatabase.insertOrThrow(DATABASE_TABLE, null, cv);
-            Log.d(TAG, "addEntry: added");
+            Log.d(TAG, "addEntry: added "+success);
         } catch (SQLiteConstraintException e) {
             success = ourDatabase.update(DATABASE_TABLE, cv, KEY_ID + "=" + id, null);
         }
