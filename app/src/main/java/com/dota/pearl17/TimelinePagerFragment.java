@@ -29,7 +29,7 @@ import java.util.Calendar;
  * Created by SHREEDA on 07-03-2017.
  */
 
-public class TimelinePagerFragment extends Fragment{
+public class TimelinePagerFragment extends Fragment {
     ArrayList<Long> times;
     ScheduleTableManager mTableManager;
 
@@ -44,6 +44,7 @@ public class TimelinePagerFragment extends Fragment{
 
         return inflater.inflate(R.layout.fragment_schedule, container, false);
     }
+
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -51,9 +52,6 @@ public class TimelinePagerFragment extends Fragment{
         TextView textView = (TextView) view.findViewById(R.id.notpresent);
         mTableManager = new ScheduleTableManager(getActivity());
         final LinearLayout mYourLayout = (LinearLayout) view.findViewById(R.id.linlayout);
-
-        ImageView bg = (ImageView) view.findViewById(R.id.back);
-        Picasso.with(getActivity()).load(R.drawable.schedule_background_bottom).fit().into(bg);
 
 //        Picasso.with(getActivity())
 //                .load(R.drawable.schedule_background_bottom)
@@ -79,11 +77,6 @@ public class TimelinePagerFragment extends Fragment{
 //                        // use placeholder drawable if desired
 //                    }
 //                });
-
-
-
-
-
 
 
         times = mTableManager.getDistinctTime(getArguments().getInt("day"));
@@ -134,7 +127,7 @@ public class TimelinePagerFragment extends Fragment{
 
             final ArrayList<ScheduleSet> sets = mTableManager.getSchedule(time);
             linearLayout.removeAllViews();
-            for ( int i = 0; i < sets.size(); i++) {
+            for (int i = 0; i < sets.size(); i++) {
                 final ScheduleSet set = sets.get(i);
                 View v = LayoutInflater.from(getActivity()).inflate(R.layout.component_timeline_row, linearLayout, false);
                 ((TextView) v.findViewById(R.id.event_name)).setText(set.getName());

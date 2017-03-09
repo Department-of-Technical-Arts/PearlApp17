@@ -6,11 +6,6 @@
     android:id="@+id/linlayout"
     android:baselineAligned="false">
 
-    <ImageView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:id="@+id/back"/>
-
     <TextView
         android:id="@+id/notpresent"
         android:layout_width="wrap_content"

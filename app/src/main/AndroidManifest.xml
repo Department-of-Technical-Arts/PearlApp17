@@ -46,7 +46,7 @@
         <activity
             android:name=".SponsorsActivity" />
         <activity
-            android:name=".Schedule_activity" />
+            android:name=".ScheduleActivity" />
         <activity
             android:name=".GuideActivity" />
         <activity
