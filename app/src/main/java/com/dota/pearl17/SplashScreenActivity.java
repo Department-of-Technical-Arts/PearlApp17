@@ -21,6 +21,7 @@ import com.plattysoft.leonids.ParticleSystem;
 public class SplashScreenActivity extends AppCompatActivity {
 
     RelativeLayout container;
+    EventDatabaseManager eventDB;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -40,7 +41,10 @@ public class SplashScreenActivity extends AppCompatActivity {
             });
         }
 
+        eventDB = new EventDatabaseManager(this);
+        eventDB.updateEvents();
         //Kaushik you can add the Volley code here
+
     }
 
     public void emit(){

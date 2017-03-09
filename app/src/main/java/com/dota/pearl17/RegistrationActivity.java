@@ -146,6 +146,12 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
         _college = college.getText().toString();
         _city = city.getText().toString();
         _dob = dob.getText().toString();
+        if(male.isChecked()){
+            _gender = "male";
+        }
+        else{
+            _gender = "female";
+        }
 
         EventConfirmDialog dialog = new EventConfirmDialog(RegistrationActivity.this);
         dialog.show(getSupportFragmentManager(),"TAG");
@@ -203,13 +209,12 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
             }
         };
         AppController.getInstance().addToRequestQueue(request);
-
     }
 
     @Override
     public void setDOB(int year, int month, int day) {
 
-        dob.setText(day + "/" + month + "/" + year);
-        Toast.makeText(this,day + "/" + month + "/" + year,Toast.LENGTH_SHORT).show();
+        dob.setText(day + "/" + (month+1) + "/" + year);
+        Toast.makeText(this,day + "/" + (month+1) + "/" + year,Toast.LENGTH_SHORT).show();
     }
 }
