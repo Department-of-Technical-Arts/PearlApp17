@@ -3,23 +3,31 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="8dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="8dp"
     android:layout_weight="1"
     android:orientation="vertical"
     android:background="@color/yellow"
     >
+
+    <ImageView
+        android:src="@drawable/schedulerow"
+        android:layout_width="300dp"
+        android:layout_height="87dp" />
 
     <TextView
         android:id="@+id/event_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Code Jam"
+        android:paddingLeft="8dp"
         android:textSize="18sp"
-        android:textColor="@android:color/white"/>
+        android:textColor="#000000"/>
 
     <TextView
         android:layout_below="@+id/event_name"
         android:id="@+id/round_name"
+        android:paddingLeft="8dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Round 1"
@@ -29,7 +37,8 @@
 
     <TextView
         android:textStyle="bold"
-        android:textColor="#FFAB00"
+        android:textColor="#000000"
+        android:paddingLeft="8dp"
         android:layout_below="@+id/round_name"
         android:id="@+id/venue"
         android:layout_width="wrap_content"

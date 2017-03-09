@@ -84,6 +84,7 @@ public class TimelinePagerFragment extends Fragment {
         times.add(12345L);
         times.add(4567L);
         times.add(88806L);
+
         Log.e("TimelineFrag1", times.toString());
         if (times.isEmpty()) {
             recyclerView.setVisibility(View.GONE);
