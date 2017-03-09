@@ -64,6 +64,8 @@ public class AppUpdateDialog extends DialogFragment{
 
             public void onClick(DialogInterface dialog, int which) {
                 //redirect to Pearl App PlayStore Page
+
+
             }
 
         });
