@@ -11,7 +11,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:background="@drawable/event_frame">
     <ImageView
-        android:layout_width="wrap_content"
+        android:layout_width="70dp"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/end"
         android:layout_centerHorizontal="true"
@@ -19,15 +19,15 @@
         android:layout_below="@+id/recycler"/>
 
     <Button
-        android:layout_width="10dp"
-        android:layout_height="10dp"
+        android:layout_width="5dp"
+        android:layout_height="5dp"
         android:id="@+id/button2"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="160dp"
         android:background="@drawable/roundbutton"/>
     <Button
-        android:layout_width="10dp"
-        android:layout_height="10dp"
+        android:layout_width="5dp"
+        android:layout_height="5dp"
         android:id="@+id/button3"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="175dp"

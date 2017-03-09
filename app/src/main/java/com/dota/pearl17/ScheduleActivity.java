@@ -7,7 +7,6 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,7 +18,7 @@ import com.squareup.picasso.Picasso;
  * Created by SHREEDA on 07-03-2017.
  */
 
-public class Schedule_activity extends AppCompatActivity {
+public class ScheduleActivity extends AppCompatActivity {
     private SectionsPagerAdapter mSectionsPagerAdapter;
 
     private ViewPager mViewPager;
@@ -33,11 +32,8 @@ public class Schedule_activity extends AppCompatActivity {
         //setSupportActionBar(toolbar);
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        ImageView bg = (ImageView) findViewById(R.id.schedule_top);
-        Picasso.with(Schedule_activity.this).load(R.drawable.schedule_topbar).fit().into(bg);
-
-
-
+        ImageView bg = (ImageView) findViewById(R.id.bg_schedule);
+        Picasso.with(ScheduleActivity.this).load(R.drawable.schedule_frame).fit().into(bg);
 
 //        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 //        setSupportActionBar(toolbar);
@@ -51,41 +47,6 @@ public class Schedule_activity extends AppCompatActivity {
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
-    }
-
-    public static class PlaceholderFragment extends Fragment {
-        /**
-         * The fragment argument representing the section number for this
-         * fragment.
-         */
-        private static final String ARG_SECTION_NUMBER = "section_number";
-
-        public PlaceholderFragment() {
-        }
-
-        /**
-         * Returns a new instance of this fragment for the given section
-         * number.
-         */
-        public static PlaceholderFragment newInstance(int sectionNumber) {
-            PlaceholderFragment fragment = new PlaceholderFragment();
-            Bundle args = new Bundle();
-            args.putInt(ARG_SECTION_NUMBER, sectionNumber);
-            fragment.setArguments(args);
-            return fragment;
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_schedule, container, false);
-//            TextView textView = (TextView) rootView.findViewById(R.id.section_label);
-////            textView.setText("");
-//            TextView textView1= (TextView) rootView.findViewById(R.id.app_update_text);
-////            textView1.setText("");
-
-            return rootView;
-        }
     }
 
     /**

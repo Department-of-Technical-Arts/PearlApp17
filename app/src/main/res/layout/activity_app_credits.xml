@@ -6,7 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingTop="100dp"
+        android:paddingTop="70dp"
         android:paddingBottom="50dp"
         android:background="@drawable/credits_frame">
 
@@ -23,8 +23,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/developers_title"
-            android:scaleX="0.8"
-            android:scaleY="0.8"
+            android:scaleX="0.6"
+            android:scaleY="0.6"
+            android:layout_marginLeft="-47dp"
             android:layout_marginBottom="5dp"
             android:layout_marginTop="0sp"/>
 
@@ -36,10 +37,10 @@
             android:layout_below="@id/Developers"
             android:layout_marginTop="-50dp"
             android:layout_marginBottom="-33dp"
-            android:layout_marginLeft="-2dp"
+            android:layout_marginLeft="1dp"
             android:tag="https://www.facebook.com/c.akhil.shri?fref=ts"
             android:onClick="openBrowser"
-            android:scaleX="0.8"
+            android:scaleX="0.84"
             android:scaleY="0.8" />
 
         <ImageView
@@ -50,38 +51,38 @@
             android:layout_below="@id/DevelopersTemplate1"
             android:layout_marginTop="-50dp"
             android:layout_marginBottom="-33dp"
-            android:layout_marginLeft="-2dp"
+            android:layout_marginLeft="1dp"
             android:tag="https://www.facebook.com/kaushik.nimbalkar?fref=hovercard"
             android:onClick="openBrowser"
-            android:scaleX="0.8"
+            android:scaleX="0.84"
             android:scaleY="0.8" />
 
         <ImageView
             android:id="@+id/DevelopersTemplate3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/credits_name_button"
+            android:src="@drawable/pattu"
             android:layout_below="@id/DevelopersTemplate2"
             android:layout_marginTop="-50dp"
             android:layout_marginBottom="-33dp"
-            android:layout_marginLeft="-2dp"
+            android:layout_marginLeft="1dp"
             android:tag="https://www.facebook.com/shreeda.pattanaik?fref=ts"
             android:onClick="openBrowser"
-            android:scaleX="0.8"
+            android:scaleX="0.84"
             android:scaleY="0.8" />
 
         <ImageView
             android:id="@+id/DevelopersTemplate4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/credits_name_button"
+            android:src="@drawable/grandhi"
             android:layout_below="@id/DevelopersTemplate3"
             android:layout_marginTop="-50dp"
             android:layout_marginBottom="-33dp"
-            android:layout_marginLeft="-2dp"
+            android:layout_marginLeft="1dp"
             android:tag="https://www.facebook.com/snigdha.grandhi.5?fref=ts"
             android:onClick="openBrowser"
-            android:scaleX="0.8"
+            android:scaleX="0.84"
             android:scaleY="0.8" />
 
         <ImageView
@@ -92,10 +93,10 @@
             android:layout_below="@id/DevelopersTemplate4"
             android:layout_marginTop="-50dp"
             android:layout_marginBottom="-33dp"
-            android:layout_marginLeft="-2dp"
+            android:layout_marginLeft="1dp"
             android:tag="https://www.facebook.com/sheebu1997?ref=br_rs"
             android:onClick="openBrowser"
-            android:scaleX="0.8"
+            android:scaleX="0.84"
             android:scaleY="0.8" />
 
         <ImageView
@@ -106,10 +107,10 @@
             android:layout_below="@id/DevelopersTemplate5"
             android:layout_marginTop="-50dp"
             android:layout_marginBottom="-33dp"
-            android:layout_marginLeft="-2dp"
+            android:layout_marginLeft="1dp"
             android:tag="https://www.facebook.com/kattukolu.reddy?fref=ts"
             android:onClick="openBrowser"
-            android:scaleX="0.8"
+            android:scaleX="0.84"
             android:scaleY="0.8" />
 
         <ImageView
@@ -117,10 +118,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/designers_title"
-            android:scaleX="0.8"
-            android:scaleY="0.8"
+            android:scaleX="0.6"
+            android:scaleY="0.6"
             android:layout_alignParentRight="true"
             android:layout_marginBottom="5dp"
+            android:layout_marginRight="-47dp"
             android:layout_below="@+id/DevelopersTemplate5"
             android:layout_marginTop="150dp" />
 
@@ -132,10 +134,10 @@
             android:layout_below="@id/Designers"
             android:layout_marginTop="-50dp"
             android:layout_marginBottom="-33dp"
-            android:layout_marginRight="-2dp"
+            android:layout_marginRight="1dp"
             android:tag="https://www.facebook.com/anshuman.das.9678?fref=ts"
             android:onClick="openBrowser"
-            android:scaleX="0.8"
+            android:scaleX="0.84"
             android:scaleY="0.8" />
 
         <ImageView
@@ -146,10 +148,10 @@
             android:layout_below="@id/DesignersTemplate1"
             android:layout_marginTop="-50dp"
             android:layout_marginBottom="-33dp"
-            android:layout_marginRight="-2dp"
+            android:layout_marginRight="1dp"
             android:tag="https://www.facebook.com/anshik.thareja?fref=ts"
             android:onClick="openBrowser"
-            android:scaleX="0.8"
+            android:scaleX="0.84"
             android:scaleY="0.8" />
 
         <ImageView
@@ -160,10 +162,10 @@
             android:layout_below="@id/DesignersTemplate2"
             android:layout_marginTop="-50dp"
             android:layout_marginBottom="-33dp"
-            android:layout_marginRight="-2dp"
+            android:layout_marginRight="1dp"
             android:tag="https://www.facebook.com/tushar.kanth.7?fref=ts"
             android:onClick="openBrowser"
-            android:scaleX="0.8"
+            android:scaleX="0.84"
             android:scaleY="0.8" />
 
         <ImageView
@@ -174,8 +176,8 @@
             android:layout_below="@id/DesignersTemplate3"
             android:layout_marginTop="-50dp"
             android:layout_marginBottom="-33dp"
-            android:layout_marginRight="-2dp"
-            android:scaleX="0.8"
+            android:layout_marginRight="1dp"
+            android:scaleX="0.84"
             android:scaleY="0.8" />
 
         <ImageView
@@ -183,9 +185,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/back_end_title"
-            android:scaleX="0.8"
-            android:scaleY="0.8"
+            android:scaleX="0.6"
+            android:scaleY="0.6"
             android:layout_marginBottom="5dp"
+            android:layout_marginLeft="-47dp"
             android:layout_below="@+id/DesignersTemplate4"
             android:layout_marginTop="20dp"/>
 
@@ -197,10 +200,10 @@
             android:layout_below="@id/BackEnd"
             android:layout_marginTop="-50dp"
             android:layout_marginBottom="-33dp"
-            android:layout_marginLeft="-2dp"
+            android:layout_marginLeft="1dp"
             android:tag="https://www.facebook.com/amitmishra1005?fref=ts"
             android:onClick="openBrowser"
-            android:scaleX="0.8"
+            android:scaleX="0.84"
             android:scaleY="0.8" />
 
         <ImageView
@@ -211,22 +214,10 @@
             android:layout_below="@id/BackEndTemplate1"
             android:layout_marginTop="-50dp"
             android:layout_marginBottom="-33dp"
-            android:layout_marginLeft="-2dp"
+            android:layout_marginLeft="1dp"
             android:tag="https://www.facebook.com/kgrovor?fref=ts"
             android:onClick="openBrowser"
-            android:scaleX="0.8"
-            android:scaleY="0.8" />
-
-        <ImageView
-            android:id="@+id/BackEndTemplate3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/credits_name_button"
-            android:layout_below="@id/BackEndTemplate2"
-            android:layout_marginTop="-50dp"
-            android:layout_marginBottom="-33dp"
-            android:layout_marginLeft="-2dp"
-            android:scaleX="0.8"
+            android:scaleX="0.84"
             android:scaleY="0.8" />
 
     </RelativeLayout>

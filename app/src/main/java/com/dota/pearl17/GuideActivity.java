@@ -45,13 +45,11 @@ public class GuideActivity extends AppCompatActivity implements View.OnClickList
                 startActivity(new Intent(GuideActivity.this,ReachUsActivity.class));
                 break;
             case R.id.CampusMap:
-                startActivity(new Intent(GuideActivity.this,CampusMapActivity.class));
+                startActivity(new Intent(GuideActivity.this,MapsActivity.class));
                 break;
             case R.id.ContactUs:
                 startActivity(new Intent(GuideActivity.this,ContactActivity.class));
                 break;
-
-
         }
 
     }

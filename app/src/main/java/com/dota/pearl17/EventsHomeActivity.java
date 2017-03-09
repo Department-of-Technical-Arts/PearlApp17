@@ -1,18 +1,23 @@
 package com.dota.pearl17;
 
 import android.content.Intent;
+import android.gesture.Gesture;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+import android.view.GestureDetector;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.daimajia.slider.library.Indicators.PagerIndicator;
 import com.daimajia.slider.library.SliderLayout;
@@ -34,6 +39,7 @@ public class EventsHomeActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_events_home);
+
         fontface = Typeface.createFromAsset(getAssets(), "fonts/cubano_regular.otf");
 
         ImageView topbar = (ImageView) findViewById(R.id.events_topbar);
@@ -75,6 +81,24 @@ public class EventsHomeActivity extends AppCompatActivity {
         super.onStop();
     }
 
+    View.OnClickListener mClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            //handle item clicks here
+            //condition should logically be the title
+            //from here the EventsListScreen is opened
+            //startActivity(new Intent(EventsHomeActivity.this,EventDetailsActivity.class));
+        }
+    };
+
+
+
+    View.OnClickListener mSliderClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+
+        }
+    };
     void loadSliderImages(){
 
         int resources[] = new int[]{
@@ -92,21 +116,59 @@ public class EventsHomeActivity extends AppCompatActivity {
         for(int i=0; i < resources.length; i++){
             DefaultSliderView sliderView = new DefaultSliderView(this);
             sliderView.image(resources[i])
+                    .setOnSliderClickListener(new BaseSliderView.OnSliderClickListener() {
+                        @Override
+                        public void onSliderClick(BaseSliderView slider) {
+
+                            Intent i = new Intent(EventsHomeActivity.this, EventDetailsActivity.class);
+
+                            switch (mDemoSlider.getCurrentPosition()){
+                                case 0:
+                                    //Carnival Zone - None
+                                    i.putExtra("event_name", "Carnival Zone");
+                                    break;
+                                case 1:
+                                    //Catharsis - Movie
+                                    i.putExtra("event_name", "Catharsis");
+                                    break;
+                                case 2:
+                                    //Crimson Curtain - Drama
+                                    i.putExtra("event_name", "Crimson Curtain");
+                                    break;
+                                case 3:
+                                    //Fraglore - None
+                                    i.putExtra("event_name", "Fraglore");
+                                    break;
+                                case 4:
+                                    //Glitterati - None
+                                    i.putExtra("event_name", "Glitterati");
+                                    break;
+                                case 5:
+                                    //Photog Fest - Photog ?
+                                    i.putExtra("event_name", "Photog Fest");
+                                    break;
+                                case 6:
+                                    //QuBITS - Quiz ?
+                                    i.putExtra("event_name", "QuBITS");
+                                    break;
+                                case 7:
+                                    //Terpsichore - Dance
+                                    i.putExtra("event_name", "Terpsichore");
+                                    break;
+                                case 8:
+                                    //Till Deaf - Music
+                                    i.putExtra("event_name", "Till Deaf");
+                                    break;
+                            }
+                            startActivity(i);
+                        }
+                    })
                     .setScaleType(BaseSliderView.ScaleType.CenterCrop); //slight leftover stretch to sides < 10dp, not noticeable
             mDemoSlider.addSlider(sliderView);
         }
+
+
     }
-
-    View.OnClickListener mClickListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            //handle item clicks here
-            //condition should logically be the title
-            //from here the EventsListScreen is opened
-            //startActivity(new Intent(EventsHomeActivity.this,EventDetailsActivity.class));
-        }
-    };
-
 
     class EventCategoryItem extends RecyclerView.ViewHolder{
         TextView title;
