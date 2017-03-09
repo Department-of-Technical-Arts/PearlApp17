@@ -26,16 +26,22 @@
             android:layout_gravity="top"
             android:textSize="20dp"
             android:textColor="@color/custom_purple"
-            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sin tantum modo ad indicia veteris memoriae cognoscenda, curiosorum. Satis est tibi in te, satis in legibus, satis in mediocribus amicitiis praesidii. Quis Aristidem non mortuum diligit? Tu vero, inquam, ducas licet, si sequetur; Sit hoc ultimum bonorum, quod nunc a me defenditur; Duo Reges: constructio interrete.
+            android:text="From Secunderabad railway station to BITS-Pilani, Hyderabad Campus one has to travel 22 KM on Rajiv Rahadari/ Karim Nagar Highway, up to Dongala Mysamma Junction after Alankruta Resorts in Thumkunta Village and take a right turn towards Ghatkesar. After travelling 1.5 KMs on this road, there is again a diversion to the right leading to the Campus. BITS? sign boards indicating the directions are available on the way.
 
-Duo enim genera quae erant, fecit tria. Idem iste, inquam, de voluptate quid sentit? Bonum integritas corporis: misera debilitas. Quid, si etiam iucunda memoria est praeteritorum malorum? Nosti, credo, illud: Nemo pius est, qui pietatem-; Quod ea non occurrentia fingunt, vincunt Aristonem; Sine ea igitur iucunde negat posse se vivere? Sine ea igitur iucunde negat posse se vivere? Itaque eos id agere, ut a se dolores, morbos, debilitates repellant.
+There is a direct Bus No. 212 from Secunderabad Railway station (Gurudwara Point) to BITS-Pilani Hyderabad Campus Main Gate Besides there are City Buses having numbers 211S, 211A, 211C, 211D, 211E, 211J, 211K, 211T, 211U, 567, 568, 569 ply from Secunderabad Railway Station to various destinations to the Campus side. Further, there are many APSRTC buses from Secunderabad, Jubilee bus-stand to KarimNagar, Siddhipet, Ramagundam,Gajwel, Cheriyal etc. People can board any of these buses, get down either at Thumkunta or Dongala Mysamma junction which is 1KM away and take an auto to the campus.
 
-Portenta haec esse dicit, neque ea ratione ullo modo posse vivi; Nummus in Croesi divitiis obscuratur, pars est tamen divitiarum. Quod autem principium officii quaerunt, melius quam Pyrrho;
+APSRTC City Bus Timings : From 4th May 2011 Bus No.212
 
-Idemne potest esse dies saepius, qui semel fuit? At ille pellit, qui permulcet sensum voluptate. Suam denique cuique naturam esse ad vivendum ducem. Si quicquam extra virtutem habeatur in bonis. Quae hic rei publicae vulnera inponebat, eadem ille sanabat. Pisone in eo gymnasio, quod Ptolomaeum vocatur, unaque nobiscum Q. At quanta conantur! Mundum hunc omnem oppidum esse nostrum! Incendi igitur eos, qui audiunt, vides. Quod autem satis est, eo quicquid accessit, nimium est; Conferam tecum, quam cuique verso rem subicias; Superiores tres erant, quae esse possent, quarum est una sola defensa, eaque vehementer.
+From Secunderabad Railway Station (Gurudwara Point) to BITS Main gate:
 
-Vulgo enim dicitur: Iucundi acti labores, nec male Euripidesconcludam, si potero, Latine; Fortemne possumus dicere eundem illum Torquatum? Nec vero sum nescius esse utilitatem in historia, non modo voluptatem. Quas enim kakaw Graeci appellant, vitia malo quam malitias nominare. Quamquam tu hanc copiosiorem etiam soles dicere. Haec bene dicuntur, nec ego repugno, sed inter sese ipsa pugnant. Sed in rebus apertissimis nimium longi sumus. Nam de summo mox, ut dixi, videbimus et ad id explicandum disputationem omnem conferemus. Age sane, inquam. Hoc ne statuam quidem dicturam pater aiebat, si loqui posset."/>
+07:45,8:20, 09:45, 11:45, 14:20, 16:15, 17:15, 18:30.
 
+From BITS Main Gate to Secunderabad Railway Station :
+
+08:45, 9:15, 10:55, 12:55, 15:15, 17:15, 18:20, 19:25
+
+City Buses having numbers 211S, 211A, 211C, 211D, 211E, 211J, 211K, 211T, 211U, 567, 568, 569 ply from Secunderabad Railway Station to various destinations to the Campus side. Further, there are many APSRTC buses from Secunderabad, Jubilee bus-stand to KarimNagar, Siddhipet, Ramagundam,Gajwel, Cheriyal etc. People can board any of these buses, get down either at Thumkunta or Dongala Mysamma junction which is 1KM away and take an auto to the campus.
+"/>
     </ScrollView>
 
 </RelativeLayout>

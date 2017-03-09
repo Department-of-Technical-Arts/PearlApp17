@@ -105,7 +105,7 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
                         @Override
                         protected Map<String, String> getParams() throws AuthFailureError {
                             Map<String, String> params = new HashMap<>();
-                            params.put("tag", "check_email");
+                            params.put("tag", "getDetailsUser");
                             params.put("email", email.getText().toString());
                             //Log.e("Sent", params.toString());
                             return params;
@@ -182,14 +182,15 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
-                params.put("tag", "register");
+                params.put("tag", "registerNewUser");
                 params.put("email", _email);
                 params.put("name", _name);
                 params.put("dob", _dob);
                 params.put("college", _college);
                 params.put("city", _city);
-                params.put("events", finalEvents.toString());
-
+                params.put("gender", _gender);
+                params.put("phone", _phone);
+                params.put("event_ids", finalEvents.toString());
                 //Log.e("Sent", params.toString());
                 return params;
             }
@@ -201,7 +202,7 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
     @Override
     public void setDOB(int year, int month, int day) {
 
-        dob.setText(day + "." + month + "." + year);
-        Toast.makeText(this,day + "." + month + "." + year,Toast.LENGTH_SHORT).show();
+        dob.setText(day + "/" + month + "/" + year);
+        Toast.makeText(this,day + "/" + month + "/" + year,Toast.LENGTH_SHORT).show();
     }
 }

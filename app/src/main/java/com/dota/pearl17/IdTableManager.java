@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteConstraintException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -54,9 +55,27 @@ public class IdTableManager {
         try {
             success = ourDatabase.insertOrThrow(DATABASE_TABLE, null, cv);
         } catch (SQLiteConstraintException e) {
-            //repeat hora hai. lite.
+            e.printStackTrace();
         }
         close();
+        Log.v("TAG",success + "");
+        open();
+        Cursor c;
+
+        c = ourDatabase.rawQuery("SELECT * FROM " + DATABASE_TABLE , null);
+
+        c.moveToFirst();
+        ArrayList<String> list = new ArrayList<>();
+        if (c.moveToFirst()) {
+            do {
+                String event = c.getString(1);
+                list.add(event);
+            } while (c.moveToNext());
+        }
+        c.close();
+        close();
+
+        Log.v("TAG",list.toString());
         return success;
     }
 
@@ -93,7 +112,6 @@ public class IdTableManager {
         c = ourDatabase.rawQuery("SELECT * FROM " + DATABASE_TABLE , null);
 
         c.moveToFirst();
-        ArrayList<Integer> list = new ArrayList<>();
         if (c.moveToFirst()) {
             do {
                 eventList.add(c.getString(1));
@@ -101,6 +119,8 @@ public class IdTableManager {
         }
         c.close();
         close();
+
+        Log.v("TAG",eventList.toString());
 
         return eventList;
     }

@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -114,11 +115,12 @@ public class EventConfirmDialog extends android.support.v4.app.DialogFragment {
         @Override
         public void onBindViewHolder(MyViewHolder holder, int position) {
             holder.eventName.setText(events.get(position));
+            Log.v("Recycler bind",events.get(position));
         }
 
         @Override
         public int getItemCount() {
-            return eventList.getChildCount();
+            return events.size();
         }
 
 

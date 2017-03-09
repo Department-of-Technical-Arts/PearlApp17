@@ -47,6 +47,8 @@
         <activity android:name=".CampusMapActivity"/>
         <activity android:name=".ContactActivity"/>
         <activity android:name=".MapsActivity"/>
+        <activity android:name=".AppCreditsActivity"
+            android:theme="@style/CreditsTheme"/>
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"

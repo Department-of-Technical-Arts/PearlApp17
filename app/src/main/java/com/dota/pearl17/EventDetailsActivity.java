@@ -59,6 +59,7 @@ public class EventDetailsActivity extends AppCompatActivity {
     public void add(View v){
 
         cart.addEntry(event.getId(),event.getName());
+
         //disable button
 
     }
