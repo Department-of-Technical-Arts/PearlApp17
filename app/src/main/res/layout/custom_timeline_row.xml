@@ -32,8 +32,6 @@
         android:layout_marginRight="16dp"
         android:background="@color/yellow"
         android:orientation="vertical"
-        android:paddingBottom="8dp"
-        android:paddingTop="8dp"
         android:translationZ="4dp">
 
 
