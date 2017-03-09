@@ -214,11 +214,13 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
                 params.put("city", _city);
                 params.put("gender", _gender);
                 params.put("phone", _phone);
-                params.put("event_ids", finalEvents.toString());
+                params.put("event_ids", finalEvents.toString().substring(1,finalEvents.toString().length()-1));
                 //Log.e("Sent", params.toString());
                 return params;
             }
         };
+        Log.v("event ids",finalEvents.toString().substring(1,finalEvents.toString().length()-1));
+
         AppController.getInstance().addToRequestQueue(request);
     }
 
