@@ -12,6 +12,10 @@
         <item name="android:statusBarColor">@color/custom_green</item>
     </style>
 
+    <style name="CreditsTheme" parent="AppTheme">
+        <item name="android:statusBarColor">@color/custom_pink</item>
+    </style>
+
     <style name="blueTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:colorAccent">#223BA1FD</item>
     </style>
@@ -29,10 +33,6 @@
 
     <style name="GuideTheme" parent="AppTheme">
         <item name="android:statusBarColor">@color/custom_purple</item>
-    </style>
-
-    <style name="CreditsTheme" parent="AppTheme">
-        <item name="android:statusBarColor">@color/custom_pink</item>
     </style>
 
 </resources>

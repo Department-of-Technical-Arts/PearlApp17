@@ -15,24 +15,28 @@ import com.squareup.picasso.Picasso;
 
 public class SponsorsActivity extends AppCompatActivity {
 
+    private String base_spons_url="";
     RecyclerView sponsorRecycler;
+    private int numberOfSponsors=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sponsors);
 
-        Picasso.with(this)
-                .load(R.drawable.sponsors_frame)
-                .fit()
-                .into((ImageView)findViewById(R.id.bg_sponsors));
-
         sponsorRecycler = (RecyclerView) findViewById(R.id.sponsor_recycler);
         sponsorRecycler.setAdapter(new SponsAdapter(this));
         sponsorRecycler.setLayoutManager(new LinearLayoutManager(this));
 
+        numberOfSponsors = getNumberOfSponsors();
     }
 
+    int getNumberOfSponsors(){
+        // Add code to send Volley request
+        // Receive number of sponsors
+        // return this integer value
+        return 0;
+    }
 
     class MyViewHolder extends RecyclerView.ViewHolder{
 
@@ -49,23 +53,10 @@ public class SponsorsActivity extends AppCompatActivity {
     class  SponsAdapter extends RecyclerView.Adapter<MyViewHolder>{
 
         Context context;
-        int[] resources;
-
 
         public SponsAdapter(Context context) {
             this.context = context;
             inflater=LayoutInflater.from(context);
-            //first value is 0 since it represents empty view; it is never used
-            resources= new int[]{
-                    R.drawable.sponsor1,
-                    R.drawable.sponsor2,
-                    R.drawable.sponsor3,
-                    R.drawable.sponsor4,
-                    R.drawable.sponsor5,
-                    R.drawable.sponsor6,
-                    R.drawable.sponsor7,
-                    R.drawable.sponsor8
-            };
         }
 
         @Override
@@ -78,7 +69,7 @@ public class SponsorsActivity extends AppCompatActivity {
 
             holder.imageButton.requestLayout();
             Picasso.with(context)
-                    .load(resources[position])
+                    .load(base_spons_url+"/"+position) //This is the varying url
                     .fit()
                     .centerInside()
                     .into(holder.imageButton);
@@ -86,7 +77,7 @@ public class SponsorsActivity extends AppCompatActivity {
 
         @Override
         public int getItemCount() {
-            return resources.length;
+            return numberOfSponsors;
         }
     }
 }

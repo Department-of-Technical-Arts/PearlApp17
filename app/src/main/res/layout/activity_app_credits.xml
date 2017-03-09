@@ -134,7 +134,6 @@
             android:layout_below="@id/Designers"
             android:layout_marginTop="-50dp"
             android:layout_marginBottom="-33dp"
-
             android:layout_marginRight="1dp"
             android:tag="https://www.facebook.com/anshuman.das.9678?fref=ts"
             android:onClick="openBrowser"
@@ -220,7 +219,6 @@
             android:onClick="openBrowser"
             android:scaleX="0.84"
             android:scaleY="0.8" />
-
 
     </RelativeLayout>
 
