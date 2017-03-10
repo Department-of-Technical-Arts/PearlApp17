@@ -26,21 +26,14 @@
             android:layout_gravity="top"
             android:textSize="20dp"
             android:textColor="@color/custom_purple"
-            android:text="From Secunderabad railway station to BITS-Pilani, Hyderabad Campus one has to travel 22 KM on Rajiv Rahadari/ Karim Nagar Highway, up to Dongala Mysamma Junction after Alankruta Resorts in Thumkunta Village and take a right turn towards Ghatkesar. After travelling 1.5 KMs on this road, there is again a diversion to the right leading to the Campus. BITS? sign boards indicating the directions are available on the way.
-
-There is a direct Bus No. 212 from Secunderabad Railway station (Gurudwara Point) to BITS-Pilani Hyderabad Campus Main Gate Besides there are City Buses having numbers 211S, 211A, 211C, 211D, 211E, 211J, 211K, 211T, 211U, 567, 568, 569 ply from Secunderabad Railway Station to various destinations to the Campus side. Further, there are many APSRTC buses from Secunderabad, Jubilee bus-stand to KarimNagar, Siddhipet, Ramagundam,Gajwel, Cheriyal etc. People can board any of these buses, get down either at Thumkunta or Dongala Mysamma junction which is 1KM away and take an auto to the campus.
-
-APSRTC City Bus Timings : From 4th May 2011 Bus No.212
-
-From Secunderabad Railway Station (Gurudwara Point) to BITS Main gate:
-
-07:45,8:20, 09:45, 11:45, 14:20, 16:15, 17:15, 18:30.
-
-From BITS Main Gate to Secunderabad Railway Station :
-
-08:45, 9:15, 10:55, 12:55, 15:15, 17:15, 18:20, 19:25
-
-City Buses having numbers 211S, 211A, 211C, 211D, 211E, 211J, 211K, 211T, 211U, 567, 568, 569 ply from Secunderabad Railway Station to various destinations to the Campus side. Further, there are many APSRTC buses from Secunderabad, Jubilee bus-stand to KarimNagar, Siddhipet, Ramagundam,Gajwel, Cheriyal etc. People can board any of these buses, get down either at Thumkunta or Dongala Mysamma junction which is 1KM away and take an auto to the campus.
+            android:text="From Secunderabad Railway Station to BITS Pilani, Hyderabad Campus one has to travel 22 KM on Rajiv Rahadari/ Karim Nagar Highway, up to Dongala Mysamma Junction after Aalankrita Resorts in Thumkunta Village and then take a right turn towards Ghatkesar. After travelling 1.5 KMs on this road, there is again a diversion to the right leading to the Campus. BITS sign boards indicating the directions are available on the way.\n\n
+There is a direct Bus No. 212 from Secunderabad Railway Station (Gurudwara Point) to BITS Pilani Hyderabad Campus Main Gate.\n\n
+APSRTC City Bus Timings : (From 6th August 2015) Bus No.212\n\n
+From Secunderabad Railway Station (Gurudwara Point) to BITS Main Gate:\n\n
+07:50, 8:20, 8:50, 09:50, 11:00, 12:00, 13:00, 14:10, 15:05, 16:05, 17:20, 18:15, 19:15, 20:15, 21:15.\n\n
+From BITS Main Gate to Secunderabad Railway Station :\n\n
+06:55, 07:55, 08:50, 09:20, 09:50, 11:00, 12:00, 13:00, 14:00, 15:05, 16:05, 18:15, 19:15, 20:15\n\n
+Besides that, there are City Buses having numbers 211S, 211A, 211C, 211D, 211E, 211J, 211K, 211T, 211U, 567, 568, 569 which ply from Secunderabad Railway Station to various destinations on the Campus side. Further, there are many APSRTC buses from Secunderabad and Jubilee bus-stand to KarimNagar, Siddhipet, Ramagundam,Gajwel, Cheriyal etc. People can board any of these buses, get down either at Thumkunta or Dongala Mysamma junction which is 1KM away and take an auto to the campus.\n
 "/>
     </ScrollView>
 

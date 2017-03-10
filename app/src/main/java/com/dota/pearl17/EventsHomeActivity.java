@@ -88,24 +88,6 @@ public class EventsHomeActivity extends AppCompatActivity {
         super.onStop();
     }
 
-    View.OnClickListener mClickListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            //handle item clicks here
-            //condition should logically be the title
-            //from here the EventsListScreen is opened
-            //startActivity(new Intent(EventsHomeActivity.this,EventDetailsActivity.class));
-        }
-    };
-
-
-
-    View.OnClickListener mSliderClickListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-
-        }
-    };
     void loadSliderImages(){
 
         int resources[] = new int[]{
@@ -184,7 +166,6 @@ public class EventsHomeActivity extends AppCompatActivity {
 
         public EventCategoryItem(View v){
             super(v);
-            v.setOnClickListener(mClickListener);
 
             eventButton = (RelativeLayout) v.findViewById(R.id.layout_event_category);
 

@@ -161,6 +161,10 @@ public class MainActivity extends AppCompatActivity {
                     //App Credits
                     startActivity(new Intent(MainActivity.this,AppCreditsActivity.class));
                     break;
+                case 9:
+                    //Contact Us
+                    startActivity(new Intent(MainActivity.this,ContactActivity.class));
+                    break;
             }
         }
     };
@@ -204,7 +208,8 @@ public class MainActivity extends AppCompatActivity {
                     R.drawable.guide_new_2,
                     R.drawable.register_button,
                     R.drawable.sponsors_button,
-                    R.drawable.app_credits_button
+                    R.drawable.app_credits_button,
+                    R.drawable.contact_us_button
             };
 
         }
@@ -233,6 +238,7 @@ public class MainActivity extends AppCompatActivity {
                 Picasso.with(MainActivity.this)
                         .load(resources[position])
                         .fit()
+                        .centerInside()
                         .into(holder.imageButton);
             }
 //            if (prev < position) {
