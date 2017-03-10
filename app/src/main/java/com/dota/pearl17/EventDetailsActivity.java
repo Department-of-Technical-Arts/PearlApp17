@@ -2,6 +2,7 @@ package com.dota.pearl17;
 
 import android.Manifest;
 import android.app.DownloadManager;
+import android.content.ActivityNotFoundException;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -17,6 +18,7 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -79,23 +81,11 @@ public class EventDetailsActivity extends AppCompatActivity {
                 .fit()
                 .into((ImageView) findViewById(R.id.bg_club_details));
 
-        registerReceiver(onComplete, new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
-
-        onComplete = new BroadcastReceiver() {
-            public void onReceive(Context ctx, Intent intent) {
-                File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath()+ "/" + eventName + " Rules" + ".pdf");
-                Intent i = new Intent(Intent.ACTION_VIEW);
-                intent.setDataAndType(Uri.fromFile(file), "application/pdf");
-                intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
-                startActivity(i);
-            }
-        };
-
     }
 
     private long downloadFile (Uri uri) {
 
-        long downloadReference;
+        final long downloadReference;
 
         // Create request for android download manager
         downloadManager = (DownloadManager)getSystemService(DOWNLOAD_SERVICE);
@@ -107,11 +97,15 @@ public class EventDetailsActivity extends AppCompatActivity {
         //Setting description of request
         request.setDescription("Rules for " + eventName);
 
+        //Set the download completed notification as VISIBLE
+        request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+
         //Set the local destination for the downloaded file to a path within the application's external files directory
-            request.setDestinationInExternalFilesDir(EventDetailsActivity.this, Environment.DIRECTORY_DOWNLOADS, eventName + "Rules");
+        request.setDestinationInExternalFilesDir(EventDetailsActivity.this, Environment.DIRECTORY_DOWNLOADS, eventName + "Rules");
+
+        downloadReference = downloadManager.enqueue(request);
 
         //Enqueue download and save into referenceId
-        downloadReference = downloadManager.enqueue(request);
 
         return downloadReference;
     }
