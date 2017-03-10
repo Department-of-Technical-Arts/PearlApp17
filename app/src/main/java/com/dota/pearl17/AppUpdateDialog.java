@@ -4,7 +4,9 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
@@ -63,8 +65,9 @@ public class AppUpdateDialog extends DialogFragment{
 
             public void onClick(DialogInterface dialog, int which) {
                 //redirect to Pearl App PlayStore Page
-
-
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse("market://details?id="+getActivity().getPackageName()));
+                startActivity(intent);
             }
 
         });

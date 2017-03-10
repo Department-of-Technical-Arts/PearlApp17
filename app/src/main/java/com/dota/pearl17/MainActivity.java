@@ -10,6 +10,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -54,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onResponse(String s) {
                         try {
                             JSONObject object = new JSONObject(s);
+                            Log.i("versionCheck","server ver "+object.getInt("version")+" app ver"+SessionManager.getVersion(MainActivity.this));
                             if(object.getInt("version")!=SessionManager.getVersion(MainActivity.this)){
                                 //send to play store to update
                                 AppUpdateDialog dialog = new AppUpdateDialog(MainActivity.this);
@@ -206,7 +208,7 @@ public class MainActivity extends AppCompatActivity {
                     R.drawable.pro_shows_button,
                     R.drawable.talks_button,
                     R.drawable.schedule_button,
-                    R.drawable.guide_new_2,
+                    R.drawable.guide_button,
                     R.drawable.register_button,
                     R.drawable.sponsors_button,
                     R.drawable.app_credits_button,
