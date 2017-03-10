@@ -8,6 +8,6 @@
         android:layout_height="match_parent"
         android:padding="10dp"
         android:textSize="16sp"
-        android:text="To avail of the latest features that the Pearl '17 App has to offer please update you app from the Google Play Store now."/>
+        android:text="To avail of the latest features that the Pearl '17 App has to offer please update your app from the Google Play Store now."/>
 
 </LinearLayout>

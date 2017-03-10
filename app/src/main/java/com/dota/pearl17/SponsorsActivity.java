@@ -52,7 +52,7 @@ public class SponsorsActivity extends AppCompatActivity {
         sponsorRecycler.setAdapter(mAdapter);
         sponsorRecycler.setLayoutManager(new LinearLayoutManager(this));
 
-        updateSponsorURLs();
+        updateSponsorURLs(); // Do on worker thread?
     }
 
     @Override
@@ -137,7 +137,7 @@ public class SponsorsActivity extends AppCompatActivity {
 
         @Override
         public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            return new MyViewHolder(inflater.inflate(R.layout.custom_main_row,parent,false));
+            return new MyViewHolder(inflater.inflate(R.layout.sponsors_row,parent,false));
         }
 
         @Override
