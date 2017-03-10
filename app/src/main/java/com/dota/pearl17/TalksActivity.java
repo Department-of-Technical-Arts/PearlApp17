@@ -51,6 +51,13 @@ public class TalksActivity extends AppCompatActivity {
         mRecycler.scrollToPosition(1);
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(TalksActivity.this,MainActivity.class));
+        finish();
+    }
+
     class TalksAdapter extends RecyclerView.Adapter<TalksAdapter.TalksViewHolder>{
 
         @Override

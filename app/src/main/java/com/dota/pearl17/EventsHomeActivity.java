@@ -71,7 +71,6 @@ public class EventsHomeActivity extends AppCompatActivity {
                 //ANIM: This needs to have a slide up animation
                 startActivity(new Intent(EventsHomeActivity.this,EventsShowMoreActivity.class));
                 overridePendingTransition(R.anim.slide_up, R.anim.stay);
-                finish();
             }
         });
 
@@ -86,6 +85,13 @@ public class EventsHomeActivity extends AppCompatActivity {
     protected void onStop() {
         mDemoSlider.stopAutoCycle();
         super.onStop();
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(EventsHomeActivity.this,MainActivity.class));
+        finish();
     }
 
     void loadSliderImages(){
@@ -114,27 +120,27 @@ public class EventsHomeActivity extends AppCompatActivity {
                             switch (mDemoSlider.getCurrentPosition()){
                                 case 0:
                                     //Carnival Zone - None
-                                    i.putExtra("event_name", "Carnival Zone");
+                                    i.putExtra("event_name", "CARNIVAL ZONE");
                                     break;
                                 case 1:
                                     //Catharsis - Movie
-                                    i.putExtra("event_name", "Catharsis");
+                                    i.putExtra("event_name", "CATHARSIS");
                                     break;
                                 case 2:
                                     //Crimson Curtain - Drama
-                                    i.putExtra("event_name", "Crimson Curtain");
+                                    i.putExtra("event_name", "CRIMSON CURTAIN");
                                     break;
                                 case 3:
                                     //Fraglore - None
-                                    i.putExtra("event_name", "Fraglore");
+                                    i.putExtra("event_name", "FRAGLORE");
                                     break;
                                 case 4:
                                     //Glitterati - None
-                                    i.putExtra("event_name", "Glitterati");
+                                    i.putExtra("event_name", "GLITTERATI");
                                     break;
                                 case 5:
                                     //Photog Fest - Photog ?
-                                    i.putExtra("event_name", "Photog Fest");
+                                    i.putExtra("event_name", "PHOTOG FEST");
                                     break;
                                 case 6:
                                     //QuBITS - Quiz ?
@@ -142,11 +148,11 @@ public class EventsHomeActivity extends AppCompatActivity {
                                     break;
                                 case 7:
                                     //Terpsichore - Dance
-                                    i.putExtra("event_name", "Terpsichore");
+                                    i.putExtra("event_name", "TERPSICHORE");
                                     break;
                                 case 8:
                                     //Till Deaf - Music
-                                    i.putExtra("event_name", "Till Deaf");
+                                    i.putExtra("event_name", "TILL DEAF DO WE PART");
                                     break;
                             }
                             startActivity(i);

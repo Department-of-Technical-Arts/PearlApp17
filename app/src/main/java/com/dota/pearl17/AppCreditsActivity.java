@@ -27,6 +27,12 @@ public class AppCreditsActivity extends AppCompatActivity {
         i.setData(Uri.parse(url));
 
         startActivity(i);
+    }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(this,MainActivity.class));
+        finish();
     }
 }

@@ -40,7 +40,7 @@ public class EventsShowMoreActivity extends AppCompatActivity {
 
     public void showLess(View v){
         //ANIM: This needs a slide down animation
-        startActivity(new Intent(EventsShowMoreActivity.this,EventsHomeActivity.class));
+//        startActivity(new Intent(EventsShowMoreActivity.this,EventsHomeActivity.class));
         finish();
     }
 
