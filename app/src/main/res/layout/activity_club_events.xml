@@ -9,46 +9,49 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
     <Button
-        android:layout_width="6dp"
-        android:layout_height="6dp"
         android:id="@+id/button2"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/club_name"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/roundbutton"/>
-    <Button
         android:layout_width="6dp"
         android:layout_height="6dp"
-        android:id="@+id/button3"
+        android:layout_below="@+id/club_name"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/roundbutton" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="6dp"
+        android:layout_height="6dp"
         android:layout_below="@+id/button2"
-        android:layout_marginTop="5dp"
+        android:layout_centerHorizontal="true"
         android:layout_marginBottom="5dp"
-        android:background="@drawable/roundbutton"/>
+        android:layout_marginTop="5dp"
+        android:background="@drawable/roundbutton" />
+
     <android.support.v7.widget.RecyclerView
-        android:overScrollMode="never"
+        android:id="@+id/recycler"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below = "@id/button3"
+        android:layout_below="@id/button3"
+        android:layout_marginBottom="32dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
-        android:layout_marginBottom="32dp"
-        android:id="@+id/recycler"/>
+        android:overScrollMode="never" />
 
     <TextView
+        android:id="@+id/club_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/textbox"
-        android:layout_marginTop="96dp"
+        android:layout_centerHorizontal="true"
         android:layout_marginLeft="96dp"
+        android:layout_marginTop="96dp"
+        android:background="@drawable/textbox"
+        android:gravity="center"
         android:paddingLeft="4dp"
         android:paddingRight="4dp"
-        android:gravity="center"
-        android:textSize="36sp"
         android:textColor="#E3556B"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/club_name" />
+        android:textSize="36sp" />
 
 
 </RelativeLayout>

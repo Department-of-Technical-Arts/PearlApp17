@@ -46,7 +46,6 @@ public class ScheduleTableManager {
         addEntry(5, "round2", "pearl", 88806L, "F105");
 
 
-
     }
 
     public ScheduleTableManager open() {
@@ -81,7 +80,7 @@ public class ScheduleTableManager {
 
         try {
             success = ourDatabase.insertOrThrow(DATABASE_TABLE, null, cv);
-            Log.d(TAG, "addEntry: added "+success);
+            Log.d(TAG, "addEntry: added " + success);
 
         } catch (SQLiteConstraintException e) {
             success = ourDatabase.update(DATABASE_TABLE, cv, KEY_ID + "=" + id, null);

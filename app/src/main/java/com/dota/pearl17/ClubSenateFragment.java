@@ -15,7 +15,7 @@ import java.util.ArrayList;
  * Created by SHREEDA on 11-03-2017.
  */
 
-public class ClubSenateFragment  extends Fragment implements RecyclerClickListener{
+public class ClubSenateFragment extends Fragment implements RecyclerClickListener {
     ContactsAdapter contactAdapter;
     RecyclerView recyclerView;
     ArrayList<Contacts> data;
@@ -46,20 +46,19 @@ public class ClubSenateFragment  extends Fragment implements RecyclerClickListen
 
     private void feedData() {
         Contacts temp1 = new Contacts("KARRAN PANDEY", "Music", "73811818733", R.drawable.karran);
-        Contacts temp2 = new Contacts("BHAVYA GUPTA", "Photog", "9553795222",R.drawable.bhavya);
-        Contacts temp3 = new Contacts("SUMIRAN MITTAL", "ELAS", "8096063146",R.drawable.sumiran);
-        Contacts temp4 = new Contacts("SHIVANI MAHADDALKAR" , "Dance", "9542979151",R.drawable.shivani);
-        Contacts temp5 = new Contacts("SAMHITHA GADDAMANUGU", "Shades","8096120328",R.drawable.samhitha);
+        Contacts temp2 = new Contacts("BHAVYA GUPTA", "Photog", "9553795222", R.drawable.bhavya);
+        Contacts temp3 = new Contacts("SUMIRAN MITTAL", "ELAS", "8096063146", R.drawable.sumiran);
+        Contacts temp4 = new Contacts("SHIVANI MAHADDALKAR", "Dance", "9542979151", R.drawable.shivani);
+        Contacts temp5 = new Contacts("SAMHITHA GADDAMANUGU", "Shades", "8096120328", R.drawable.samhitha);
         Contacts temp6 = new Contacts("ADITYA MATHUR", "Dramatics", "9542980965", R.drawable.mathur);
         Contacts temp7 = new Contacts("SHUBHAM JAIN", "Quiz", "9553317418", R.drawable.shubham);
         Contacts temp8 = new Contacts("RAJIV KRISHNA", "Design", "8331880623", R.drawable.rajiv);
-        Contacts temp9 = new Contacts("DHRUV KULSHRESHTHA","VFx", "9640022571", R.drawable.dhruv);
-        Contacts temp10 = new Contacts("ANUJ SAXENA","Movie", "9553339766", R.drawable.anuj);
+        Contacts temp9 = new Contacts("DHRUV KULSHRESHTHA", "VFx", "9640022571", R.drawable.dhruv);
+        Contacts temp10 = new Contacts("ANUJ SAXENA", "Movie", "9553339766", R.drawable.anuj);
         Contacts temp11 = new Contacts("NIMISHA AGARWAL", "Embryo", "", R.drawable.nimisha);
         Contacts temp12 = new Contacts("MANAN AGARWAL", "Hindi Tarang", "9912252372", R.drawable.manan);
         Contacts temp13 = new Contacts("PIPPIRI SACHIN", "Informalz", "9666070735", R.drawable.sachin);
-        Contacts temp14 = new Contacts("HITHENDRA SAI ALAM" , "Controz", " 9553336733", R.drawable.hithendra);
-
+        Contacts temp14 = new Contacts("HITHENDRA SAI ALAM", "Controz", " 9553336733", R.drawable.hithendra);
 
 
         data.add(temp1);
@@ -79,7 +78,6 @@ public class ClubSenateFragment  extends Fragment implements RecyclerClickListen
 
         contactAdapter.notifyItemRangeInserted(0, data.size() - 1);
     }
-
 
 
     @Override

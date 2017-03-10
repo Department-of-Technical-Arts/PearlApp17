@@ -12,27 +12,28 @@
         <item name="android:statusBarColor">@color/custom_green</item>
     </style>
 
-    <style name="CreditsTheme" parent="AppTheme">
-        <item name="android:statusBarColor">@color/custom_pink</item>
-    </style>
-
-    <style name="blueTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="android:colorAccent">#223BA1FD</item>
-    </style>
-
-    <style name="AppTheme.NoActionBar">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
-        <item name="android:statusBarColor">@android:color/transparent</item>
-    </style>
-
-    <style name="AppTheme.ActionBar.Transparent" parent="AppTheme">
-        <item name="colorPrimary">@android:color/transparent</item>
+    <style name="ScheduleTheme" parent="AppTheme">
+        <item name="android:statusBarColor">@color/schedule_yellow</item>
     </style>
 
     <style name="GuideTheme" parent="AppTheme">
         <item name="android:statusBarColor">@color/custom_purple</item>
     </style>
 
+    <style name="RegisterTheme" parent="AppTheme">
+        <item name="android:statusBarColor">@color/custom_blue</item>
+    </style>
+
+    <style name="SponsorsTheme" parent="AppTheme">
+        <item name="android:statusBarColor">@color/custom_purple</item>
+    </style>
+
+    <style name="CreditsTheme" parent="AppTheme">
+        <item name="android:statusBarColor">@color/custom_pink</item>
+    </style>
+
+    <style name="ContactsTheme" parent="AppTheme">
+        <item name="android:statusBarColor">@color/custom_purple</item>
+        <item name="colorAccent">@color/custom_purple</item>
+    </style>
 </resources>

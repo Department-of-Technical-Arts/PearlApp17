@@ -3,46 +3,49 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.dota.pearl17.EventDetailsActivity"
+    android:layout_centerHorizontal="true"
+    android:layout_gravity="center_horizontal"
     android:foregroundGravity="center_horizontal"
     android:gravity="center_horizontal"
-    android:layout_gravity="center_horizontal"
-    android:layout_centerHorizontal="true">
+    tools:context="com.dota.pearl17.EventDetailsActivity">
 
     <ImageView
         android:id="@+id/bg_club_details"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="120dp"
-        android:layout_marginLeft="36dp"
-        android:layout_marginRight="36dp"
-        android:padding="16dp"
-        android:gravity="center"
         android:id="@+id/event_title"
-        android:textColor="#E3556B"
-        android:background="@drawable/event_title_border_red"
-        android:textSize="36sp" />
-    <ScrollView
-        android:layout_marginLeft="36dp"
-        android:layout_marginRight="36dp"
-        android:layout_below="@+id/event_title"
-        android:layout_marginTop="30dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="36dp"
+        android:layout_marginRight="36dp"
+        android:layout_marginTop="120dp"
+        android:background="@drawable/event_title_border_red"
+        android:gravity="center"
+        android:padding="16dp"
+        android:textColor="#E3556B"
+        android:textSize="36sp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/event_title"
+        android:layout_marginLeft="36dp"
+        android:layout_marginRight="36dp"
+        android:layout_marginTop="30dp"
         android:foregroundGravity="center_horizontal">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/event_desc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#E3556B"
-                android:id="@+id/event_desc"
                 android:textSize="18sp" />
 
         </LinearLayout>
@@ -50,19 +53,19 @@
     </ScrollView>
 
     <Button
+        android:id="@+id/rules"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="15dp"
-        android:id="@+id/rules"
-        android:onClick="rules"
-        android:textSize="24sp"
-        android:textColor="@android:color/white"
-        android:text="DOWNLOAD RULES"
-        android:gravity="center_horizontal"
-        android:background="@drawable/border_item_club_event"
-        android:layout_marginBottom="50dp"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/border_item_club_event"
+        android:gravity="center_horizontal"
+        android:onClick="rules"
+        android:padding="15dp"
+        android:text="DOWNLOAD RULES"
+        android:textColor="@android:color/white"
+        android:textSize="24sp" />
 
 
 </RelativeLayout>

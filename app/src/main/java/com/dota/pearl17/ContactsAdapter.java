@@ -19,7 +19,7 @@ import java.util.ArrayList;
  * Created by SHREEDA on 11-03-2017.
  */
 
-public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.MyViewHolder>{
+public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.MyViewHolder> {
     ArrayList<Contacts> arrayList;
     Context context;
     LayoutInflater inflater;
@@ -87,5 +87,5 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.MyView
             number = (TextView) itemView.findViewById(R.id.number);
 
         }
-}
+    }
 }

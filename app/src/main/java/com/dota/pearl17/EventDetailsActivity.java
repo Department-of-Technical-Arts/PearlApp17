@@ -62,12 +62,12 @@ public class EventDetailsActivity extends AppCompatActivity {
 
     }
 
-    private long downloadFile (Uri uri) {
+    private long downloadFile(Uri uri) {
 
         final long downloadReference;
 
         // Create request for android download manager
-        downloadManager = (DownloadManager)getSystemService(DOWNLOAD_SERVICE);
+        downloadManager = (DownloadManager) getSystemService(DOWNLOAD_SERVICE);
         DownloadManager.Request request = new DownloadManager.Request(uri);
 
         //Setting title of request

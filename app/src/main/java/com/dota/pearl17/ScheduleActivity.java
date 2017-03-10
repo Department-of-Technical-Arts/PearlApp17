@@ -53,7 +53,7 @@ public class ScheduleActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        startActivity(new Intent(ScheduleActivity.this,MainActivity.class));
+        startActivity(new Intent(ScheduleActivity.this, MainActivity.class));
         finish();
     }
 
@@ -71,9 +71,9 @@ public class ScheduleActivity extends AppCompatActivity {
         public Fragment getItem(int position) {
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).
-            Bundle args=new Bundle();
-            args.putInt("day",position);
-            TimelinePagerFragment frag=new TimelinePagerFragment();
+            Bundle args = new Bundle();
+            args.putInt("day", position);
+            TimelinePagerFragment frag = new TimelinePagerFragment();
             frag.setArguments(args);
             return frag;
 

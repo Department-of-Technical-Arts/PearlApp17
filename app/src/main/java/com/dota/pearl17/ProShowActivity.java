@@ -33,7 +33,7 @@ public class ProShowActivity extends AppCompatActivity {
         final RecyclerView mRecycler = (RecyclerView) findViewById(R.id.recycler_pro_show);
         mRecycler.setLayoutManager(mLayoutManager);
         mRecycler.setHasFixedSize(true);
-        CarouselChildSelectionListener csl = new CarouselChildSelectionListener(mRecycler,mLayoutManager) {
+        CarouselChildSelectionListener csl = new CarouselChildSelectionListener(mRecycler, mLayoutManager) {
             @Override
             protected void onCenterItemClicked(@NonNull RecyclerView recyclerView, @NonNull CarouselLayoutManager carouselLayoutManager, @NonNull View v) {
                 //open description
@@ -53,19 +53,20 @@ public class ProShowActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        startActivity(new Intent(ProShowActivity.this,MainActivity.class));
+        startActivity(new Intent(ProShowActivity.this, MainActivity.class));
         finish();
     }
 
-    class ProShowAdapter extends RecyclerView.Adapter<ProShowAdapter.ProShowViewHolder>{
+    class ProShowAdapter extends RecyclerView.Adapter<ProShowAdapter.ProShowViewHolder> {
         int resId[] = new int[]{
                 R.drawable.proshow_lagori1,
                 R.drawable.proshow_sonu1,
                 R.drawable.proshow_zakhir1
         };
+
         @Override
         public ProShowViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            return new ProShowViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_pro_show,parent,false));
+            return new ProShowViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_pro_show, parent, false));
         }
 
         @Override
@@ -82,9 +83,10 @@ public class ProShowActivity extends AppCompatActivity {
             return resId.length;
         }
 
-        class ProShowViewHolder extends RecyclerView.ViewHolder{
+        class ProShowViewHolder extends RecyclerView.ViewHolder {
             private ImageView img;
-            ProShowViewHolder(View v){
+
+            ProShowViewHolder(View v) {
                 super(v);
                 img = (ImageView) v.findViewById(R.id.image_pro_show);
             }

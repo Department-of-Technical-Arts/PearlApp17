@@ -25,41 +25,39 @@ import java.util.Map;
 
 public class EventDatabaseManager {
 
-        public static final String KEY = "_id";
-        public static final String EVENT_ID = "EVENT_ID";
-        public static final String EVENT_NAME = "EVENT_NAME";
-        public static final String EVENT_CLUB = "CLUB";
-        public static final String EVENT_DESC = "DESC";
-        public static final String EVENT_RULES = "RULES";
-
-
+    public static final String KEY = "_id";
+    public static final String EVENT_ID = "EVENT_ID";
+    public static final String EVENT_NAME = "EVENT_NAME";
+    public static final String EVENT_CLUB = "CLUB";
+    public static final String EVENT_DESC = "DESC";
+    public static final String EVENT_RULES = "RULES";
 
 
     public static final String TAG = "Event Manager";
 
-        private static final String DATABASE_TABLE = "Event_Manager";
-        private static final int DATABASE_VERSION = 1;
-        private static final String DATABASE_NAME = "Event_Manager_Database";
-        private Context context;
-        private DBHelper ourHelper;
-        private SQLiteDatabase ourDatabase;
+    private static final String DATABASE_TABLE = "Event_Manager";
+    private static final int DATABASE_VERSION = 1;
+    private static final String DATABASE_NAME = "Event_Manager_Database";
+    private Context context;
+    private DBHelper ourHelper;
+    private SQLiteDatabase ourDatabase;
 
-        public EventDatabaseManager(Context c) {
-            context = c;
-        }
+    public EventDatabaseManager(Context c) {
+        context = c;
+    }
 
-        public EventDatabaseManager open() {
-            ourHelper = new DBHelper(context);
-            ourDatabase = ourHelper.getWritableDatabase();
-            return this;
-        }
+    public EventDatabaseManager open() {
+        ourHelper = new DBHelper(context);
+        ourDatabase = ourHelper.getWritableDatabase();
+        return this;
+    }
 
-        public void close() {
-            ourHelper.close();
-            ourDatabase.close();
-        }
+    public void close() {
+        ourHelper.close();
+        ourDatabase.close();
+    }
 
-    public long addEvent(Event newEvent){
+    public long addEvent(Event newEvent) {
 
         long success = -1;
 
@@ -75,14 +73,14 @@ public class EventDatabaseManager {
         try {
             success = ourDatabase.insertOrThrow(DATABASE_TABLE, null, cv);
         } catch (SQLiteConstraintException e) {
-            success = ourDatabase.update(DATABASE_TABLE,cv,EVENT_ID + " = " + newEvent.getId(),null);
+            success = ourDatabase.update(DATABASE_TABLE, cv, EVENT_ID + " = " + newEvent.getId(), null);
         }
         close();
         return success;
 
     }
 
-    public Event getEvent(int eventId){
+    public Event getEvent(int eventId) {
 
         open();
         Cursor c;
@@ -90,7 +88,7 @@ public class EventDatabaseManager {
 
         c = ourDatabase.rawQuery("SELECT * FROM " + DATABASE_TABLE + " WHERE " + EVENT_ID + " EQUALS " + eventId, null);
 
-        if(c.moveToFirst()) {
+        if (c.moveToFirst()) {
             event = new Event(c.getInt(c.getColumnIndex(EVENT_ID)),
                     c.getString(c.getColumnIndex(EVENT_NAME)),
                     c.getString(c.getColumnIndex(EVENT_DESC)),
@@ -109,7 +107,7 @@ public class EventDatabaseManager {
         return new Event();
     }
 
-    public Event getEvent(String eventName){
+    public Event getEvent(String eventName) {
 
         open();
         Cursor c;
@@ -117,7 +115,7 @@ public class EventDatabaseManager {
 
         c = ourDatabase.rawQuery("SELECT * FROM " + DATABASE_TABLE + " WHERE " + EVENT_NAME + " LIKE \"" + eventName + "\"", null);
 
-        if(c.moveToFirst()) {
+        if (c.moveToFirst()) {
             event = new Event(c.getInt(c.getColumnIndex(EVENT_ID)),
                     c.getString(c.getColumnIndex(EVENT_NAME)),
                     c.getString(c.getColumnIndex(EVENT_DESC)),
@@ -132,10 +130,10 @@ public class EventDatabaseManager {
         c.close();
         close();
 
-        return new Event(0,"0","0","0","0");
+        return new Event(0, "0", "0", "0", "0");
     }
 
-    public ArrayList<Event> getClubEvents(String clubName){
+    public ArrayList<Event> getClubEvents(String clubName) {
 
         open();
         Cursor c;
@@ -143,14 +141,14 @@ public class EventDatabaseManager {
 
         c = ourDatabase.rawQuery("SELECT * FROM " + DATABASE_TABLE + " WHERE " + EVENT_CLUB + " LIKE \"" + clubName + "\"", null);
 
-        if(c.moveToFirst()) {
+        if (c.moveToFirst()) {
             do {
                 events.add(new Event(c.getInt(c.getColumnIndex(EVENT_ID)),
                         c.getString(c.getColumnIndex(EVENT_NAME)),
                         c.getString(c.getColumnIndex(EVENT_DESC)),
                         c.getString(c.getColumnIndex(EVENT_CLUB)),
                         c.getString(5)));
-            }while(c.moveToNext());
+            } while (c.moveToNext());
             c.close();
             close();
             return events;
@@ -158,11 +156,11 @@ public class EventDatabaseManager {
 
         c.close();
         close();
-        events.add(new Event(0,"0","0","0","0"));
+        events.add(new Event(0, "0", "0", "0", "0"));
         return events;
     }
 
-    public void updateEvents(){
+    public void updateEvents() {
 
         StringRequest request = new StringRequest(Request.Method.POST, ControllerConstant.url, new Response.Listener<String>() {
             @Override
@@ -170,8 +168,8 @@ public class EventDatabaseManager {
 
                 try {
                     JSONObject object = new JSONObject(s);
-                    if(object.getInt("success")==1){
-                        Toast.makeText(context,"Updated successfully",Toast.LENGTH_SHORT).show();
+                    if (object.getInt("success") == 1) {
+                        Toast.makeText(context, "Updated successfully", Toast.LENGTH_SHORT).show();
                         //update all events
 
                         try {
@@ -181,12 +179,12 @@ public class EventDatabaseManager {
                                 addEvent(new Event(Object.getInt("event_id"), Object.getString("name"), Object.getString("description"),
                                         Object.getString("club"), Object.getString("pdf")));
                             }
-                            Log.v("Events",s);
+                            Log.v("Events", s);
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
-                    }else{
-                        Toast.makeText(context,"Update failed",Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(context, "Update failed", Toast.LENGTH_SHORT).show();
                     }
 
                 } catch (JSONException e) {
@@ -213,21 +211,21 @@ public class EventDatabaseManager {
         AppController.getInstance().addToRequestQueue(request);
     }
 
-    public void printEvents(){
+    public void printEvents() {
         open();
 
         Cursor c;
-        c = ourDatabase.rawQuery("SELECT * FROM " + DATABASE_TABLE , null);
+        c = ourDatabase.rawQuery("SELECT * FROM " + DATABASE_TABLE, null);
 
-        if(c.moveToFirst()) {
+        if (c.moveToFirst()) {
             do {
-                Event event =new Event(c.getInt(c.getColumnIndex(EVENT_ID)),
+                Event event = new Event(c.getInt(c.getColumnIndex(EVENT_ID)),
                         c.getString(c.getColumnIndex(EVENT_NAME)),
                         c.getString(c.getColumnIndex(EVENT_DESC)),
                         c.getString(c.getColumnIndex(EVENT_CLUB)),
                         c.getString(5));
-                Log.v("Events",event.getClub());
-            }while(c.moveToNext());
+                Log.v("Events", event.getClub());
+            } while (c.moveToNext());
         }
 
         c.close();
@@ -235,34 +233,31 @@ public class EventDatabaseManager {
     }
 
 
+    private static class DBHelper extends SQLiteOpenHelper {
 
 
-
-        private static class DBHelper extends SQLiteOpenHelper {
-
-
-            public DBHelper(Context context) {
-                super(context, DATABASE_NAME, null, DATABASE_VERSION);
-            }
-
-            @Override
-            public void onCreate(SQLiteDatabase db) {
-
-                String query = "CREATE TABLE IF NOT EXISTS " + DATABASE_TABLE + " ( " +
-                        KEY + " INTEGER, " +
-                        EVENT_NAME + " TEXT NOT NULL, " +
-                        EVENT_ID + " INTEGER NOT NULL PRIMARY KEY, " +//1, 2, etc event associated id
-                        EVENT_CLUB + " TEXT, " +
-                        EVENT_DESC + " TEXT, " +
-                        EVENT_RULES + " TEXT);";
-
-                db.execSQL(query);
-            }
-
-            @Override
-            public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-                db.execSQL("DROP TABLE IF EXISTS " + DATABASE_TABLE);
-                onCreate(db);
-            }
+        public DBHelper(Context context) {
+            super(context, DATABASE_NAME, null, DATABASE_VERSION);
         }
+
+        @Override
+        public void onCreate(SQLiteDatabase db) {
+
+            String query = "CREATE TABLE IF NOT EXISTS " + DATABASE_TABLE + " ( " +
+                    KEY + " INTEGER, " +
+                    EVENT_NAME + " TEXT NOT NULL, " +
+                    EVENT_ID + " INTEGER NOT NULL PRIMARY KEY, " +//1, 2, etc event associated id
+                    EVENT_CLUB + " TEXT, " +
+                    EVENT_DESC + " TEXT, " +
+                    EVENT_RULES + " TEXT);";
+
+            db.execSQL(query);
+        }
+
+        @Override
+        public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+            db.execSQL("DROP TABLE IF EXISTS " + DATABASE_TABLE);
+            onCreate(db);
+        }
+    }
 }

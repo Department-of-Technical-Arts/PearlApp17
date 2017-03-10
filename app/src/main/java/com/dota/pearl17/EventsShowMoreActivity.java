@@ -34,7 +34,7 @@ public class EventsShowMoreActivity extends AppCompatActivity {
                 .into(topbar);
 
         RecyclerView mRecycler = (RecyclerView) findViewById(R.id.recycler_more_categories);
-        mRecycler.setLayoutManager(new GridLayoutManager(this,2));
+        mRecycler.setLayoutManager(new GridLayoutManager(this, 2));
         mRecycler.setAdapter(new MyAdapter());
 
         View showMore = findViewById(R.id.btn_show_less);
@@ -50,11 +50,12 @@ public class EventsShowMoreActivity extends AppCompatActivity {
 
     }
 
-    class EventCategoryItem extends RecyclerView.ViewHolder{
+    class EventCategoryItem extends RecyclerView.ViewHolder {
         TextView title;
         ImageView icon;
         RelativeLayout eventButton;
-        public EventCategoryItem(View v){
+
+        public EventCategoryItem(View v) {
             super(v);
             title = (TextView) v.findViewById(R.id.title_category);
             icon = (ImageView) v.findViewById(R.id.icon_category);
@@ -66,10 +67,9 @@ public class EventsShowMoreActivity extends AppCompatActivity {
         }
 
 
-
     }
 
-    class MyAdapter extends RecyclerView.Adapter<EventCategoryItem>{
+    class MyAdapter extends RecyclerView.Adapter<EventCategoryItem> {
 
         String titles[] = new String[]{
                 "DANCE",
@@ -103,7 +103,7 @@ public class EventsShowMoreActivity extends AppCompatActivity {
 
         @Override
         public EventCategoryItem onCreateViewHolder(ViewGroup parent, int viewType) {
-            return new EventCategoryItem(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_event_category,parent,false));
+            return new EventCategoryItem(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_event_category, parent, false));
         }
 
         @Override
@@ -115,9 +115,9 @@ public class EventsShowMoreActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
 
-                    Intent i = new Intent(EventsShowMoreActivity.this,ClubEventsActivity.class);
+                    Intent i = new Intent(EventsShowMoreActivity.this, ClubEventsActivity.class);
 
-                    i.putExtra("club_name" , finalHolder.title.getText().toString());
+                    i.putExtra("club_name", finalHolder.title.getText().toString());
                     startActivity(i);
                 }
             });

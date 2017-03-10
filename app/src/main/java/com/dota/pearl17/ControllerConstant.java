@@ -5,5 +5,5 @@ package com.dota.pearl17;
  */
 
 public class ControllerConstant {
-    public static String url="http://bits-pearl.org/App/index.php";
+    public static String url = "http://bits-pearl.org/App/index.php";
 }

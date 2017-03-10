@@ -8,15 +8,14 @@
     <ImageView
         android:id="@+id/bg_sponsors"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/sponsor_recycler"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="80dp"
         android:layout_marginBottom="36dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
-        />
+        android:layout_marginTop="80dp" />
 </RelativeLayout>

@@ -12,8 +12,8 @@ public class ReachUsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reach_us);
 
-        TextView tx = (TextView)findViewById(R.id.reach_us_textView);
-        Typeface custom_font = Typeface.createFromAsset(getAssets(),  "fonts/goodpro_condmedium.otf");
+        TextView tx = (TextView) findViewById(R.id.reach_us_textView);
+        Typeface custom_font = Typeface.createFromAsset(getAssets(), "fonts/goodpro_condmedium.otf");
         tx.setTypeface(custom_font);
 
     }

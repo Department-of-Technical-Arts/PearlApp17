@@ -6,19 +6,18 @@ package com.dota.pearl17;
 
 public class Contacts {
     int image;
-    String name,designation,mobile;
+    String name, designation, mobile;
 
-    public Contacts(String name, String designation, String mobile,int image) {
+    public Contacts(String name, String designation, String mobile, int image) {
         this.name = name;
-        this.image=image;
+        this.image = image;
         this.designation = designation;
         this.mobile = mobile;
 
 
     }
 
-    public int getImage()
-    {
+    public int getImage() {
         return image;
     }
 
@@ -31,9 +30,8 @@ public class Contacts {
     }
 
     public String getMobile() {
-        return mobile; }
-
-
+        return mobile;
+    }
 
 
 }

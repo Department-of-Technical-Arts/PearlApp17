@@ -46,18 +46,17 @@ public class FobFragment extends Fragment implements RecyclerClickListener {
 
     private void feedData() {
         Contacts temp1 = new Contacts("KESHAV KEDARNATH", "President", "7997030001", R.drawable.pic);
-        Contacts temp2 = new Contacts("SAMPATH BALINENI", "General Secretary", "7036942156",R.drawable.sampath);
-        Contacts temp3 = new Contacts("METTA SAI SIDDHARATHA", "Cultural Secretary", "9542132801",R.drawable.siddhartha);
-        Contacts temp4 = new Contacts("MONICA ADUSUMILLI" , "Cultural Secretary", "9441924391",R.drawable.monica);
-        Contacts temp5 = new Contacts("G.V VIGNESH REDDY", "Sponsorship and Marketing","7036409444",R.drawable.vignesh);
+        Contacts temp2 = new Contacts("SAMPATH BALINENI", "General Secretary", "7036942156", R.drawable.sampath);
+        Contacts temp3 = new Contacts("METTA SAI SIDDHARATHA", "Cultural Secretary", "9542132801", R.drawable.siddhartha);
+        Contacts temp4 = new Contacts("MONICA ADUSUMILLI", "Cultural Secretary", "9441924391", R.drawable.monica);
+        Contacts temp5 = new Contacts("G.V VIGNESH REDDY", "Sponsorship and Marketing", "7036409444", R.drawable.vignesh);
         Contacts temp6 = new Contacts("ANIRUDH KASUGANTI", "Publicity", "9030330744", R.drawable.anirudh);
         Contacts temp7 = new Contacts("ARJUN DESHMUKH", "Photography", "9912259211", R.drawable.arjun);
         Contacts temp8 = new Contacts("MAYUR BAJAJ", "Hospitality", "9542981940", R.drawable.mayurb);
         Contacts temp9 = new Contacts("K JAIDEEP", "Technical Arts", "7702021928", R.drawable.jaideep);
         Contacts temp10 = new Contacts("SOMESH PARADKAR", "Visual Effects", "8686400884", R.drawable.somesh);
         Contacts temp11 = new Contacts("HARSH CHOPRA", "Lights And Sound", "8096120418", R.drawable.harshc);
-        Contacts temp12 = new Contacts("MALLA NAGA POOJITHA REDDY" , "Arts n Deco", " 9553329048", R.drawable.poojitha);
-
+        Contacts temp12 = new Contacts("MALLA NAGA POOJITHA REDDY", "Arts n Deco", " 9553329048", R.drawable.poojitha);
 
 
         data.add(temp1);
@@ -75,7 +74,6 @@ public class FobFragment extends Fragment implements RecyclerClickListener {
 
         contactAdapter.notifyItemRangeInserted(0, data.size() - 1);
     }
-
 
 
     @Override

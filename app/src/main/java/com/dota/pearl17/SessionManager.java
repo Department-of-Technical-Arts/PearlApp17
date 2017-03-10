@@ -12,13 +12,13 @@ public class SessionManager {
     public static final String PREFS_NAME = "Cart details";
 
     public static int getVersion(Context context) {
-        SharedPreferences preferences = context.getSharedPreferences(PREFS_NAME,0);
+        SharedPreferences preferences = context.getSharedPreferences(PREFS_NAME, 0);
         int version = preferences.getInt("version", -1);
         return version;
     }
 
     public static void setVersion(Context context, int version) {
-        SharedPreferences preferences = context.getSharedPreferences(PREFS_NAME,0);
+        SharedPreferences preferences = context.getSharedPreferences(PREFS_NAME, 0);
         SharedPreferences.Editor editor = preferences.edit();
         editor.putInt("version", version);
         editor.apply();

@@ -1,18 +1,15 @@
 package com.dota.pearl17;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.widget.ImageView;
 
-import com.dota.pearl17.R;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -20,8 +17,8 @@ import java.util.List;
 
 
 public class ContactActivity extends AppCompatActivity {
-    private  ViewPager viewPager;
-    private  TabLayout tabLayout;
+    private ViewPager viewPager;
+    private TabLayout tabLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +33,7 @@ public class ContactActivity extends AppCompatActivity {
 
         ImageView bg = (ImageView) findViewById(R.id.bg_guide_frame);
         Picasso.with(this)
-                .load(R.drawable.contact_us)
+                .load(R.drawable.contact_us_frame)
                 .fit()
                 .into(bg);
 
@@ -61,14 +58,14 @@ public class ContactActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        startActivity(new Intent(this,MainActivity.class));
+        startActivity(new Intent(this, MainActivity.class));
         finish();
     }
 
     //Setting View Pager
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFrag(new FobFragment(),"FOB");
+        adapter.addFrag(new FobFragment(), "FOB");
         adapter.addFrag(new ClubSenateFragment(), "CLUB SENATE");
         viewPager.setAdapter(adapter);
     }

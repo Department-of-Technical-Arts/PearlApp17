@@ -34,7 +34,7 @@ public class TalksActivity extends AppCompatActivity {
         final RecyclerView mRecycler = (RecyclerView) findViewById(R.id.recycler_pro_show);
         mRecycler.setLayoutManager(mLayoutManager);
         mRecycler.setHasFixedSize(true);
-        CarouselChildSelectionListener csl = new CarouselChildSelectionListener(mRecycler,mLayoutManager) {
+        CarouselChildSelectionListener csl = new CarouselChildSelectionListener(mRecycler, mLayoutManager) {
             @Override
             protected void onCenterItemClicked(@NonNull RecyclerView recyclerView, @NonNull CarouselLayoutManager carouselLayoutManager, @NonNull View v) {
                 //open description
@@ -54,21 +54,21 @@ public class TalksActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        startActivity(new Intent(TalksActivity.this,MainActivity.class));
+        startActivity(new Intent(TalksActivity.this, MainActivity.class));
         finish();
     }
 
-    class TalksAdapter extends RecyclerView.Adapter<TalksAdapter.TalksViewHolder>{
+    class TalksAdapter extends RecyclerView.Adapter<TalksAdapter.TalksViewHolder> {
 
         @Override
         public TalksViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            return new TalksViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_pro_show,parent,false));
+            return new TalksViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_pro_show, parent, false));
         }
 
         @Override
         public void onBindViewHolder(TalksViewHolder holder, int position) {
-            Log.i("onbind","bound pos " + position);
-            switch(position){
+            Log.i("onbind", "bound pos " + position);
+            switch (position) {
                 case 0:
                     Picasso.with(TalksActivity.this)
                             .load(R.drawable.talk_anshu1)
@@ -101,9 +101,10 @@ public class TalksActivity extends AppCompatActivity {
             return 2;
         }
 
-        class TalksViewHolder extends RecyclerView.ViewHolder{
+        class TalksViewHolder extends RecyclerView.ViewHolder {
             private ImageView img;
-            TalksViewHolder(View v){
+
+            TalksViewHolder(View v) {
                 super(v);
                 img = (ImageView) v.findViewById(R.id.image_pro_show);
             }

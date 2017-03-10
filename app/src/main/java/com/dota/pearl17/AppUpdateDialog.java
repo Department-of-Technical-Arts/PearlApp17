@@ -20,7 +20,7 @@ import java.util.ArrayList;
  * Created by ADMIN on 9.3.17.
  */
 
-public class AppUpdateDialog extends DialogFragment{
+public class AppUpdateDialog extends DialogFragment {
 
     ArrayList<String> events;
     TextView text;
@@ -44,7 +44,7 @@ public class AppUpdateDialog extends DialogFragment{
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         super.onCreateDialog(savedInstanceState);
 
-        Typeface custom_font = Typeface.createFromAsset(context.getAssets(),  "fonts/goodpro_condmedium.otf");
+        Typeface custom_font = Typeface.createFromAsset(context.getAssets(), "fonts/goodpro_condmedium.otf");
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
@@ -64,7 +64,7 @@ public class AppUpdateDialog extends DialogFragment{
             public void onClick(DialogInterface dialog, int which) {
                 //redirect to Pearl App PlayStore Page
                 Intent intent = new Intent(Intent.ACTION_VIEW);
-                intent.setData(Uri.parse("market://details?id="+getActivity().getPackageName()));
+                intent.setData(Uri.parse("market://details?id=" + getActivity().getPackageName()));
                 startActivity(intent);
             }
 
