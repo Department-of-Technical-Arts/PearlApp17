@@ -38,12 +38,18 @@ public class EventsShowMoreActivity extends AppCompatActivity {
         RecyclerView mRecycler = (RecyclerView) findViewById(R.id.recycler_more_categories);
         mRecycler.setLayoutManager(new GridLayoutManager(this,2));
         mRecycler.setAdapter(new MyAdapter());
-    }
 
-    public void showLess(View v){
-        //ANIM: This needs a slide down animation
+        View showMore = findViewById(R.id.btn_show_less);
+
+        showMore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //ANIM: This needs a slide down animation
 //        startActivity(new Intent(EventsShowMoreActivity.this,EventsHomeActivity.class));
-        finish();
+                finish();
+            }
+        });
+
     }
 
     class EventCategoryItem extends RecyclerView.ViewHolder{

@@ -12,29 +12,18 @@
         android:layout_width="match_parent"
         android:layout_height="72dp" />
 
-    <TextView
-        android:id="@+id/show_less"
+    <include
+        layout="@layout/show_less_button"
         android:layout_below="@id/events_topbar"
-        android:layout_marginTop="12dp"
-        android:background="@drawable/border_rect_red"
-        android:drawableLeft="@drawable/downward_arrow"
-        android:drawableTint="@color/custom_red"
-        android:drawablePadding="12dp"
-        android:text="SHOW LESS"
-        android:gravity="center_vertical"
-        android:padding="12dp"
-        android:textColor="@color/custom_red"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:layout_centerInParent="true"
-        android:onClick="showLess"
+        android:id="@+id/btn_show_less"
+        android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"/>
 
     <android.support.v7.widget.RecyclerView
         android:overScrollMode="never"
         android:id="@+id/recycler_more_categories"
-        android:layout_below="@id/show_less"
+        android:layout_below="@id/btn_show_less"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="16dp"

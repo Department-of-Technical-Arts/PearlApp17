@@ -179,8 +179,8 @@ public class EventDatabaseManager {
                             JSONArray array = new JSONObject(s).getJSONArray("data");
                             for (int j = 0; j < array.length(); j++) {
                                 JSONObject Object = array.getJSONObject(j);
-                               // addEvent(new Event(Object.getInt("event_id"), Object.getString("name"), Object.getString("description"),
-                                        // Object.getString("club"), Object.getString("pdf")));
+                                addEvent(new Event(Object.getInt("event_id"), Object.getString("name"), Object.getString("description"),
+                                        Object.getString("club"), Object.getString("pdf")));
                             }
                             Log.v("Events",s);
                         } catch (JSONException e) {
