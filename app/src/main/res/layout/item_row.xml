@@ -7,8 +7,8 @@
 
     <ImageView
             android:id="@+id/overflow"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
             android:layout_alignParentLeft="true"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
@@ -23,7 +23,7 @@
         android:layout_centerVertical="true"
         android:layout_toRightOf="@+id/overflow"
         android:layout_toEndOf="@+id/overflow"
-        android:layout_marginLeft="35dp"
+        android:layout_marginLeft="25dp"
         android:layout_marginStart="35dp">
 
         <TextView
@@ -32,6 +32,7 @@
             android:layout_marginRight="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="#A156E3"
             />
 
         <TextView
@@ -41,6 +42,9 @@
             android:layout_marginRight="20dp"
             android:layout_height="wrap_content"
             android:layout_below="@id/title"
+            android:textColor="#A156E3"
+            android:textStyle="bold"
+
             />
 
         <TextView
@@ -50,6 +54,8 @@
             android:layout_marginRight="20dp"
             android:layout_height="wrap_content"
             android:layout_below="@id/count"
+            android:textColor="#A156E3"
+
             />
     </RelativeLayout>
 

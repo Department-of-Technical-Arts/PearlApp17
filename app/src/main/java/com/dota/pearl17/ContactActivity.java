@@ -41,9 +41,10 @@ public class ContactActivity extends AppCompatActivity {
 
         ImageView bg = (ImageView) findViewById(R.id.bg_guide_frame);
         Picasso.with(this)
-                .load(R.drawable.contact_us_frame)
+                .load(R.drawable.contact_us)
                 .fit()
                 .into(bg);
+
 
         //Implementing tab selected listener over tablayout
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
@@ -83,8 +84,8 @@ public class ContactActivity extends AppCompatActivity {
     //Setting View Pager
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFrag(new DummyFragment("FOB"), "FOB");
-        adapter.addFrag(new DummyFragment("Club Senate"), "CLUB SENATE");
+        adapter.addFrag(new FobFragment("FOB"),"FOB");
+        adapter.addFrag(new ClubSenateFragment("Club Senate"), "CLUB SENATE");
         viewPager.setAdapter(adapter);
     }
 
