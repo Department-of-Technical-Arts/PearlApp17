@@ -22,7 +22,6 @@ import java.util.ArrayList;
 
 public class AppUpdateDialog extends DialogFragment{
 
-    public IdTableManager cart;
     ArrayList<String> events;
     TextView text;
     LayoutInflater inflater;

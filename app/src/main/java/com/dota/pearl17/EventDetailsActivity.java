@@ -44,22 +44,16 @@ public class EventDetailsActivity extends AppCompatActivity {
     Typeface custom_font_bold, custom_font;
     Button rules;
 
-    private Handler handlerUpdate;
+    BroadcastReceiver onComplete;
 
-    ProgressBar pb;
-    int downloadedSize = 0;
-    int totalSize = 0;
-    TextView cur_val;
+    DownloadManager downloadManager;
 
-
-
-    private volatile boolean done;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_details);
-        
+
         title = (TextView) findViewById(R.id.event_title);
         desc = (TextView) findViewById(R.id.event_desc);
         rules = (Button) findViewById(R.id.rules);
@@ -83,14 +77,48 @@ public class EventDetailsActivity extends AppCompatActivity {
         Picasso.with(this)
                 .load(R.drawable.event_frame)
                 .fit()
-                .into((ImageView) findViewById(R.id.img_bg));
+                .into((ImageView) findViewById(R.id.bg_club_details));
+
+        registerReceiver(onComplete, new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
+
+        onComplete = new BroadcastReceiver() {
+            public void onReceive(Context ctx, Intent intent) {
+                File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath()+ "/" + eventName + " Rules" + ".pdf");
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                intent.setDataAndType(Uri.fromFile(file), "application/pdf");
+                intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+                startActivity(i);
+            }
+        };
+
     }
+
+    private long downloadFile (Uri uri) {
+
+        long downloadReference;
+
+        // Create request for android download manager
+        downloadManager = (DownloadManager)getSystemService(DOWNLOAD_SERVICE);
+        DownloadManager.Request request = new DownloadManager.Request(uri);
+
+        //Setting title of request
+        request.setTitle(eventName + " Rules");
+
+        //Setting description of request
+        request.setDescription("Rules for " + eventName);
+
+        //Set the local destination for the downloaded file to a path within the application's external files directory
+            request.setDestinationInExternalFilesDir(EventDetailsActivity.this, Environment.DIRECTORY_DOWNLOADS, eventName + "Rules");
+
+        //Enqueue download and save into referenceId
+        downloadReference = downloadManager.enqueue(request);
+
+        return downloadReference;
+    }
+
 
     public void rules(View v) {
-        downloadFile();
-    }
-
-    void downloadFile() {
+        downloadFile(Uri.parse(event.getRules()));
     }
 
 }
