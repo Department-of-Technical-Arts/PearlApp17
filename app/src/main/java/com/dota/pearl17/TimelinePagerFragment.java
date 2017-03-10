@@ -140,6 +140,7 @@ public class TimelinePagerFragment extends Fragment {
                 Picasso.with(getContext())
                         .load(R.drawable.schedulerow)
                         .fit()
+                        .centerCrop()
                         .into((ImageView)v.findViewById(R.id.bg_schedule_row));
                 ((TextView) v.findViewById(R.id.event_name)).setText(set.getName());
                 ((TextView) v.findViewById(R.id.round_name)).setText(set.getRound());

@@ -33,21 +33,6 @@ public class SplashScreenActivity extends AppCompatActivity {
 
         container = (RelativeLayout) findViewById(R.id.container_splash);
 
-        Picasso.with(this)
-                .load(R.drawable.splash_screen_bg)
-                .fit()
-                .into((ImageView)findViewById(R.id.bg_splash));
-
-        Picasso.with(this)
-                .load(R.drawable.splash_logo)
-                .fit()
-                .into((ImageView)findViewById(R.id.splash_logo));
-
-        Picasso.with(this)
-                .load(R.drawable.splash_dates)
-                .fit()
-                .into((ImageView)findViewById(R.id.splash_dates));
-
         ViewTreeObserver viewTreeObserver = container.getViewTreeObserver();
         if (viewTreeObserver.isAlive()) {
             viewTreeObserver.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
@@ -60,7 +45,6 @@ public class SplashScreenActivity extends AppCompatActivity {
         }
 
         eventDB = new EventDatabaseManager(this);
-        eventDB.updateEvents();
     }
 
     public void emit(){
@@ -101,6 +85,7 @@ public class SplashScreenActivity extends AppCompatActivity {
                 Intent i = new Intent(SplashScreenActivity.this,MainActivity.class);
                 i.putExtra("fromSplash",1);
                 startActivity(i);
+                eventDB.updateEvents(); //TODO Check if Async needed here. Progress Dialog might also be included
                 finish();
             }
         }, dur);

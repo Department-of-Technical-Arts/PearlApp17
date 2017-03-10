@@ -1,5 +1,6 @@
 package com.dota.pearl17;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -33,7 +34,10 @@ public class ScheduleActivity extends AppCompatActivity {
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         ImageView bg = (ImageView) findViewById(R.id.bg_schedule);
-        Picasso.with(ScheduleActivity.this).load(R.drawable.schedule_frame).fit().into(bg);
+        Picasso.with(ScheduleActivity.this)
+                .load(R.drawable.schedule_frame)
+                .fit()
+                .into(bg);
 
 //        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 //        setSupportActionBar(toolbar);
@@ -47,6 +51,13 @@ public class ScheduleActivity extends AppCompatActivity {
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(ScheduleActivity.this,MainActivity.class));
+        finish();
     }
 
     /**

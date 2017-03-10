@@ -4,6 +4,7 @@
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+        android:scrollbars="none"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingTop="70dp"
@@ -41,7 +42,7 @@
             android:tag="https://www.facebook.com/c.akhil.shri?fref=ts"
             android:onClick="openBrowser"
             android:scaleX="0.84"
-            android:scaleY="0.8" />
+            android:scaleY="0.84" />
 
         <ImageView
             android:id="@+id/DevelopersTemplate2"
@@ -55,7 +56,7 @@
             android:tag="https://www.facebook.com/kaushik.nimbalkar?fref=hovercard"
             android:onClick="openBrowser"
             android:scaleX="0.84"
-            android:scaleY="0.8" />
+            android:scaleY="0.84" />
 
         <ImageView
             android:id="@+id/DevelopersTemplate3"
@@ -69,7 +70,7 @@
             android:tag="https://www.facebook.com/shreeda.pattanaik?fref=ts"
             android:onClick="openBrowser"
             android:scaleX="0.84"
-            android:scaleY="0.8" />
+            android:scaleY="0.84" />
 
         <ImageView
             android:id="@+id/DevelopersTemplate4"
@@ -83,7 +84,7 @@
             android:tag="https://www.facebook.com/snigdha.grandhi.5?fref=ts"
             android:onClick="openBrowser"
             android:scaleX="0.84"
-            android:scaleY="0.8" />
+            android:scaleY="0.84" />
 
         <ImageView
             android:id="@+id/DevelopersTemplate5"
@@ -97,7 +98,7 @@
             android:tag="https://www.facebook.com/sheebu1997?ref=br_rs"
             android:onClick="openBrowser"
             android:scaleX="0.84"
-            android:scaleY="0.8" />
+            android:scaleY="0.84" />
 
         <ImageView
             android:id="@+id/DevelopersTemplate6"
@@ -111,7 +112,7 @@
             android:tag="https://www.facebook.com/kattukolu.reddy?fref=ts"
             android:onClick="openBrowser"
             android:scaleX="0.84"
-            android:scaleY="0.8" />
+            android:scaleY="0.84" />
 
         <ImageView
             android:id="@+id/Designers"
@@ -134,12 +135,11 @@
             android:layout_below="@id/Designers"
             android:layout_marginTop="-50dp"
             android:layout_marginBottom="-33dp"
-
             android:layout_marginRight="1dp"
             android:tag="https://www.facebook.com/anshuman.das.9678?fref=ts"
             android:onClick="openBrowser"
             android:scaleX="0.84"
-            android:scaleY="0.8" />
+            android:scaleY="0.84" />
 
         <ImageView
             android:id="@+id/DesignersTemplate2"
@@ -153,7 +153,7 @@
             android:tag="https://www.facebook.com/anshik.thareja?fref=ts"
             android:onClick="openBrowser"
             android:scaleX="0.84"
-            android:scaleY="0.8" />
+            android:scaleY="0.84" />
 
         <ImageView
             android:id="@+id/DesignersTemplate3"
@@ -167,7 +167,7 @@
             android:tag="https://www.facebook.com/tushar.kanth.7?fref=ts"
             android:onClick="openBrowser"
             android:scaleX="0.84"
-            android:scaleY="0.8" />
+            android:scaleY="0.84" />
 
         <ImageView
             android:id="@+id/DesignersTemplate4"
@@ -179,7 +179,7 @@
             android:layout_marginBottom="-33dp"
             android:layout_marginRight="1dp"
             android:scaleX="0.84"
-            android:scaleY="0.8" />
+            android:scaleY="0.84" />
 
         <ImageView
             android:id="@+id/BackEnd"
@@ -205,7 +205,7 @@
             android:tag="https://www.facebook.com/amitmishra1005?fref=ts"
             android:onClick="openBrowser"
             android:scaleX="0.84"
-            android:scaleY="0.8" />
+            android:scaleY="0.84" />
 
         <ImageView
             android:id="@+id/BackEndTemplate2"
@@ -219,8 +219,7 @@
             android:tag="https://www.facebook.com/kgrovor?fref=ts"
             android:onClick="openBrowser"
             android:scaleX="0.84"
-            android:scaleY="0.8" />
-
+            android:scaleY="0.84" />
 
     </RelativeLayout>
 

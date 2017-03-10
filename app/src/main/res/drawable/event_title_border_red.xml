@@ -5,13 +5,6 @@
     <stroke
         android:width="3dp"
         android:color="#E3556B"/>
-    <corners
-        android:radius="0dp"/>
-    <padding
-        android:bottom="18dp"
-        android:top="18dp"
-        android:right="8dp"
-        android:left="40dp"/>
     <solid
         android:color="@android:color/white"/>
 

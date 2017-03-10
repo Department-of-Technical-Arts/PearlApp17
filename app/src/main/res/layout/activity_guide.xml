@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/first_frame">
-
+    android:layout_height="match_parent">
+    <ImageView
+        android:id="@+id/bg_guide_home"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
     <Button
         android:id="@+id/AboutUs"
         android:layout_width="wrap_content"
@@ -37,22 +40,11 @@
         android:scaleX="0.8"
         android:scaleY="0.8"/>
 
-    <Button
-        android:id="@+id/ContactUs"
-        android:layout_centerHorizontal="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/contact_us_button"
-        android:layout_below="@+id/CampusMap"
-        android:layout_marginBottom="20dp"
-        android:scaleX="0.8"
-        android:scaleY="0.8"/>
-
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/end_design"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/ContactUs"/>
+        android:layout_below="@+id/CampusMap"/>
 
 </RelativeLayout>

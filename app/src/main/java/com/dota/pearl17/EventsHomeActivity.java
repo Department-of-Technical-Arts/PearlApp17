@@ -51,10 +51,12 @@ public class EventsHomeActivity extends AppCompatActivity {
         Picasso.with(this)
                 .load(R.drawable.events_top_bar)
                 .fit()
+                .centerCrop()
                 .into(topbar);
         Picasso.with(this)
                 .load(R.drawable.events_middle_bar)
                 .fit()
+                .centerCrop()
                 .into(middlebar);
 
         mRecycler = (RecyclerView) findViewById(R.id.recycler_less_categories);
@@ -68,7 +70,7 @@ public class EventsHomeActivity extends AppCompatActivity {
             public void onClick(View v) {
                 //ANIM: This needs to have a slide up animation
                 startActivity(new Intent(EventsHomeActivity.this,EventsShowMoreActivity.class));
-                finish();
+                overridePendingTransition(R.anim.slide_up, R.anim.stay);
             }
         });
 
@@ -85,24 +87,13 @@ public class EventsHomeActivity extends AppCompatActivity {
         super.onStop();
     }
 
-    View.OnClickListener mClickListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            //handle item clicks here
-            //condition should logically be the title
-            //from here the EventsListScreen is opened
-            //startActivity(new Intent(EventsHomeActivity.this,EventDetailsActivity.class));
-        }
-    };
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(EventsHomeActivity.this,MainActivity.class));
+        finish();
+    }
 
-
-
-    View.OnClickListener mSliderClickListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-
-        }
-    };
     void loadSliderImages(){
 
         int resources[] = new int[]{
@@ -129,27 +120,27 @@ public class EventsHomeActivity extends AppCompatActivity {
                             switch (mDemoSlider.getCurrentPosition()){
                                 case 0:
                                     //Carnival Zone - None
-                                    i.putExtra("event_name", "Carnival Zone");
+                                    i.putExtra("event_name", "CARNIVAL ZONE");
                                     break;
                                 case 1:
                                     //Catharsis - Movie
-                                    i.putExtra("event_name", "Catharsis");
+                                    i.putExtra("event_name", "CATHARSIS");
                                     break;
                                 case 2:
                                     //Crimson Curtain - Drama
-                                    i.putExtra("event_name", "Crimson Curtain");
+                                    i.putExtra("event_name", "CRIMSON CURTAIN");
                                     break;
                                 case 3:
                                     //Fraglore - None
-                                    i.putExtra("event_name", "Fraglore");
+                                    i.putExtra("event_name", "FRAGLORE");
                                     break;
                                 case 4:
                                     //Glitterati - None
-                                    i.putExtra("event_name", "Glitterati");
+                                    i.putExtra("event_name", "GLITTERATI");
                                     break;
                                 case 5:
                                     //Photog Fest - Photog ?
-                                    i.putExtra("event_name", "Photog Fest");
+                                    i.putExtra("event_name", "PHOTOG FEST");
                                     break;
                                 case 6:
                                     //QuBITS - Quiz ?
@@ -157,11 +148,11 @@ public class EventsHomeActivity extends AppCompatActivity {
                                     break;
                                 case 7:
                                     //Terpsichore - Dance
-                                    i.putExtra("event_name", "Terpsichore");
+                                    i.putExtra("event_name", "TERPSICHORE");
                                     break;
                                 case 8:
                                     //Till Deaf - Music
-                                    i.putExtra("event_name", "Till Deaf");
+                                    i.putExtra("event_name", "TILL DEAF DO WE PART");
                                     break;
                             }
                             startActivity(i);
@@ -181,7 +172,6 @@ public class EventsHomeActivity extends AppCompatActivity {
 
         public EventCategoryItem(View v){
             super(v);
-            v.setOnClickListener(mClickListener);
 
             eventButton = (RelativeLayout) v.findViewById(R.id.layout_event_category);
 
@@ -196,21 +186,21 @@ public class EventsHomeActivity extends AppCompatActivity {
     class LessEventsAdapter extends RecyclerView.Adapter<EventCategoryItem>{
 
         String titles[] = new String[]{
-                "JOURNAL",
-                "ENGLISH LANGUAGE",
-                "QUIZZES",
-                "HINDI T",
-                "FINANCE",
-                "VFX"
+                "DANCE",
+                "MUSIC",
+                "DRAMA",
+                "SHADES",
+                "MOVIE",
+                "JOURNAL"
         };
 
         int icons[] = new int[]{
-                R.drawable.icon_journal,
-                R.drawable.icon_elas,
-                R.drawable.icon_quiz,
-                R.drawable.icon_hindi,
-                R.drawable.icon_finance,
-                R.drawable.icon_vfx
+                R.drawable.icon_dance,
+                R.drawable.icon_music,
+                R.drawable.icon_drama,
+                R.drawable.icon_shades,
+                R.drawable.icon_movie,
+                R.drawable.icon_journal
         };
 
         @Override

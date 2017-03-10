@@ -89,8 +89,12 @@ public class MainActivity extends AppCompatActivity {
 
         initLayoutParams();
 
-        logo = (ImageView) findViewById(R.id.logo);
-        Picasso.with(this).load(R.drawable.pearl_button).fit().centerInside().into(logo);
+//        logo = (ImageView) findViewById(R.id.logo);
+//        Picasso.with(this)
+//                .load(R.drawable.pearl_button)
+//                .fit()
+//                .centerCrop()
+//                .into(logo);
         recyclerView = (RecyclerView) findViewById(R.id.landingRecycler);
         recyclerView.setAdapter(new MyAdapter(this));
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -157,7 +161,12 @@ public class MainActivity extends AppCompatActivity {
                     //App Credits
                     startActivity(new Intent(MainActivity.this,AppCreditsActivity.class));
                     break;
+                case 9:
+                    //Contact Us
+                    startActivity(new Intent(MainActivity.this,ContactActivity.class));
+                    break;
             }
+            finish();
         }
     };
 
@@ -200,7 +209,8 @@ public class MainActivity extends AppCompatActivity {
                     R.drawable.guide_new_2,
                     R.drawable.register_button,
                     R.drawable.sponsors_button,
-                    R.drawable.app_credits_button
+                    R.drawable.app_credits_button,
+                    R.drawable.contact_us_button
             };
 
         }
@@ -226,11 +236,12 @@ public class MainActivity extends AppCompatActivity {
             {
                 holder.imageButton.setLayoutParams(params_row);
                 holder.imageButton.requestLayout();
-                Picasso.with(MainActivity.this)
-                        .load(resources[position])
-                        .fit()
-                        .centerInside()
-                        .into(holder.imageButton);
+                holder.imageButton.setImageResource(resources[position]);
+//                Picasso.with(MainActivity.this)
+//                        .load(resources[position])
+//                        .fit()
+//                        .centerInside()
+//                        .into(holder.imageButton);
             }
 //            if (prev < position) {
 //                prev = position;
@@ -256,11 +267,12 @@ public class MainActivity extends AppCompatActivity {
     }
     int click_count=0;
     public void easterEgg(View v){
-//        if(click_count==5){
-//            click_count=0;
-//            //open developers screen or show an animation
-//        }
-//        click_count++;
-        startActivity(new Intent(MainActivity.this,SplashScreenActivity.class));
+        if(click_count==4){
+            click_count=0;
+            //open developers screen or show an animation
+            startActivity(new Intent(MainActivity.this,AppCreditsActivity.class));
+            finish();
+        }
+        click_count++;
     }
 }

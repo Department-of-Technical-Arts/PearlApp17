@@ -2,6 +2,7 @@ package com.dota.pearl17;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Html;
 import android.widget.TextView;
 import android.graphics.Typeface;
 

@@ -30,6 +30,7 @@ public class EventsShowMoreActivity extends AppCompatActivity {
         Picasso.with(this)
                 .load(R.drawable.events_top_bar)
                 .fit()
+                .centerCrop()
                 .into(topbar);
 
         RecyclerView mRecycler = (RecyclerView) findViewById(R.id.recycler_more_categories);
@@ -39,7 +40,7 @@ public class EventsShowMoreActivity extends AppCompatActivity {
 
     public void showLess(View v){
         //ANIM: This needs a slide down animation
-        startActivity(new Intent(EventsShowMoreActivity.this,EventsHomeActivity.class));
+//        startActivity(new Intent(EventsShowMoreActivity.this,EventsHomeActivity.class));
         finish();
     }
 
@@ -73,10 +74,9 @@ public class EventsShowMoreActivity extends AppCompatActivity {
                 "MOVIE",
                 "DESIGN",
                 "JOURNAL",
-                "ENGLISH LANGUAGE",
-                "QUIZZES",
+                "ELAS",
+                "QUIZ",
                 "HINDI T",
-                "FINANCE",
                 "VFX"
         };
 
@@ -92,7 +92,6 @@ public class EventsShowMoreActivity extends AppCompatActivity {
                 R.drawable.icon_elas,
                 R.drawable.icon_quiz,
                 R.drawable.icon_hindi,
-                R.drawable.icon_finance,
                 R.drawable.icon_vfx
         };
 

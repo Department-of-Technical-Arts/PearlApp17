@@ -24,7 +24,10 @@ public class TalksActivity extends AppCompatActivity {
         setContentView(R.layout.activity_pro_show);
 
         ImageView bg = (ImageView) findViewById(R.id.imgV_background);
-        Picasso.with(TalksActivity.this).load(R.drawable.talks_frame).fit().into(bg);
+        Picasso.with(TalksActivity.this)
+                .load(R.drawable.talks_frame)
+                .fit()
+                .into(bg);
 
         final CarouselLayoutManager mLayoutManager = new CarouselLayoutManager(CarouselLayoutManager.HORIZONTAL);
         mLayoutManager.setPostLayoutListener(new CarouselZoomPostLayoutListener());
@@ -48,6 +51,13 @@ public class TalksActivity extends AppCompatActivity {
         mRecycler.scrollToPosition(1);
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(TalksActivity.this,MainActivity.class));
+        finish();
+    }
+
     class TalksAdapter extends RecyclerView.Adapter<TalksAdapter.TalksViewHolder>{
 
         @Override
@@ -60,10 +70,18 @@ public class TalksActivity extends AppCompatActivity {
             Log.i("onbind","bound pos " + position);
             switch(position){
                 case 0:
-                    Picasso.with(TalksActivity.this).load(R.drawable.talk_anshu1).fit().into(holder.img);
+                    Picasso.with(TalksActivity.this)
+                            .load(R.drawable.talk_anshu1)
+                            .fit()
+                            .centerCrop()
+                            .into(holder.img);
                     break;
                 case 1:
-                    Picasso.with(TalksActivity.this).load(R.drawable.talk_shashi1).fit().into(holder.img);
+                    Picasso.with(TalksActivity.this)
+                            .load(R.drawable.talk_shashi1)
+                            .fit()
+                            .centerCrop()
+                            .into(holder.img);
                     break;
 //                case 2:
 //                    Picasso.with(TalksActivity.this).load(R.drawable.terpsichore).fit().into(holder.img);
