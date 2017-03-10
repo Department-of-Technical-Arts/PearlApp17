@@ -19,10 +19,10 @@ public class SessionManager {
         return version;
     }
 
-    public static int setVersion(Context context, int version) {
+    public static void setVersion(Context context, int version) {
         SharedPreferences preferences = context.getSharedPreferences(PREFS_NAME,0);
         SharedPreferences.Editor editor = preferences.edit();
         editor.putInt("version", version);
-        return version;
+        editor.apply();
     }
 }

@@ -55,11 +55,11 @@ public class ClubEventsActivity extends AppCompatActivity {
 
     String getClubTitle(){
         //For special cases where the name is not same as that on button
-        if(clubName.equals("ELAS"))
+        if(clubName.equalsIgnoreCase("ELAS"))
         {
             return "ENGLISH LANGUAGE";
         }
-        else if(clubName.equals("HINDI T"))
+        else if(clubName.equalsIgnoreCase("HINDI T"))
         {
             return "HINDI TARANG";
         }
