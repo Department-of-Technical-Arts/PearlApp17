@@ -53,6 +53,13 @@ public class ProShowActivity extends AppCompatActivity {
         mRecycler.scrollToPosition(1); // this is sonu nigam resId's index
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(ProShowActivity.this,MainActivity.class));
+        finish();
+    }
+
     class ProShowAdapter extends RecyclerView.Adapter<ProShowAdapter.ProShowViewHolder>{
         int resId[] = new int[]{
                 R.drawable.proshow_lagori1,

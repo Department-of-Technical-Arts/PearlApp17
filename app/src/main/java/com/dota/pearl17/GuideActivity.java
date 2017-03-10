@@ -44,6 +44,13 @@ public class GuideActivity extends AppCompatActivity implements View.OnClickList
 
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(GuideActivity.this,MainActivity.class));
+        finish();
+    }
+
     public void onClick(View v){
 
         switch(v.getId()){
