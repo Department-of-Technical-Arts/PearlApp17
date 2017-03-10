@@ -3,7 +3,6 @@ package com.dota.pearl17;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -21,8 +20,6 @@ public class FobFragment extends Fragment implements RecyclerClickListener {
     RecyclerView recyclerView;
     ArrayList<Contacts> data;
 
-    private String title;
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -32,9 +29,6 @@ public class FobFragment extends Fragment implements RecyclerClickListener {
     public FobFragment() {
     }
 
-    public FobFragment(String title) {
-        this.title = title;//Setting tab title
-    }
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);

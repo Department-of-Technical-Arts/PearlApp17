@@ -7,7 +7,6 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.ButtonBarLayout;
 import android.view.View;
 import android.widget.Button;
 import android.content.Intent;
@@ -21,10 +20,6 @@ import com.squareup.picasso.Picasso;
 
 public class GuideActivity extends AppCompatActivity implements View.OnClickListener{
 
-    private Button b1;
-    private Button b2;
-    private Button b3;
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_guide);
@@ -34,9 +29,9 @@ public class GuideActivity extends AppCompatActivity implements View.OnClickList
                 .fit()
                 .into((ImageView)findViewById(R.id.bg_guide_home));
 
-        b1=(Button)findViewById(R.id.AboutUs);
-        b2=(Button)findViewById(R.id.ReachUs);
-        b3=(Button)findViewById(R.id.CampusMap);
+        Button b1 = (Button) findViewById(R.id.AboutUs);
+        Button b2 = (Button) findViewById(R.id.ReachUs);
+        Button b3 = (Button) findViewById(R.id.CampusMap);
 
         b1.setOnClickListener(this);
         b2.setOnClickListener(this);

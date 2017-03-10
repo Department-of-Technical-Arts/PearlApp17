@@ -4,7 +4,6 @@ import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.Color;
-import android.provider.SyncStateContract;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
@@ -46,7 +45,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
             search = (SearchBox) findViewById(R.id.searchbox);
             for(int x = Constants.names.length-1; x >=0 ; x--){
-                SearchResult option = new SearchResult(Constants.names[x],getResources().getDrawable(android.R.drawable.ic_menu_directions));
+                SearchResult option = new SearchResult(Constants.names[x],getResources().getDrawable(android.R.drawable.ic_menu_directions,getTheme()));
                 search.addSearchable(option);
             }
             search.setLogoText("Lost Somewhere? ");
@@ -143,7 +142,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         @Override
         public void onMapReady(GoogleMap googleMap) {
             IconGenerator factory = new IconGenerator(getApplicationContext());
-            factory.setStyle(factory.STYLE_BLUE);
+            factory.setStyle(IconGenerator.STYLE_BLUE);
             mMap = googleMap;
 //        mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
             MapStyleOptions style = MapStyleOptions.loadRawResourceStyle(
@@ -176,7 +175,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             dontShowAgain = (CheckBox) eulaLayout.findViewById(R.id.skip);
             adb.setView(eulaLayout);
             adb.setTitle("Get Directions");
-            adb.setIcon(getResources().getDrawable(android.R.drawable.ic_dialog_info));
+            adb.setIcon(getResources().getDrawable(android.R.drawable.ic_dialog_info,getTheme()));
             adb.setMessage("Tap marker to avail options at bottom right corner.");
             adb.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                 @Override

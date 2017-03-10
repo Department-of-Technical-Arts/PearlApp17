@@ -20,8 +20,6 @@ public class ClubSenateFragment  extends Fragment implements RecyclerClickListen
     RecyclerView recyclerView;
     ArrayList<Contacts> data;
 
-    private String title;
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -31,9 +29,6 @@ public class ClubSenateFragment  extends Fragment implements RecyclerClickListen
     public ClubSenateFragment() {
     }
 
-    public ClubSenateFragment(String title) {
-        this.title = title;//Setting tab title
-    }
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);

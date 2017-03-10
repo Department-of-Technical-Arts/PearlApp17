@@ -21,7 +21,7 @@ public class TalksActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pro_show);
+        setContentView(R.layout.activity_talks);
 
         ImageView bg = (ImageView) findViewById(R.id.imgV_background);
         Picasso.with(TalksActivity.this)

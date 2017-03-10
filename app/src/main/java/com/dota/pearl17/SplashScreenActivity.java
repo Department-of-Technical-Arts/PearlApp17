@@ -1,21 +1,16 @@
 package com.dota.pearl17;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
-import android.view.View;
 import android.view.ViewTreeObserver;
 import android.view.animation.AccelerateInterpolator;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
 
 import com.plattysoft.leonids.ParticleSystem;
-import com.squareup.picasso.Picasso;
 
 /**
  * Created by Shri Akhil on 09-03-2017.
