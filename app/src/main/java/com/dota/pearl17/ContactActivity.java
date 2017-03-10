@@ -41,7 +41,7 @@ public class ContactActivity extends AppCompatActivity {
 
         ImageView bg = (ImageView) findViewById(R.id.bg_guide_frame);
         Picasso.with(this)
-                .load(R.drawable.event_frame)
+                .load(R.drawable.contact_us)
                 .fit()
                 .into(bg);
 
