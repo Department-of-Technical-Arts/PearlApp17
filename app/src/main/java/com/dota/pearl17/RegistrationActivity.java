@@ -27,7 +27,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class RegistrationActivity extends AppCompatActivity implements View.OnClickListener, EventConfirmDialog.confirm, PickDOBDialog.DOB {
+public class RegistrationActivity extends AppCompatActivity implements View.OnClickListener, PickDOBDialog.DOB {
 
     private EditText name, email, phone, college, dob, city;
     private RadioGroup gender;
@@ -164,26 +164,7 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
         _college = college.getText().toString();
         _city = city.getText().toString();
         _dob = dob.getText().toString();
-        if(male.isChecked()){
-            _gender = "male";
-        }
-        else{
-            _gender = "female";
-        }
 
-        EventConfirmDialog dialog = new EventConfirmDialog(RegistrationActivity.this);
-        dialog.show(getSupportFragmentManager(),"TAG");
-
-
-    }
-
-    @Override
-    public void confirm_events(ArrayList<String> events) {
-
-        final JSONArray finalEvents = new JSONArray();
-        for (int i = 0; i < events.size(); i++) {
-                finalEvents.put(events.get(i));
-        }
         //Send to API
         Toast.makeText(this,"API ko bhej",Toast.LENGTH_SHORT).show();
 
@@ -221,14 +202,14 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
                 params.put("city", _city);
                 params.put("gender", _gender);
                 params.put("phone", _phone);
-                params.put("event_ids", finalEvents.toString().substring(1,finalEvents.toString().length()-1));
                 //Log.e("Sent", params.toString());
                 return params;
             }
         };
-        Log.v("event ids",finalEvents.toString().substring(1,finalEvents.toString().length()-1));
 
         AppController.getInstance().addToRequestQueue(request);
+
+
     }
 
     @Override
