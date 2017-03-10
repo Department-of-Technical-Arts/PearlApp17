@@ -50,7 +50,7 @@ public class TimelinePagerFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.container);
         TextView textView = (TextView) view.findViewById(R.id.notpresent);
-//        mTableManager = new ScheduleTableManager(getActivity());
+        mTableManager = new ScheduleTableManager(getActivity());
 //        final LinearLayout mYourLayout = (LinearLayout) view.findViewById(R.id.linlayout);
 
         recyclerView.setVisibility(View.GONE);
@@ -82,22 +82,20 @@ public class TimelinePagerFragment extends Fragment {
 //                });
 
 
-//        times = mTableManager.getDistinctTime(getArguments().getInt("day"));
+        times = mTableManager.getDistinctTime(getArguments().getInt("day"));
 
-//        Log.e("TimelineFrag1", times.toString());
+        if (times.isEmpty()) {
+            Log.e("TimelineFrag1", times.toString());
+            recyclerView.setVisibility(View.GONE);
+            textView.setVisibility(View.VISIBLE);
+        } else {
 
-
-
-//        if (times.isEmpty()) {
-//            recyclerView.setVisibility(View.GONE);
-//            textView.setVisibility(View.VISIBLE);
-//        } else {
-//            MyAdapter mAdapter = new MyAdapter(getActivity());
-//            mAdapter.setTimes(times);
-//            recyclerView.setAdapter(mAdapter);
-//            recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-//            Log.e("Day " + getArguments().getInt("day"), String.valueOf(times.size()));
-//        }
+            MyAdapter mAdapter = new MyAdapter(getActivity());
+            mAdapter.setTimes(times);
+            recyclerView.setAdapter(mAdapter);
+            recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+            Log.e("Day " + getArguments().getInt("day"), String.valueOf(times.size()));
+        }
 
     }
 

@@ -12,9 +12,11 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.widget.ImageView;
 import android.widget.TabHost;
 
 import com.dota.pearl17.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,13 +30,20 @@ public class ContactActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_contactpage);
+        setContentView(R.layout.contact_activity);
 
         viewPager = (ViewPager) findViewById(R.id.viewPager);
         setupViewPager(viewPager);
 
         tabLayout = (TabLayout) findViewById(R.id.tabLayout);
         tabLayout.setupWithViewPager(viewPager);//setting tab over viewpager
+
+        ImageView bg = (ImageView) findViewById(R.id.bg_guide_frame);
+        Picasso.with(this)
+                .load(R.drawable.contact_us)
+                .fit()
+                .into(bg);
+
 
         //Implementing tab selected listener over tablayout
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
@@ -68,8 +77,8 @@ public class ContactActivity extends AppCompatActivity {
     //Setting View Pager
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFrag(new DummyFragment("FOB"), "Quran");
-        adapter.addFrag(new DummyFragment("Club Senate"), "Radio");
+        adapter.addFrag(new DummyFragment("FOB"), "FOB");
+        adapter.addFrag(new DummyFragment("Club Senate"), "CLUB SENATE");
         viewPager.setAdapter(adapter);
     }
 
