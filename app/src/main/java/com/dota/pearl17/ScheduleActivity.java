@@ -33,7 +33,10 @@ public class ScheduleActivity extends AppCompatActivity {
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         ImageView bg = (ImageView) findViewById(R.id.bg_schedule);
-        Picasso.with(ScheduleActivity.this).load(R.drawable.schedule_frame).fit().into(bg);
+        Picasso.with(ScheduleActivity.this)
+                .load(R.drawable.schedule_frame)
+                .fit()
+                .into(bg);
 
 //        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 //        setSupportActionBar(toolbar);

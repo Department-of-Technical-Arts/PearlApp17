@@ -26,7 +26,10 @@ public class ProShowActivity extends AppCompatActivity {
         setContentView(R.layout.activity_pro_show);
 
         ImageView bg = (ImageView) findViewById(R.id.imgV_background);
-        Picasso.with(ProShowActivity.this).load(R.drawable.proshows_frame).fit().into(bg);
+        Picasso.with(ProShowActivity.this)
+                .load(R.drawable.proshows_frame)
+                .fit()
+                .into(bg);
 
         final CarouselLayoutManager mLayoutManager = new CarouselLayoutManager(CarouselLayoutManager.HORIZONTAL);
         mLayoutManager.setPostLayoutListener(new CarouselZoomPostLayoutListener());
@@ -63,7 +66,11 @@ public class ProShowActivity extends AppCompatActivity {
 
         @Override
         public void onBindViewHolder(ProShowViewHolder holder, int position) {
-            Picasso.with(ProShowActivity.this).load(resId[position]).fit().into(holder.img);
+            Picasso.with(ProShowActivity.this)
+                    .load(resId[position])
+                    .fit()
+                    .centerCrop()
+                    .into(holder.img);
         }
 
         @Override

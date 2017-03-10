@@ -11,6 +11,9 @@ import android.support.v7.widget.ButtonBarLayout;
 import android.view.View;
 import android.widget.Button;
 import android.content.Intent;
+import android.widget.ImageView;
+
+import com.squareup.picasso.Picasso;
 
 /**
  * Created by SHIVIKA NAGPAL on 08-03-2017.
@@ -26,6 +29,11 @@ public class GuideActivity extends AppCompatActivity implements View.OnClickList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_guide);
+
+        Picasso.with(this)
+                .load(R.drawable.guide_home_frame)
+                .fit()
+                .into((ImageView)findViewById(R.id.bg_guide_home));
 
         b1=(Button)findViewById(R.id.AboutUs);
         b2=(Button)findViewById(R.id.ReachUs);

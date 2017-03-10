@@ -51,10 +51,12 @@ public class EventsHomeActivity extends AppCompatActivity {
         Picasso.with(this)
                 .load(R.drawable.events_top_bar)
                 .fit()
+                .centerCrop()
                 .into(topbar);
         Picasso.with(this)
                 .load(R.drawable.events_middle_bar)
                 .fit()
+                .centerCrop()
                 .into(middlebar);
 
         mRecycler = (RecyclerView) findViewById(R.id.recycler_less_categories);

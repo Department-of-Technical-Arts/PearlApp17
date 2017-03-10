@@ -77,7 +77,7 @@ public class EventDetailsActivity extends AppCompatActivity {
         Picasso.with(this)
                 .load(R.drawable.event_frame)
                 .fit()
-                .into((ImageView)findViewById(R.id.img_bg));
+                .into((ImageView)findViewById(R.id.bg_club_details));
     }
 
     public void add(View v){

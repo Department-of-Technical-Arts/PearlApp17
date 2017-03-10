@@ -90,7 +90,11 @@ public class MainActivity extends AppCompatActivity {
         initLayoutParams();
 
         logo = (ImageView) findViewById(R.id.logo);
-        Picasso.with(this).load(R.drawable.pearl_button).fit().centerInside().into(logo);
+        Picasso.with(this)
+                .load(R.drawable.pearl_button)
+                .fit()
+                .centerCrop()
+                .into(logo);
         recyclerView = (RecyclerView) findViewById(R.id.landingRecycler);
         recyclerView.setAdapter(new MyAdapter(this));
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -229,7 +233,6 @@ public class MainActivity extends AppCompatActivity {
                 Picasso.with(MainActivity.this)
                         .load(resources[position])
                         .fit()
-                        .centerInside()
                         .into(holder.imageButton);
             }
 //            if (prev < position) {

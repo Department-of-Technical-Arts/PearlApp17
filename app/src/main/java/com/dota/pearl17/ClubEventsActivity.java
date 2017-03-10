@@ -33,6 +33,8 @@ public class ClubEventsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_club_events);
 
+
+
         eventDB = new EventDatabaseManager(this);
         clubName = getIntent().getStringExtra("club_name");
         clubEvents = eventDB.getClubEvents(clubName);
