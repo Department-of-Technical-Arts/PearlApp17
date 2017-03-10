@@ -43,6 +43,8 @@ public class ScheduleTableManager {
         addEntry(2, "round2", "pearl", 12345L, "F105");
         addEntry(3, "round2", "pearl", 4567L, "F105");
         addEntry(4, "round2", "pearl", 88806L, "F105");
+        addEntry(5, "round2", "pearl", 88806L, "F105");
+
 
 
     }
@@ -80,9 +82,12 @@ public class ScheduleTableManager {
         try {
             success = ourDatabase.insertOrThrow(DATABASE_TABLE, null, cv);
             Log.d(TAG, "addEntry: added "+success);
+
         } catch (SQLiteConstraintException e) {
             success = ourDatabase.update(DATABASE_TABLE, cv, KEY_ID + "=" + id, null);
+            Log.d(TAG, ourDatabase.toString() + success);
         }
+
 
         close();
         return success;
@@ -122,13 +127,38 @@ public class ScheduleTableManager {
         return sets;
     }
 
+//    public ArrayList<Long> getDistinctTime(int day) {
+//
+//        Calendar start = Calendar.getInstance(), end = Calendar.getInstance();
+//        start.setTimeZone(TimeZone.getTimeZone("GMT"));
+//        end.setTimeZone(TimeZone.getTimeZone("GMT"));
+//        start.set(2017, Calendar.MARCH, 17 + day, 0, 0);
+//        end.set(2017, Calendar.MARCH, 18 + day, 0, 0);
+//        open();
+//        ArrayList<Long> times = new ArrayList<>();
+//        Cursor cursor = ourDatabase.rawQuery("SELECT DISTINCT " + KEY_START_TIME + " FROM " + DATABASE_TABLE +
+//                " WHERE CAST(" + KEY_START_TIME + " AS INTEGER) >= " + start.getTimeInMillis() +
+//                " AND CAST(" + KEY_START_TIME + " AS INTEGER) < " + end.getTimeInMillis() +
+//                " ORDER BY CAST(" + KEY_START_TIME + " AS INTEGER) ", null);
+//        if (cursor.moveToFirst()) {
+//            do {
+//                times.add(cursor.getLong(0));
+//            }
+//            while (cursor.moveToNext());
+//        }
+//        cursor.close();
+//        close();
+//
+//        return times;
+//    }
+
     public ArrayList<Long> getDistinctTime(int day) {
 
         Calendar start = Calendar.getInstance(), end = Calendar.getInstance();
         start.setTimeZone(TimeZone.getTimeZone("GMT"));
         end.setTimeZone(TimeZone.getTimeZone("GMT"));
-        start.set(2017, Calendar.MARCH, 17 + day, 0, 0);
-        end.set(2017, Calendar.MARCH, 18 + day, 0, 0);
+        start.set(2016, Calendar.JANUARY, 23 + day, 0, 0);
+        end.set(2016, Calendar.JANUARY, 24 + day, 0, 0);
         open();
         ArrayList<Long> times = new ArrayList<>();
         Cursor cursor = ourDatabase.rawQuery("SELECT DISTINCT " + KEY_START_TIME + " FROM " + DATABASE_TABLE +
