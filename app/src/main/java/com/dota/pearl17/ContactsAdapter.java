@@ -92,6 +92,7 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.MyView
             number = (TextView) itemView.findViewById(R.id.number);
 
 
+
         }
     }
 }
