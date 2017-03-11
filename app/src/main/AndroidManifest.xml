@@ -18,7 +18,9 @@
         android:fullBackupContent="@xml/backup_descriptor"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:supportsRtl="true"
+        android:supportsRtl="false"
+        android:largeHeap="true"
+        android:hardwareAccelerated="false"
         android:theme="@style/AppTheme">
         <activity android:name=".SplashScreenActivity">
             <intent-filter>
@@ -27,50 +29,67 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
         <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:screenOrientation="portrait"
             android:name=".EventsHomeActivity"
             android:theme="@style/EventsTheme" />
         <activity
+            android:screenOrientation="portrait"
             android:name=".EventsShowMoreActivity"
             android:theme="@style/EventsTheme" />
         <activity
+            android:screenOrientation="portrait"
             android:name=".ClubEventsActivity"
             android:theme="@style/EventsTheme" />
         <activity
+            android:screenOrientation="portrait"
             android:name=".EventDetailsActivity"
             android:theme="@style/EventsTheme" />
         <activity
+            android:screenOrientation="portrait"
             android:name=".ProShowActivity"
             android:theme="@style/ProShowTheme" />
         <activity
+            android:screenOrientation="portrait"
             android:name=".TalksActivity"
             android:theme="@style/TalksTheme" />
         <activity
+            android:screenOrientation="portrait"
             android:name=".AppCreditsActivity"
             android:theme="@style/CreditsTheme" />
         <activity
+            android:screenOrientation="portrait"
             android:name=".RegistrationActivity"
             android:theme="@style/RegisterTheme"/>
         <activity
+            android:screenOrientation="portrait"
             android:name=".SponsorsActivity"
             android:theme="@style/SponsorsTheme"/>
         <activity
+            android:screenOrientation="portrait"
             android:name=".ScheduleActivity"
             android:theme="@style/ScheduleTheme"/>
         <activity
+            android:screenOrientation="portrait"
             android:name=".GuideActivity"
             android:theme="@style/GuideTheme" />
         <activity
+            android:screenOrientation="portrait"
             android:name=".AboutUsActivity"
             android:theme="@style/GuideTheme"/>
         <activity
+            android:screenOrientation="portrait"
             android:name=".ReachUsActivity"
             android:theme="@style/GuideTheme"/>
         <activity
+            android:screenOrientation="portrait"
             android:name=".ContactActivity"
             android:theme="@style/ContactsTheme"/>
         <activity
+            android:screenOrientation="portrait"
             android:name=".MapsActivity" />
 
         <meta-data
