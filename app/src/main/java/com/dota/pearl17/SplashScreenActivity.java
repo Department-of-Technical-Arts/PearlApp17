@@ -38,8 +38,6 @@ public class SplashScreenActivity extends AppCompatActivity {
                 }
             });
         }
-
-        eventDB = new EventDatabaseManager(this);
     }
 
     public void emit() {
@@ -80,6 +78,7 @@ public class SplashScreenActivity extends AppCompatActivity {
                 Intent i = new Intent(SplashScreenActivity.this, MainActivity.class);
                 i.putExtra("fromSplash", 1);
                 startActivity(i);
+                eventDB = new EventDatabaseManager(SplashScreenActivity.this);
                 eventDB.updateEvents(); //TODO Check if Async needed here. Progress Dialog might also be included
                 finish();
             }

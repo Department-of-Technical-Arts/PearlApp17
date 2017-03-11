@@ -64,7 +64,9 @@ public class TalksActivity extends AppCompatActivity {
 
         int resourceId[] = new int[]{
                 R.drawable.talk_anshu,
-                R.drawable.talk_shashi
+                R.drawable.talk_shashi,
+                R.drawable.talks_kommune,
+                R.drawable.talks_offbeat
         };
 
         @Override
@@ -83,7 +85,7 @@ public class TalksActivity extends AppCompatActivity {
 
         @Override
         public int getItemCount() {
-            return 2;
+            return resourceId.length;
         }
 
         class TalksViewHolder extends RecyclerView.ViewHolder {

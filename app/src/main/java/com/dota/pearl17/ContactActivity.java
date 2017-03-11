@@ -67,7 +67,7 @@ public class ContactActivity extends AppCompatActivity {
     //Setting View Pager
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFrag(new FobFragment(), "FOB");
+        adapter.addFrag(new FobFragment(), "ORGANISING BODY");
         adapter.addFrag(new ClubSenateFragment(), "CLUB SENATE");
         viewPager.setAdapter(adapter);
     }

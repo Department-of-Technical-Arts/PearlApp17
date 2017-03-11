@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AccelerateInterpolator;
 import android.widget.ImageView;
 import android.support.v7.widget.RecyclerView;
 import android.widget.LinearLayout;
@@ -19,6 +20,7 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.plattysoft.leonids.ParticleSystem;
 import com.squareup.picasso.Picasso;
 
 import org.json.JSONException;
@@ -37,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        logo = (ImageView) findViewById(R.id.pearl_logo);
 
         if (getIntent().getIntExtra("fromSplash", -1) == 1) {
 
@@ -306,8 +310,12 @@ public class MainActivity extends AppCompatActivity {
         if (click_count == 4) {
             click_count = 0;
             //open developers screen or show an animation
-            startActivity(new Intent(MainActivity.this, AppCreditsActivity.class));
-            finish();
+            ParticleSystem ps = new ParticleSystem(this, 100, R.drawable.confetti_red, 800);
+            ps.setScaleRange(0.3f, 0.4f);
+            ps.setSpeedModuleAndAngleRange(0.1f, 0.25f,0,180);
+            ps.setRotationSpeedRange(90, 180);
+            ps.setFadeOut(200, new AccelerateInterpolator());
+            ps.oneShot(logo, 90);
         }
         click_count++;
     }

@@ -171,6 +171,7 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
         _college = college.getText().toString();
         _city = city.getText().toString();
         _dob = dob.getText().toString();
+        _gender = getSelectedGender();
 
         //Send to API
 //        Toast.makeText(this, "API ko bhej", Toast.LENGTH_SHORT).show();
@@ -183,12 +184,26 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
                     JSONObject object = new JSONObject(s);
                     if (object.getInt("success") == 1) {
                         Toast.makeText(RegistrationActivity.this, "Registered successfully", Toast.LENGTH_SHORT).show();
+
+                        // Clear fields
+
+                        name.setText("");
+                        dob.setText("");
+                        email.setText("");
+                        phone.setText("");
+                        college.setText("");
+                        city.setText("");
+                        male.setSelected(true);
+                        female.setSelected(false);
+
                     } else {
-                        Toast.makeText(RegistrationActivity.this, "Registration failed", Toast.LENGTH_SHORT).show();
+                        Log.i("success0",object.toString());
+                        Toast.makeText(RegistrationActivity.this, object.getString("error_msg"), Toast.LENGTH_SHORT).show();
                     }
 
                 } catch (JSONException e) {
                     e.printStackTrace();
+                    Toast.makeText(RegistrationActivity.this, "Unknown error. Please retry later", Toast.LENGTH_SHORT).show();
                 }
 
             }
@@ -196,6 +211,8 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
             @Override
             public void onErrorResponse(VolleyError volleyError) {
                 //internet problem, cannot upload Group member
+                Log.i("volley error",volleyError.getMessage());
+                Toast.makeText(RegistrationActivity.this, "Cannot register due to internet issues", Toast.LENGTH_SHORT).show();
             }
         }) {
             @Override
@@ -207,8 +224,10 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
                 params.put("dob", _dob);
                 params.put("college", _college);
                 params.put("city", _city);
+                Log.i("gender",_gender);
                 params.put("gender", _gender);
                 params.put("phone", _phone);
+                params.put("event_ids",""); //since we removed the feature later on
                 //Log.e("Sent", params.toString());
                 return params;
             }
@@ -217,6 +236,11 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
         AppController.getInstance().addToRequestQueue(request);
 
 
+    }
+
+    String getSelectedGender(){
+        if(male.isChecked()){return "Male";}
+        else{return "Female";}
     }
 
     @Override

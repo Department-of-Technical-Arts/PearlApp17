@@ -22,6 +22,7 @@
 
 
             <ImageView
+                android:id="@+id/pearl_logo"
                 android:src="@drawable/pearl_button"
                 android:layout_width="match_parent"
                 android:layout_marginLeft="120dp"
