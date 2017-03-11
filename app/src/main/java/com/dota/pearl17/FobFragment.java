@@ -57,6 +57,9 @@ public class FobFragment extends Fragment implements RecyclerClickListener {
         Contacts temp10 = new Contacts("SOMESH PARADKAR", "Visual Effects", "8686400884", R.drawable.somesh);
         Contacts temp11 = new Contacts("HARSH CHOPRA", "Lights And Sound", "8096120418", R.drawable.harshc);
         Contacts temp12 = new Contacts("MALLA NAGA POOJITHA REDDY", "Arts n Deco", " 9553329048", R.drawable.poojitha);
+        Contacts temp13 = new Contacts("PIPPIRI SACHIN", "Informalz", "9666070735", R.drawable.sachin);
+        Contacts temp14 = new Contacts("HITHENDRA SAI ALAM", "Controz", " 9553336733", R.drawable.hithendra);
+
 
 
         data.add(temp1);
@@ -71,6 +74,8 @@ public class FobFragment extends Fragment implements RecyclerClickListener {
         data.add(temp10);
         data.add(temp11);
         data.add(temp12);
+        data.add(temp13);
+        data.add(temp14);
 
         contactAdapter.notifyItemRangeInserted(0, data.size() - 1);
     }

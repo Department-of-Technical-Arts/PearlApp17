@@ -1,6 +1,7 @@
 package com.dota.pearl17;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -89,6 +90,7 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.MyView
             name = (TextView) itemView.findViewById(R.id.title);
             designation = (TextView) itemView.findViewById(R.id.count);
             number = (TextView) itemView.findViewById(R.id.number);
+
 
         }
     }
