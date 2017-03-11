@@ -1,52 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<android.support.design.widget.CoordinatorLayout
-    android:background="@drawable/bubble_bg1"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/bg_landing"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/landingRecycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 
+    <ImageView
+        android:id="@+id/pearl_logo"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_marginLeft="120dp"
+        android:layout_marginRight="120dp"
+        android:layout_marginTop="-16dp"
+        android:onClick="easterEgg"
+        android:scaleType="centerInside"
+        android:src="@drawable/pearl_button" />
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:src="@drawable/top_left_curtain" />
 
-
-                <android.support.v7.widget.RecyclerView
-                    android:id="@+id/landingRecycler"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    />
-
-
-            <ImageView
-                android:id="@+id/pearl_logo"
-                android:src="@drawable/pearl_button"
-                android:layout_width="match_parent"
-                android:layout_marginLeft="120dp"
-                android:layout_marginRight="120dp"
-                android:layout_marginTop="-16dp"
-                android:layout_height="120dp"
-                android:scaleType="centerInside"
-                android:onClick="easterEgg"
-            />
-
-        <ImageView
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:src="@drawable/top_left_curtain"/>
-
-        <ImageView
-            android:layout_alignParentRight="true"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:src="@drawable/top_right_curtain"/>
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/top_right_curtain" />
 
 
-
-
-        </RelativeLayout>
-
-    </android.support.design.widget.CoordinatorLayout>
+</RelativeLayout>

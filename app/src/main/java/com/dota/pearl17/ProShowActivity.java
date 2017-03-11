@@ -64,7 +64,7 @@ public class ProShowActivity extends AppCompatActivity {
                 R.drawable.proshow_lagori,
                 R.drawable.proshow_marnik,
                 R.drawable.proshow_sonu,
-                R.drawable.proshow_zakhir
+                R.drawable.proshow_zakir
         };
 
         @Override
@@ -77,7 +77,7 @@ public class ProShowActivity extends AppCompatActivity {
             Picasso.with(ProShowActivity.this)
                     .load(resId[position])
                     .fit()
-                    .centerCrop()
+                    .centerInside()
                     .into(holder.img);
         }
 

@@ -57,18 +57,18 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
         register = (Button) findViewById(R.id.register);
 
 
-        Typeface custom_font = Typeface.createFromAsset(getAssets(), "fonts/goodpro_condmedium.otf");
-        Typeface custom_font_bold = Typeface.createFromAsset(getAssets(), "fonts/goodpro_condblack.otf");
+        Typeface goodpro_medium = Typeface.createFromAsset(getAssets(), "fonts/goodpro_condmedium.otf");
+        Typeface goodpro_black = Typeface.createFromAsset(getAssets(), "fonts/goodpro_condblack.otf");
 
-        name.setTypeface(custom_font);
-        dob.setTypeface(custom_font);
-        email.setTypeface(custom_font);
-        phone.setTypeface(custom_font);
-        college.setTypeface(custom_font);
-        city.setTypeface(custom_font);
-        register.setTypeface(custom_font_bold);
-        male.setTypeface(custom_font);
-        female.setTypeface(custom_font);
+        name.setTypeface(goodpro_medium);
+        dob.setTypeface(goodpro_medium);
+        email.setTypeface(goodpro_medium);
+        phone.setTypeface(goodpro_medium);
+        college.setTypeface(goodpro_medium);
+        city.setTypeface(goodpro_medium);
+        register.setTypeface(goodpro_black);
+        male.setTypeface(goodpro_medium);
+        female.setTypeface(goodpro_medium);
 
 
         email.setOnFocusChangeListener(new View.OnFocusChangeListener() {

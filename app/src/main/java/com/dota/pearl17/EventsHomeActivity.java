@@ -39,7 +39,7 @@ public class EventsHomeActivity extends AppCompatActivity {
         eventDB = new EventDatabaseManager(this);
         eventDB.printEvents();
 
-        fontface = Typeface.createFromAsset(getAssets(), "fonts/cubano_regular.otf");
+        fontface = Typeface.createFromAsset(getAssets(), "fonts/cubano.otf");
 
         ImageView topbar = (ImageView) findViewById(R.id.events_topbar);
         ImageView middlebar = (ImageView) findViewById(R.id.events_middlebar);

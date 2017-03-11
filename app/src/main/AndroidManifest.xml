@@ -64,6 +64,7 @@
             android:theme="@style/CreditsTheme" />
         <activity
             android:name=".RegistrationActivity"
+            android:windowSoftInputMode="adjustNothing"
             android:screenOrientation="portrait"
             android:theme="@style/RegisterTheme" />
         <activity

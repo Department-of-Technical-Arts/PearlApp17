@@ -64,8 +64,8 @@ public class TalksActivity extends AppCompatActivity {
         int resourceId[] = new int[]{
                 R.drawable.talk_anshu,
                 R.drawable.talk_shashi,
-                R.drawable.talks_kommune,
-                R.drawable.talks_offbeat
+                R.drawable.talk_kommune,
+                R.drawable.talk_offbeat
         };
 
         @Override
@@ -78,7 +78,7 @@ public class TalksActivity extends AppCompatActivity {
             Picasso.with(TalksActivity.this)
                     .load(resourceId[position])
                     .fit()
-                    .centerCrop()
+                    .centerInside()
                     .into(holder.img);
         }
 

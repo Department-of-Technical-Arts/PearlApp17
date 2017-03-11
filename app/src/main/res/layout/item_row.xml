@@ -29,9 +29,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="20dp"
-            android:textSize="18dp"
             android:layout_marginTop="10dp"
-            android:textColor="#A156E3" />
+            android:textColor="#A156E3"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/count"
@@ -39,11 +39,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/title"
             android:layout_marginRight="20dp"
-            android:textSize="18dp"
             android:textColor="#A156E3"
-            android:textStyle="bold"
-
-            />
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/number"
@@ -51,8 +48,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/count"
             android:layout_marginRight="20dp"
-            android:textSize="18dp"
             android:textColor="#A156E3"
+            android:textSize="18sp"
 
             />
     </RelativeLayout>

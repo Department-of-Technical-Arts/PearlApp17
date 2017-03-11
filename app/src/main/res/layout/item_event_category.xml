@@ -23,8 +23,9 @@
             android:id="@+id/icon_category"
             android:layout_width="24dp"
             android:layout_height="24dp"
+            android:layout_marginLeft="8dp"
             android:layout_marginRight="4dp"
-            android:src="@drawable/icon_elas" />
+            />
 
         <View
             android:layout_width="3dp"
@@ -37,7 +38,6 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="24dp"
-            android:text="ELAS"
             android:textColor="@color/custom_red"
             android:textSize="20sp"
             android:textStyle="bold" />

@@ -21,16 +21,18 @@ public class PickDOBDialog extends DialogFragment
 
     public PickDOBDialog() {
         // Required empty public constructor
+    }
+
+    @Override
+    public Dialog onCreateDialog(Bundle savedInstanceState) {
+
         if (getActivity() instanceof DOB) {
             mListener = (DOB) getActivity();
         } else {
             throw new RuntimeException(getActivity().toString()
                     + " must implement deleteInteract");
         }
-    }
 
-    @Override
-    public Dialog onCreateDialog(Bundle savedInstanceState) {
         // Use the current date as the default date in the picker
         final Calendar c = Calendar.getInstance();
         int year = c.get(Calendar.YEAR);

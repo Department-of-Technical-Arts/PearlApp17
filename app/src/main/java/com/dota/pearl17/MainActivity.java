@@ -87,59 +87,18 @@ public class MainActivity extends AppCompatActivity {
         initLayoutParams();
 
 //        logo = (ImageView) findViewById(R.id.logo);
-//        Picasso.with(this)
-//                .load(R.drawable.pearl_button)
-//                .fit()
-//                .centerCrop()
-//                .into(logo);
+        Picasso.with(this)
+                .load(R.drawable.bubble_bg1)
+                .fit()
+                .centerInside()
+                .into((ImageView)findViewById(R.id.bg_landing));
+
         recyclerView = (RecyclerView) findViewById(R.id.landingRecycler);
         recyclerView.setAdapter(new MyAdapter(this));
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setNestedScrollingEnabled(false);
 
-        switch(getIntent().getIntExtra("scrollTo",0)){
-            case 0:
-                //Space
-                recyclerView.scrollToPosition(0);
-                break;
-            case 1:
-                //Events
-                recyclerView.scrollToPosition(1);
-                break;
-            case 2:
-                //Pro Shows
-                recyclerView.scrollToPosition(2);
-                break;
-            case 3:
-                //Talks
-                recyclerView.scrollToPosition(3);
-                break;
-            case 4:
-                //Schedule
-                recyclerView.scrollToPosition(4);
-                break;
-            case 5:
-                //Guide
-                recyclerView.scrollToPosition(5);
-                break;
-            case 6:
-                //Register
-                recyclerView.scrollToPosition(6);
-                break;
-            case 7:
-                //Sponsor
-                recyclerView.scrollToPosition(7);
-                break;
-            case 8:
-                //App Credits
-                recyclerView.scrollToPosition(8);
-                break;
-            case 9:
-                //Contact Us
-                recyclerView.scrollToPosition(9);
-                break;
-
-        }
+        recyclerView.scrollToPosition(getIntent().getIntExtra("scrollTo", 0));
 
 //        Animation animation = new ScaleAnimation(0, 1, 0, 1, Animation.RELATIVE_TO_SELF, 0.5f,
 //                Animation.RELATIVE_TO_SELF, 0.5f);
@@ -251,6 +210,7 @@ public class MainActivity extends AppCompatActivity {
                     R.drawable.app_credits_button,
                     R.drawable.contact_us_button
             };
+            picasso = Picasso.with(context);
 
         }
 
@@ -260,6 +220,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         int prev = -1;
+        Picasso picasso;
 
         @Override
         public void onBindViewHolder(MyViewHolder holder, int position) {
@@ -273,7 +234,7 @@ public class MainActivity extends AppCompatActivity {
                 holder.imageButton.setLayoutParams(params_row);
                 holder.imageButton.requestLayout();
 //                holder.imageButton.setImageResource(resources[position]);
-                Picasso.with(MainActivity.this)
+                picasso
                         .load(resources[position])
                         .fit()
                         .centerInside()
@@ -310,7 +271,7 @@ public class MainActivity extends AppCompatActivity {
             //open developers screen or show an animation
             ParticleSystem ps = new ParticleSystem(this, 100, R.drawable.confetti_red, 800);
             ps.setScaleRange(0.3f, 0.4f);
-            ps.setSpeedModuleAndAngleRange(0.1f, 0.25f,0,180);
+            ps.setSpeedModuleAndAngleRange(0.1f, 0.25f, 0, 180);
             ps.setRotationSpeedRange(90, 180);
             ps.setFadeOut(200, new AccelerateInterpolator());
             ps.oneShot(logo, 90);

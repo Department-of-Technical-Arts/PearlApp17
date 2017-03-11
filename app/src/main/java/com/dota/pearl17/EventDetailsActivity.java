@@ -23,7 +23,7 @@ public class EventDetailsActivity extends AppCompatActivity {
     Event event;
     EventDatabaseManager eventDB;
     TextView title, desc, contact, prize;
-    Typeface custom_font_bold, custom_font;
+    Typeface goodpro_condblack, cubano;
     Button rules;
 
     BroadcastReceiver onComplete;
@@ -42,8 +42,8 @@ public class EventDetailsActivity extends AppCompatActivity {
         prize = (TextView) findViewById(R.id.event_prize);
         contact = (TextView) findViewById(R.id.event_contact);
 
-        custom_font_bold = Typeface.createFromAsset(getAssets(), "fonts/goodpro_condblack.otf");
-        custom_font = Typeface.createFromAsset(getAssets(), "fonts/goodpro_condmedium.otf");
+        goodpro_condblack = Typeface.createFromAsset(getAssets(), "fonts/goodpro_condblack.otf");
+        cubano = Typeface.createFromAsset(getAssets(), "fonts/cubano.otf");
 
         Intent i = getIntent();
 
@@ -53,20 +53,19 @@ public class EventDetailsActivity extends AppCompatActivity {
         event = eventDB.getEvent(eventName);
 
         title.setText(event.getName());
-        title.setTypeface(custom_font_bold);
+        title.setTypeface(goodpro_condblack);
 
         desc.setText(event.getDesc());
-        desc.setTypeface(custom_font);
+        desc.setTypeface(goodpro_condblack);
 
         String prizeStr = event.getPrizes();
-//        Log.i("prize",""+prizeStr);
         String contactsStr = event.getContact();
 
         if(prizeStr.equals("")){
             prize.setVisibility(View.GONE);
         }
         else{
-            prize.setText("Prizes worth "+prizeStr+"\n");
+            prize.setText("Prizes worth "+prizeStr+" to be won!\n");
         }
 
         if(contactsStr.equals("")){
@@ -76,10 +75,10 @@ public class EventDetailsActivity extends AppCompatActivity {
             contact.setText("\nContacts:\n"+contactsStr);
         }
 
-        prize.setTypeface(custom_font_bold);
-        contact.setTypeface(custom_font_bold);
+        prize.setTypeface(goodpro_condblack);
+        contact.setTypeface(goodpro_condblack);
 
-        rules.setTypeface(custom_font_bold);
+        rules.setTypeface(goodpro_condblack);
 
         Picasso.with(this)
                 .load(R.drawable.event_frame)

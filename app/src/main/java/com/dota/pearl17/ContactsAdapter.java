@@ -25,6 +25,8 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.MyView
     Context context;
     LayoutInflater inflater;
 
+    Typeface goodpro_light, goodpro_condblack;
+
     RecyclerClickListener clickListener;
     int offset = 0;
 
@@ -32,6 +34,9 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.MyView
         inflater = LayoutInflater.from(context);
         arrayList = new ArrayList<>();
         this.context = context;
+
+        goodpro_light = Typeface.createFromAsset(context.getAssets(),"fonts/goodpro_light.otf");
+        goodpro_condblack = Typeface.createFromAsset(context.getAssets(),"fonts/goodpro_condblack.otf");
     }
 
     public void setClickListener(RecyclerClickListener clickListener) {
@@ -88,11 +93,11 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.MyView
             super(itemView);
             imageView = (ImageView) itemView.findViewById(R.id.overflow);
             name = (TextView) itemView.findViewById(R.id.title);
+            name.setTypeface(goodpro_light);
             designation = (TextView) itemView.findViewById(R.id.count);
+            designation.setTypeface(goodpro_condblack);
             number = (TextView) itemView.findViewById(R.id.number);
-
-
-
+            number.setTypeface(goodpro_light);
         }
     }
 }

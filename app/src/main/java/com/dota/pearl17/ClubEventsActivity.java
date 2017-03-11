@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,7 +23,7 @@ public class ClubEventsActivity extends AppCompatActivity {
     RecyclerView recycler;
     TextView tv_clubName;
     String clubName;
-    Typeface custom_font,custom_font_bungee;
+    Typeface cubano,bungee;
     EventDatabaseManager eventDB;
 
     @Override
@@ -36,11 +37,12 @@ public class ClubEventsActivity extends AppCompatActivity {
         clubEvents = eventDB.getClubEvents(clubName);
 //        Log.v("clubEvents", clubEvents.toString());
 
-        custom_font = Typeface.createFromAsset(getAssets(), "fonts/cubano_regular.otf");
-        custom_font_bungee = Typeface.createFromAsset(getAssets(), "fonts/bungee_regular.ttf");
+        cubano = Typeface.createFromAsset(getAssets(), "fonts/cubano.otf");
+        bungee = Typeface.createFromAsset(getAssets(), "fonts/bungee.ttf");
+
         tv_clubName = (TextView) findViewById(R.id.club_name);
         tv_clubName.setText(getClubTitle());
-        tv_clubName.setTypeface(custom_font_bungee);
+        tv_clubName.setTypeface(bungee);
 
 
         recycler = (RecyclerView) findViewById(R.id.recycler);
@@ -94,8 +96,7 @@ public class ClubEventsActivity extends AppCompatActivity {
                     startActivity(i);
                 }
             });
-            holder.txt.setTypeface(custom_font);
-            holder.txt.setSelected(true);
+            holder.txt.setTypeface(cubano);
         }
 
         @Override

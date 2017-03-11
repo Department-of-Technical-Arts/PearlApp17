@@ -24,7 +24,7 @@ public class EventsShowMoreActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_events_show_more);
 
-        fontface = Typeface.createFromAsset(getAssets(), "fonts/cubano_regular.otf");
+        fontface = Typeface.createFromAsset(getAssets(), "fonts/cubano.otf");
 
         ImageView topbar = (ImageView) findViewById(R.id.events_topbar);
         Picasso.with(this)
