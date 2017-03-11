@@ -67,7 +67,7 @@
             android:onClick="openBrowser"
             android:scaleX="0.84"
             android:scaleY="0.84"
-            android:src="@drawable/pattu"
+            android:src="@drawable/shreeda"
             android:tag="https://www.facebook.com/shreeda.pattanaik?fref=ts" />
 
         <ImageView

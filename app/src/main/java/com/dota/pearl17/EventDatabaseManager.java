@@ -34,13 +34,13 @@ public class EventDatabaseManager {
 
 
     public static final String TAG = "Event Manager";
-
     private static final String DATABASE_TABLE = "Event_Manager";
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
     private static final String DATABASE_NAME = "Event_Manager_Database";
     private Context context;
     private DBHelper ourHelper;
     private SQLiteDatabase ourDatabase;
+
 
     public EventDatabaseManager(Context c) {
         context = c;
