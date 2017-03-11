@@ -54,8 +54,6 @@ public class SplashScreenActivity extends AppCompatActivity {
                 }
             });
         }
-
-        startService(new Intent(SplashScreenActivity.this,EventUpdateIntentService.class));
     }
 
     public void emit() {

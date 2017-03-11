@@ -42,6 +42,9 @@ public class MainActivity extends AppCompatActivity {
 
         if (getIntent().getIntExtra("fromSplash", -1) == 1) {
 
+            //Don't update every time you reach Main; only when reached from Splash
+            startService(new Intent(MainActivity.this,EventUpdateIntentService.class));
+
             if (SessionManager.getVersion(this) == -1) {
                 SessionManager.setVersion(this, 1);
             } else {
