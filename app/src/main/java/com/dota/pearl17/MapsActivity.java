@@ -4,6 +4,7 @@ import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.os.Build;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
@@ -45,8 +46,16 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         search = (SearchBox) findViewById(R.id.searchbox);
         for (int x = Constants.names.length - 1; x >= 0; x--) {
-            SearchResult option = new SearchResult(Constants.names[x], getResources().getDrawable(android.R.drawable.ic_menu_directions, getTheme()));
-            search.addSearchable(option);
+            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
+                // API >> 21
+                SearchResult option = new SearchResult(Constants.names[x], getResources().getDrawable(android.R.drawable.ic_menu_directions, getTheme()));
+                search.addSearchable(option);
+            }
+            else
+            {
+                SearchResult option = new SearchResult(Constants.names[x], getResources().getDrawable(android.R.drawable.ic_menu_directions));
+                search.addSearchable(option);
+            }
         }
         search.setLogoText("Lost Somewhere? ");
         search.setMenuListener(new SearchBox.MenuListener() {
@@ -175,7 +184,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         dontShowAgain = (CheckBox) eulaLayout.findViewById(R.id.skip);
         adb.setView(eulaLayout);
         adb.setTitle("Get Directions");
-        adb.setIcon(getResources().getDrawable(android.R.drawable.ic_dialog_info, getTheme()));
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
+            adb.setIcon(getResources().getDrawable(android.R.drawable.ic_dialog_info, getTheme()));
+        }else{
+            adb.setIcon(getResources().getDrawable(android.R.drawable.ic_dialog_info));
+        }
         adb.setMessage("Tap marker to avail options at bottom right corner.");
         adb.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
             @Override

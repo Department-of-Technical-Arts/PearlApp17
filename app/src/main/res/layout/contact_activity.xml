@@ -30,7 +30,8 @@
         android:id="@+id/tabLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="@style/TabLayoutStyle"
+        app:tabSelectedTextColor="#000000"
+        app:tabIndicatorColor="@color/guide_purple"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="08dp"
         android:layout_marginTop="107dp" />

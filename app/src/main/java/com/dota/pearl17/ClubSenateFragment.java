@@ -47,6 +47,7 @@ public class ClubSenateFragment extends Fragment implements RecyclerClickListene
     private void feedData() {
         Contacts temp1 = new Contacts("KARRAN PANDEY", "Music", "73811818733", R.drawable.karran);
         Contacts temp2 = new Contacts("BHAVYA GUPTA", "Photog", "9553795222", R.drawable.bhavya);
+        Contacts temp3_1 = new Contacts("SHARAD HOTHA", "JOURNAL", "8187077212", R.drawable.sharad);
         Contacts temp3 = new Contacts("SUMIRAN MITTAL", "ELAS", "8096063146", R.drawable.sumiran);
         Contacts temp4 = new Contacts("SHIVANI MAHADDALKAR", "Dance", "9542979151", R.drawable.shivani);
         Contacts temp5 = new Contacts("SAMHITHA GADDAMANUGU", "Shades", "8096120328", R.drawable.samhitha);
@@ -61,6 +62,7 @@ public class ClubSenateFragment extends Fragment implements RecyclerClickListene
 
         data.add(temp1);
         data.add(temp2);
+        data.add(temp3_1);
         data.add(temp3);
         data.add(temp4);
         data.add(temp5);
