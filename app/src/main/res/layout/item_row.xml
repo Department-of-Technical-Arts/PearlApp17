@@ -6,12 +6,12 @@
 
     <ImageView
         android:id="@+id/overflow"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
         android:layout_alignParentLeft="true"
         android:layout_marginBottom="5dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="10dp"
         android:clickable="true"
         android:scaleType="centerCrop" />
 
@@ -29,6 +29,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="20dp"
+            android:textSize="18dp"
             android:layout_marginTop="10dp"
             android:textColor="#A156E3" />
 
@@ -38,7 +39,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/title"
             android:layout_marginRight="20dp"
-            android:text=""
+            android:textSize="18dp"
             android:textColor="#A156E3"
             android:textStyle="bold"
 
@@ -50,7 +51,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/count"
             android:layout_marginRight="20dp"
-            android:text=""
+            android:textSize="18dp"
             android:textColor="#A156E3"
 
             />

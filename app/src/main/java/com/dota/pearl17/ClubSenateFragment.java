@@ -57,8 +57,6 @@ public class ClubSenateFragment extends Fragment implements RecyclerClickListene
         Contacts temp10 = new Contacts("ANUJ SAXENA", "Movie", "9553339766", R.drawable.anuj);
         Contacts temp11 = new Contacts("NIMISHA AGARWAL", "Embryo", "", R.drawable.nimisha);
         Contacts temp12 = new Contacts("MANAN AGARWAL", "Hindi Tarang", "9912252372", R.drawable.manan);
-        Contacts temp13 = new Contacts("PIPPIRI SACHIN", "Informalz", "9666070735", R.drawable.sachin);
-        Contacts temp14 = new Contacts("HITHENDRA SAI ALAM", "Controz", " 9553336733", R.drawable.hithendra);
 
 
         data.add(temp1);
@@ -73,8 +71,7 @@ public class ClubSenateFragment extends Fragment implements RecyclerClickListene
         data.add(temp10);
         data.add(temp11);
         data.add(temp12);
-        data.add(temp13);
-        data.add(temp14);
+
 
         contactAdapter.notifyItemRangeInserted(0, data.size() - 1);
     }
