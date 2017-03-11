@@ -48,7 +48,7 @@ public class TalksActivity extends AppCompatActivity {
             }
         };
         mRecycler.setAdapter(new TalksAdapter());
-        mRecycler.scrollToPosition(1);
+        mRecycler.scrollToPosition(1); // TODO Tharoor resId
     }
 
     @Override
@@ -64,6 +64,7 @@ public class TalksActivity extends AppCompatActivity {
                 R.drawable.talk_anshu,
                 R.drawable.talk_shashi
         };
+
         @Override
         public TalksViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             return new TalksViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_pro_show, parent, false));

@@ -19,6 +19,7 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -226,12 +227,12 @@ public class MainActivity extends AppCompatActivity {
             } else {
                 holder.imageButton.setLayoutParams(params_row);
                 holder.imageButton.requestLayout();
-                holder.imageButton.setImageResource(resources[position]);
-//                Picasso.with(MainActivity.this)
-//                        .load(resources[position])
-//                        .fit()
-//                        .centerInside()
-//                        .into(holder.imageButton);
+//                holder.imageButton.setImageResource(resources[position]);
+                Picasso.with(MainActivity.this)
+                        .load(resources[position])
+                        .fit()
+                        .centerInside()
+                        .into(holder.imageButton);
             }
 //            if (prev < position) {
 //                prev = position;

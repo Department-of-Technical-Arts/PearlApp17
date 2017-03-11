@@ -83,7 +83,8 @@ public class EventsShowMoreActivity extends AppCompatActivity {
                 "ELAS",
                 "QUIZ",
                 "HINDI T",
-                "VFX"
+                "VFX",
+                "FINANCE"
         };
 
         int icons[] = new int[]{
@@ -98,7 +99,8 @@ public class EventsShowMoreActivity extends AppCompatActivity {
                 R.drawable.icon_elas,
                 R.drawable.icon_quiz,
                 R.drawable.icon_hindi,
-                R.drawable.icon_vfx
+                R.drawable.icon_vfx,
+                R.drawable.icon_finance
         };
 
         @Override
