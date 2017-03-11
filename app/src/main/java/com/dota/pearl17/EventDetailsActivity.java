@@ -8,10 +8,12 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
@@ -21,7 +23,7 @@ public class EventDetailsActivity extends AppCompatActivity {
     String eventName;
     Event event;
     EventDatabaseManager eventDB;
-    TextView title, desc;
+    TextView title, desc, contact, prize;
     Typeface custom_font_bold, custom_font;
     Button rules;
 
@@ -38,6 +40,8 @@ public class EventDetailsActivity extends AppCompatActivity {
         title = (TextView) findViewById(R.id.event_title);
         desc = (TextView) findViewById(R.id.event_desc);
         rules = (Button) findViewById(R.id.rules);
+        prize = (TextView) findViewById(R.id.event_prize);
+        contact = (TextView) findViewById(R.id.event_contact);
 
         custom_font_bold = Typeface.createFromAsset(getAssets(), "fonts/goodpro_condblack.otf");
         custom_font = Typeface.createFromAsset(getAssets(), "fonts/goodpro_condmedium.otf");
@@ -51,8 +55,31 @@ public class EventDetailsActivity extends AppCompatActivity {
 
         title.setText(event.getName());
         title.setTypeface(custom_font_bold);
+
         desc.setText(event.getDesc());
         desc.setTypeface(custom_font);
+
+        String prizeStr = event.getPrizes();
+        Log.i("prize",""+prizeStr);
+        String contactsStr = event.getContact();
+
+        if(prizeStr.equals("")){
+            prize.setVisibility(View.GONE);
+        }
+        else{
+            prize.setText("Prizes worth "+prizeStr+"\n");
+        }
+
+        if(contactsStr.equals("")){
+            contact.setVisibility(View.GONE);
+        }
+        else{
+            contact.setText("\nContacts:\n"+contactsStr);
+        }
+
+        prize.setTypeface(custom_font_bold);
+        contact.setTypeface(custom_font_bold);
+
         rules.setTypeface(custom_font_bold);
 
         Picasso.with(this)
@@ -91,6 +118,11 @@ public class EventDetailsActivity extends AppCompatActivity {
 
 
     public void rules(View v) {
+
+        if(event.getRules().trim().equals("")){
+            Toast.makeText(this,"Event rules not available. Try again later.",Toast.LENGTH_SHORT).show();
+            return;
+        }
         downloadFile(Uri.parse(event.getRules()));
     }
 

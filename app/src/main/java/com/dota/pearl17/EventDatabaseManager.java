@@ -30,12 +30,14 @@ public class EventDatabaseManager {
     public static final String EVENT_NAME = "EVENT_NAME";
     public static final String EVENT_CLUB = "CLUB";
     public static final String EVENT_DESC = "DESC";
+    public static final String EVENT_PRIZE = "PRIZE";
+    public static final String EVENT_CONTACT = "CONTACTS";
     public static final String EVENT_RULES = "RULES";
 
 
     public static final String TAG = "Event Manager";
     private static final String DATABASE_TABLE = "Event_Manager";
-    private static final int DATABASE_VERSION = 2;
+    private static final int DATABASE_VERSION = 3;
     private static final String DATABASE_NAME = "Event_Manager_Database";
     private Context context;
     private DBHelper ourHelper;
@@ -68,6 +70,8 @@ public class EventDatabaseManager {
         cv.put(EVENT_CLUB, newEvent.getClub());
         cv.put(EVENT_DESC, newEvent.getDesc());
         cv.put(EVENT_RULES, newEvent.getRules());
+        cv.put(EVENT_PRIZE, newEvent.getPrizes());
+        cv.put(EVENT_CONTACT,newEvent.getContact());
 
         open();
         try {
@@ -93,7 +97,9 @@ public class EventDatabaseManager {
                     c.getString(c.getColumnIndex(EVENT_NAME)),
                     c.getString(c.getColumnIndex(EVENT_DESC)),
                     c.getString(c.getColumnIndex(EVENT_CLUB)),
-                    c.getString(c.getColumnIndex(EVENT_RULES)));
+                    c.getString(c.getColumnIndex(EVENT_RULES)),
+                    c.getString(c.getColumnIndex(EVENT_PRIZE)),
+                    c.getString(c.getColumnIndex(EVENT_CONTACT)));
 
             c.close();
             close();
@@ -120,7 +126,9 @@ public class EventDatabaseManager {
                     c.getString(c.getColumnIndex(EVENT_NAME)),
                     c.getString(c.getColumnIndex(EVENT_DESC)),
                     c.getString(c.getColumnIndex(EVENT_CLUB)),
-                    c.getString(5));
+                    c.getString(c.getColumnIndex(EVENT_RULES)),
+                    c.getString(c.getColumnIndex(EVENT_PRIZE)),
+                    c.getString(c.getColumnIndex(EVENT_CONTACT)));
 
             c.close();
             close();
@@ -130,7 +138,7 @@ public class EventDatabaseManager {
         c.close();
         close();
 
-        return new Event(0, "0", "0", "0", "0");
+        return new Event(0, "0", "0", "0", "0","","");
     }
 
     public ArrayList<Event> getClubEvents(String clubName) {
@@ -147,7 +155,9 @@ public class EventDatabaseManager {
                         c.getString(c.getColumnIndex(EVENT_NAME)),
                         c.getString(c.getColumnIndex(EVENT_DESC)),
                         c.getString(c.getColumnIndex(EVENT_CLUB)),
-                        c.getString(5)));
+                        c.getString(c.getColumnIndex(EVENT_RULES)),
+                        c.getString(c.getColumnIndex(EVENT_PRIZE)),
+                        c.getString(c.getColumnIndex(EVENT_CONTACT))));
             } while (c.moveToNext());
             c.close();
             close();
@@ -156,7 +166,7 @@ public class EventDatabaseManager {
 
         c.close();
         close();
-        events.add(new Event(0, "0", "0", "0", "0"));
+        events.add(new Event(0, "0", "0", "0", "0","",""));
         return events;
     }
 
@@ -177,7 +187,7 @@ public class EventDatabaseManager {
                             for (int j = 0; j < array.length(); j++) {
                                 JSONObject Object = array.getJSONObject(j);
                                 addEvent(new Event(Object.getInt("event_id"), Object.getString("name"), Object.getString("description"),
-                                        Object.getString("club"), Object.getString("pdf")));
+                                        Object.getString("club"), Object.getString("pdf"),Object.getString("prize"),Object.getString("contact")));
                             }
                             Log.v("Events", s);
                         } catch (JSONException e) {
@@ -223,8 +233,10 @@ public class EventDatabaseManager {
                         c.getString(c.getColumnIndex(EVENT_NAME)),
                         c.getString(c.getColumnIndex(EVENT_DESC)),
                         c.getString(c.getColumnIndex(EVENT_CLUB)),
-                        c.getString(5));
-                Log.v("Events", event.getClub());
+                        c.getString(c.getColumnIndex(EVENT_RULES)),
+                        c.getString(c.getColumnIndex(EVENT_PRIZE)),
+                        c.getString(c.getColumnIndex(EVENT_CONTACT)));
+                Log.v("Events", event.getContact());
             } while (c.moveToNext());
         }
 
@@ -249,7 +261,9 @@ public class EventDatabaseManager {
                     EVENT_ID + " INTEGER NOT NULL PRIMARY KEY, " +//1, 2, etc event associated id
                     EVENT_CLUB + " TEXT, " +
                     EVENT_DESC + " TEXT, " +
-                    EVENT_RULES + " TEXT);";
+                    EVENT_RULES + " TEXT," +
+                    EVENT_PRIZE + " TEXT, " +
+                    EVENT_CONTACT + " TEXT);";
 
             db.execSQL(query);
         }

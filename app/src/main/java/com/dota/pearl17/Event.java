@@ -11,16 +11,36 @@ public class Event {
     private String desc;
     private String club;
     private String rules;
+    private String prizes="";
+    private String contact="";
 
-    public Event(int id, String name, String desc, String club, String rules) {
+    public Event(int id, String name, String desc, String club, String rules, String prizes, String contact) {
         this.id = id;
         this.name = name;
         this.desc = desc;
         this.rules = rules;
         this.club = club;
+        this.prizes = prizes;
+        this.contact = contact;
     }
 
     public Event() {
+    }
+
+    public String getPrizes() {
+        return prizes;
+    }
+
+    public String getContact() {
+        return contact;
+    }
+
+    public void setContact(String contact) {
+        this.contact = contact;
+    }
+
+    public void setPrizes(String prize) {
+        this.prizes = prize;
     }
 
     public int getId() {
