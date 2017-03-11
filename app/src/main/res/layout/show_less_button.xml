@@ -15,10 +15,12 @@
         android:src="@drawable/downward_arrow" />
 
     <TextView
+        android:id="@+id/text_show_less"
         android:layout_width="wrap_content"
         android:layout_height="24dp"
         android:gravity="center_vertical"
         android:text="SHOW LESS"
+        android:textSize="16sp"
         android:textColor="#ffffff"
         android:textStyle="bold" />
 

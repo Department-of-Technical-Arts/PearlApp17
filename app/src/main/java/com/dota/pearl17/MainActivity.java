@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
 //                            Log.i("versionCheck", "server ver " + object.getInt("version") + " app ver" + SessionManager.getVersion(MainActivity.this));
                             if (object.getInt("version") != SessionManager.getVersion(MainActivity.this)) {
                                 //send to play store to update
-                                AppUpdateDialog dialog = new AppUpdateDialog(MainActivity.this);
+                                AppUpdateDialog dialog = new AppUpdateDialog();
                                 dialog.show(getSupportFragmentManager(), "TAG");
                             }
 

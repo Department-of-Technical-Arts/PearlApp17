@@ -21,13 +21,10 @@ public class PickDOBDialog extends DialogFragment
 
     public PickDOBDialog() {
         // Required empty public constructor
-    }
-
-    public PickDOBDialog(Context context) {
-        if (context instanceof DOB) {
-            mListener = (DOB) context;
+        if (getActivity() instanceof DOB) {
+            mListener = (DOB) getActivity();
         } else {
-            throw new RuntimeException(context.toString()
+            throw new RuntimeException(getActivity().toString()
                     + " must implement deleteInteract");
         }
     }

@@ -17,8 +17,10 @@
         android:src="@drawable/upward_arrow" />
 
     <TextView
+        android:id="@+id/text_show_more"
         android:layout_width="wrap_content"
         android:layout_height="24dp"
+        android:textSize="16sp"
         android:gravity="center_vertical"
         android:text="SHOW MORE"
         android:textColor="#ffffff"

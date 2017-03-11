@@ -26,16 +26,8 @@ public class AppUpdateDialog extends DialogFragment {
     TextView text;
     LayoutInflater inflater;
     Typeface custom_font;
-    Context context;
 
     public AppUpdateDialog() {
-        // Required empty public constructor
-    }
-
-    public AppUpdateDialog(Context context) {
-
-        this.context = context;
-
         // Required empty public constructor
     }
 
@@ -44,7 +36,7 @@ public class AppUpdateDialog extends DialogFragment {
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         super.onCreateDialog(savedInstanceState);
 
-        Typeface custom_font = Typeface.createFromAsset(context.getAssets(), "fonts/goodpro_condmedium.otf");
+        Typeface custom_font = Typeface.createFromAsset(getActivity().getAssets(), "fonts/goodpro_condmedium.otf");
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 

@@ -37,9 +37,10 @@ public class EventsShowMoreActivity extends AppCompatActivity {
         mRecycler.setLayoutManager(new GridLayoutManager(this, 2));
         mRecycler.setAdapter(new MyAdapter());
 
-        View showMore = findViewById(R.id.btn_show_less);
+        View showLess = findViewById(R.id.btn_show_less);
+        ((TextView)showLess.findViewById(R.id.text_show_less)).setTypeface(fontface);
 
-        showMore.setOnClickListener(new View.OnClickListener() {
+        showLess.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //ANIM: This needs a slide down animation

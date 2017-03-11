@@ -136,7 +136,7 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
             @Override
             public void onClick(View v) {
 
-                PickDOBDialog dialog = new PickDOBDialog(RegistrationActivity.this);
+                PickDOBDialog dialog = new PickDOBDialog();
                 dialog.show(getSupportFragmentManager(), "TAG");
 
             }

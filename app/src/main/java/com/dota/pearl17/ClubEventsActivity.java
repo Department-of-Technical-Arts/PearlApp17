@@ -22,7 +22,7 @@ public class ClubEventsActivity extends AppCompatActivity {
     RecyclerView recycler;
     TextView tv_clubName;
     String clubName;
-    Typeface custom_font, custom_font_bold, custom_font_bungee;
+    Typeface custom_font,custom_font_bungee;
     EventDatabaseManager eventDB;
 
     @Override
@@ -36,8 +36,7 @@ public class ClubEventsActivity extends AppCompatActivity {
         clubEvents = eventDB.getClubEvents(clubName);
 //        Log.v("clubEvents", clubEvents.toString());
 
-        custom_font_bold = Typeface.createFromAsset(getAssets(), "fonts/goodpro_condblack.otf");
-        custom_font = Typeface.createFromAsset(getAssets(), "fonts/goodpro_condmedium.otf");
+        custom_font = Typeface.createFromAsset(getAssets(), "fonts/cubano_regular.otf");
         custom_font_bungee = Typeface.createFromAsset(getAssets(), "fonts/bungee_regular.ttf");
         tv_clubName = (TextView) findViewById(R.id.club_name);
         tv_clubName.setText(getClubTitle());
@@ -96,6 +95,7 @@ public class ClubEventsActivity extends AppCompatActivity {
                 }
             });
             holder.txt.setTypeface(custom_font);
+            holder.txt.setSelected(true);
         }
 
         @Override

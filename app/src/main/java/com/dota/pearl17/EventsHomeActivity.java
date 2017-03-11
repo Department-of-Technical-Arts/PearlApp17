@@ -59,6 +59,7 @@ public class EventsHomeActivity extends AppCompatActivity {
         mRecycler.setAdapter(new LessEventsAdapter());
 
         View showMore = findViewById(R.id.btn_show_more);
+        ((TextView)showMore.findViewById(R.id.text_show_more)).setTypeface(fontface);
 
         showMore.setOnClickListener(new View.OnClickListener() {
             @Override
