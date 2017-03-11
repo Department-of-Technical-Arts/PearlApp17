@@ -85,7 +85,8 @@ public class EventsHomeActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        startActivity(new Intent(EventsHomeActivity.this, MainActivity.class));
+        Intent i = new Intent(EventsHomeActivity.this, MainActivity.class);
+        startActivity(i);
         finish();
     }
 

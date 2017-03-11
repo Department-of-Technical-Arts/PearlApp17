@@ -95,6 +95,49 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setNestedScrollingEnabled(false);
 
+        switch(getIntent().getIntExtra("scrollTo",0)){
+            case 0:
+                //Space
+                recyclerView.scrollToPosition(0);
+                break;
+            case 1:
+                //Events
+                recyclerView.scrollToPosition(1);
+                break;
+            case 2:
+                //Pro Shows
+                recyclerView.scrollToPosition(2);
+                break;
+            case 3:
+                //Talks
+                recyclerView.scrollToPosition(3);
+                break;
+            case 4:
+                //Schedule
+                recyclerView.scrollToPosition(4);
+                break;
+            case 5:
+                //Guide
+                recyclerView.scrollToPosition(5);
+                break;
+            case 6:
+                //Register
+                recyclerView.scrollToPosition(6);
+                break;
+            case 7:
+                //Sponsor
+                recyclerView.scrollToPosition(7);
+                break;
+            case 8:
+                //App Credits
+                recyclerView.scrollToPosition(8);
+                break;
+            case 9:
+                //Contact Us
+                recyclerView.scrollToPosition(9);
+                break;
+
+        }
 
 //        Animation animation = new ScaleAnimation(0, 1, 0, 1, Animation.RELATIVE_TO_SELF, 0.5f,
 //                Animation.RELATIVE_TO_SELF, 0.5f);

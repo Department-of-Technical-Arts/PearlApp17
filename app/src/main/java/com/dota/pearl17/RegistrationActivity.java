@@ -147,7 +147,9 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        startActivity(new Intent(this, MainActivity.class));
+        Intent i = new Intent(RegistrationActivity.this, MainActivity.class);
+        i.putExtra("scrollTo",5);
+        startActivity(i);
         finish();
     }
 
@@ -171,7 +173,7 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
         _dob = dob.getText().toString();
 
         //Send to API
-        Toast.makeText(this, "API ko bhej", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, "API ko bhej", Toast.LENGTH_SHORT).show();
 
         StringRequest request = new StringRequest(Request.Method.POST, ControllerConstant.url, new Response.Listener<String>() {
             @Override

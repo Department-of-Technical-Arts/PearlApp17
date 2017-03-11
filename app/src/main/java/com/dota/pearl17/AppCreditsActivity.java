@@ -32,7 +32,9 @@ public class AppCreditsActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        startActivity(new Intent(this, MainActivity.class));
+        Intent i = new Intent(this, MainActivity.class);
+        i.putExtra("scrollTo",7);
+        startActivity(i);
         finish();
     }
 }

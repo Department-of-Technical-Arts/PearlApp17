@@ -33,7 +33,7 @@ public class ContactActivity extends AppCompatActivity {
 
         ImageView bg = (ImageView) findViewById(R.id.bg_guide_frame);
         Picasso.with(this)
-                .load(R.drawable.contact_us)
+                .load(R.drawable.contact_us_frame)
                 .fit()
                 .into(bg);
 
@@ -58,7 +58,9 @@ public class ContactActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        startActivity(new Intent(this, MainActivity.class));
+        Intent i = new Intent(this, MainActivity.class);
+        i.putExtra("scrollTo",8);
+        startActivity(i);
         finish();
     }
 

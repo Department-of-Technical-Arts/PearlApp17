@@ -54,7 +54,9 @@ public class TalksActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        startActivity(new Intent(TalksActivity.this, MainActivity.class));
+        Intent i = new Intent(TalksActivity.this, MainActivity.class);
+        i.putExtra("scrollTo",2);
+        startActivity(i);
         finish();
     }
 

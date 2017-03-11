@@ -53,7 +53,9 @@ public class ProShowActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        startActivity(new Intent(ProShowActivity.this, MainActivity.class));
+        Intent i = new Intent(ProShowActivity.this, MainActivity.class);
+        i.putExtra("scrollTo",1);
+        startActivity(i);
         finish();
     }
 

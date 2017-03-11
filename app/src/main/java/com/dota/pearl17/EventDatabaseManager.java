@@ -179,7 +179,7 @@ public class EventDatabaseManager {
                 try {
                     JSONObject object = new JSONObject(s);
                     if (object.getInt("success") == 1) {
-                        Toast.makeText(context, "Updated successfully", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(context, "Event data updated successfully", Toast.LENGTH_SHORT).show();
                         //update all events
 
                         try {
@@ -192,13 +192,15 @@ public class EventDatabaseManager {
                             Log.v("Events", s);
                         } catch (JSONException e) {
                             e.printStackTrace();
+                            Toast.makeText(context, "Event data update failed. Please check internet connection", Toast.LENGTH_SHORT).show();
                         }
                     } else {
-                        Toast.makeText(context, "Update failed", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(context, "Event data update failed. Please check internet connection", Toast.LENGTH_SHORT).show();
                     }
 
                 } catch (JSONException e) {
                     e.printStackTrace();
+                    Toast.makeText(context, "Event data update failed. Please check internet connection", Toast.LENGTH_SHORT).show();
                 }
 
             }

@@ -2,6 +2,7 @@ package com.dota.pearl17;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -11,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -30,15 +32,18 @@ import java.util.Map;
 
 public class SponsorsActivity extends AppCompatActivity {
 
-    private String base_spons_url = "";
     RecyclerView sponsorRecycler;
     private SponsAdapter mAdapter;
+    Typeface custom_font_bold;
     private ArrayList<String> sponsor_url = new ArrayList<>();
+    private ArrayList<String> sponsor_title = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sponsors);
+
+        custom_font_bold = Typeface.createFromAsset(getAssets(), "fonts/goodpro_condblack.otf");
 
         Picasso.with(this)
                 .load(R.drawable.sponsors_frame)
@@ -56,7 +61,9 @@ public class SponsorsActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        startActivity(new Intent(this, MainActivity.class));
+        Intent i = new Intent(this, MainActivity.class);
+        i.putExtra("scrollTo",6);
+        startActivity(i);
         finish();
     }
 
@@ -78,6 +85,7 @@ public class SponsorsActivity extends AppCompatActivity {
                                 JSONObject obj = array.getJSONObject(j);
                                 // {"name":"ACT","title":"Title","image":"http:\/\/bits-arena.com\/sponsors\/img\/act.png"}
                                 sponsor_url.add(obj.getString("image"));
+                                sponsor_title.add(obj.getString("name"));
                                 mAdapter.notifyItemInserted(sponsor_url.size() - 1);
                             }
                             Log.v("Sponsors", s);
@@ -115,9 +123,11 @@ public class SponsorsActivity extends AppCompatActivity {
     class MyViewHolder extends RecyclerView.ViewHolder {
 
         ImageView imageButton;
+        TextView tv;
 
         MyViewHolder(View itemView) {
             super(itemView);
+            tv = (TextView) itemView.findViewById(R.id.sponsor_title);
             imageButton = (ImageView) itemView.findViewById(R.id.main_events);
         }
     }
@@ -140,6 +150,9 @@ public class SponsorsActivity extends AppCompatActivity {
 
         @Override
         public void onBindViewHolder(MyViewHolder holder, int position) {
+
+            holder.tv.setText(sponsor_title.get(position));
+            holder.tv.setTypeface(custom_font_bold);
 
             holder.imageButton.requestLayout();
             Picasso.with(context)
