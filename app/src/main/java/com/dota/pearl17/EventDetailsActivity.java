@@ -1,40 +1,19 @@
 package com.dota.pearl17;
 
-import android.Manifest;
 import android.app.DownloadManager;
-import android.content.ActivityNotFoundException;
 import android.content.BroadcastReceiver;
-import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
-import android.content.pm.PackageManager;
-import android.database.Cursor;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
-import android.os.Handler;
-import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
-
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
 
 public class EventDetailsActivity extends AppCompatActivity {
 
@@ -85,12 +64,12 @@ public class EventDetailsActivity extends AppCompatActivity {
 
     }
 
-    private long downloadFile (Uri uri) {
+    private long downloadFile(Uri uri) {
 
         final long downloadReference;
 
         // Create request for android download manager
-        downloadManager = (DownloadManager)getSystemService(DOWNLOAD_SERVICE);
+        downloadManager = (DownloadManager) getSystemService(DOWNLOAD_SERVICE);
         DownloadManager.Request request = new DownloadManager.Request(uri);
 
         //Setting title of request

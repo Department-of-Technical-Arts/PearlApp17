@@ -1,12 +1,11 @@
 package com.dota.pearl17;
 
-/**
- * Created by ADMIN on 9.3.17.
+/*
+  Created by ADMIN on 9.3.17.
  */
 
 import android.app.Application;
 import android.text.TextUtils;
-import android.util.Log;
 
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;

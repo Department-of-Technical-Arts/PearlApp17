@@ -1,93 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:fitsSystemWindows="true"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
 
     <ImageView
-        android:background="@color/custom_red"
         android:id="@+id/events_topbar"
         android:layout_width="match_parent"
-        android:layout_height="72dp" />
+        android:layout_height="72dp"
+        android:background="@color/custom_red" />
 
     <LinearLayout
-        android:background="#ffffff"
-        android:orientation="vertical"
-        android:id="@+id/layout_content"
-        android:layout_below="@id/events_topbar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_below="@id/events_topbar"
+        android:background="#ffffff"
+        android:orientation="vertical">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
             android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp">
+            android:layout_marginRight="8dp"
+            android:layout_weight="1">
 
             <com.daimajia.slider.library.SliderLayout
-                android:layout_centerInParent="true"
                 android:id="@+id/headlinersSlider"
+                android:layout_width="345dp"
                 android:layout_height="240dp"
-                android:layout_width="345dp" />
+                android:layout_centerInParent="true" />
 
             <com.daimajia.slider.library.Indicators.PagerIndicator
                 android:id="@+id/custom_indicator"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:layout_centerHorizontal="true"
                 android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
                 android:layout_marginBottom="8dp"
-                app:selected_color="@color/custom_red"
-                app:unselected_color="@color/custom_red"
+                android:gravity="center"
                 android:shape="oval"
+                app:selected_color="@color/custom_red"
+                app:selected_height="10dp"
                 app:selected_padding_left="3dp"
                 app:selected_padding_right="3dp"
+                app:selected_width="10dp"
+                app:unselected_color="@color/custom_red"
+                app:unselected_height="5dp"
                 app:unselected_padding_left="3dp"
                 app:unselected_padding_right="3dp"
-                app:selected_width="10dp"
-                app:selected_height="10dp"
-                app:unselected_width="5dp"
-                app:unselected_height="5dp"
-                />
+                app:unselected_width="5dp" />
         </RelativeLayout>
 
         <ImageView
-            android:background="@color/custom_red"
             android:id="@+id/events_middlebar"
             android:layout_width="match_parent"
-            android:layout_height="35dp"/>
+            android:layout_height="35dp"
+            android:background="@color/custom_red" />
+
         <android.support.v7.widget.RecyclerView
-            android:overScrollMode="never"
             android:id="@+id/recycler_less_categories"
-            android:background="#ffffff"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginBottom="38dp"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"/>
+            android:layout_marginBottom="38dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_weight="1"
+            android:background="#ffffff"
+            android:overScrollMode="never" />
     </LinearLayout>
+
     <View
-        android:background="@color/custom_red"
-        android:layout_below="@id/events_topbar"
+        android:layout_width="8dp"
+        android:layout_height="match_parent"
         android:layout_alignParentLeft="true"
-        android:layout_width="8dp"
-        android:layout_height="match_parent"/>
-    <View
-        android:background="@color/custom_red"
-        android:layout_alignParentBottom="true"
-        android:layout_width="match_parent"
-        android:layout_height="8dp"/>
-    <View
-        android:background="@color/custom_red"
         android:layout_below="@id/events_topbar"
-        android:layout_alignParentRight="true"
+        android:background="@color/custom_red" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/custom_red" />
+
+    <View
         android:layout_width="8dp"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/events_topbar"
+        android:background="@color/custom_red" />
+
     <include
         android:id="@+id/btn_show_more"
-        layout="@layout/show_more_button"/>
+        layout="@layout/show_more_button" />
 </RelativeLayout>

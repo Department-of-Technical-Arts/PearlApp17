@@ -1,42 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/container_splash"
-    android:background="#ffffff"
-    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#ffffff">
 
     <RelativeLayout
         android:id="@+id/bg_hook"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-
-    <ImageView
-        android:id="@+id/bg_splash"
-        android:src="@drawable/splash_screen_bg"
-        android:scaleType="centerCrop"
-        android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/splash_screen_bg" />
+
     <LinearLayout
-        android:layout_centerInParent="true"
-        android:orientation="vertical"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
 
         <ImageView
-            android:id="@+id/splash_logo"
-            android:src="@drawable/splash_logo"
-            android:scaleType="centerCrop"
             android:layout_width="254dp"
-            android:layout_height="300dp" />
+            android:layout_height="300dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/splash_logo" />
 
         <ImageView
-            android:id="@+id/splash_dates"
-            android:src="@drawable/splash_dates"
-            android:scaleType="centerCrop"
             android:layout_width="254dp"
-            android:layout_height="65dp" />
+            android:layout_height="65dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/splash_dates" />
 
     </LinearLayout>
 

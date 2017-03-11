@@ -34,21 +34,28 @@ public class EventsShowMoreActivity extends AppCompatActivity {
                 .into(topbar);
 
         RecyclerView mRecycler = (RecyclerView) findViewById(R.id.recycler_more_categories);
-        mRecycler.setLayoutManager(new GridLayoutManager(this,2));
+        mRecycler.setLayoutManager(new GridLayoutManager(this, 2));
         mRecycler.setAdapter(new MyAdapter());
-    }
 
-    public void showLess(View v){
-        //ANIM: This needs a slide down animation
+        View showMore = findViewById(R.id.btn_show_less);
+
+        showMore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //ANIM: This needs a slide down animation
 //        startActivity(new Intent(EventsShowMoreActivity.this,EventsHomeActivity.class));
-        finish();
+                finish();
+            }
+        });
+
     }
 
-    class EventCategoryItem extends RecyclerView.ViewHolder{
+    class EventCategoryItem extends RecyclerView.ViewHolder {
         TextView title;
         ImageView icon;
         RelativeLayout eventButton;
-        public EventCategoryItem(View v){
+
+        public EventCategoryItem(View v) {
             super(v);
             title = (TextView) v.findViewById(R.id.title_category);
             icon = (ImageView) v.findViewById(R.id.icon_category);
@@ -60,10 +67,9 @@ public class EventsShowMoreActivity extends AppCompatActivity {
         }
 
 
-
     }
 
-    class MyAdapter extends RecyclerView.Adapter<EventCategoryItem>{
+    class MyAdapter extends RecyclerView.Adapter<EventCategoryItem> {
 
         String titles[] = new String[]{
                 "DANCE",
@@ -77,7 +83,8 @@ public class EventsShowMoreActivity extends AppCompatActivity {
                 "ELAS",
                 "QUIZ",
                 "HINDI T",
-                "VFX"
+                "VFX",
+                "FINANCE"
         };
 
         int icons[] = new int[]{
@@ -92,12 +99,13 @@ public class EventsShowMoreActivity extends AppCompatActivity {
                 R.drawable.icon_elas,
                 R.drawable.icon_quiz,
                 R.drawable.icon_hindi,
-                R.drawable.icon_vfx
+                R.drawable.icon_vfx,
+                R.drawable.icon_finance
         };
 
         @Override
         public EventCategoryItem onCreateViewHolder(ViewGroup parent, int viewType) {
-            return new EventCategoryItem(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_event_category,parent,false));
+            return new EventCategoryItem(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_event_category, parent, false));
         }
 
         @Override
@@ -109,9 +117,9 @@ public class EventsShowMoreActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
 
-                    Intent i = new Intent(EventsShowMoreActivity.this,ClubEventsActivity.class);
+                    Intent i = new Intent(EventsShowMoreActivity.this, ClubEventsActivity.class);
 
-                    i.putExtra("club_name" , finalHolder.title.getText().toString());
+                    i.putExtra("club_name", finalHolder.title.getText().toString());
                     startActivity(i);
                 }
             });

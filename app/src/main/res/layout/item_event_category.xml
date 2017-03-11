@@ -1,44 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/layout_event_category"
-    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="150dp"
     android:layout_height="40dp"
-    android:layout_marginTop="16dp"
     android:layout_marginBottom="8dp"
     android:layout_marginLeft="8dp"
     android:layout_marginRight="8dp"
-    android:paddingTop="8dp"
+    android:layout_marginTop="16dp"
+    android:background="@drawable/border_item_club"
+    android:gravity="center_vertical"
     android:paddingBottom="8dp"
     android:paddingLeft="12dp"
     android:paddingRight="12dp"
-    android:gravity="center_vertical"
-    android:background="@drawable/border_item_club">
+    android:paddingTop="8dp">
 
     <LinearLayout
-        android:layout_centerInParent="true"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true">
 
         <ImageView
             android:id="@+id/icon_category"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:src="@drawable/icon_elas"
             android:layout_marginRight="4dp"
-            />
+            android:src="@drawable/icon_elas" />
+
         <View
             android:layout_width="3dp"
             android:layout_height="24dp"
-            android:background="@color/custom_red"
-            android:layout_marginRight="4dp"/>
+            android:layout_marginRight="4dp"
+            android:background="@color/custom_red" />
+
         <TextView
             android:id="@+id/title_category"
             android:layout_width="wrap_content"
             android:layout_height="24dp"
             android:text="ELAS"
-            android:textSize="20sp"
             android:textColor="@color/custom_red"
+            android:textSize="20sp"
             android:textStyle="bold" />
 
     </LinearLayout>

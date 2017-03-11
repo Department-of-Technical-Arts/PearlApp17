@@ -8,9 +8,6 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.squareup.picasso.Picasso;
@@ -56,7 +53,7 @@ public class ScheduleActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        startActivity(new Intent(ScheduleActivity.this,MainActivity.class));
+        startActivity(new Intent(ScheduleActivity.this, MainActivity.class));
         finish();
     }
 
@@ -74,9 +71,9 @@ public class ScheduleActivity extends AppCompatActivity {
         public Fragment getItem(int position) {
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).
-            Bundle args=new Bundle();
-            args.putInt("day",position);
-            TimelinePagerFragment frag=new TimelinePagerFragment();
+            Bundle args = new Bundle();
+            args.putInt("day", position);
+            TimelinePagerFragment frag = new TimelinePagerFragment();
             frag.setArguments(args);
             return frag;
 

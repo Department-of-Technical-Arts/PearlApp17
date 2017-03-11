@@ -5,9 +5,10 @@
     android:name="com.google.android.gms.maps.SupportMapFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.dota.pearl17.MapsActivity" >
+    tools:context="com.dota.pearl17.MapsActivity">
+
     <com.quinny898.library.persistentsearch.SearchBox
+        android:id="@+id/searchbox"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/searchbox" />
+        android:layout_height="wrap_content" />
 </fragment>

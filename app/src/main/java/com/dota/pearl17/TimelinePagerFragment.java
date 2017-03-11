@@ -1,10 +1,6 @@
 package com.dota.pearl17;
 
-import android.annotation.TargetApi;
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
@@ -19,7 +15,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
-import com.squareup.picasso.Target;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -139,7 +134,7 @@ public class TimelinePagerFragment extends Fragment {
                         .load(R.drawable.schedulerow)
                         .fit()
                         .centerCrop()
-                        .into((ImageView)v.findViewById(R.id.bg_schedule_row));
+                        .into((ImageView) v.findViewById(R.id.bg_schedule_row));
                 ((TextView) v.findViewById(R.id.event_name)).setText(set.getName());
                 ((TextView) v.findViewById(R.id.round_name)).setText(set.getRound());
                 ((TextView) v.findViewById(R.id.venue)).setText(set.getVenue());

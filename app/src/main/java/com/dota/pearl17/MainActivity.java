@@ -1,12 +1,7 @@
 package com.dota.pearl17;
 
-import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -17,7 +12,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.support.v7.widget.RecyclerView;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
 
 import com.android.volley.AuthFailureError;
@@ -44,22 +38,21 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        if(getIntent().getIntExtra("fromSplash",-1)==1){
+        if (getIntent().getIntExtra("fromSplash", -1) == 1) {
 
-            if(SessionManager.getVersion(this)==-1){
-                SessionManager.setVersion(this,1);
-            }
-            else{
+            if (SessionManager.getVersion(this) == -1) {
+                SessionManager.setVersion(this, 1);
+            } else {
                 StringRequest request = new StringRequest(Request.Method.POST, ControllerConstant.url, new Response.Listener<String>() {
                     @Override
                     public void onResponse(String s) {
                         try {
                             JSONObject object = new JSONObject(s);
-                            Log.i("versionCheck","server ver "+object.getInt("version")+" app ver"+SessionManager.getVersion(MainActivity.this));
-                            if(object.getInt("version")!=SessionManager.getVersion(MainActivity.this)){
+                            Log.i("versionCheck", "server ver " + object.getInt("version") + " app ver" + SessionManager.getVersion(MainActivity.this));
+                            if (object.getInt("version") != SessionManager.getVersion(MainActivity.this)) {
                                 //send to play store to update
                                 AppUpdateDialog dialog = new AppUpdateDialog(MainActivity.this);
-                                dialog.show(getSupportFragmentManager(),"TAG");
+                                dialog.show(getSupportFragmentManager(), "TAG");
                             }
 
                         } catch (JSONException e) {
@@ -111,36 +104,36 @@ public class MainActivity extends AppCompatActivity {
 //        logo.startAnimation(animation);
     }
 
-    public void initLayoutParams(){
-        int height_empty = (int)(getResources().getDimension(R.dimen.landing_padding_height));
-        int height_row = (int)(getResources().getDimension(R.dimen.landing_row_height));
-        int margin_side = (int)(getResources().getDimension(R.dimen.margin_side));
+    public void initLayoutParams() {
+        int height_empty = (int) (getResources().getDimension(R.dimen.landing_padding_height));
+        int height_row = (int) (getResources().getDimension(R.dimen.landing_row_height));
+        int margin_side = (int) (getResources().getDimension(R.dimen.margin_side));
 
-        params_empty = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,height_empty);
-        params_empty.setMargins(margin_side,0,margin_side,0);
+        params_empty = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, height_empty);
+        params_empty.setMargins(margin_side, 0, margin_side, 0);
 
-        params_row = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,height_row);
-        params_row.setMargins(margin_side,0,margin_side,0);
+        params_row = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, height_row);
+        params_row.setMargins(margin_side, 0, margin_side, 0);
     }
 
-    RecyclerClickListener clickListener=new RecyclerClickListener() {
+    RecyclerClickListener clickListener = new RecyclerClickListener() {
         @Override
         public void onClick(View v, int pos) {
-            switch (pos){
+            switch (pos) {
                 case 0:
                     //Space
                     break;
                 case 1:
                     //Events
-                    startActivity(new Intent(MainActivity.this,EventsHomeActivity.class));
+                    startActivity(new Intent(MainActivity.this, EventsHomeActivity.class));
                     break;
                 case 2:
                     //Pro Shows
-                    startActivity(new Intent(MainActivity.this,ProShowActivity.class));
+                    startActivity(new Intent(MainActivity.this, ProShowActivity.class));
                     break;
                 case 3:
                     //Talks
-                    startActivity(new Intent(MainActivity.this,TalksActivity.class));
+                    startActivity(new Intent(MainActivity.this, TalksActivity.class));
                     break;
                 case 4:
                     //Schedule
@@ -148,38 +141,37 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 case 5:
                     //Guide
-                    startActivity(new Intent(MainActivity.this,GuideActivity.class));
+                    startActivity(new Intent(MainActivity.this, GuideActivity.class));
                     break;
                 case 6:
                     //Register
-                    startActivity(new Intent(MainActivity.this,RegistrationActivity.class));
+                    startActivity(new Intent(MainActivity.this, RegistrationActivity.class));
                     break;
                 case 7:
                     //Sponsor
-                    startActivity(new Intent(MainActivity.this,SponsorsActivity.class));
-
+                    startActivity(new Intent(MainActivity.this, SponsorsActivity.class));
                     break;
                 case 8:
                     //App Credits
-                    startActivity(new Intent(MainActivity.this,AppCreditsActivity.class));
+                    startActivity(new Intent(MainActivity.this, AppCreditsActivity.class));
                     break;
                 case 9:
                     //Contact Us
-                    startActivity(new Intent(MainActivity.this,ContactActivity.class));
+                    startActivity(new Intent(MainActivity.this, ContactActivity.class));
                     break;
             }
             finish();
         }
     };
 
-    class MyViewHolder extends RecyclerView.ViewHolder{
+    class MyViewHolder extends RecyclerView.ViewHolder {
 
         ImageView imageButton;
 
         public MyViewHolder(View itemView) {
             super(itemView);
-            imageButton= (ImageView) itemView.findViewById(R.id.main_events);
-            if(clickListener!=null){
+            imageButton = (ImageView) itemView.findViewById(R.id.main_events);
+            if (clickListener != null) {
                 imageButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -192,7 +184,7 @@ public class MainActivity extends AppCompatActivity {
 
     LayoutInflater inflater;
 
-    class  MyAdapter extends RecyclerView.Adapter<MyViewHolder>{
+    class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
 
         Context context;
         int[] resources;
@@ -200,9 +192,9 @@ public class MainActivity extends AppCompatActivity {
 
         public MyAdapter(MainActivity context) {
             this.context = context;
-            inflater=LayoutInflater.from(context);
+            inflater = LayoutInflater.from(context);
             //first value is 0 since it represents empty view; it is never used
-            resources= new int[]{
+            resources = new int[]{
                     0,
                     R.drawable.events_button,
                     R.drawable.pro_shows_button,
@@ -219,31 +211,28 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            return new MyViewHolder(inflater.inflate(R.layout.custom_main_row,parent,false));
+            return new MyViewHolder(inflater.inflate(R.layout.custom_main_row, parent, false));
         }
 
-        int prev=-1;
+        int prev = -1;
 
         @Override
         public void onBindViewHolder(MyViewHolder holder, int position) {
-            if(position==0)
-            {
+            if (position == 0) {
                 //Blank case
                 holder.imageButton.setImageDrawable(null);
                 holder.imageButton.setLayoutParams(params_empty);
                 holder.imageButton.requestLayout();
                 return;
-            }
-            else
-            {
+            } else {
                 holder.imageButton.setLayoutParams(params_row);
                 holder.imageButton.requestLayout();
-                holder.imageButton.setImageResource(resources[position]);
-//                Picasso.with(MainActivity.this)
-//                        .load(resources[position])
-//                        .fit()
-//                        .centerInside()
-//                        .into(holder.imageButton);
+//                holder.imageButton.setImageResource(resources[position]);
+                Picasso.with(MainActivity.this)
+                        .load(resources[position])
+                        .fit()
+                        .centerInside()
+                        .into(holder.imageButton);
             }
 //            if (prev < position) {
 //                prev = position;
@@ -267,12 +256,14 @@ public class MainActivity extends AppCompatActivity {
             return resources.length;
         }
     }
-    int click_count=0;
-    public void easterEgg(View v){
-        if(click_count==4){
-            click_count=0;
+
+    int click_count = 0;
+
+    public void easterEgg(View v) {
+        if (click_count == 4) {
+            click_count = 0;
             //open developers screen or show an animation
-            startActivity(new Intent(MainActivity.this,AppCreditsActivity.class));
+            startActivity(new Intent(MainActivity.this, AppCreditsActivity.class));
             finish();
         }
         click_count++;

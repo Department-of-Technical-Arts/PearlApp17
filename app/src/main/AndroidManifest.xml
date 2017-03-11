@@ -15,6 +15,7 @@
     <application
         android:name=".AppController"
         android:allowBackup="true"
+        android:fullBackupContent="@xml/backup_descriptor"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
@@ -48,15 +49,29 @@
         <activity
             android:name=".AppCreditsActivity"
             android:theme="@style/CreditsTheme" />
-        <activity android:name=".RegistrationActivity" />
-        <activity android:name=".SponsorsActivity" />
-        <activity android:name=".ScheduleActivity" />
-        <activity android:name=".GuideActivity" />
-        <activity android:name=".AboutUsActivity" />
-        <activity android:name=".ReachUsActivity" />
-        <activity android:name=".CampusMapActivity" />
-        <activity android:name=".ContactActivity" />
-        <activity android:name=".MapsActivity" />
+        <activity
+            android:name=".RegistrationActivity"
+            android:theme="@style/RegisterTheme"/>
+        <activity
+            android:name=".SponsorsActivity"
+            android:theme="@style/SponsorsTheme"/>
+        <activity
+            android:name=".ScheduleActivity"
+            android:theme="@style/ScheduleTheme"/>
+        <activity
+            android:name=".GuideActivity"
+            android:theme="@style/GuideTheme" />
+        <activity
+            android:name=".AboutUsActivity"
+            android:theme="@style/GuideTheme"/>
+        <activity
+            android:name=".ReachUsActivity"
+            android:theme="@style/GuideTheme"/>
+        <activity
+            android:name=".ContactActivity"
+            android:theme="@style/ContactsTheme"/>
+        <activity
+            android:name=".MapsActivity" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"

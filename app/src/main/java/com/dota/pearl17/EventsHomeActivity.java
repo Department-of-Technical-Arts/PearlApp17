@@ -1,23 +1,18 @@
 package com.dota.pearl17;
 
 import android.content.Intent;
-import android.gesture.Gesture;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.view.GestureDetector;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.daimajia.slider.library.Indicators.PagerIndicator;
 import com.daimajia.slider.library.SliderLayout;
@@ -60,7 +55,7 @@ public class EventsHomeActivity extends AppCompatActivity {
                 .into(middlebar);
 
         mRecycler = (RecyclerView) findViewById(R.id.recycler_less_categories);
-        mRecycler.setLayoutManager(new GridLayoutManager(this,2));
+        mRecycler.setLayoutManager(new GridLayoutManager(this, 2));
         mRecycler.setAdapter(new LessEventsAdapter());
 
         View showMore = findViewById(R.id.btn_show_more);
@@ -69,7 +64,7 @@ public class EventsHomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //ANIM: This needs to have a slide up animation
-                startActivity(new Intent(EventsHomeActivity.this,EventsShowMoreActivity.class));
+                startActivity(new Intent(EventsHomeActivity.this, EventsShowMoreActivity.class));
                 overridePendingTransition(R.anim.slide_up, R.anim.stay);
             }
         });
@@ -90,11 +85,11 @@ public class EventsHomeActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        startActivity(new Intent(EventsHomeActivity.this,MainActivity.class));
+        startActivity(new Intent(EventsHomeActivity.this, MainActivity.class));
         finish();
     }
 
-    void loadSliderImages(){
+    void loadSliderImages() {
 
         int resources[] = new int[]{
                 R.drawable.headliner_carnival_zone,
@@ -108,7 +103,7 @@ public class EventsHomeActivity extends AppCompatActivity {
                 R.drawable.headliner_till_deaf,
         };
 
-        for(int i=0; i < resources.length; i++){
+        for (int i = 0; i < resources.length; i++) {
             DefaultSliderView sliderView = new DefaultSliderView(this);
             sliderView.image(resources[i])
                     .setOnSliderClickListener(new BaseSliderView.OnSliderClickListener() {
@@ -117,7 +112,7 @@ public class EventsHomeActivity extends AppCompatActivity {
 
                             Intent i = new Intent(EventsHomeActivity.this, EventDetailsActivity.class);
 
-                            switch (mDemoSlider.getCurrentPosition()){
+                            switch (mDemoSlider.getCurrentPosition()) {
                                 case 0:
                                     //Carnival Zone - None
                                     i.putExtra("event_name", "CARNIVAL ZONE");
@@ -165,12 +160,12 @@ public class EventsHomeActivity extends AppCompatActivity {
 
     }
 
-    class EventCategoryItem extends RecyclerView.ViewHolder{
+    class EventCategoryItem extends RecyclerView.ViewHolder {
         TextView title;
         ImageView icon;
         RelativeLayout eventButton;
 
-        public EventCategoryItem(View v){
+        public EventCategoryItem(View v) {
             super(v);
 
             eventButton = (RelativeLayout) v.findViewById(R.id.layout_event_category);
@@ -183,7 +178,7 @@ public class EventsHomeActivity extends AppCompatActivity {
 
     }
 
-    class LessEventsAdapter extends RecyclerView.Adapter<EventCategoryItem>{
+    class LessEventsAdapter extends RecyclerView.Adapter<EventCategoryItem> {
 
         String titles[] = new String[]{
                 "DANCE",
@@ -205,7 +200,7 @@ public class EventsHomeActivity extends AppCompatActivity {
 
         @Override
         public EventCategoryItem onCreateViewHolder(ViewGroup parent, int viewType) {
-            return new EventCategoryItem(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_event_category,parent,false));
+            return new EventCategoryItem(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_event_category, parent, false));
         }
 
         @Override
@@ -217,9 +212,9 @@ public class EventsHomeActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
 
-                    Intent i = new Intent(EventsHomeActivity.this,ClubEventsActivity.class);
+                    Intent i = new Intent(EventsHomeActivity.this, ClubEventsActivity.class);
 
-                    i.putExtra("club_name" , finalHolder.title.getText().toString());
+                    i.putExtra("club_name", finalHolder.title.getText().toString());
                     startActivity(i);
                 }
             });

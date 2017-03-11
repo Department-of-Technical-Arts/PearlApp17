@@ -5,7 +5,7 @@ package com.dota.pearl17;
  */
 
 public class ScheduleSet {
-    String name,round,venue;
+    String name, round, venue;
     long time;
     int event_id;
 

@@ -20,7 +20,8 @@ public class Event {
         this.club = club;
     }
 
-    public Event(){}
+    public Event() {
+    }
 
     public int getId() {
         return id;

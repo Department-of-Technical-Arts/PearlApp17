@@ -20,11 +20,9 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.squareup.picasso.Picasso;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -34,7 +32,7 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
     private RadioGroup gender;
     private String _name, _email, _phone, _college, _gender, _city;
     private Button register;
-    private RadioButton male,female;
+    private RadioButton male, female;
     private String _dob;
 
     @Override
@@ -45,7 +43,7 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
         Picasso.with(this)
                 .load(R.drawable.registration_frame)
                 .fit()
-                .into((ImageView)findViewById(R.id.bg_register));
+                .into((ImageView) findViewById(R.id.bg_register));
 
         name = (EditText) findViewById(R.id.name);
         dob = (EditText) findViewById(R.id.dob);
@@ -57,7 +55,6 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
         male = (RadioButton) findViewById(R.id.male);
         female = (RadioButton) findViewById(R.id.female);
         register = (Button) findViewById(R.id.register);
-
 
 
         Typeface custom_font = Typeface.createFromAsset(getAssets(), "fonts/goodpro_condmedium.otf");
@@ -77,27 +74,27 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
         email.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
-                if(!hasFocus){
+                if (!hasFocus) {
                     //send volley request and fill others
-                    Log.v("ASD","Focus change detected");
+                    Log.v("ASD", "Focus change detected");
 
                     StringRequest request = new StringRequest(Request.Method.POST, ControllerConstant.url, new Response.Listener<String>() {
                         @Override
                         public void onResponse(String s) {
 
-                            Log.v("response",s);
+                            Log.v("response", s);
                             try {
                                 JSONObject Object = new JSONObject(s);
-                                if(Object.getInt("success")==1){
+                                if (Object.getInt("success") == 1) {
 
                                     JSONObject object = Object.getJSONObject("data");
                                     name.setText(object.getString("name"));
                                     phone.setText(object.getString("phone"));
                                     college.setText(object.getString("college"));
                                     city.setText(object.getString("city"));
-                                    if(object.getString("gender").equals("male")){
+                                    if (object.getString("gender").equals("male")) {
                                         male.setChecked(true);
-                                    }else{
+                                    } else {
                                         female.setChecked(true);
                                     }
                                     dob.setText(object.getString("dob"));
@@ -113,7 +110,7 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
                         @Override
                         public void onErrorResponse(VolleyError volleyError) {
                             //internet problem, cannot upload Group member
-                            Log.v("ASD","Internet problem");
+                            Log.v("ASD", "Internet problem");
                         }
                     }) {
                         @Override
@@ -140,7 +137,7 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
             public void onClick(View v) {
 
                 PickDOBDialog dialog = new PickDOBDialog(RegistrationActivity.this);
-                dialog.show(getSupportFragmentManager(),"TAG");
+                dialog.show(getSupportFragmentManager(), "TAG");
 
             }
         });
@@ -150,18 +147,18 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        startActivity(new Intent(this,MainActivity.class));
+        startActivity(new Intent(this, MainActivity.class));
         finish();
     }
 
     @Override
     public void onClick(View v) {
 
-        Log.v("Details","Details: "+name.getText().toString()+"email: " + email.getText().toString()+phone.getText().toString()+city.getText().toString()+college.getText().toString());
+        Log.v("Details", "Details: " + name.getText().toString() + "email: " + email.getText().toString() + phone.getText().toString() + city.getText().toString() + college.getText().toString());
 
-        if(name.getText().toString().trim().equals("")||email.getText().toString().trim().equals("")||phone.getText().toString().trim().equals("")||city.getText().toString().trim().equals("")||college.getText().toString().trim().equals("")||dob.getText().toString().trim().equals("")){
+        if (name.getText().toString().trim().equals("") || email.getText().toString().trim().equals("") || phone.getText().toString().trim().equals("") || city.getText().toString().trim().equals("") || college.getText().toString().trim().equals("") || dob.getText().toString().trim().equals("")) {
 
-            Toast.makeText(RegistrationActivity.this,"Please fill all details",Toast.LENGTH_SHORT).show();
+            Toast.makeText(RegistrationActivity.this, "Please fill all details", Toast.LENGTH_SHORT).show();
             return;
 
         }
@@ -174,7 +171,7 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
         _dob = dob.getText().toString();
 
         //Send to API
-        Toast.makeText(this,"API ko bhej",Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "API ko bhej", Toast.LENGTH_SHORT).show();
 
         StringRequest request = new StringRequest(Request.Method.POST, ControllerConstant.url, new Response.Listener<String>() {
             @Override
@@ -182,10 +179,10 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
 
                 try {
                     JSONObject object = new JSONObject(s);
-                    if(object.getInt("success")==1){
-                        Toast.makeText(RegistrationActivity.this,"Registered successfully",Toast.LENGTH_SHORT).show();
-                    }else{
-                        Toast.makeText(RegistrationActivity.this,"Registration failed",Toast.LENGTH_SHORT).show();
+                    if (object.getInt("success") == 1) {
+                        Toast.makeText(RegistrationActivity.this, "Registered successfully", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(RegistrationActivity.this, "Registration failed", Toast.LENGTH_SHORT).show();
                     }
 
                 } catch (JSONException e) {
@@ -223,7 +220,7 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
     @Override
     public void setDOB(int year, int month, int day) {
 
-        dob.setText(day + "/" + (month+1) + "/" + year);
-        Toast.makeText(this,day + "/" + (month+1) + "/" + year,Toast.LENGTH_SHORT).show();
+        dob.setText(day + "/" + (month + 1) + "/" + year);
+        Toast.makeText(this, day + "/" + (month + 1) + "/" + year, Toast.LENGTH_SHORT).show();
     }
 }
