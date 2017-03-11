@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
@@ -117,6 +118,11 @@ public class EventDetailsActivity extends AppCompatActivity {
 
 
     public void rules(View v) {
+
+        if(event.getRules().trim().equals("")){
+            Toast.makeText(this,"Event rules not available. Try again later.",Toast.LENGTH_SHORT).show();
+            return;
+        }
         downloadFile(Uri.parse(event.getRules()));
     }
 
