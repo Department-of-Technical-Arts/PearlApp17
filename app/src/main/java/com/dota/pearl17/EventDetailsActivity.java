@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
@@ -54,8 +55,6 @@ public class EventDetailsActivity extends AppCompatActivity {
         desc.setText(event.getDesc());
         desc.setTypeface(custom_font);
         rules.setTypeface(custom_font_bold);
-
-        Log.v("Rules file: ",event.getRules());
 
         Picasso.with(this)
                 .load(R.drawable.event_frame)
