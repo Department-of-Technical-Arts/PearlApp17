@@ -76,6 +76,8 @@ public class EventDetailsActivity extends AppCompatActivity {
         desc.setTypeface(custom_font);
         rules.setTypeface(custom_font_bold);
 
+        Log.v("Rules file: ",event.getRules());
+
         Picasso.with(this)
                 .load(R.drawable.event_frame)
                 .fit()
@@ -112,6 +114,11 @@ public class EventDetailsActivity extends AppCompatActivity {
 
 
     public void rules(View v) {
+
+        if(event.getRules().trim().equals("")){
+            Toast.makeText(this,"Event rules not available. Try again later.",Toast.LENGTH_SHORT).show();
+            return;
+        }
         downloadFile(Uri.parse(event.getRules()));
     }
 
