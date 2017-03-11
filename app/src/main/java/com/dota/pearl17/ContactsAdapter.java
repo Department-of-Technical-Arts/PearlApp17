@@ -51,7 +51,11 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.MyView
         myViewHolder.name.setText(arrayList.get(i).getName());
         myViewHolder.designation.setText((arrayList.get(i).getDesignation()));
         myViewHolder.number.setText(arrayList.get(i).getMobile());
-        Picasso.with(context).load(arrayList.get(i).getImage()).into(myViewHolder.imageView);
+
+        Picasso.with(context)
+                .load(arrayList.get(i).getImage()).
+                into(myViewHolder.imageView);
+
         Animation animation = new ScaleAnimation(0, 1, 0, 1, Animation.RELATIVE_TO_SELF, 0.5f,
                 Animation.RELATIVE_TO_SELF, 0.5f);
         animation.setDuration(300);

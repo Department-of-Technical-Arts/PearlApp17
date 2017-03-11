@@ -59,9 +59,10 @@ public class ProShowActivity extends AppCompatActivity {
 
     class ProShowAdapter extends RecyclerView.Adapter<ProShowAdapter.ProShowViewHolder> {
         int resId[] = new int[]{
-                R.drawable.proshow_lagori1,
-                R.drawable.proshow_sonu1,
-                R.drawable.proshow_zakhir1
+                R.drawable.proshow_lagori,
+                R.drawable.proshow_marnik,
+                R.drawable.proshow_sonu,
+                R.drawable.proshow_zakhir
         };
 
         @Override

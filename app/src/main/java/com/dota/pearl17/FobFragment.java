@@ -45,7 +45,7 @@ public class FobFragment extends Fragment implements RecyclerClickListener {
     }
 
     private void feedData() {
-        Contacts temp1 = new Contacts("KESHAV KEDARNATH", "President", "7997030001", R.drawable.pic);
+        Contacts temp1 = new Contacts("KESHAV KEDARNATH", "President", "7997030001", R.drawable.keshav);
         Contacts temp2 = new Contacts("SAMPATH BALINENI", "General Secretary", "7036942156", R.drawable.sampath);
         Contacts temp3 = new Contacts("METTA SAI SIDDHARATHA", "Cultural Secretary", "9542132801", R.drawable.siddhartha);
         Contacts temp4 = new Contacts("MONICA ADUSUMILLI", "Cultural Secretary", "9441924391", R.drawable.monica);

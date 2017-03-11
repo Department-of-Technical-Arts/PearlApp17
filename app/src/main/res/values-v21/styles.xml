@@ -5,11 +5,11 @@
     </style>
 
     <style name="ProShowTheme" parent="AppTheme">
-        <item name="android:statusBarColor">@color/custom_blue</item>
+        <item name="android:statusBarColor">@color/proshow_blue</item>
     </style>
 
     <style name="TalksTheme" parent="AppTheme">
-        <item name="android:statusBarColor">@color/custom_green</item>
+        <item name="android:statusBarColor">@color/talks_green</item>
     </style>
 
     <style name="ScheduleTheme" parent="AppTheme">
@@ -17,23 +17,23 @@
     </style>
 
     <style name="GuideTheme" parent="AppTheme">
-        <item name="android:statusBarColor">@color/custom_purple</item>
+        <item name="android:statusBarColor">@color/guide_purple</item>
     </style>
 
     <style name="RegisterTheme" parent="AppTheme">
-        <item name="android:statusBarColor">@color/custom_blue</item>
+        <item name="android:statusBarColor">@color/registration_blue</item>
     </style>
 
     <style name="SponsorsTheme" parent="AppTheme">
-        <item name="android:statusBarColor">@color/custom_purple</item>
+        <item name="android:statusBarColor">@color/sponsors_green</item>
     </style>
 
     <style name="CreditsTheme" parent="AppTheme">
-        <item name="android:statusBarColor">@color/custom_pink</item>
+        <item name="android:statusBarColor">@color/credits_pink</item>
     </style>
 
     <style name="ContactsTheme" parent="AppTheme">
-        <item name="android:statusBarColor">@color/custom_purple</item>
-        <item name="colorAccent">@color/custom_purple</item>
+        <item name="android:statusBarColor">@color/guide_purple</item>
+        <item name="colorAccent">@color/guide_purple</item>
     </style>
 </resources>

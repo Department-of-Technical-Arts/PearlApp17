@@ -4,12 +4,17 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
     <color name="yellow">#f9b924</color>
     <color name="custom_red">#E3566A</color>
-    <color name="custom_green">#3BBE3D</color>
-    <color name="custom_blue">#3CA0FC</color>
     <color name="custom_purple">#A43CFD</color>
+
+    <color name="talks_green">#3BBE3D</color>
+    <color name="registration_blue">#3CA1FD</color>
+    <color name="proshow_blue">#3CA0FC</color>
     <color name="schedule_yellow">#F8A72A</color>
-    <color name="custom_pink">#EC306D</color>
+    <color name="guide_purple">#A05CDB</color>
+    <color name="credits_pink">#EC306D</color>
+    <color name="sponsors_green">#07BC58</color>
 
 </resources>

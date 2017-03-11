@@ -60,6 +60,10 @@ public class TalksActivity extends AppCompatActivity {
 
     class TalksAdapter extends RecyclerView.Adapter<TalksAdapter.TalksViewHolder> {
 
+        int resourceId[] = new int[]{
+                R.drawable.talk_anshu,
+                R.drawable.talk_shashi
+        };
         @Override
         public TalksViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             return new TalksViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_pro_show, parent, false));
@@ -67,33 +71,11 @@ public class TalksActivity extends AppCompatActivity {
 
         @Override
         public void onBindViewHolder(TalksViewHolder holder, int position) {
-            Log.i("onbind", "bound pos " + position);
-            switch (position) {
-                case 0:
-                    Picasso.with(TalksActivity.this)
-                            .load(R.drawable.talk_anshu1)
-                            .fit()
-                            .centerCrop()
-                            .into(holder.img);
-                    break;
-                case 1:
-                    Picasso.with(TalksActivity.this)
-                            .load(R.drawable.talk_shashi1)
-                            .fit()
-                            .centerCrop()
-                            .into(holder.img);
-                    break;
-//                case 2:
-//                    Picasso.with(TalksActivity.this).load(R.drawable.terpsichore).fit().into(holder.img);
-////                    holder.img.setBackgroundColor(0xFFFF00FF);
-//                    break;
-//                case 3:
-//                    holder.img.setBackgroundColor(0xFF0000FF);
-//                    break;
-//                case 4:
-//                    holder.img.setBackgroundColor(0xFF00FFFF);
-//                    break;
-            }
+            Picasso.with(TalksActivity.this)
+                    .load(resourceId[position])
+                    .fit()
+                    .centerCrop()
+                    .into(holder.img);
         }
 
         @Override
