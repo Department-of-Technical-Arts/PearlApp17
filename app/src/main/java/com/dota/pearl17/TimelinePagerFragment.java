@@ -80,7 +80,7 @@ public class TimelinePagerFragment extends Fragment {
         times = mTableManager.getDistinctTime(getArguments().getInt("day"));
 
         if (times.isEmpty()) {
-            Log.e("TimelineFrag1", times.toString());
+//            Log.e("TimelineFrag1", times.toString());
             recyclerView.setVisibility(View.GONE);
             textView.setVisibility(View.VISIBLE);
         } else {
@@ -89,7 +89,7 @@ public class TimelinePagerFragment extends Fragment {
             mAdapter.setTimes(times);
             recyclerView.setAdapter(mAdapter);
             recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-            Log.e("Day " + getArguments().getInt("day"), String.valueOf(times.size()));
+//            Log.e("Day " + getArguments().getInt("day"), String.valueOf(times.size()));
         }
 
     }

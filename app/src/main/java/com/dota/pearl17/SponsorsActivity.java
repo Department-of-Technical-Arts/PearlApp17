@@ -3,11 +3,10 @@ package com.dota.pearl17;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -88,7 +87,7 @@ public class SponsorsActivity extends AppCompatActivity {
                                 sponsor_title.add(obj.getString("name"));
                                 mAdapter.notifyItemInserted(sponsor_url.size() - 1);
                             }
-                            Log.v("Sponsors", s);
+//                            Log.v("Sponsors", s);
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }

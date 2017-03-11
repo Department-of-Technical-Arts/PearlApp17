@@ -5,11 +5,10 @@ import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.Build;
-import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.view.ContextThemeWrapper;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.CheckBox;
@@ -126,7 +125,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private void goToTheLocation(SearchBox search) {
         String s = search.getSearchText();
-        Log.e("search", s);
+//        Log.e("search", s);
         s = s.toLowerCase();
         LatLng latLng = null;
         for (int i = Constants.names.length - 1; i >= 0; i--) {

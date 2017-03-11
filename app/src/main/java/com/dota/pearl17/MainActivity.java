@@ -2,18 +2,16 @@ package com.dota.pearl17;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
-import android.util.Log;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AccelerateInterpolator;
 import android.widget.ImageView;
-import android.support.v7.widget.RecyclerView;
 import android.widget.LinearLayout;
-
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -52,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onResponse(String s) {
                         try {
                             JSONObject object = new JSONObject(s);
-                            Log.i("versionCheck", "server ver " + object.getInt("version") + " app ver" + SessionManager.getVersion(MainActivity.this));
+//                            Log.i("versionCheck", "server ver " + object.getInt("version") + " app ver" + SessionManager.getVersion(MainActivity.this));
                             if (object.getInt("version") != SessionManager.getVersion(MainActivity.this)) {
                                 //send to play store to update
                                 AppUpdateDialog dialog = new AppUpdateDialog(MainActivity.this);

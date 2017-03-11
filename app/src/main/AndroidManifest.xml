@@ -99,7 +99,7 @@
             android:value="@string/google_maps_key" />
 
         <service
-            android:name=".MyIntentService"
+            android:name=".EventUpdateIntentService"
             android:exported="false"></service>
     </application>
 

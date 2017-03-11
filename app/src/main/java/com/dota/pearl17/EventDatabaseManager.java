@@ -6,8 +6,6 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteConstraintException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
-import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -179,7 +177,7 @@ public class EventDatabaseManager {
                 try {
                     JSONObject object = new JSONObject(s);
                     if (object.getInt("success") == 1) {
-                        Toast.makeText(context, "Event data updated successfully", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(context, "Event data updated successfully", Toast.LENGTH_SHORT).show();
                         //update all events
 
                         try {
@@ -189,18 +187,18 @@ public class EventDatabaseManager {
                                 addEvent(new Event(Object.getInt("event_id"), Object.getString("name"), Object.getString("description"),
                                         Object.getString("club"), Object.getString("pdf"),Object.getString("prize"),Object.getString("contact")));
                             }
-                            Log.v("Events", s);
+//                            Log.v("Events", s);
                         } catch (JSONException e) {
                             e.printStackTrace();
-                            Toast.makeText(context, "Event data update failed. Please check internet connection", Toast.LENGTH_SHORT).show();
+//                            Toast.makeText(context, "Event data update failed. Please check internet connection", Toast.LENGTH_SHORT).show();
                         }
                     } else {
-                        Toast.makeText(context, "Event data update failed. Please check internet connection", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(context, "Event data update failed. Please check internet connection", Toast.LENGTH_SHORT).show();
                     }
 
                 } catch (JSONException e) {
                     e.printStackTrace();
-                    Toast.makeText(context, "Event data update failed. Please check internet connection", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(context, "Event data update failed. Please check internet connection", Toast.LENGTH_SHORT).show();
                 }
 
             }
@@ -238,7 +236,7 @@ public class EventDatabaseManager {
                         c.getString(c.getColumnIndex(EVENT_RULES)),
                         c.getString(c.getColumnIndex(EVENT_PRIZE)),
                         c.getString(c.getColumnIndex(EVENT_CONTACT)));
-                Log.v("Events", event.getContact());
+//                Log.v("Events", event.getContact());
             } while (c.moveToNext());
         }
 

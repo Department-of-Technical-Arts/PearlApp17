@@ -76,13 +76,13 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
             public void onFocusChange(View v, boolean hasFocus) {
                 if (!hasFocus) {
                     //send volley request and fill others
-                    Log.v("ASD", "Focus change detected");
+//                    Log.v("ASD", "Focus change detected");
 
                     StringRequest request = new StringRequest(Request.Method.POST, ControllerConstant.url, new Response.Listener<String>() {
                         @Override
                         public void onResponse(String s) {
 
-                            Log.v("response", s);
+//                            Log.v("response", s);
                             try {
                                 JSONObject Object = new JSONObject(s);
                                 if (Object.getInt("success") == 1) {
@@ -110,7 +110,7 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
                         @Override
                         public void onErrorResponse(VolleyError volleyError) {
                             //internet problem, cannot upload Group member
-                            Log.v("ASD", "Internet problem");
+//                            Log.v("ASD", "Internet problem");
                         }
                     }) {
                         @Override
@@ -156,7 +156,7 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
     @Override
     public void onClick(View v) {
 
-        Log.v("Details", "Details: " + name.getText().toString() + "email: " + email.getText().toString() + phone.getText().toString() + city.getText().toString() + college.getText().toString());
+//        Log.v("Details", "Details: " + name.getText().toString() + "email: " + email.getText().toString() + phone.getText().toString() + city.getText().toString() + college.getText().toString());
 
         if (name.getText().toString().trim().equals("") || email.getText().toString().trim().equals("") || phone.getText().toString().trim().equals("") || city.getText().toString().trim().equals("") || college.getText().toString().trim().equals("") || dob.getText().toString().trim().equals("")) {
 
@@ -197,7 +197,7 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
                         female.setSelected(false);
 
                     } else {
-                        Log.i("success0",object.toString());
+//                        Log.i("success0",object.toString());
                         Toast.makeText(RegistrationActivity.this, object.getString("error_msg"), Toast.LENGTH_SHORT).show();
                     }
 
@@ -211,7 +211,7 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
             @Override
             public void onErrorResponse(VolleyError volleyError) {
                 //internet problem, cannot upload Group member
-                Log.i("volley error",volleyError.getMessage());
+//                Log.i("volley error",volleyError.getMessage());
                 Toast.makeText(RegistrationActivity.this, "Cannot register due to internet issues", Toast.LENGTH_SHORT).show();
             }
         }) {
@@ -224,7 +224,7 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
                 params.put("dob", _dob);
                 params.put("college", _college);
                 params.put("city", _city);
-                Log.i("gender",_gender);
+//                Log.i("gender",_gender);
                 params.put("gender", _gender);
                 params.put("phone", _phone);
                 params.put("event_ids",""); //since we removed the feature later on
@@ -247,6 +247,6 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
     public void setDOB(int year, int month, int day) {
 
         dob.setText(day + "/" + (month + 1) + "/" + year);
-        Toast.makeText(this, day + "/" + (month + 1) + "/" + year, Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, day + "/" + (month + 1) + "/" + year, Toast.LENGTH_SHORT).show();
     }
 }

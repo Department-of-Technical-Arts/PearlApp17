@@ -8,7 +8,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -60,7 +59,7 @@ public class EventDetailsActivity extends AppCompatActivity {
         desc.setTypeface(custom_font);
 
         String prizeStr = event.getPrizes();
-        Log.i("prize",""+prizeStr);
+//        Log.i("prize",""+prizeStr);
         String contactsStr = event.getContact();
 
         if(prizeStr.equals("")){

@@ -6,7 +6,6 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteConstraintException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -80,11 +79,11 @@ public class ScheduleTableManager {
 
         try {
             success = ourDatabase.insertOrThrow(DATABASE_TABLE, null, cv);
-            Log.d(TAG, "addEntry: added " + success);
+//            Log.d(TAG, "addEntry: added " + success);
 
         } catch (SQLiteConstraintException e) {
             success = ourDatabase.update(DATABASE_TABLE, cv, KEY_ID + "=" + id, null);
-            Log.d(TAG, ourDatabase.toString() + success);
+//            Log.d(TAG, ourDatabase.toString() + success);
         }
 
 

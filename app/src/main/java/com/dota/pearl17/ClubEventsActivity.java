@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,7 +34,7 @@ public class ClubEventsActivity extends AppCompatActivity {
         eventDB = new EventDatabaseManager(this);
         clubName = getIntent().getStringExtra("club_name");
         clubEvents = eventDB.getClubEvents(clubName);
-        Log.v("clubEvents", clubEvents.toString());
+//        Log.v("clubEvents", clubEvents.toString());
 
         custom_font_bold = Typeface.createFromAsset(getAssets(), "fonts/goodpro_condblack.otf");
         custom_font = Typeface.createFromAsset(getAssets(), "fonts/goodpro_condmedium.otf");
