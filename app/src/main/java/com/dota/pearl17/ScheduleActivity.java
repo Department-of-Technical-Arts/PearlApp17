@@ -26,10 +26,6 @@ public class ScheduleActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_schedule);
 
-        //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        //setSupportActionBar(toolbar);
-        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
         ImageView bg = (ImageView) findViewById(R.id.bg_schedule);
         Picasso.with(ScheduleActivity.this)
                 .load(R.drawable.schedule_frame)

@@ -1,6 +1,7 @@
 package com.dota.pearl17;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
@@ -45,6 +46,7 @@ public class TimelinePagerFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.container);
         TextView textView = (TextView) view.findViewById(R.id.notpresent);
+        textView.setTypeface(Typeface.createFromAsset(getActivity().getAssets(),"fonts/bungee.ttf"));
         mTableManager = new ScheduleTableManager(getActivity());
 //        final LinearLayout mYourLayout = (LinearLayout) view.findViewById(R.id.linlayout);
 

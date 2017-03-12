@@ -22,7 +22,11 @@ public class Constants {
             "Rock Garden",
             "F-Block",
             "Student Activity Center",
-            "G-Block"};
+            "G-Block",
+            "B-Block",
+            "D-Block",
+            "Library"};
+
     public static double[] latitudes = {17.547152,
             17.547400,
             17.544982,
@@ -38,7 +42,10 @@ public class Constants {
             17.544141,
             17.544772,
             17.540799,
-            17.545665};
+            17.545665,
+            17.5453394,
+            17.5443279,
+            17.5456641};
     public static double[] longitudes = {78.572481,
             78.572387,
             78.570834,
@@ -54,6 +61,9 @@ public class Constants {
             78.572706,
             78.571040,
             78.575273,
-            78.571507};
+            78.571507,
+            78.5723279,
+            78.571846,
+            78.571647};
 }
 
