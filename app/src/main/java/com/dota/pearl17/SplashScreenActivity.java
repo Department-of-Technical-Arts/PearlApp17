@@ -37,11 +37,13 @@ public class SplashScreenActivity extends AppCompatActivity {
         Picasso.with(this)
                 .load(R.drawable.splash_logo)
                 .fit()
+                .centerInside()
                 .into((ImageView) findViewById(R.id.logo_splash));
 
         Picasso.with(this)
                 .load(R.drawable.splash_dates)
                 .fit()
+                .centerInside()
                 .into((ImageView) findViewById(R.id.dates_splash));
 
         ViewTreeObserver viewTreeObserver = container.getViewTreeObserver();
