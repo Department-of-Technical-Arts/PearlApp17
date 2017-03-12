@@ -47,7 +47,6 @@ public class SponsorsActivity extends AppCompatActivity {
         Picasso.with(this)
                 .load(R.drawable.sponsors_frame)
                 .fit()
-                .centerInside()
                 .into((ImageView) findViewById(R.id.bg_sponsors));
 
         sponsorRecycler = (RecyclerView) findViewById(R.id.sponsor_recycler);
