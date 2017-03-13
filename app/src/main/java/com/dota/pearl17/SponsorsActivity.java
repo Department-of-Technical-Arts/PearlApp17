@@ -1,39 +1,50 @@
 package com.dota.pearl17;
 
 import android.content.Context;
+import android.content.ContextWrapper;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Typeface;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.Exchanger;
 
 public class SponsorsActivity extends AppCompatActivity {
 
     RecyclerView sponsorRecycler;
     private SponsAdapter mAdapter;
     Typeface custom_font_bold;
+    boolean loadInternal=false;
     private ArrayList<String> sponsor_url = new ArrayList<>();
     private ArrayList<String> sponsor_title = new ArrayList<>();
 
@@ -54,7 +65,7 @@ public class SponsorsActivity extends AppCompatActivity {
         sponsorRecycler.setAdapter(mAdapter);
         sponsorRecycler.setLayoutManager(new LinearLayoutManager(this));
 
-        updateSponsorURLs(); // Do on worker thread?
+        updateSponsorURLs();
     }
 
     @Override
@@ -92,7 +103,7 @@ public class SponsorsActivity extends AppCompatActivity {
                             e.printStackTrace();
                         }
                     } else {
-                        Toast.makeText(SponsorsActivity.this, "Unable to load due to bad internet", Toast.LENGTH_SHORT).show();
+                        Log.i("onResponse","success 0");
                     }
 
                 } catch (JSONException e) {
@@ -104,6 +115,23 @@ public class SponsorsActivity extends AppCompatActivity {
             @Override
             public void onErrorResponse(VolleyError volleyError) {
                 //internet problem
+                Log.i("ErrorResponse","Internet Issue");
+                // Load from internal in this case. Add filenames to spons_title
+                loadInternal = true;
+                File directory = new ContextWrapper(SponsorsActivity.this).getDir("imageDir", Context.MODE_PRIVATE);
+                if(directory.exists()){
+                    for(File f : directory.listFiles()) {
+                        String fileNameWithExt = f.getName();
+                        //since ext is always .png for us
+                        String withoutExt = fileNameWithExt.substring(0,fileNameWithExt.length()-4);
+                        Log.i("filename",withoutExt);
+                        sponsor_title.add(withoutExt);
+                        mAdapter.notifyItemInserted(sponsor_title.size()-1);
+                    }
+                }
+                else{
+                    // Display a error message? I want to take lite
+                }
             }
         }) {
             @Override
@@ -148,23 +176,82 @@ public class SponsorsActivity extends AppCompatActivity {
         }
 
         @Override
-        public void onBindViewHolder(MyViewHolder holder, int position) {
+        public void onBindViewHolder(final MyViewHolder holder, int position) {
 
             holder.tv.setText(sponsor_title.get(position));
             holder.tv.setTypeface(custom_font_bold);
 
             holder.imageButton.requestLayout();
-            Picasso.with(context)
-                    .load(sponsor_url.get(position)) //This is the image url
-                    .fit()
-                    .centerInside()
-                    .into(holder.imageButton);
+
+            if(loadInternal){
+                String path = new ContextWrapper(SponsorsActivity.this).getDir("imageDir",Context.MODE_PRIVATE).getAbsolutePath();
+                File local = new File(path, sponsor_title.get(position) + ".png");
+
+                //since internal loading due to volley fail, local will always exist
+                Picasso.with(SponsorsActivity.this)
+                        .load(local)
+                        .fit()
+                        .centerInside()
+                        .into(holder.imageButton);
+
+            }
+            else{
+                // Following method calls load image from url into the ImageView
+
+                Picasso.with(context)
+                        .load(sponsor_url.get(position)) //This is the image url
+                        .fit()
+                        .centerInside()
+                        .into(holder.imageButton, new Callback() {
+                            @Override
+                            public void onSuccess() {
+                                // Image has been successfully loaded
+                                // Save to internal memory
+                                Log.i("Callback","onSuccess");
+                                saveToInternalSorage(((BitmapDrawable) holder.imageButton.getDrawable()).getBitmap(), sponsor_title.get(holder.getAdapterPosition()));
+                            }
+
+                            @Override
+                            public void onError() {
+                                // Image download unsuccessful
+                                // Cancel pending requests, load from internal if present
+
+                                Log.i("Callback","onError");
+                                //Picasso.with(SponsorsActivity.this).cancelRequest(holder.imageButton);
+                                //String path = new ContextWrapper(SponsorsActivity.this).getDir("imageDir",Context.MODE_PRIVATE).getAbsolutePath();
+
+                                //File local = new File(path, sponsor_title.get(holder.getAdapterPosition()) + ".png");
+                            }
+                        });
+            }
         }
 
         @Override
         public int getItemCount() {
-            return sponsor_url.size();
+            return sponsor_title.size();
         }
     }
+
+    private void saveToInternalSorage(Bitmap bitmapImage, String name) {
+        ContextWrapper cw = new ContextWrapper(this);
+        // path to /data/data/yourapp/app_data/imageDir
+        File directory = cw.getDir("imageDir", Context.MODE_PRIVATE);
+        // Create imageDir
+        File mypath = new File(directory, name + ".png");
+
+        FileOutputStream fos = null;
+        try {
+
+            fos = new FileOutputStream(mypath);
+
+            // Use the compress method on the BitMap object to write image to the OutputStream
+            bitmapImage.compress(Bitmap.CompressFormat.PNG, 100, fos);
+            fos.close();
+        } catch (Exception e) {
+            Log.e("Save unsuccessful", e.toString());
+            e.printStackTrace();
+        }
+    }
+
 }
 
