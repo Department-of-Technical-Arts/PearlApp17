@@ -6,7 +6,7 @@
     tools:context="com.dota.pearl17.ProShowActivity">
 
     <ImageView
-        android:id="@+id/imgV_background"
+        android:id="@+id/proshow_bg"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

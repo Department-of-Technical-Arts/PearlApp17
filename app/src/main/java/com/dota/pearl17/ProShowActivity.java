@@ -22,11 +22,10 @@ public class ProShowActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pro_show);
 
-        ImageView bg = (ImageView) findViewById(R.id.imgV_background);
         Picasso.with(ProShowActivity.this)
                 .load(R.drawable.proshows_frame)
                 .fit()
-                .into(bg);
+                .into((ImageView) findViewById(R.id.proshow_bg));
 
         final CarouselLayoutManager mLayoutManager = new CarouselLayoutManager(CarouselLayoutManager.HORIZONTAL);
         mLayoutManager.setPostLayoutListener(new CarouselZoomPostLayoutListener());

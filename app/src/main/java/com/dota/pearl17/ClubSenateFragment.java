@@ -58,7 +58,7 @@ public class ClubSenateFragment extends Fragment {
         Contacts temp8 = new Contacts("RAJIV KRISHNA", "Design", "8331880623", R.drawable.rajiv);
         Contacts temp9 = new Contacts("DHRUV KULSHRESHTHA", "VFx", "9640022571", R.drawable.dhruv);
         Contacts temp10 = new Contacts("ANUJ SAXENA", "Movie", "9553339766", R.drawable.anuj);
-        Contacts temp11 = new Contacts("NIMISHA AGARWAL", "Embryo", "", R.drawable.nimisha);
+        Contacts temp11 = new Contacts("NIMISHA AGARWAL", "Embryo", "7989944250", R.drawable.nimisha);
         Contacts temp12 = new Contacts("MANAN AGARWAL", "Hindi Tarang", "9912252372", R.drawable.manan);
 
 
