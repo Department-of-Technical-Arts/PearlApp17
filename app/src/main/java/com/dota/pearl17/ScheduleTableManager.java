@@ -6,13 +6,25 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteConstraintException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.TimeZone;
+
+import static com.dota.pearl17.R.id.venue;
 
 /**
  * Created by SHREEDA on 07-03-2017.
@@ -38,11 +50,8 @@ public class ScheduleTableManager {
 
     public ScheduleTableManager(Context cl) {
         context = cl;
-        deleteAllEntry();
-        addEntry(2, "round2", "pearl", 12345L, "F105");
-        addEntry(3, "round2", "pearl", 4567L, "F105");
-        addEntry(4, "round2", "pearl", 88806L, "F105");
-        addEntry(5, "round2", "pearl", 88806L, "F105");
+
+        addSchedule(2, "final","SCRIBBLER", 2345L, "F102" );
 
 
     }
@@ -58,11 +67,7 @@ public class ScheduleTableManager {
         ourDatabase.close();
     }
 
-    public long addEntry(int event_id,
-                         String event_round,
-                         String name,
-                         Long start_time,
-                         String venue) {
+    public long addEntry1(ScheduleSet newschedule) {
         int id = 0;
         long success = -1;
 
@@ -70,11 +75,11 @@ public class ScheduleTableManager {
 
         open();
 
-        cv.put(KEY_EVENT_NAME, name);
-        cv.put(KEY_EVENT_ID, event_id);
-        cv.put(KEY_EVENT_ROUND, event_round);
-        cv.put(KEY_START_TIME, start_time);
-        cv.put(KEY_VENUE, venue);
+        cv.put(KEY_EVENT_NAME, newschedule.getName());
+        cv.put(KEY_EVENT_ID, newschedule.getEvent_id());
+        cv.put(KEY_EVENT_ROUND, newschedule.getRound());
+        cv.put(KEY_START_TIME, newschedule.getTime());
+        cv.put(KEY_VENUE, newschedule.getVenue());
 
 
         try {
@@ -92,6 +97,34 @@ public class ScheduleTableManager {
 
     }
 
+    public long addSchedule(int event_id,
+                         String event_round,
+                         String name,
+                         Long start_time,
+                         String venue) {
+        int id=0;
+        long success = -1;
+        open();
+
+        ContentValues cv = new ContentValues();
+
+        cv.put(KEY_EVENT_NAME, name);
+        cv.put(KEY_EVENT_ID, event_id);
+        cv.put(KEY_EVENT_ROUND, event_round);
+        cv.put(KEY_START_TIME, start_time);
+        cv.put(KEY_VENUE, venue);
+
+
+        try {
+            success = ourDatabase.insertOrThrow(DATABASE_TABLE, null, cv);
+        }catch (SQLiteConstraintException e){
+            success=ourDatabase.update(DATABASE_TABLE,cv,KEY_ID+"="+id,null);
+        }
+
+        close();
+        return success;
+    }
+
 
     public ArrayList<ScheduleSet> getSchedule(long time) {
         open();
@@ -102,8 +135,10 @@ public class ScheduleTableManager {
             do {
                 ScheduleSet set = new ScheduleSet(cursor.getString(3), cursor.getString(2), cursor.getString(5), cursor.getLong(4), cursor.getInt(1));
                 sets.add(set);
+                Log.e("set","added");
             } while (cursor.moveToNext());
         }
+        Log.e("set", sets.toString());
         cursor.close();
         close();
         return sets;
@@ -155,9 +190,10 @@ public class ScheduleTableManager {
         Calendar start = Calendar.getInstance(), end = Calendar.getInstance();
         start.setTimeZone(TimeZone.getTimeZone("GMT"));
         end.setTimeZone(TimeZone.getTimeZone("GMT"));
-        start.set(2016, Calendar.JANUARY, 23 + day, 0, 0);
-        end.set(2016, Calendar.JANUARY, 24 + day, 0, 0);
+        start.set(2017, Calendar.MARCH, 17 + day, 0, 0);
+        end.set(2017, Calendar.MARCH, 18 + day, 0, 0);
         open();
+        Log.e("day", String.valueOf(day));
         ArrayList<Long> times = new ArrayList<>();
         Cursor cursor = ourDatabase.rawQuery("SELECT DISTINCT " + KEY_START_TIME + " FROM " + DATABASE_TABLE +
                 " WHERE CAST(" + KEY_START_TIME + " AS INTEGER) >= " + start.getTimeInMillis() +
@@ -165,6 +201,7 @@ public class ScheduleTableManager {
                 " ORDER BY CAST(" + KEY_START_TIME + " AS INTEGER) ", null);
         if (cursor.moveToFirst()) {
             do {
+                Log.e("indistincttime", "time");
                 times.add(cursor.getLong(0));
             }
             while (cursor.moveToNext());
@@ -194,12 +231,12 @@ public class ScheduleTableManager {
 
         ContentValues cv = new ContentValues();
 
-        cv.put(KEY_EVENT_NAME, jsonObject.getString("event_name"));
+        cv.put(KEY_EVENT_NAME, jsonObject.getString("event"));
         cv.put(KEY_EVENT_ID, jsonObject.getInt("event_id"));
-        cv.put(KEY_EVENT_ROUND, jsonObject.getString("round_name"));
-        cv.put(KEY_START_TIME, jsonObject.getLong("event_date") * 1000);
-        cv.put(KEY_VENUE, jsonObject.getString("event_venue"));
-        cv.put(KEY_ID, jsonObject.getInt("id"));
+        cv.put(KEY_EVENT_ROUND, jsonObject.getString("round"));
+        cv.put(KEY_START_TIME, jsonObject.getLong("time") * 1000);
+        cv.put(KEY_VENUE, jsonObject.getString("venue"));
+        //cv.put(KEY_ID, jsonObject.getInt("id"));
 
         open();
         try {
@@ -217,6 +254,73 @@ public class ScheduleTableManager {
         ourDatabase.delete(DATABASE_TABLE, KEY_ID + "=" + jsonObject.getInt("id"), null);
         close();
     }
+
+
+
+    public void updateSchedule() {
+        Log.e("enter","done");
+        StringRequest request = new StringRequest(Request.Method.POST, ControllerConstant.url, new Response.Listener<String>() {
+            @Override
+
+            public void onResponse(String s) {
+                Log.e("enter","done3");
+                try {
+                    JSONObject object = new JSONObject(s);
+                    if (object.getInt("success") == 1) {
+//                        Toast.makeText(context, "Event data updated successfully", Toast.LENGTH_SHORT).show();
+                        //update all events
+
+                        try {
+                            JSONArray array = new JSONObject(s).getJSONArray("data");
+                            for (int j = 0; j < array.length(); j++) {
+//                                addSchedule(2,"final","shows", 1234545645L , "F102" );
+                                JSONObject Object = array.getJSONObject(j);
+//                               addEntry1(new ScheduleSet(Object.getString("event"), Object.getString("round"), Object.getString("venue"),
+//                                       Object.getLong("time"), Object.getInt("event_id")));
+                                addEntry(array.getJSONObject(j));
+                                Log.e("in", "add");
+                                addSchedule(Object.getInt("event_id"),
+                                        Object.getString("round"),
+                                        Object.getString("event"),
+                                        Object.getLong("time") * 1000,
+                                        Object.getString("venue"));
+
+                            }
+                            Log.e("values", "set");
+//                            Log.v("Events", s);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+//                            Toast.makeText(context, "Event data update failed. Please check internet connection", Toast.LENGTH_SHORT).show();
+                        }
+                    } else {
+//                        Toast.makeText(context, "Event data update failed. Please check internet connection", Toast.LENGTH_SHORT).show();
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+//                    Toast.makeText(context, "Event data update failed. Please check internet connection", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError volleyError) {
+                //internet problem, cannot upload Group member
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+                params.put("tag", "getSchedule");
+                //Log.e("Sent", params.toString());
+                return params;
+            }
+
+        };
+
+        AppController.getInstance().addToRequestQueue(request);
+    }
+
 
 
     private static class DBHelper extends SQLiteOpenHelper {

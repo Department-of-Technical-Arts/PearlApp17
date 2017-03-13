@@ -29,6 +29,9 @@ public class SplashScreenActivity extends AppCompatActivity {
 
         container = (RelativeLayout) findViewById(R.id.container_splash);
 
+        startService(new Intent(SplashScreenActivity.this, ScheduleUpdateIntentService.class));
+
+
         Picasso.with(this)
                 .load(R.drawable.splash_screen_bg)
                 .fit()

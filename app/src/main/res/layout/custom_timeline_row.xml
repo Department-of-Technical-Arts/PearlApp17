@@ -48,7 +48,7 @@
             android:layout_width="4dp"
             android:layout_height="match_parent"
             android:layout_centerHorizontal="true"
-            android:background="#fff"
+            android:background="@color/schedule_yellow"
             android:translationZ="5dp" />
 
     </RelativeLayout>

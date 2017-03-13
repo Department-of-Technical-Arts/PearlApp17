@@ -102,6 +102,9 @@
         <service
             android:name=".EventUpdateIntentService"
             android:exported="false"></service>
+        <service
+            android:name=".ScheduleUpdateIntentService"
+            android:exported="false"></service>
     </application>
 
 </manifest>
