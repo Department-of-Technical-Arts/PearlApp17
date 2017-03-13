@@ -46,9 +46,9 @@ public class FobFragment extends Fragment implements RecyclerClickListener {
 
     private void feedData() {
         Contacts temp1 = new Contacts("KESHAV KEDARNATH", "President", "7997030001", R.drawable.keshav);
-        Contacts temp2 = new Contacts("SAMPATH BALINENI", "General Secretary", "7036942156", R.drawable.sampath);
-        Contacts temp3 = new Contacts("METTA SAI SIDDHARATHA", "Cultural Secretary", "9542132801", R.drawable.siddhartha);
-        Contacts temp4 = new Contacts("MONICA ADUSUMILLI", "Cultural Secretary", "9441924391", R.drawable.monica);
+        Contacts temp2 = new Contacts("SAMPATH BALINENI", "General Secretary", "7997030002", R.drawable.sampath);
+        Contacts temp3 = new Contacts("METTA SAI SIDDHARATHA", "Cultural Secretary", "7997030003", R.drawable.siddhartha);
+        Contacts temp4 = new Contacts("MONICA ADUSUMILLI", "Cultural Secretary", "7997030004", R.drawable.monica);
         Contacts temp5 = new Contacts("G.V VIGNESH REDDY", "Sponsorship and Marketing", "7036409444", R.drawable.vignesh);
         Contacts temp6 = new Contacts("ANIRUDH KASUGANTI", "Publicity", "9030330744", R.drawable.anirudh);
         Contacts temp7 = new Contacts("ARJUN DESHMUKH", "Photography", "9912259211", R.drawable.arjun);
@@ -58,7 +58,7 @@ public class FobFragment extends Fragment implements RecyclerClickListener {
         Contacts temp11 = new Contacts("HARSH CHOPRA", "Lights And Sound", "8096120418", R.drawable.harshc);
         Contacts temp12 = new Contacts("MALLA NAGA POOJITHA REDDY", "Arts n Deco", " 9553329048", R.drawable.poojitha);
         Contacts temp13 = new Contacts("PIPPIRI SACHIN", "Informalz", "9666070735", R.drawable.sachin);
-        Contacts temp14 = new Contacts("HITHENDRA SAI ALAM", "Controz", " 9553336733", R.drawable.hithendra);
+        Contacts temp14 = new Contacts("HITHENDRA SAI ALAM", "Controlz", " 9553336733", R.drawable.hithendra);
 
 
 

@@ -107,6 +107,9 @@ public class EventDetailsActivity extends AppCompatActivity {
         //Set the local destination for the downloaded file to a path within the application's external files directory
         request.setDestinationInExternalFilesDir(EventDetailsActivity.this, Environment.DIRECTORY_DOWNLOADS, eventName + "Rules");
 
+
+        Toast.makeText(this, "Downloading...", Toast.LENGTH_SHORT).show();
+
         downloadReference = downloadManager.enqueue(request);
 
         //Enqueue download and save into referenceId

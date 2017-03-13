@@ -167,6 +167,8 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
 
         }
 
+        register.setText("Registering...");
+
         _name = name.getText().toString();
         _email = email.getText().toString();
         _phone = phone.getText().toString();
@@ -181,6 +183,8 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
         StringRequest request = new StringRequest(Request.Method.POST, ControllerConstant.url, new Response.Listener<String>() {
             @Override
             public void onResponse(String s) {
+
+
 
                 try {
                     JSONObject object = new JSONObject(s);
@@ -220,6 +224,8 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
                     e.printStackTrace();
                     Toast.makeText(RegistrationActivity.this, "Unknown error. Please retry later", Toast.LENGTH_SHORT).show();
                 }
+
+                register.setText("Register");
 
             }
         }, new Response.ErrorListener() {
