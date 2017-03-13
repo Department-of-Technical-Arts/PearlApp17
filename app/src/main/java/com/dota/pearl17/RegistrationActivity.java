@@ -1,7 +1,9 @@
 package com.dota.pearl17;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -183,7 +185,20 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
                 try {
                     JSONObject object = new JSONObject(s);
                     if (object.getInt("success") == 1) {
-                        Toast.makeText(RegistrationActivity.this, "Registered successfully", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(RegistrationActivity.this, "Registered successfully", Toast.LENGTH_SHORT).show();
+
+                        AlertDialog.Builder a_builder=new AlertDialog.Builder(RegistrationActivity.this);
+                        a_builder.setMessage("Registered successfully")
+                                .setCancelable(false)
+                                .setNeutralButton("Dismiss", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        dialog.dismiss();
+                                    }
+                                });
+                        AlertDialog alert=a_builder.create();
+                        alert.show();
+
 
                         // Clear fields
 
