@@ -1,7 +1,9 @@
 package com.dota.pearl17;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -70,65 +72,6 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
         male.setTypeface(goodpro_medium);
         female.setTypeface(goodpro_medium);
 
-
-        email.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (!hasFocus) {
-                    //send volley request and fill others
-//                    Log.v("ASD", "Focus change detected");
-
-                    StringRequest request = new StringRequest(Request.Method.POST, ControllerConstant.url, new Response.Listener<String>() {
-                        @Override
-                        public void onResponse(String s) {
-
-//                            Log.v("response", s);
-                            try {
-                                JSONObject Object = new JSONObject(s);
-                                if (Object.getInt("success") == 1) {
-
-                                    JSONObject object = Object.getJSONObject("data");
-                                    name.setText(object.getString("name"));
-                                    phone.setText(object.getString("phone"));
-                                    college.setText(object.getString("college"));
-                                    city.setText(object.getString("city"));
-                                    if (object.getString("gender").equals("male")) {
-                                        male.setChecked(true);
-                                    } else {
-                                        female.setChecked(true);
-                                    }
-                                    dob.setText(object.getString("dob"));
-                                }
-
-
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-                            }
-
-                        }
-                    }, new Response.ErrorListener() {
-                        @Override
-                        public void onErrorResponse(VolleyError volleyError) {
-                            //internet problem, cannot upload Group member
-//                            Log.v("ASD", "Internet problem");
-                        }
-                    }) {
-                        @Override
-                        protected Map<String, String> getParams() throws AuthFailureError {
-                            Map<String, String> params = new HashMap<>();
-                            params.put("tag", "getDetailsUser");
-                            params.put("email", email.getText().toString());
-                            //Log.e("Sent", params.toString());
-                            return params;
-                        }
-                    };
-
-
-                    AppController.getInstance().addToRequestQueue(request);
-                }
-            }
-        });
-
         register.setOnClickListener(this);
 
 
@@ -165,6 +108,8 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
 
         }
 
+        register.setText("Registering...");
+
         _name = name.getText().toString();
         _email = email.getText().toString();
         _phone = phone.getText().toString();
@@ -180,10 +125,25 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
             @Override
             public void onResponse(String s) {
 
+
+
                 try {
                     JSONObject object = new JSONObject(s);
                     if (object.getInt("success") == 1) {
-                        Toast.makeText(RegistrationActivity.this, "Registered successfully", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(RegistrationActivity.this, "Registered successfully", Toast.LENGTH_SHORT).show();
+
+                        AlertDialog.Builder a_builder=new AlertDialog.Builder(RegistrationActivity.this);
+                        a_builder.setMessage("Registered successfully")
+                                .setCancelable(false)
+                                .setNeutralButton("Dismiss", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        dialog.dismiss();
+                                    }
+                                });
+                        AlertDialog alert=a_builder.create();
+                        alert.show();
+
 
                         // Clear fields
 
@@ -205,6 +165,8 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
                     e.printStackTrace();
                     Toast.makeText(RegistrationActivity.this, "Unknown error. Please retry later", Toast.LENGTH_SHORT).show();
                 }
+
+                register.setText("Register");
 
             }
         }, new Response.ErrorListener() {

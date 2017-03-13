@@ -1,8 +1,11 @@
 package com.dota.pearl17;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +14,7 @@ import android.view.animation.DecelerateInterpolator;
 import android.view.animation.ScaleAnimation;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
@@ -27,7 +31,6 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.MyView
 
     Typeface goodpro_light, goodpro_condblack;
 
-    RecyclerClickListener clickListener;
     int offset = 0;
 
     public ContactsAdapter(Context context) {
@@ -39,17 +42,24 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.MyView
         goodpro_condblack = Typeface.createFromAsset(context.getAssets(),"fonts/goodpro_condblack.otf");
     }
 
-    public void setClickListener(RecyclerClickListener clickListener) {
-        this.clickListener = clickListener;
-    }
-
     public void setArrayList(ArrayList<Contacts> arrayList) {
         this.arrayList = arrayList;
     }
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-        return new MyViewHolder(inflater.inflate(R.layout.item_row, viewGroup, false));
+        View v = (inflater.inflate(R.layout.item_row, viewGroup, false));
+        v.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.i("onclick",v.toString());
+                String num = ((TextView)v.findViewById(R.id.number)).getText().toString();
+                Uri number = Uri.parse("tel:" + num);
+                Intent intent = new Intent(Intent.ACTION_DIAL, number);
+                context.startActivity(intent);
+            }
+        });
+        return new MyViewHolder(v);
     }
 
     @Override

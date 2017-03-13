@@ -5,9 +5,11 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -16,7 +18,7 @@ import java.util.ArrayList;
  * Created by SHREEDA on 11-03-2017.
  */
 
-public class ClubSenateFragment extends Fragment implements RecyclerClickListener {
+public class ClubSenateFragment extends Fragment {
     ContactsAdapter contactAdapter;
     RecyclerView recyclerView;
     ArrayList<Contacts> data;
@@ -37,7 +39,6 @@ public class ClubSenateFragment extends Fragment implements RecyclerClickListene
         recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
 
         contactAdapter = new ContactsAdapter(getActivity());
-        contactAdapter.setClickListener(this);
         recyclerView.setAdapter(contactAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         contactAdapter.setArrayList(data);
@@ -57,7 +58,7 @@ public class ClubSenateFragment extends Fragment implements RecyclerClickListene
         Contacts temp8 = new Contacts("RAJIV KRISHNA", "Design", "8331880623", R.drawable.rajiv);
         Contacts temp9 = new Contacts("DHRUV KULSHRESHTHA", "VFx", "9640022571", R.drawable.dhruv);
         Contacts temp10 = new Contacts("ANUJ SAXENA", "Movie", "9553339766", R.drawable.anuj);
-        Contacts temp11 = new Contacts("NIMISHA AGARWAL", "Embryo", "", R.drawable.nimisha);
+        Contacts temp11 = new Contacts("NIMISHA AGARWAL", "Embryo", "7989944250", R.drawable.nimisha);
         Contacts temp12 = new Contacts("MANAN AGARWAL", "Hindi Tarang", "9912252372", R.drawable.manan);
 
 
@@ -79,9 +80,4 @@ public class ClubSenateFragment extends Fragment implements RecyclerClickListene
         contactAdapter.notifyItemRangeInserted(0, data.size() - 1);
     }
 
-
-    @Override
-    public void onClick(View v, int pos) {
-
-    }
 }
