@@ -5,9 +5,11 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -16,7 +18,7 @@ import java.util.ArrayList;
  * Created by SHREEDA on 11-03-2017.
  */
 
-public class ClubSenateFragment extends Fragment implements RecyclerClickListener {
+public class ClubSenateFragment extends Fragment {
     ContactsAdapter contactAdapter;
     RecyclerView recyclerView;
     ArrayList<Contacts> data;
@@ -37,7 +39,6 @@ public class ClubSenateFragment extends Fragment implements RecyclerClickListene
         recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
 
         contactAdapter = new ContactsAdapter(getActivity());
-        contactAdapter.setClickListener(this);
         recyclerView.setAdapter(contactAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         contactAdapter.setArrayList(data);
@@ -79,9 +80,4 @@ public class ClubSenateFragment extends Fragment implements RecyclerClickListene
         contactAdapter.notifyItemRangeInserted(0, data.size() - 1);
     }
 
-
-    @Override
-    public void onClick(View v, int pos) {
-
-    }
 }
