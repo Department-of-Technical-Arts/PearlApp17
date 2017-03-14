@@ -79,7 +79,7 @@ public class TalksShowMoreActivity extends AppCompatActivity {
             holder.txt.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent i = new Intent(TalksShowMoreActivity.this, EventDetailsActivity.class);
+                    Intent i = new Intent(TalksShowMoreActivity.this, TalkDetailsActivity.class);
                     i.putExtra("event_name", eventName);
                     startActivity(i);
                 }
