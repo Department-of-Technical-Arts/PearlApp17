@@ -142,9 +142,9 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_below="@+id/DevelopersTemplate5"
-                android:layout_marginBottom="5dp"
-                android:layout_marginRight="-47dp"
-                android:layout_marginTop="150dp"
+                android:layout_marginBottom="-52dp"
+                android:layout_marginRight="-60dp"
+                android:layout_marginTop="68dp"
                 android:scaleX="0.6"
                 android:scaleY="0.6"
                 android:src="@drawable/designers_title" />
@@ -210,7 +210,7 @@
                 android:layout_below="@+id/DesignersTemplate4"
                 android:layout_marginBottom="5dp"
                 android:layout_marginLeft="-47dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="0dp"
                 android:scaleX="0.6"
                 android:scaleY="0.6"
                 android:src="@drawable/back_end_title" />
