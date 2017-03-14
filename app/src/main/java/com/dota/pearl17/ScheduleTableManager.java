@@ -51,6 +51,7 @@ public class ScheduleTableManager {
     public ScheduleTableManager(Context cl) {
         context = cl;
 
+
         addSchedule(2, "final","SCRIBBLER", 2345L, "F102" );
 
 
@@ -128,6 +129,7 @@ public class ScheduleTableManager {
 
     public ArrayList<ScheduleSet> getSchedule(long time) {
         open();
+        Log.e("getSchedule","inside");
         ArrayList<ScheduleSet> sets = new ArrayList<>();
         Cursor cursor = ourDatabase.rawQuery("SELECT * FROM " + DATABASE_TABLE +
                 " WHERE " + KEY_START_TIME + "='" + time + "'", null);
@@ -259,11 +261,13 @@ public class ScheduleTableManager {
 
     public void updateSchedule() {
         Log.e("enter","done");
+
         StringRequest request = new StringRequest(Request.Method.POST, ControllerConstant.url, new Response.Listener<String>() {
             @Override
 
             public void onResponse(String s) {
                 Log.e("enter","done3");
+
                 try {
                     JSONObject object = new JSONObject(s);
                     if (object.getInt("success") == 1) {
@@ -271,6 +275,7 @@ public class ScheduleTableManager {
                         //update all events
 
                         try {
+                            deleteAllEntry();
                             JSONArray array = new JSONObject(s).getJSONArray("data");
                             for (int j = 0; j < array.length(); j++) {
 //                                addSchedule(2,"final","shows", 1234545645L , "F102" );
@@ -278,12 +283,12 @@ public class ScheduleTableManager {
 //                               addEntry1(new ScheduleSet(Object.getString("event"), Object.getString("round"), Object.getString("venue"),
 //                                       Object.getLong("time"), Object.getInt("event_id")));
                                 addEntry(array.getJSONObject(j));
-                                Log.e("in", "add");
-                                addSchedule(Object.getInt("event_id"),
-                                        Object.getString("round"),
-                                        Object.getString("event"),
-                                        Object.getLong("time") * 1000,
-                                        Object.getString("venue"));
+                                Log.e(String.valueOf(j), "added");
+//                                addSchedule(Object.getInt("event_id"),
+//                                        Object.getString("round"),
+//                                        Object.getString("event"),
+//                                        Object.getLong("time") * 1000,
+//                                        Object.getString("venue"));
 
                             }
                             Log.e("values", "set");
