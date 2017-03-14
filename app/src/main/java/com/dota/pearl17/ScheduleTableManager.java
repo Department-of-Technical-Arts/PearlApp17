@@ -195,7 +195,7 @@ public class ScheduleTableManager {
         start.set(2017, Calendar.MARCH, 17 + day, 0, 0);
         end.set(2017, Calendar.MARCH, 18 + day, 0, 0);
         open();
-        Log.e("day", String.valueOf(day));
+//        Log.e("day", String.valueOf(day));
         ArrayList<Long> times = new ArrayList<>();
         Cursor cursor = ourDatabase.rawQuery("SELECT DISTINCT " + KEY_START_TIME + " FROM " + DATABASE_TABLE +
                 " WHERE CAST(" + KEY_START_TIME + " AS INTEGER) >= " + start.getTimeInMillis() +
@@ -203,7 +203,7 @@ public class ScheduleTableManager {
                 " ORDER BY CAST(" + KEY_START_TIME + " AS INTEGER) ", null);
         if (cursor.moveToFirst()) {
             do {
-                Log.e("indistincttime", "time");
+
                 times.add(cursor.getLong(0));
             }
             while (cursor.moveToNext());
