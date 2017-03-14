@@ -125,8 +125,6 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
             @Override
             public void onResponse(String s) {
 
-
-
                 try {
                     JSONObject object = new JSONObject(s);
                     if (object.getInt("success") == 1) {
@@ -186,10 +184,8 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
                 params.put("dob", _dob);
                 params.put("college", _college);
                 params.put("city", _city);
-//                Log.i("gender",_gender);
                 params.put("gender", _gender);
                 params.put("phone", _phone);
-                params.put("event_ids",""); //since we removed the feature later on
                 //Log.e("Sent", params.toString());
                 return params;
             }

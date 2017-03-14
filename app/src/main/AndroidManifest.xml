@@ -59,6 +59,10 @@
             android:screenOrientation="portrait"
             android:theme="@style/TalksTheme" />
         <activity
+            android:name=".TalksShowMoreActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/TalksTheme" />
+        <activity
             android:name=".AppCreditsActivity"
             android:screenOrientation="portrait"
             android:theme="@style/CreditsTheme" />

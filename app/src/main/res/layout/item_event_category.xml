@@ -28,6 +28,7 @@
             />
 
         <View
+            android:id="@+id/category_sep"
             android:layout_width="3dp"
             android:layout_height="24dp"
             android:layout_marginRight="4dp"
