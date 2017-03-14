@@ -261,7 +261,7 @@ public class ScheduleTableManager {
 
     public void updateSchedule() {
         Log.e("enter","done");
-        deleteAllEntry();
+
         StringRequest request = new StringRequest(Request.Method.POST, ControllerConstant.url, new Response.Listener<String>() {
             @Override
 
@@ -275,6 +275,7 @@ public class ScheduleTableManager {
                         //update all events
 
                         try {
+                            deleteAllEntry();
                             JSONArray array = new JSONObject(s).getJSONArray("data");
                             for (int j = 0; j < array.length(); j++) {
 //                                addSchedule(2,"final","shows", 1234545645L , "F102" );
