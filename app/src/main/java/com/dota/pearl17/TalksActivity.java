@@ -1,10 +1,14 @@
 package com.dota.pearl17;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
+import android.text.Html;
+import android.text.Spanned;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +20,20 @@ import com.azoft.carousellayoutmanager.CarouselZoomPostLayoutListener;
 import com.squareup.picasso.Picasso;
 
 public class TalksActivity extends AppCompatActivity {
+
+    String[] titles = new String[]{
+            "Anshu Mor",
+            "Shashi Tharoor",
+            "Kommune",
+            "Offbeat"
+    };
+
+    String[] descriptions = new String[]{
+            "Day: 17/03/17<br/><br/><b>Desc:</b> lorem ipsum xyz abc egfbkjg sbdgk fbgb ;kfbg; kadbg;kbds gk;jbdsg; asdg\n\nTime: 7PM",
+            "Day: 17/03/17<br/><br/><b>Desc:</b> lorem ipsum xyz abc egfbkjg sbdgk fbgb ;kfbg; kadbg;kbds gk;jbdsg; asdg\n\nTime: 7PM",
+            "Day: 17/03/17<br/><br/><b>Desc:</b> lorem ipsum xyz abc egfbkjg sbdgk fbgb ;kfbg; kadbg;kbds gk;jbdsg; asdg\n\nTime: 7PM",
+            "Day: 17/03/17<br/><br/><b>Desc:</b> lorem ipsum xyz abc egfbkjg sbdgk fbgb ;kfbg; kadbg;kbds gk;jbdsg; asdg\n\nTime: 7PM"
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +55,20 @@ public class TalksActivity extends AppCompatActivity {
             @Override
             protected void onCenterItemClicked(@NonNull RecyclerView recyclerView, @NonNull CarouselLayoutManager carouselLayoutManager, @NonNull View v) {
                 //open description
-                return;
+                int pos = recyclerView.getChildAdapterPosition(v);
+                Spanned descString = Html.fromHtml(descriptions[pos]);
+                AlertDialog.Builder builder = new AlertDialog.Builder(TalksActivity.this);
+                builder.setMessage(descString)
+                        .setCancelable(false)
+                        .setTitle(titles[pos])
+                        .setNeutralButton("Dismiss", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        });
+                AlertDialog alert = builder.create();
+                alert.show();
             }
 
             @Override

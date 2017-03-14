@@ -23,7 +23,7 @@ public class EventDetailsActivity extends AppCompatActivity {
     Event event;
     EventDatabaseManager eventDB;
     TextView title, desc, contact, prize;
-    Typeface goodpro_condblack, cubano;
+    Typeface goodpro_condblack, cubano, bungee;
     Button rules;
 
     BroadcastReceiver onComplete;
@@ -42,6 +42,7 @@ public class EventDetailsActivity extends AppCompatActivity {
         prize = (TextView) findViewById(R.id.event_prize);
         contact = (TextView) findViewById(R.id.event_contact);
 
+        bungee = Typeface.createFromAsset(getAssets(), "fonts/bungee.ttf");;
         goodpro_condblack = Typeface.createFromAsset(getAssets(), "fonts/goodpro_condblack.otf");
         cubano = Typeface.createFromAsset(getAssets(), "fonts/cubano.otf");
 
@@ -53,7 +54,7 @@ public class EventDetailsActivity extends AppCompatActivity {
         event = eventDB.getEvent(eventName);
 
         title.setText(event.getName());
-        title.setTypeface(goodpro_condblack);
+        title.setTypeface(bungee);
 
         desc.setText(event.getDesc());
         desc.setTypeface(goodpro_condblack);
@@ -78,7 +79,7 @@ public class EventDetailsActivity extends AppCompatActivity {
         prize.setTypeface(goodpro_condblack);
         contact.setTypeface(goodpro_condblack);
 
-        rules.setTypeface(goodpro_condblack);
+        rules.setTypeface(cubano);
 
         Picasso.with(this)
                 .load(R.drawable.event_frame)

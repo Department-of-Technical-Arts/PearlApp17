@@ -95,6 +95,7 @@ public class EventsHomeActivity extends AppCompatActivity {
 
         int resources[] = new int[]{
                 R.drawable.headliner_carnival_zone,
+                R.drawable.headliner_workshop,
                 R.drawable.headliner_catharsis,
                 R.drawable.headliner_crimson_curtain,
                 R.drawable.headliner_fraglore,
@@ -120,34 +121,39 @@ public class EventsHomeActivity extends AppCompatActivity {
                                     i.putExtra("event_name", "CARNIVAL ZONE");
                                     break;
                                 case 1:
+                                    //Open details page
+                                    i = new Intent(EventsHomeActivity.this, ClubEventsActivity.class);
+                                    i.putExtra("club_name", "WORKSHOPS");
+                                    break;
+                                case 2:
                                     //Catharsis - Movie
                                     i.putExtra("event_name", "CATHARSIS");
                                     break;
-                                case 2:
+                                case 3:
                                     //Crimson Curtain - Drama
                                     i.putExtra("event_name", "CRIMSON CURTAIN");
                                     break;
-                                case 3:
+                                case 4:
                                     //Fraglore - None
                                     i.putExtra("event_name", "FRAGLORE");
                                     break;
-                                case 4:
+                                case 5:
                                     //Glitterati - None
                                     i.putExtra("event_name", "GLITTERATI");
                                     break;
-                                case 5:
+                                case 6:
                                     //Photog Fest - Photog ?
                                     i.putExtra("event_name", "PHOTOG FEST");
                                     break;
-                                case 6:
+                                case 7:
                                     //QuBITS - Quiz ?
                                     i.putExtra("event_name", "QuBITS");
                                     break;
-                                case 7:
+                                case 8:
                                     //Terpsichore - Dance
                                     i.putExtra("event_name", "TERPSICHORE");
                                     break;
-                                case 8:
+                                case 9:
                                     //Till Deaf - Music
                                     i.putExtra("event_name", "TILL DEAF DO WE PART");
                                     break;
@@ -188,7 +194,7 @@ public class EventsHomeActivity extends AppCompatActivity {
                 "DRAMA",
                 "SHADES",
                 "MOVIE",
-                "JOURNAL"
+                "WORKSHOP"
         };
 
         int icons[] = new int[]{
@@ -197,7 +203,7 @@ public class EventsHomeActivity extends AppCompatActivity {
                 R.drawable.icon_drama,
                 R.drawable.icon_shades,
                 R.drawable.icon_movie,
-                R.drawable.icon_journal
+                0
         };
 
         @Override
@@ -208,6 +214,9 @@ public class EventsHomeActivity extends AppCompatActivity {
         @Override
         public void onBindViewHolder(EventCategoryItem holder, int position) {
             holder.title.setText(titles[position]);
+            if(titles[position].equals("WORKSHOP")){
+                holder.icon.setVisibility(View.GONE);
+            }
             holder.icon.setImageResource(icons[position]);
             final EventCategoryItem finalHolder = holder;
             holder.eventButton.setOnClickListener(new View.OnClickListener() {
