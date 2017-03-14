@@ -55,11 +55,11 @@ public class TimelinePagerFragment extends Fragment {
         times = mTableManager.getDistinctTime(getArguments().getInt("day"));
 
         if (times.isEmpty()) {
-            Log.e("TimelineFrag1", times.toString());
+//            Log.e("TimelineFrag1", times.toString());
             recyclerView.setVisibility(View.GONE);
             textView.setVisibility(View.VISIBLE);
         } else {
-            Log.e("frag", times.toString());
+//            Log.e("frag", times.toString());
             recyclerView.setVisibility(View.VISIBLE);
             textView.setVisibility(View.GONE);
             MyAdapter mAdapter = new MyAdapter(getActivity());
@@ -113,15 +113,17 @@ public class TimelinePagerFragment extends Fragment {
                         .fit()
                         .centerCrop()
                         .into((ImageView) v.findViewById(R.id.bg_schedule_row));
+                Log.e(String.valueOf(set.getName()), "idgen");
+
                 ((TextView) v.findViewById(R.id.event_name)).setText(set.getName());
                 ((TextView) v.findViewById(R.id.round_name)).setText(set.getRound());
                 ((TextView) v.findViewById(R.id.venue)).setText(set.getVenue());
                 v.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-//                        Intent intent = new Intent(getActivity(), EventDetailsActivity.class);
-//                        intent.putExtra("event_id", set.getEvent_id());
-//                        startActivity(intent);
+                        Intent intent = new Intent(getActivity(), EventDetailsActivity.class);
+                        intent.putExtra("event_name", set.getName());
+                        startActivity(intent);
                     }
                 });
                 linearLayout.addView(v);

@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:background="@color/schedule_yellow" />
+         />
 
     <TextView
         android:id="@+id/time"
@@ -25,12 +25,12 @@
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/timelineCard"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        android:layout_height="87dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginTop="56dp"
-        android:background="@color/yellow"
+        android:background="@color/schedule_yellow"
         android:orientation="vertical"
         android:translationZ="4dp">
 
