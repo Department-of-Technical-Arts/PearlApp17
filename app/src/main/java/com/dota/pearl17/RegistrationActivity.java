@@ -132,7 +132,7 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
 
                         AlertDialog.Builder a_builder=new AlertDialog.Builder(RegistrationActivity.this);
                         a_builder.setMessage("Registered successfully")
-                                .setCancelable(false)
+                                .setCancelable(true)
                                 .setNeutralButton("Dismiss", new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialog, int which) {
@@ -171,8 +171,9 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
             @Override
             public void onErrorResponse(VolleyError volleyError) {
                 //internet problem, cannot upload Group member
-//                Log.i("volley error",volleyError.getMessage());
+                Log.i("volley error",""+volleyError.networkResponse.data.toString());
                 Toast.makeText(RegistrationActivity.this, "Cannot register due to internet issues", Toast.LENGTH_SHORT).show();
+                register.setText("Register");
             }
         }) {
             @Override
@@ -184,9 +185,10 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
                 params.put("dob", _dob);
                 params.put("college", _college);
                 params.put("city", _city);
-                params.put("gender", _gender);
+                params.put("gender", _gender.toLowerCase());
                 params.put("phone", _phone);
-                //Log.e("Sent", params.toString());
+                params.put("event_ids", "");
+                Log.e("Sent", params.toString());
                 return params;
             }
         };

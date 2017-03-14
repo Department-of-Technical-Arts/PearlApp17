@@ -30,10 +30,10 @@ public class ProShowActivity extends AppCompatActivity {
     };
 
     String[] descriptions = new String[]{
-            "Day: 17/03/17<br/><br/><b>Desc:</b> lorem ipsum xyz abc egfbkjg sbdgk fbgb ;kfbg; kadbg;kbds gk;jbdsg; asdg\n\nTime: 7PM",
-            "Day: 17/03/17<br/><br/><b>Desc:</b> lorem ipsum xyz abc egfbkjg sbdgk fbgb ;kfbg; kadbg;kbds gk;jbdsg; asdg\n\nTime: 7PM",
-            "Day: 17/03/17<br/><br/><b>Desc:</b> lorem ipsum xyz abc egfbkjg sbdgk fbgb ;kfbg; kadbg;kbds gk;jbdsg; asdg\n\nTime: 7PM",
-            "Day: 17/03/17<br/><br/><b>Desc:</b> lorem ipsum xyz abc egfbkjg sbdgk fbgb ;kfbg; kadbg;kbds gk;jbdsg; asdg\n\nTime: 7PM"
+            "<b>Date:</b> 17/03/17<br/><b>Desc:</b> lorem ipsum xyz abc <br/><b>Time:</b> 6PM to 7PM<br/><b>Venue:</b> Auditorium",
+            "<b>Date:</b> 18/03/17<br/><b>Desc:</b> lorem ipsum xyz abc <br/><b>Time:</b> 9PM to 12AM<br/><b>Venue:</b> Stage 1 Lawns",
+            "<b>Date:</b> 19/03/17<br/><b>Desc:</b> lorem ipsum xyz abc <br/><b>Time:</b> 7PM to 10PM<br/><b>Venue:</b> Stage 1 Lawns",
+            "<b>Date:</b> 17/03/17<br/><b>Desc:</b> lorem ipsum xyz abc <br/><b>Time:</b> 7PM to 9PM<br/><b>Venue:</b> Auditorium"
     };
 
     @Override
@@ -59,7 +59,7 @@ public class ProShowActivity extends AppCompatActivity {
                 Spanned descString = Html.fromHtml(descriptions[pos]);
                 AlertDialog.Builder builder = new AlertDialog.Builder(ProShowActivity.this);
                 builder.setMessage(descString)
-                        .setCancelable(false)
+                        .setCancelable(true)
                         .setTitle(titles[pos])
                         .setNeutralButton("Dismiss", new DialogInterface.OnClickListener() {
                             @Override

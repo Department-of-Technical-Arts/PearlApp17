@@ -25,16 +25,18 @@ public class TalksActivity extends AppCompatActivity {
 
     String[] titles = new String[]{
             "Anshu Mor",
+            "Captain Bikram Singh",
             "Shashi Tharoor",
             "Kommune",
             "Offbeat"
     };
 
     String[] descriptions = new String[]{
-            "Day: 17/03/17<br/><br/><b>Desc:</b> lorem ipsum xyz abc egfbkjg sbdgk fbgb ;kfbg; kadbg;kbds gk;jbdsg; asdg\n\nTime: 7PM",
-            "Day: 17/03/17<br/><br/><b>Desc:</b> lorem ipsum xyz abc egfbkjg sbdgk fbgb ;kfbg; kadbg;kbds gk;jbdsg; asdg\n\nTime: 7PM",
-            "Day: 17/03/17<br/><br/><b>Desc:</b> lorem ipsum xyz abc egfbkjg sbdgk fbgb ;kfbg; kadbg;kbds gk;jbdsg; asdg\n\nTime: 7PM",
-            "Day: 17/03/17<br/><br/><b>Desc:</b> lorem ipsum xyz abc egfbkjg sbdgk fbgb ;kfbg; kadbg;kbds gk;jbdsg; asdg\n\nTime: 7PM"
+            "<b>Date:</b> 17/03/17<br/><b>Desc:</b> lorem ipsum xyz abc <br/><b>Time:</b> 6PM to 7PM<br/><b>Venue:</b> Auditorium",
+            "<b>Date:</b> 18/03/17<br/><b>Desc:</b> lorem ipsum xyz abc <br/><b>Time:</b> 6PM to 8PM<br/><b>Venue:</b> Auditorium",
+            "<b>Date:</b> 19/03/17<br/><b>Desc:</b> lorem ipsum xyz abc <br/><b>Time:</b> 11AM to 2PM<br/><b>Venue:</b> Auditorium",
+            "<b>Date:</b> 17/03/17<br/><b>Desc:</b> lorem ipsum xyz abc <br/><b>Time:</b> 6PM<br/><b>Venue:</b> Auditorium",
+            "<b>Date:</b> 17/03/17<br/><b>Desc:</b> lorem ipsum xyz abc <br/><b>Time:</b> 6PM<br/><b>Venue:</b> Auditorium"
     };
 
     @Override
@@ -75,7 +77,7 @@ public class TalksActivity extends AppCompatActivity {
                 Spanned descString = Html.fromHtml(descriptions[pos]);
                 AlertDialog.Builder builder = new AlertDialog.Builder(TalksActivity.this);
                 builder.setMessage(descString)
-                        .setCancelable(false)
+                        .setCancelable(true)
                         .setTitle(titles[pos])
                         .setNeutralButton("Dismiss", new DialogInterface.OnClickListener() {
                             @Override
@@ -95,7 +97,7 @@ public class TalksActivity extends AppCompatActivity {
         };
 
         mRecycler.setAdapter(new TalksAdapter());
-        mRecycler.scrollToPosition(1); // TODO Tharoor resId
+        mRecycler.scrollToPosition(2); // TODO Tharoor resId
     }
 
     @Override
@@ -111,6 +113,7 @@ public class TalksActivity extends AppCompatActivity {
 
         int resourceId[] = new int[]{
                 R.drawable.talk_anshu,
+                R.drawable.talk_capt,
                 R.drawable.talk_shashi,
                 R.drawable.talk_kommune,
                 R.drawable.talk_offbeat
