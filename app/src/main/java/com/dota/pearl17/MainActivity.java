@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
             startService(new Intent(MainActivity.this,EventUpdateIntentService.class));
 
             if (SessionManager.getVersion(this) == -1) {
-                SessionManager.setVersion(this, 1);
+                SessionManager.setVersion(this, 2);
             } else {
                 StringRequest request = new StringRequest(Request.Method.POST, ControllerConstant.url, new Response.Listener<String>() {
                     @Override

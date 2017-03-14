@@ -108,13 +108,12 @@ public class TimelinePagerFragment extends Fragment {
                 Log.e(String.valueOf(sets.size()), "set");
                 final ScheduleSet set = sets.get(i);
                 View v = LayoutInflater.from(getActivity()).inflate(R.layout.component_timeline_row, linearLayout, false);
+
                 Picasso.with(getContext())
                         .load(R.drawable.schedulerow)
                         .fit()
                         .centerCrop()
                         .into((ImageView) v.findViewById(R.id.bg_schedule_row));
-                Log.e(String.valueOf(set.getName()), "idgen");
-
                 ((TextView) v.findViewById(R.id.event_name)).setText(set.getName());
                 ((TextView) v.findViewById(R.id.round_name)).setText(set.getRound());
                 ((TextView) v.findViewById(R.id.venue)).setText(set.getVenue());

@@ -19,4 +19,8 @@
         android:layout_marginRight="11dp"
         android:layout_marginTop="130dp" />
 
+    <include
+        android:id="@+id/btn_show_more_talks"
+        layout="@layout/show_more_button_talks" />
+
 </RelativeLayout>

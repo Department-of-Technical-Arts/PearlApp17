@@ -129,9 +129,6 @@ public class SponsorsActivity extends AppCompatActivity {
                         mAdapter.notifyItemInserted(sponsor_title.size()-1);
                     }
                 }
-                else{
-                    // Display a error message? I want to take lite
-                }
             }
         }) {
             @Override
@@ -180,6 +177,7 @@ public class SponsorsActivity extends AppCompatActivity {
 
             holder.tv.setText(sponsor_title.get(position));
             holder.tv.setTypeface(custom_font_bold);
+            final int finalpos = position;
 
             holder.imageButton.requestLayout();
 
@@ -208,7 +206,7 @@ public class SponsorsActivity extends AppCompatActivity {
                                 // Image has been successfully loaded
                                 // Save to internal memory
                                 Log.i("Callback","onSuccess");
-                                saveToInternalSorage(((BitmapDrawable) holder.imageButton.getDrawable()).getBitmap(), sponsor_title.get(holder.getAdapterPosition()));
+                                saveToInternalSorage(((BitmapDrawable) holder.imageButton.getDrawable()).getBitmap(), sponsor_title.get(finalpos));
                             }
 
                             @Override
