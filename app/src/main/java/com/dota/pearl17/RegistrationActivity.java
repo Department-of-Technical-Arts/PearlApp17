@@ -188,7 +188,7 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
                 params.put("gender", _gender.toLowerCase());
                 params.put("phone", _phone);
                 params.put("event_ids", "");
-                Log.e("Sent", params.toString());
+                Log.i("Sent", params.toString());
                 return params;
             }
         };

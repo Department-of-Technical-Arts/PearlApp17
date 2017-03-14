@@ -23,16 +23,18 @@ import com.squareup.picasso.Picasso;
 public class ProShowActivity extends AppCompatActivity {
 
     String[] titles = new String[]{
-            "Lagori",
+            "Anish Sood",
             "Marnik",
             "Sonu Nigam",
+            "Lagori",
             "Zakir Khan"
     };
 
     String[] descriptions = new String[]{
-            "<b>Date:</b> 17/03/17<br/><b>Desc:</b> lorem ipsum xyz abc <br/><b>Time:</b> 6PM to 7PM<br/><b>Venue:</b> Auditorium",
+            "<b>Date:</b> 18/03/17<br/><b>Desc:</b> lorem ipsum xyz abc <br/><b>Time:</b> 8PM to 9PM<br/><b>Venue:</b> Stage 1 Lawns",
             "<b>Date:</b> 18/03/17<br/><b>Desc:</b> lorem ipsum xyz abc <br/><b>Time:</b> 9PM to 12AM<br/><b>Venue:</b> Stage 1 Lawns",
             "<b>Date:</b> 19/03/17<br/><b>Desc:</b> lorem ipsum xyz abc <br/><b>Time:</b> 7PM to 10PM<br/><b>Venue:</b> Stage 1 Lawns",
+            "<b>Date:</b> 17/03/17<br/><b>Desc:</b> lorem ipsum xyz abc <br/><b>Time:</b> 6PM to 7PM<br/><b>Venue:</b> Auditorium",
             "<b>Date:</b> 17/03/17<br/><b>Desc:</b> lorem ipsum xyz abc <br/><b>Time:</b> 7PM to 9PM<br/><b>Venue:</b> Auditorium"
     };
 
@@ -51,7 +53,7 @@ public class ProShowActivity extends AppCompatActivity {
         final RecyclerView mRecycler = (RecyclerView) findViewById(R.id.recycler_pro_show);
         mRecycler.setLayoutManager(mLayoutManager);
         mRecycler.setHasFixedSize(true);
-        CarouselChildSelectionListener csl = new CarouselChildSelectionListener(mRecycler, mLayoutManager) {
+        new CarouselChildSelectionListener(mRecycler, mLayoutManager) {
             @Override
             protected void onCenterItemClicked(@NonNull RecyclerView recyclerView, @NonNull CarouselLayoutManager carouselLayoutManager, @NonNull View v) {
                 //open description
@@ -92,9 +94,10 @@ public class ProShowActivity extends AppCompatActivity {
 
     class ProShowAdapter extends RecyclerView.Adapter<ProShowAdapter.ProShowViewHolder> {
         int resId[] = new int[]{
-                R.drawable.proshow_lagori,
+                R.drawable.proshow_sood,
                 R.drawable.proshow_marnik,
                 R.drawable.proshow_sonu,
+                R.drawable.proshow_lagori,
                 R.drawable.proshow_zakir
         };
 

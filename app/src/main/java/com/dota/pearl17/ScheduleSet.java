@@ -36,4 +36,9 @@ public class ScheduleSet {
     public int getEvent_id() {
         return event_id;
     }
+
+    @Override
+    public String toString() {
+        return "{ " + getEvent_id() + ", " + getName() + ", " + getRound() + ", " + getVenue() + ", " + getTime() + " }";
+    }
 }

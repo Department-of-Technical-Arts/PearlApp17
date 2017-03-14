@@ -24,6 +24,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.TimeZone;
 
+import static com.dota.pearl17.R.id.select_dialog_listview;
 import static com.dota.pearl17.R.id.venue;
 
 /**
@@ -129,7 +130,7 @@ public class ScheduleTableManager {
 
     public ArrayList<ScheduleSet> getSchedule(long time) {
         open();
-        Log.e("getSchedule","inside");
+
         ArrayList<ScheduleSet> sets = new ArrayList<>();
         Cursor cursor = ourDatabase.rawQuery("SELECT * FROM " + DATABASE_TABLE +
                 " WHERE " + KEY_START_TIME + "='" + time + "'", null);
@@ -137,13 +138,18 @@ public class ScheduleTableManager {
             do {
                 ScheduleSet set = new ScheduleSet(cursor.getString(3), cursor.getString(2), cursor.getString(5), cursor.getLong(4), cursor.getInt(1));
                 sets.add(set);
-                Log.e("set","added");
             } while (cursor.moveToNext());
         }
-        Log.e("set", sets.toString());
+        LogList(sets);
         cursor.close();
         close();
         return sets;
+    }
+
+    void LogList(ArrayList<ScheduleSet> sets){
+        for(ScheduleSet set: sets){
+            Log.i("loglist", set.toString());
+        }
     }
 
     public ArrayList<ScheduleSet> getSchedule(int event_id) {

@@ -17,7 +17,7 @@ public class ScheduleUpdateIntentService extends IntentService {
 
     @Override
     protected void onHandleIntent(Intent intent) {
-        Log.e("function", "schedule" );
+        Log.i("function", "schedule" );
         ScheduleTableManager scheduledatabase = new ScheduleTableManager(this);
         scheduledatabase.updateSchedule();
 

@@ -246,7 +246,7 @@ public class SponsorsActivity extends AppCompatActivity {
             bitmapImage.compress(Bitmap.CompressFormat.PNG, 100, fos);
             fos.close();
         } catch (Exception e) {
-            Log.e("Save unsuccessful", e.toString());
+            Log.i("Save unsuccessful", e.toString());
             e.printStackTrace();
         }
     }

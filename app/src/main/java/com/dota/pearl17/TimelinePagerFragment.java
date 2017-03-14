@@ -104,28 +104,34 @@ public class TimelinePagerFragment extends Fragment {
 
             final ArrayList<ScheduleSet> sets = mTableManager.getSchedule(time);
             linearLayout.removeAllViews();
+
             for (int i = 0; i < sets.size(); i++) {
-                Log.e(String.valueOf(sets.size()), "set");
+                Log.i( "set",String.valueOf(sets.size()));
                 final ScheduleSet set = sets.get(i);
                 View v = LayoutInflater.from(getActivity()).inflate(R.layout.component_timeline_row, linearLayout, false);
 
-                Picasso.with(getContext())
-                        .load(R.drawable.schedulerow)
-                        .fit()
-                        .centerCrop()
-                        .into((ImageView) v.findViewById(R.id.bg_schedule_row));
+//                Picasso.with(getContext())
+//                        .load(R.drawable.schedulerow)
+//                        .fit()
+//                        .into((ImageView) v.findViewById(R.id.bg_schedule_row));
+
                 ((TextView) v.findViewById(R.id.event_name)).setText(set.getName());
                 ((TextView) v.findViewById(R.id.round_name)).setText(set.getRound());
                 ((TextView) v.findViewById(R.id.venue)).setText(set.getVenue());
-                v.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        Intent intent = new Intent(getActivity(), EventDetailsActivity.class);
-                        intent.putExtra("event_name", set.getName());
-                        startActivity(intent);
-                    }
-                });
+
+                if(set.getEvent_id()!=99){
+                    v.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Intent intent = new Intent(getActivity(), EventDetailsActivity.class);
+                            intent.putExtra("event_name", set.getName());
+                            startActivity(intent);
+                        }
+                    });
+                }
+
                 linearLayout.addView(v);
+                Log.i("children",linearLayout.getChildCount()+"");
                 if (i != sets.size() - 1) {
                     View divider = LayoutInflater.from(getActivity()).inflate(R.layout.divider, linearLayout, false);
                     linearLayout.addView(divider);
